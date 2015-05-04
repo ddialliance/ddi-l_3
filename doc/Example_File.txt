@@ -1,0 +1,1562 @@
+***Archive***
+
+<a:Archive isMaintainable="true" typeOfIdentifier="Caonical" scopeOfUniqueness="Agency">
+	<r:URN>urn:ddi:us.mpc:Arch_1:1</r:URN>
+	<a:ArchiveModuleName context="IPEDS"><r:String xml:lang="en-US">MPC_NHGIS_HIST1900</r:String></a:ArchiveModuleName>
+	<r:Label><r:Content xml:lang="en-US">MPC NHGIS Archive Record for HIST1900</r:Content></r:Label>
+	<r:Description><r:Content xml:lang="en-US">Information specific to the HIST1900 data files and documentation in the NHGIS project</r:Content></r:Description>
+	<a:ArchiveSpecific>
+		<a:ArchiveOrganizationReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:OrgS_MPCwide:1.0</r:URN>
+			<r:TypeOfObject>OrganizationScheme</r:TypeOfObject>
+		</a:ArchiveOrganizationReference>
+		<a:Collection>
+			<r:Citation>
+				<r:Title>NHGIS Historical 1900</r:Title>
+			</r:Citation>
+			<a:ItemQuantity>2</a:ItemQuantity>
+			<a:AvailabilityStatus>On-Line</a:AvailabilityStatus>
+			<a:DataFileFileQuantity>4</a:DataFileQuantity>
+			<a:CollectionCompleteness>Original data dictionary, DDI documentation, US level data file, State level data file, and County level data file.</a:CollectionCompleteness>
+			<a:Item>
+				<r:Citation>
+					<r:Title>us1990cnty</r:Title>
+				</r:Citation>
+				<a:LocationInArchive>aggdata/Translation/HIST/us1990cnty.sps</a:LocationInArchive>
+				<a:ItemFormat>ASCII text</a:ItemFormt>
+				<a:ItemQuantity>1</a:ItemQuantity>
+				<a:AvailabilityStatus>archive</a:AvailabilityStatus>
+				<a:DataFileFileQuantity>1</a:DataFileQuantity>
+				<a:CollectionCompleteness>SPSS setup file and related data file.</a:CollectionCompleteness>
+			<a:Item>
+			<a:Item>
+				<r:Citation>
+					<r:Title>Census of Population for National, State, and County Levels - 1900: NHGIS documentation</r:Title>
+				</r:Citation>
+				<a:LocationInArchive>NHGIS/metadata/DDI/HIST1900-cnty.xml</a:LocationInArchive>
+				<a:ItemFormat>xml</a:ItemFormt>
+				<a:ItemQuantity>1</a:ItemQuantity>
+				<a:AvailabilityStatus>NHGISsubversion</a:AvailabilityStatus>
+				<a:DataFileFileQuantity>3</a:DataFileQuantity>
+				<a:CollectionCompleteness>DDI documentation, US level data file, State level data file, and County level data file.</a:CollectionCompleteness>
+			<a:Item>
+		<a:Collection>
+		<a:DefaultAccess isIdentifiable="true" typeOfIdentifier="Caonical" scopeOfUniqueness="Agency"> 
+			<r:URN>urn:ddi:us.mpc:NHGIS_ACCESS_1:1</r:URN>
+			<a:AccessName context="IPEDS"><r:String xml:lang="en-US">MPC_NHGIS_ACCESS</r:String></a:AccessName>
+			<r:Label><r:Content xml:lang="en-US">NHGIS Access Requirements</r:Content></r:Label>
+			<r:Description><r:Content xml:lang="en-US">Describes access and usage requirements for NHGIS</r:Content></r:Description>
+			<a:ConfidentialityStatement><r:Content xml:lang="en-US">NHGIS contains public data obtained through the U.S. Census Bureau.</r:Content></a:ConfidentialityStatement>
+			<a:Restrictions><r:Content xml:lang="en-US">The National Historical Geographic Information System (NHGIS) provides, free of charge, aggregate census data and GIS-compatible boundary files for the United States between 1790 and 2010.</r:Content></a:Restrictions>
+			<a:AccessPermission isRequired="true">
+				<r:URI>https://data2.nhgis.org/users/login</r:URI>
+			</a:AccessPermission>	
+			<a:CitationRequirement><r:Content xml:lang="en-US">All persons are granted a limited license to use this documentation and the accompanying data, subject to the following condition:<xhtml:ul><xhtml:li>Publications and research reports based on the database must cite it appropriately. The citation should include the following: Minnesota Population Center. National Historical Geographic Information System: Version 2.0. Minneapolis, MN: University of Minnesota 2011.</xhtml:li><xhtml:li>If possible, citations should also include the URL for the NHGIS site: http://www.nhgis.org</xhtml:ul><xhtml:br/>In addition, we request that users send us a copy of any publications, research reports, or educational material making use of the data or documentation. Printed material should be sent to:<xhtml:br/>NHGIS<xhtml:br/> Minnesota Population Center<xhtml:br/> University of Minnesota<xhtml:br/>50 Willey Hall<xhtml:br/>225 19th Ave S<xhtml:br/>Minneapolis, MN 55455</r:Content></a:CitationRequirement>
+			<a:AccessConditions><r:Content xml:lang="en-US">Preregistration</r:Content></a:AccessConditions>
+			<a:AccessRestrictionDate><r:StartDate>2001-05-01</r:StartDate></a:AccessRestrictionDate>
+			<a:ContactOrganizationReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+				<r:URN>urn:ddi:us.mpc:OrgS_MPCwide:1.0</r:URN>
+				<r:TypeOfObject>OrganizationScheme</r:TypeOfObject>
+			</a:ContactOrganizationReference>
+		</a:DefaultAccess>
+	</a:ArchiveSpecific>
+	<r:OrganizationSchemeReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+		<r:URN>urn:ddi:us.mpc:OrgS_MPCwide:1.0</r:URN>
+		<r:TypeOfObject>OrganizationScheme</r:TypeOfObject>
+	</r:OrganizationSchemeReference>
+	<r:LifecycleInformation>
+		<r:LifecycleEvent isIdentifiable="true" typeOfIdentifier="Caonical" scopeOfUniqueness="Agency"> 
+			<r:URN>urn:ddi:us.mpc:NHGIS_Event_1:1</r:URN>
+			<r:Label><r:Content xml:lang="en-US">HIST1900-cnty aquisition</r:Content></r:Label>
+			<r:EventType>Aquisition</r:EventType>
+			<r:Date><r:SimpleDate>2001-03-10</r:SimpleDate></r:Date>
+			<r:AgencyOrganizationReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+				<r:URN>urn:ddi:us.mpc:OrgS_MPC_NHGIS:1.0</r:URN>
+				<r:TypeOfObject>Organization</r:TypeOfObject>
+			</r:AgencyOrganizationReference>
+			<r:Description><r:Content xml:lang="en-US">The 1900 History file was aquired as part of a collection of 1900-1950 data entered from printed documents through NGHIS subcontract.</r:Content></r:Description>
+			<r:Relationship>
+				<r:RelatedToReference isReference="true"true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+					<r:URN>urn:ddi:us.mpc:NHGIS_HIST1900-cnty:1</r:URN>
+					<r:TypeOfObject>StudyUnit</r:TypeOfObject>
+				</r:RelatedToReference>
+				<r:RelationshipDescription><r:Content xml:lang="en">DDI Documentation</r:Content></r:RelationshipDescription>
+			</r:Relationsip>
+		<r:LifecycleEvent>	
+		<r:LifecycleEvent isIdentifiable="true" typeOfIdentifier="Caonical" scopeOfUniqueness="Agency"> 
+			<r:URN>urn:ddi:us.mpc:NHGIS_Event_1:1</r:URN>
+			<r:Label><r:Content xml:lang="en-US">HIST1900-cnty creation of DDI metadata document</r:Content></r:Label>
+			<r:EventType>DDICreation</r:EventType>
+			<r:Date><r:SimpleDate>2001-04-01</r:SimpleDate></r:Date>
+			<r:AgencyOrganizationReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+				<r:URN>urn:ddi:us.mpc:OrgS_MPC_NHGIS:1.0</r:URN>
+				<r:TypeOfObject>Organization</r:TypeOfObject>
+			</r:AgencyOrganizationReference>
+			<r:Description><r:Content xml:lang="en-US">Data dictionary information plus additional content from original print documents and materials regarding the 1990 U.S. Census in IPUMS were complied in DDI and verified.</r:Content></r:Description>
+			<r:Relationship>
+				<r:RelatedToReference isReference="true"true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+					<r:URN>urn:ddi:us.mpc:NHGIS_HIST1900-cnty:1</r:URN>
+					<r:TypeOfObject>StudyUnit</r:TypeOfObject>
+				</r:RelatedToReference>
+				<r:RelationshipDescription><r:Content xml:lang="en">DDI Documentation</r:Content></r:RelationshipDescription>
+			</r:Relationsip>
+		<r:LifecycleEvent>	
+		<r:LifecycleEvent isIdentifiable="true" typeOfIdentifier="Caonical" scopeOfUniqueness="Agency"> 
+			<r:URN>urn:ddi:us.mpc:NHGIS_Event_1:1</r:URN>
+			<r:Label><r:Content xml:lang="en-US">HIST1900-cnty integration into 2001 NHGIS release</r:Content></r:Label>
+			<r:EventType>NHGISIntegration</r:EventType>
+			<r:Date><r:SimpleDate>2001-05-01</r:SimpleDate></r:Date>
+			<r:AgencyOrganizationReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+				<r:URN>urn:ddi:us.mpc:OrgS_MPC_NHGIS:1.0</r:URN>
+				<r:TypeOfObject>Organization</r:TypeOfObject>
+			</r:AgencyOrganizationReference>
+			<r:Description><r:Content xml:lang="en-US">The HIST1990-cnty metadata and data files were successfully integrated into the NHGIS system for the May 2001 release.</r:Content></r:Description>
+			<r:Relationship>
+				<r:RelatedToReference isReference="true"true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+					<r:URN>urn:ddi:us.mpc:NHGIS_HIST1900-cnty:1</r:URN>
+					<r:TypeOfObject>StudyUnit</r:TypeOfObject>
+				</r:RelatedToReference>
+				<r:RelationshipDescription><r:Content xml:lang="en">DDI Documentation</r:Content></r:RelationshipDescription>
+			</r:Relationsip>
+		<r:LifecycleEvent>	
+	</r:LifecycleInformation>
+	<r:OtherMaterial isIdentifiable="true" typeOfIdentifier="Caonical" scopeOfUniqueness="Agency" xml:lang="en"> 
+		<r:URN>urn:ddi:us.mpc:NHGIS_Event_1:1</r:URN>
+		<r:TypeOfMaterial>Print.Book</r:TypeOfMaterial>
+		<r:Description><r:Content xml:lang="en-US">Data source</r:Content></r:Description>
+		<r:Citation>
+			<r:Title>Twelfth Census of the United States Taken in the Year 1990, Census Reports Volume I - Population Part I</r:Title>
+			<r:Creator>
+				<r:CreatorName affiliation="Interior Department">United States Census Office</r:CreatorName>
+			</r:Creator>
+			<r:Publisher>
+				<r:PublisherName>Washington: United States Census Office</r:PublisherName>
+			</r:Publisher>
+			<r:PublicationDate>
+<r:SimpleDate>1901</r:SimpleDate>
+</r:PublicationDate>
+		</r:Citation>
+		<r:Relationship>
+			<r:RelatedToReference isReference="true"true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+				<r:URN>urn:ddi:us.mpc:HIST1900-cnty_Item2:1</r:URN>
+				<r:TypeOfObject>Item</r:TypeOfObject>
+			</r:RelatedToReference>
+			<r:RelationshipDescription><r:Content xml:lang="en">Data Source</r:Content></r:RelationshipDescription>
+		</r:Relationsip>
+	</r:OtherMaterial>
+</a:Archive>
+
+Example – SimpleDate:
+<r:PublicationDate>
+	<r:SimpleDate>2013-02-26</r:SimpleDate>
+	<r:HistoricalDate>
+		<r:NonISODate>26 February 2013</r:NonISODate>
+		<r:HistoricalDateFormat>dd Month yyyy</r:HistoricalDateFormat>
+		<r:Calendar>Gregorian</r:Calendar>
+	</r:HistoricalDate>
+</r:PublicationDate>
+
+Example – Complete Date Range:
+<d:DataCollectionDate>
+	<r:StartDate>2010-06-05T20:20:00</r:StartDate>
+	<r:HistoricalStartDate>
+		<r:NonISODate>24 Sivan 2770</r:NonISODate>
+		<r:HistoricalDateFormat>dd Month yyyy</r:HistoricalDateFormat>
+		<r:Calendar>Jewish</r:Calendar>
+	</r:HistoricalStartDate>
+	<r:EndDate>2010-08-05T20:20:00</r:EndDate>
+	<r:HistoricalEndDate>
+		<r:NonISODate>28 Sivan 5770</r:NonISODate>
+		<r:HistoricalDateFormat>dd Month yyyy</r:HistoricalDateFormat>
+		<r:Calendar>Jewish</r:Calendar>
+	</r:HistoricalEndDate>
+</d:DataCollectionDate>
+
+***Range with unknown end date***
+
+<r:GeographicTime>
+	<r:StartDate>2013-02-26</r:StartDate>
+	<r:HistoricalStartDate>
+		<r:NonISODate>26 February 2013</r:NonISODate>
+		<r:HistoricalDateFormat>dd Month yyyy</r:HistoricalDateFormat>
+		<r:Calendar>Gregorian</r:Calendar>
+	</r:HistoricalStartDate>
+</r:GeographicTime >
+
+***Range with unknown start date***
+
+<d:ValidPeriod>
+	<r:EndDate>2013-02-26</r:SimpleDate>
+	<r:HistoricalEndDate>
+		<r:NonISODate>February 26, 2013</r:NonISODate>
+<r:HistoricalDateFormat>Month dd, yyyy</r:HistoricalDateFormat>
+		<r:Calendar>Gregorian</r:Calendar>
+	</r:HistoricalEndDate>
+</d:ValidPeriod >
+
+
+***In/Out Parameters and Binding***
+
+<d:QuestionItem isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency">
+	<r:URN>urn:ddi:us.mpc:Q1:1</r:URN>
+	<r:OutParameter isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" isArray="false">
+		<r:URN>urn:ddi:us.mpc:Q1_Name:1"</r:URN>
+	</r:OutParameter>
+	<r:Binding>
+		<r:SourceParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:RD_Name:1</r:URN>
+			<r:TypeOfObject>OutParameter</r:TypeOfObject>
+		</r:SourceParameterReference>
+		<r:TargetParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:Q1_Name:1</r:URN>
+			<r:TypeOfObject>OutParameter</r:TypeOfObject>
+		</r:TargetParameterReference>
+	</r:Binding>
+	<d:QuestionText><l:LiteralText><l:Text xml:lang xml:sapce="default">What is the name of your oldest child?</l:Text></l:LiteralText></d:QuestionText>
+	<d:TextDomain>
+		<r:OutParameter isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" isArray="false">
+			<r:URN>urn:ddi:us.mpc:RD_Name:1"</r:URN>
+		</r:OutParameter>
+		<r:TextDelineationReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:TD_1:1</r:URN>
+			<r:TypeOfObject>TextDelineation</r:TypeOfObject>
+		</r:TextDelineationReference>
+	</d:TextDomain>	
+</d:QuestionItem>
+
+
+<d:QuestionItem isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency">
+	<r:URN>urn:ddi:us.mpc:Q2:1</r:URN>
+	<r:InParameter isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" isArray="false">
+		<r:URN>urn:ddi:us.mpc:Q2_Name:1"</r:URN>
+	</r:InParameter>
+	<r:OutParameter isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" isArray="false">
+		<r:URN>urn:ddi:us.mpc:Q2_Age:1"</r:URN>
+	</r:OutParameter>
+	<r:Binding>
+		<r:SourceParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:RD_Age:1</r:URN>
+			<r:TypeOfObject>OutParameter</r:TypeOfObject>
+		</r:SourceParameterReference>
+		<r:TargetParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:Q2_Age:1</r:URN>
+			<r:TypeOfObject>OutParameter</r:TypeOfObject>
+		</r:TargetParameterReference>
+	</r:Binding>
+	<d:QuestionText>
+		<l:LiteralText><l:Text xml:lang xml:sapce="preseve">How old is </l:Text><l:LiteralText>
+		<r:SourceParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:Q2_Name:1</r:URN>
+			<r:TypeOfObject>InParameter</r:TypeOfObject>
+		</r:SourceParameterReference>
+		<l:LiteralText><l:Text xml:lang xml:sapce="preseve"> ?</l:Text>
+	</d:QuestionText>
+	<d:NumericDomain>
+		<r:OutParameter isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" isArray="false">
+			<r:URN>urn:ddi:us.mpc:RD_Age:1"</r:URN>
+		</r:OutParameter>
+		<r:TextDelineationReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:ND_1:1</r:URN>
+			<r:TypeOfObject>NumericDelineation</r:TypeOfObject>
+		</r:TextDelineationReference>
+	</d:NumericDomain>	
+</d:QuestionItem>
+
+
+<d:Sequence isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency">
+	<r:URN>urn:ddi:us.mpc:SEQ:1</r:URN>
+	<r:Binding>
+		<r:SourceParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:QC_OUT_1:1</r:URN>
+			<r:TypeOfObject>OutParameter</r:TypeOfObject>
+		</r:SourceParameterReference>
+		<r:TargetParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:QC_IN_2:1</r:URN>
+			<r:TypeOfObject>OutParameter</r:TypeOfObject>
+		</r:TargetParameterReference>
+	</r:Binding>
+	<d:QuesionConstruct isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency">
+		<r:URN>urn:ddi:us.mpc:QC_1:1</r:URN>
+		<r:OutParameter isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" isArray="false">
+			<r:URN>urn:ddi:us.mpc:QC_OUT_1:1"</r:URN>
+		</r:OutParameter>
+		<r:Binding>
+			<r:SourceParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+				<r:URN>urn:ddi:us.mpc:Q1_Name:1</r:URN>
+				<r:TypeOfObject>OutParameter</r:TypeOfObject>
+			</r:SourceParameterReference>
+			<r:TargetParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+				<r:URN>urn:ddi:us.mpc:QC_OUT_1:1</r:URN>
+				<r:TypeOfObject>OutParameter</r:TypeOfObject>
+			</r:TargetParameterReference>
+		</r:Binding> 
+		<r:QuestionReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:Q1:1</r:URN>
+			<r:TypeOfObject>QuestionItem</r:TypeOfObject>
+		</r:QuestionReference>
+	</d:QuestionConstruct>	
+	<d:QuesionConstruct isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency">
+		<r:URN>urn:ddi:us.mpc:QC_2:1</r:URN>
+		<r:InParameter isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" isArray="false">
+			<r:URN>urn:ddi:us.mpc:QC_IN_2:1"</r:URN>
+		</r:InParameter>
+		<r:OutParameter isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" isArray="false">
+			<r:URN>urn:ddi:us.mpc:QC_OUT_2:1"</r:URN>
+		</r:OutParameter>
+		<r:Binding>
+			<r:SourceParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+				<r:URN>urn:ddi:us.mpc:QC_IN_2:1</r:URN>
+				<r:TypeOfObject>OutParameter</r:TypeOfObject>
+			</r:SourceParameterReference>
+			<r:TargetParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+				<r:URN>urn:ddi:us.mpc:Q2_Name:1</r:URN>
+				<r:TypeOfObject>OutParameter</r:TypeOfObject>
+			</r:TargetParameterReference>
+		</r:Binding> 
+		<r:Binding>
+			<r:SourceParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+				<r:URN>urn:ddi:us.mpc:Q2_Age:1</r:URN>
+				<r:TypeOfObject>OutParameter</r:TypeOfObject>
+			</r:SourceParameterReference>
+			<r:TargetParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+				<r:URN>urn:ddi:us.mpc:QC_OUT_2:1</r:URN>
+				<r:TypeOfObject>OutParameter</r:TypeOfObject>
+			</r:TargetParameterReference>
+		</r:Binding> 
+		<r:QuestionReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:Q2:1</r:URN>
+			<r:TypeOfObject>QuestionItem</r:TypeOfObject>
+		</r:QuestionReference>
+	</d:QuestionConstruct>	
+</d:Sequence>
+
+
+<d:GenerationInstruction isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency">
+	<r:URN>urn:ddi:us.mpc:GI:1</r:URN>
+	<r:CommandCode>
+		<r:Command>
+			<r:InParameter isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" isArray="false">
+				<r:URN>urn:ddi:us.mpc:GI_Age:1"</r:URN>
+				<r:Alias>AGE</r:Alias>
+			</r:InParameter>
+			<r:OutParameter isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" isArray="false">
+				<r:URN>urn:ddi:us.mpc:GI_Age_Cohort:1"</r:URN>
+				<r:Alias>AGE_5</r:Alias>
+			</r:OutParameter>
+			<r:Binding>
+				<r:SourceParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+					<r:URN>urn:ddi:us.mpc:QC_OUT_2:1</r:URN>
+					<r:TypeOfObject>OutParameter</r:TypeOfObject>
+				</r:SourceParameterReference>
+				<r:TargetParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+					<r:URN>urn:ddi:us.mpc:GI_Age:1</r:URN>
+					<r:TypeOfObject>InParameter</r:TypeOfObject>
+				</r:TargetParameterReference>
+			</r:Binding> 
+			<r:ProgramLanguage>SPSS</r:ProgamLanguage>
+			<r:CommandContent>If (AGE < 5) AGE_5=1; If (AGE >=5) & (AGE < 10) AGE_5=2; If (AGE >=10 & (AGE < 15) AGE_5=3; If (AGE >=15 & (AGE < 20) AGE_5=4; If (AGE >=20 AGE_5=5</r:CommandContent>
+		</r:Command>
+	<r:CommandCode>
+</d:GenerationInstruction>	
+
+<l:Variable isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency">
+	<r:URN>urn:ddi:us.mpc:V1:1</r:URN>
+	<r:VariableName><r:String xml:lang="en">Age 5 year cohorts</r:String></r:VariableName>
+	...
+	<r:SourceParameterReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+		<r:URN>urn:ddi:us.mpc:GI_Age_Cohort:1</r:URN>
+		<r:TypeOfObject>OutParameter</r:TypeOfObject>
+	</r:SourceParameterReference>
+	...
+</l:Variable>
+
+***Note 1: Production Process***
+
+<r:Note xml:lang="en">
+	<r:TypeOfNote>Verification</r:TypeOfNote>
+	<r:NoteSubject>Translation.English</r:NoteSubject>
+	<r:Relationship>
+		<r:RelatedToReference isReference="true"true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:MS1295:1</r:URN>
+			<r:TypeOfObject>Variable</r:TypeOfObject>
+		</r:RelatedToReference>
+		<r:RelationshipDescription><r:Content xml:lang="en">VariableName verification</r:Content></r:RelationshipDescription>
+	</r:Relationsip>
+	<r:Relationship>
+		<r:RelatedToReference isReference="true"true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:MS1295:1</r:URN>
+			<r:TypeOfObject>Variable</r:TypeOfObject>
+		</r:RelatedToReference>
+		<r:RelationshipDescription><r:Content xml:lang="en">VariableName verification</r:Content></r:RelationshipDescription>
+	</r:Relationsip>
+	<r:Header><r:String xml:lang="en">Translation Question</r:String></r:Header>
+	<r:NoteContent><r:Content xml:lang="en">The source of this translation was XXX rather than the standard source. The content of the English translation string should be verified prior to publication.</r:Content></r:NoteContent>
+</r:Note>	
+
+***Note 2: Work-around***
+
+<r:Note xml:lang="en">
+	<r:TypeOfNote>WorkAround</r:TypeOfNote>
+	<r:NoteSubject>RecordRelationship</r:NoteSubject>
+	<r:Relationship>
+		<r:RelatedToReference isReference="true"true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:XB9376:1</r:URN>
+			<r:TypeOfObject>RecordRelationship</r:TypeOfObject>
+		</r:RelatedToReference>
+		<r:RelationshipDescription><r:Content xml:lang="en">Target Source Clarification</r:Content></r:RelationshipDescription>
+	</r:Relationsip>
+	<r:NoteContent><r:Content xml:lang="en"><xhtml:dl><xhml:dt>SourceRecordURN</xhtml:dt><xhtml:dd>urn:ddi:us.mpc:LR_1:1</xhtml:dd><xhml:dt>SourceRecordLinkURN</xhtml:dt><xhtml:dd>urn:ddi:us.mpc:Var_1:1</xhtml:dd><xhml:dt>TargetRecordURN</xhtml:dt><xhtml:dd>urn:ddi:us.mpc:LR_2:1</xhtml:dd><xhml:dt>TargetRecordLink</xhtml:dt><xhtml:dd>urn:ddi:us.mpc:Var_2:1</xhtml:dd></xhtml:d1><r:Content></r:NoteContent>
+</r:Note>	
+
+***Note 3: Proprietary***
+ 
+<r:Note>
+	<r:Relationship>
+		<r:RelatedToReference typeOfIdentifier="Canonical">
+			<r:Agency>int.example</r:Agency>
+			<r:ID>Concept1</r:ID>
+			<r:Version>1</r:Version>
+			<r:TypeOfObject>Concept</r:TypeOfObject>
+		</r:RelatedToReference>
+	</r:Relationship>
+	<r:ProprietaryInfo>
+		<r:ProprietaryProperty>
+			<r:AttributeKey>CustomProperty1</r:AttributeKey>
+			<r:AttributeValue>Custom value 1</r:AttributeValue>
+		</r:ProprietaryProperty>
+		<r:ProprietaryProperty>
+			<r:AttributeKey>CustomProperty2</r:AttributeKey>
+			<r:AttributeValue>Custom value 2</r:AttributeValue>
+		</r:ProprietaryProperty>
+	</r:ProprietaryInfo>
+</r:Note>
+
+
+***Quality Statement***
+
+<r:QualityStatementScheme isMaintainable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Maintainable">
+	<r:URN>urn:ddi:us.archive:QScheme_1:1</r:URN>
+	<r:QualityStatement isVersionable="true" " typeOfIdentifier="Canonical" scopeOfUniqueness="Maintainable">
+		<r:URN>urn:ddi:us.archive:QScheme_1.QS_1:1</r:URN>
+		<r:StandardsCompliance>
+			<r:Standard isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Maintainable">
+				<r:URN>urn:ddi:us.archive:QScheme_1.Standard_a:1</r:URN>
+				<r:TypeOfMaterial>Standard</r:TypeOfMaterial>
+				<r:Citation>
+					<r:Title>Reference Model for an Open Archival Information System (OAIS): Recommended Practice CCSDS 650.0-M-2</r:Title>
+				</r:Citation>
+<r:ExternalURNReference> http://public.ccsds.org/publications/archive/650x0m2.pdf
+</r:ExternalURNReferenc>
+			</r:Standard>
+			<r:ComplianceDescription>
+				<r:Content>The archive complies with the OAIS model regarding the tracking of information from SIP through data processing and archival management to the creation of the AIP and assembly of the DIP.</r:Content>
+			</r:ComplianceDescription>
+		</r:StandardsCompliance>
+	</r:QualityStatement>
+	<r:QualityStatement isVersionable="true" " typeOfIdentifier="Canonical" scopeOfUniqueness="Maintainable">
+		<r:URN>urn:ddi:us.archive:QScheme_1.QS_2:1</r:URN>
+		<r:StandardsCompliance>
+			<r:Standard isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Maintainable">
+				<r:URN>urn:ddi:us.archive:QScheme_1.Standard_b:1</r:URN>
+				<r:TypeOfMaterial>Policy</r:TypeOfMaterial>
+				<r:Citation>
+					<r:Title>Univerity Of Minnesota Board Of Regents Policy: Reserch Involving Human Subjects</r:Title>
+				</r:Citation>
+<r:ExternalURNReference>
+http://www1.umn.edu/regents/policies/academic/HumanSubjects.pdf
+</r:ExternalURNReferenc>
+			</r:Standard>
+			<r:ComplianceDescription>
+				<r:Content>Policy strictly complied to.</r:Content>
+			</r:ComplianceDescription>
+		</r:StandardsCompliance>
+	</r:QualityStatement>
+	<r:QualityStatement isVersionable="true" " typeOfIdentifier="Canonical" scopeOfUniqueness="Maintainable">
+		<r:URN>urn:ddi:us.archive:QScheme_1.QS_3:1</r:URN>
+		<r:OtherQualityStatement>
+			<r:Content>As data is ported from one format to another, the following checks are made to verify the accurate transfer of the data items. Record Count and frequency count on all data items at the category level. A random sample of records is pulled from each file for item by item comparison. </r:Content>
+		</r: OtherQualityStatement >
+	</r:QualityStatement>
+</r:QualityStatementScheme>
+
+
+
+<a:Archive isMaintainable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Maintainable">
+	<r:URN>urn:ddi:us.archive:Archive_1:1</r:URN>
+	<a:ArchiveSpecific>
+		<r:QualityStatementReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.archive:QScheme_1.QS_1:1</r:URN>
+			<r:TypeOfObject>QualityStatement</r:TypeOfObject>
+		</r:QualityStatementReference>
+	<a:ArchiveSpecific>
+</a:Archive>
+
+<d:DataCollection isMaintainable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Maintainable">
+	<r:URN>urn:ddi:us.archive:DataColl_1:1</r:URN>
+	<d:CollectionEvent isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Maintainable">
+		<r:URN>urn:ddi:us.archive:DataColl_1.CE_1:1</r:URN>
+		<r:QualityStatementReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.archive:QScheme_1.QS_2:1</r:URN>
+			<r:TypeOfObject>QualityStatement</r:TypeOfObject>
+		</r:QualityStatementReference>
+	</d:CollectionEvent>
+</d:DataCollection>
+
+
+<pi:PhysicalInstance isMaintainable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Maintainable">
+	<r:URN>urn:ddi:us.archive:PhysInst_1:1</r:URN>
+	<r:QualityStatementReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+		<r:URN>urn:ddi:us.archive:QScheme_1.QS_3:1</r:URN>
+		<r:TypeOfObject>QualityStatement</r:TypeOfObject>
+	</r:QualityStatementReference>
+</pi:PhysicalInstance>
+
+***Data Appraisal***
+<d:DataAppraisal>
+	<d:ResponseRate>	
+		<d:SampleSize>5000</d:SampleSize>
+		<d:NumberOfResponses>3768</d:NumberOfResponses>
+		<d:SpecificResponseRate>.7536</d:SpecificResponseRate
+	</d:ResponseRate>
+	<d:SamplingError><r:Content><xhtml:b>Calculation of Standard Errors <xhtml:br/>Totals and percentages. </xhtml:b> Tables A through C in this chapter contain the necessary information for calculating the standard errors of sample estimates in this data product. To calculate the standard error, it is necessary to know:<xhtml:ul><xhtml:li>The unadjusted standard error for the characteristic (given in Table A for estimated totals or Table B for estimated percentages) that would result under a simple random sample design of people, housing units, households, or families.</xhtml:li><xhtml:li>The design factor for the particular characteristic estimated (given in Table C) based on the sample design and estimation techniques employed to produce long form data estimates. </xhtml:li><xhtml:li>The number of people, housing units, households, or families in the publication area. </xhtml:li><xhtml:li>The observed sampling rate.</xhtml:li></xhtml:ul>
+The design factor is the ratio of the estimated standard error to the standard error of a simple random sample. The design factors reflect the effects of the actual sample design and the complex ratio estimation procedure used for Census 2000...</r:Content><d:SamplingError>
+</d:DataAppraisal>
+
+***Question Types***
+
+<g:ResourcePackage isMaintainable="true"  versionDate="2012-09-18" scopeOfUniqueness="Maintainable">
+<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+<r:URN>urn:ddi:us.mpc:ResourcePkg_QBlock:1</r:URN>
+	<d:QuestionScheme scopeOfUniqueness="Maintainable" isMaintainable="true">
+		<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		<r:URN>urn:ddi:us.mpc:PISA_QS:1</r:URN>
+		<d:QuestionSchemeName><r:String xml:lang="en-us">Questions for PISA</r:String></d:QuestionSchemeName>
+        	<r:Description><r:Content xml:lang="en-us"></r:Content></r:Description>
+        	<d:QuestionItem isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:PISA_QS.QI_1:1</r:URN>
+			<d:QuestionText><d:LiteralText><d:Text>What is the extract from the play about? The duchess thinks of a trick</d:Text></d:LiteralText></d:QuestionText>
+			<d:CodeDomain>
+				<r:CodeDelineationReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>CodeDelineation</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:CodeDS_PISA.Del_1:1</r:URN>
+				</r:CodeDelineationReference>
+			</d:CodeDomain>
+        	</d:QuestionItem>
+        	<d:QuestionItem isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:PISA_QS.QI_2:1</r:URN>
+			<d:QuestionText><d:LiteralText><d:Text><xhtml:div><xhtml:p>A. In the script of the play, in addition to the words to be spoken by the actors, there are directions for the actors and theatre technicians to follow.</xhtml:p><xhtml:p>B. How can these directions be recognized in the script?</xhtml:p></xhtml:div></d:Text></d:LiteralText></d:QuestionText>
+			<d:TextDomain>
+				<r:TextDelineationReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>TextDelineation</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:TextDS_PISA.Del_1:1</r:URN>
+				</r:TextDelineationReference>
+			</d:TextDomain>
+        	</d:QuestionItem>
+        	<d:QuestionItem isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:PISA_QS.QI_3:1</r:URN>
+			<d:QuestionText><d:LiteralText><d:Text><xhtml:div><xhtml:p>The director positions the actors on the stage. On a diagram, the director represents Amanda with the letter A and the Duchess with the letter D.</xhtml:p><xhtml:p>Put an A and a D on the following diagram of the set to show approximately where Amanda and the Duchess are when the Prince arrives.</xhtml:p></xhtml:div></d:Text></d:LiteralText></d:QuestionText>
+			<d:LocationDomain>
+				<r:LocationDelineationReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>LocationDelineation</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:LocationDS_PISA.Del_1:1</r:URN>
+				</r:LocationDelineationReference>
+			</d:LocationDomain>
+			<d:ExternalAid isIdentifiable="true" scopeOfUniqueness="Maintainable">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   		<r:URN>urn:ddi:us.mpc:PISA_QS.EXT_1:1</r:URN>
+		   		<r:TypeOfMaterial>Image</r:TypeOfMaterial>
+		   		<r:ExternalURNReference>stageimage.pdf</r:ExternalURNReference>
+			</d:ExternalAid>
+        	</d:QuestionItem>
+        	<d:QuestionItem isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:PISA_QS.QI_4:1</r:URN>
+			<d:QuestionText><d:LiteralText><d:Text>Towards the end of the extract from the play, Amanda says, "He didn't recognise me...". What does she mean by that?</d:Text></d:LiteralText></d:QuestionText>
+			<d:CodeDomain>
+				<r:CodeDelineationReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>CodeDelineation</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:CodeDS_PISA.Del_3:1</r:URN>
+				</r:CodeDelineationReference>
+			</d:CodeDomain>
+        	</d:QuestionItem>
+        	<d:QuestionGrid isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:PISA_QS.QG_1:1</r:URN>
+			<d:QuestionText><d:LiteralText><d:Text>The table below lists theatre technicians involved in staging this extract from Léocadia. Complete the table by indicating one stage direction from Text 1 which would require the involvement of each technician. The first one has been done for you.</d:Text></d:LiteralText></d:QuestionText>
+			<d:GridDimension rank="1" displayCode="false" displayLabel="true">
+				<d:CodeDomain>
+					<r:CodeDelineationReference>
+						<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+						<r:TypeOfObject>CodeDelineation</r:TypeOfObject>
+						<r:URN>urn:ddi:us.mpc:CodeDS_PISA.Del_2:1</r:URN>
+					</r:CodeDelineationReference>
+				</d:CodeDomain>
+			</d:GridDimension>
+			<d:GridDimension rank="2">
+				<d:Roster baseCodeValue="1" minimumRequired="1" maximumAllowed="1" codeIterationValue="1">
+		        		<r:Label><r:Content xml:lang="en-us">Stage direction</r:Content></r:Label>
+				</d:Roster>
+			</d:GridDimension>
+			<d:StructuredMixedGridResponseDomain>
+				<d:NoDataByDefinition>
+				</d:NoDataByDefinition>
+				<d:GridResponseDomain>
+					<d:TextDomain>
+						<r:TextDelineationReference>	
+							<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+							<r:TypeOfObject>TextDelineation</r:TypeOfObject>
+							<r:URN>urn:ddi:us.mpc:TextDS_PISA.Del_1:1</r:URN>
+						</r:TextDelineationReference>
+					</d:TextDomain>
+					<d:Attachment>
+						<d:CellCoordinatesAsDefined>
+							<d:SelectDimension rank="1" rangeMinimum="2" rangeMaximum="4"/>
+							<d:SelectDimension rank="2" allValues="true"/>
+						</d:CellCoordinatesAsDefined>
+					</d:Attachment>
+				</d:GridResponseDomain>
+			</d:StructuredMixedGridResponseDomain>
+			<d:CellLabel>
+				<r:Content xml:lang="en-us">A circular bench around a small obelisk</r:Content>
+				<d:Attachment>
+					<d:SpecificCellCoordinate>1,1</d:SpecificCellCoordinate>
+				</d:Attachment>
+			</d:CellLabel>
+        	</d:QuestionGrid>
+        	<d:QuestionBlock isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:PISA_QS.QB_1:1</r:URN>
+			<d:StimulusMaterial isIdentifiable="true" scopeOfUniqueness="Maintainable">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   		<r:URN>urn:ddi:us.mpc:PISA_QS.Eval_1:1</r:URN>
+		   		<r:TypeOfMaterial>Image</r:TypeOfMaterial>
+		   		<r:ExternalURNReference>ScriptText1.pdf</r:ExternalURNReference>
+			</d:StimulusMaterial>
+			<d:StimulusMaterial isIdentifiable="true" scopeOfUniqueness="Maintainable">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   		<r:URN>urn:ddi:us.mpc:PISA_QS.Eval_2:1</r:URN>
+		   		<r:TypeOfMaterial>Image</r:TypeOfMaterial>
+		   		<r:ExternalURNReference>ScriptText2.pdf</r:ExternalURNReference>
+			</d:StimulusMaterial>
+			<d:QuestionItemReference>	
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:TypeOfObject>QuestionItem</r:TypeOfObject>
+				<r:URN>urn:ddi:us.mpc:PISA_QS.QI_1:1</r:URN>
+			</d:QuestionItemReference>
+			<d:QuestionItemReference>	
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:TypeOfObject>QuestionItem</r:TypeOfObject>
+				<r:URN>urn:ddi:us.mpc:PISA_QS.QI_2:1</r:URN>
+			</d:QuestionItemReference>
+			<d:QuestionItemReference>	
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:TypeOfObject>QuestionItem</r:TypeOfObject>
+				<r:URN>urn:ddi:us.mpc:PISA_QS.QG_1:1</r:URN>
+			</d:QuestionItemReference>
+			<d:QuestionItemReference>	
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:TypeOfObject>QuestionItem</r:TypeOfObject>
+				<r:URN>urn:ddi:us.mpc:PISA_QS.QI_3:1</r:URN>
+			</d:QuestionItemReference>
+			<d:QuestionItemReference>	
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:TypeOfObject>QuestionItem</r:TypeOfObject>
+				<r:URN>urn:ddi:us.mpc:PISA_QS.QI_4:1</r:URN>
+			</d:QuestionItemReference>
+        	</d:QuestionBlock>	        	
+	</d:QuestionScheme>
+	<l:CategoryScheme scopeOfUniqueness="Maintainable" isMaintainable="true">
+		<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		<r:URN>urn:ddi:us.mpc:CS_PISA_1:1</r:URN>
+		<l:CategorySchemeName><r:String xml:lang="en-us">Trick</r:String></l:CategorySchemeName>
+		<l:Category isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CS_PISA_1.Cat_1:1</r:URN>
+			<l:CategoryName><r:String xml:lang="en-us">Attract Prince</r:String></l:CategoryName>
+		        <r:Label><r:Content xml:lang="en-us">to get the Prince to come and see her more often.</r:Content></r:Label>
+		</l:Category>   	
+		<l:Category isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CS_PISA_1.Cat_2:1</r:URN>
+			<l:CategoryName><r:String xml:lang="en-us">Prince Decision</r:String></l:CategoryName>
+		        <r:Label><r:Content xml:lang="en-us">to get the Prince to make up his mind finally to get married</r:Content></r:Label>
+		</l:Category>   	
+		<l:Category isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CS_PISA_1.Cat_3:1</r:URN>
+			<l:CategoryName><r:String xml:lang="en-us">Amanda Influence</r:String></l:CategoryName>
+		        <r:Label><r:Content xml:lang="en-us">to get Amanda to make the Prince forget his grief.</r:Content></r:Label>
+		</l:Category>   	
+		<l:Category isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CS_PISA_1.Cat_4:1</r:URN>
+			<l:CategoryName><r:String xml:lang="en-us">Amanda move to castle</r:String></l:CategoryName>
+		        <r:Label><r:Content xml:lang="en-us">to get Amanda to come and live at the castle with her.</r:Content></r:Label>
+		</l:Category>   	
+	</l:CategoryScheme>
+	<l:CategoryScheme scopeOfUniqueness="Maintainable" isMaintainable="true">
+		<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		<r:URN>urn:ddi:us.mpc:CS_PISA_2:1</r:URN>
+		<l:CategorySchemeName><r:String xml:lang="en-us">Theatre technicians</r:String></l:CategorySchemeName>
+		<l:Category isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CS_PISA_2.Cat_1:1</r:URN>
+			<l:CategoryName><r:String xml:lang="en-us">Set designer</r:String></l:CategoryName>
+		        <r:Label><r:Content xml:lang="en-us">Set designer</r:Content></r:Label>
+		</l:Category>   	
+		<l:Category isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CS_PISA_2.Cat_2:1</r:URN>
+			<l:CategoryName><r:String xml:lang="en-us">Props manager</r:String></l:CategoryName>
+		        <r:Label><r:Content xml:lang="en-us">Props manager</r:Content></r:Label>
+		</l:Category>   	
+		<l:Category isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CS_PISA_2.Cat_3:1</r:URN>
+			<l:CategoryName><r:String xml:lang="en-us">Sound technician</r:String></l:CategoryName>
+		        <r:Label><r:Content xml:lang="en-us">Sound technician</r:Content></r:Label>
+		</l:Category>   	
+		<l:Category isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CS_PISA_2.Cat_4:1</r:URN>
+			<l:CategoryName><r:String xml:lang="en-us">Lighting technician</r:String></l:CategoryName>
+		        <r:Label><r:Content xml:lang="en-us">Lighting technician</r:Content></r:Label>
+		</l:Category>   	
+	</l:CategoryScheme>
+	<l:CategoryScheme scopeOfUniqueness="Maintainable" isMaintainable="true">
+		<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		<r:URN>urn:ddi:us.mpc:CS_PISA_3:1</r:URN>
+		<l:CategorySchemeName><r:String xml:lang="en-us">Amanda intent</r:String></l:CategorySchemeName>
+		<l:Category isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CS_PISA_3.Cat_1:1</r:URN>
+			<l:CategoryName><r:String xml:lang="en-us">Didn't look</r:String></l:CategoryName>
+		        <r:Label><r:Content xml:lang="en-us">That the Prince didn't look at Amanda.</r:Content></r:Label>
+		</l:Category>   	
+		<l:Category isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CS_PISA_3.Cat_2:1</r:URN>
+			<l:CategoryName><r:String xml:lang="en-us">Didn't recognize status</r:String></l:CategoryName>
+		        <r:Label><r:Content xml:lang="en-us">That the Prince didn't realise that Amanda was a shop assistant.</r:Content></r:Label>
+		</l:Category>   	
+		<l:Category isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CS_PISA_3.Cat_3:1</r:URN>
+			<l:CategoryName><r:String xml:lang="en-us">Didn't recognize past meeting</r:String></l:CategoryName>
+		        <r:Label><r:Content xml:lang="en-us">That the Prince didn't realise that he'd already met Amanda.</r:Content></r:Label>
+		</l:Category>   	
+		<l:Category isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CS_PISA_3.Cat_4:1</r:URN>
+			<l:CategoryName><r:String xml:lang="en-us">Didn't see resemblance</r:String></l:CategoryName>
+		        <r:Label><r:Content xml:lang="en-us">That the Prince didn't notice that Amanda looked like Léocadia.</r:Content></r:Label>
+		</l:Category>   	
+	</l:CategoryScheme>
+	<l:CodeListScheme scopeOfUniqueness="Maintainable" isMaintainable="true">
+		<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		<r:URN>urn:ddi:us.mpc:CodeS_QBlock:1</r:URN>
+		<l:CodeListSchemeName><r:String xml:lang="en-us">Code Lists for PISA</r:String></l:CodeListSchemeName>
+		<l:CodeList scopeOfUniqueness="Maintainable" isMaintainable="true">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+			<r:URN>urn:ddi:us.mpc:PISA_CL_1:1</r:URN>
+			<r:RecommendedDataType>Character</r:RecommendedDataType>
+			<r:CategorySchemeReference>
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:TypeOfObject>CategoryScheme</r:TypeOfObject>
+				<r:URN>urn:ddi:us.mpc:CS_PISA_1:1</r:URN>
+			</r:CategorySchemeReference>
+			<l:Code isDiscrete="true" scopeOfUniqueness="Maintainable" isIdentifiable="true">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_1.C_1:1</r:URN>
+				<l:CategoryReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>Category</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:CS_PISA_1.Cat_1:1</r:URN>
+				</l:CategoryReference>
+				<r:Value>A</r:Value>
+			</l:Code>
+			<l:Code isDiscrete="true" scopeOfUniqueness="Maintainable" isIdentifiable="true">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_1.C_2:1</r:URN>
+				<l:CategoryReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>Category</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:CS_PISA_1.Cat_2:1</r:URN>
+				</l:CategoryReference>
+				<r:Value>B</r:Value>
+			</l:Code>
+			<l:Code isDiscrete="true" scopeOfUniqueness="Maintainable" isIdentifiable="true">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_1.C_3:1</r:URN>
+				<l:CategoryReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>Category</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:CS_PISA_1.Cat_3:1</r:URN>
+				</l:CategoryReference>
+				<r:Value>C</r:Value>
+			</l:Code>
+			<l:Code isDiscrete="true" scopeOfUniqueness="Maintainable" isIdentifiable="true">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_1.C_4:1</r:URN>
+				<l:CategoryReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>Category</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:CS_PISA_1.Cat_4:1</r:URN>
+				</l:CategoryReference>
+				<r:Value>D</r:Value>
+			</l:Code>
+		</l:CodeList>	
+		<l:CodeList scopeOfUniqueness="Maintainable" isMaintainable="true">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+			<r:URN>urn:ddi:us.mpc:PISA_CL_2:1</r:URN>
+		        <r:Label><r:Content xml:lang="en-us">Theatre technicians</r:Content></r:Label>
+			<r:RecommendedDataType>Integer</r:RecommendedDataType>
+			<r:CategorySchemeReference>
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:TypeOfObject>CategoryScheme</r:TypeOfObject>
+				<r:URN>urn:ddi:us.mpc:CS_PISA_2:1</r:URN>
+			</r:CategorySchemeReference>
+			<l:Code isDiscrete="true" scopeOfUniqueness="Maintainable" isIdentifiable="true">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_2.C_1:1</r:URN>
+				<l:CategoryReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>Category</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:CS_PISA_2.Cat_1:1</r:URN>
+				</l:CategoryReference>
+				<r:Value>1</r:Value>
+			</l:Code>
+			<l:Code isDiscrete="true" scopeOfUniqueness="Maintainable" isIdentifiable="true">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_2.C_2:1</r:URN>
+				<l:CategoryReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>Category</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:CS_PISA_2.Cat_2:1</r:URN>
+				</l:CategoryReference>
+				<r:Value>2</r:Value>
+			</l:Code>
+			<l:Code isDiscrete="true" scopeOfUniqueness="Maintainable" isIdentifiable="true">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_2.C_3:1</r:URN>
+				<l:CategoryReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>Category</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:CS_PISA_2.Cat_3:1</r:URN>
+				</l:CategoryReference>
+				<r:Value>3</r:Value>
+			</l:Code>
+			<l:Code isDiscrete="true" scopeOfUniqueness="Maintainable" isIdentifiable="true">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_2.C_4:1</r:URN>
+				<l:CategoryReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>Category</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:CS_PISA_2.Cat_4:1</r:URN>
+				</l:CategoryReference>
+				<r:Value>4</r:Value>
+			</l:Code>
+		</l:CodeList>	
+		<l:CodeList scopeOfUniqueness="Maintainable" isMaintainable="true">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+			<r:URN>urn:ddi:us.mpc:PISA_CL_3:1</r:URN>
+			<r:RecommendedDataType>Character</r:RecommendedDataType>
+			<r:CategorySchemeReference>
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:TypeOfObject>CategoryScheme</r:TypeOfObject>
+				<r:URN>urn:ddi:us.mpc:CS_PISA_3:1</r:URN>
+			</r:CategorySchemeReference>
+			<l:Code isDiscrete="true" scopeOfUniqueness="Maintainable" isIdentifiable="true">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_3.C_1:1</r:URN>
+				<l:CategoryReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>Category</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:CS_PISA_3.Cat_1:1</r:URN>
+				</l:CategoryReference>
+				<r:Value>A</r:Value>
+			</l:Code>
+			<l:Code isDiscrete="true" scopeOfUniqueness="Maintainable" isIdentifiable="true">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_3.C_2:1</r:URN>
+				<l:CategoryReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>Category</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:CS_PISA_3.Cat_2:1</r:URN>
+				</l:CategoryReference>
+				<r:Value>B</r:Value>
+			</l:Code>
+			<l:Code isDiscrete="true" scopeOfUniqueness="Maintainable" isIdentifiable="true">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_3.C_3:1</r:URN>
+				<l:CategoryReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>Category</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:CS_PISA_3.Cat_3:1</r:URN>
+				</l:CategoryReference>
+				<r:Value>C</r:Value>
+			</l:Code>
+			<l:Code isDiscrete="true" scopeOfUniqueness="Maintainable" isIdentifiable="true">
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_3.C_4:1</r:URN>
+				<l:CategoryReference>
+					<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+					<r:TypeOfObject>Category</r:TypeOfObject>
+					<r:URN>urn:ddi:us.mpc:CS_PISA_3.Cat_4:1</r:URN>
+				</l:CategoryReference>
+				<r:Value>D</r:Value>
+			</l:Code>
+		</l:CodeList>	
+	</l:CodeListScheme>
+	<r:TextDelineationScheme scopeOfUniqueness="Maintainable" isMaintainable="true">
+		<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		<r:URN>urn:ddi:us.mpc:TextDS_PISA:1</r:URN>
+		<r:TextDelineationSchemeName><r:String xml:lang="en-us">PISA Text Delineations</r:String></r:TextDelineationSchemeName>
+		<r:TextDelineation isVersionable="true" scopeOfUniqueness="Maintainable" maxLength="250">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:TextDS_PISA.Del_1:1</r:URN>
+			<r:TextDelineationName><r:String xml:lang="en-us">0 min to 250 max length response.</r:String></r:TextDelineationName>
+		</r:TextDelineation>   	
+	</r:TextDelineationScheme>
+	<r:CodeDelineationScheme scopeOfUniqueness="Maintainable" isMaintainable="true">
+		<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		<r:URN>urn:ddi:us.mpc:CodeDS_PISA:1</r:URN>
+		<r:CodeDelineationSchemeName><r:String xml:lang="en-us">PISA Code Delineations</r:String></r:CodeDelineationSchemeName>
+		<r:CodeDelineation isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CodeDS_PISA.Del_1:1</r:URN>
+			<r:CodeDelineationName><r:String xml:lang="en-us">Trick List</r:String></r:CodeDelineationName>
+			<r:CodeListReference>
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:TypeOfObject>CodeList</r:TypeOfObject>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_1:1</r:URN>
+			</r:CodeListReference>
+		</r:CodeDelineation>   	
+		<r:CodeDelineation isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CodeDS_PISA.Del_2:1</r:URN>
+			<r:CodeDelineationName><r:String xml:lang="en-us">Theatre Technicians</r:String></r:CodeDelineationName>
+			<r:CodeListReference>
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:TypeOfObject>CodeList</r:TypeOfObject>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_2:1</r:URN>
+			</r:CodeListReference>
+		</r:CodeDelineation>   	
+		<r:CodeDelineation isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:CodeDS_PISA.Del_3:1</r:URN>
+			<r:CodeDelineationName><r:String xml:lang="en-us">Amanda Intent</r:String></r:CodeDelineationName>
+			<r:CodeListReference>
+				<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+				<r:TypeOfObject>CodeList</r:TypeOfObject>
+				<r:URN>urn:ddi:us.mpc:PISA_CL_3:1</r:URN>
+			</r:CodeListReference>
+		</r:CodeDelineation>   	
+	</r:CodeDelineationScheme>
+	<r:LocationDelineationScheme scopeOfUniqueness="Maintainable" isMaintainable="true">
+		<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		<r:URN>urn:ddi:us.mpc:LocationDS_PISA:1</r:URN>
+		<r:LocationDelineationSchemeName><r:String xml:lang="en-us">PISA Location Delineations</r:String></r:LocationDelineationSchemeName>
+		<r:LocationDelineation isVersionable="true" scopeOfUniqueness="Maintainable">
+			<r:TypeOfIdentifier>Canonical</r:TypeOfIdentifier>
+		   	<r:URN>urn:ddi:us.mpc:LocationDS_PISA.Del_1:1</r:URN>
+			<r:LocationDelineationName><r:String xml:lang="en-us">Stage Directions - Amanda and the Duchess</r:String></r:LocationDelineationName>
+			<r:Object>Image</r:Object>
+			<r:Action>
+				<r:RegionOfAction>
+					<r:ImageArea>
+						<r:Shape>Rectangle</r:Shape>
+						<r:Coordinates>[define the coordinate points of the response area]</r:Coordinates>
+					</r:ImageArea>
+				</r:RegionOfAction>
+				<r:Description><r:Content xml:lang="en-us">Place the letter A within the defined Image Area</r:Content></r:Description>
+			</r:Action>
+			<r:Action>
+				<r:RegionOfAction>
+					<r:ImageArea>
+						<r:Shape>Rectangle</r:Shape>
+						<r:Coordinates>[define the coordinate points of the response area]</r:Coordinates>
+					</r:ImageArea>
+				</r:RegionOfAction>
+				<r:Description><r:Content xml:lang="en-us">Place the letter D within the defined Image Area</r:Content></r:Description>
+			</r:Action>
+		</r:LocationDelineation>   	
+	</r:LocationDelineationScheme>
+</g:ResourcePackage>
+
+***Variable Example 1***
+
+<l:RepresentedVariable isVersionable="true" scopeOfUniqueness="Agency">
+	<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:DE_1:1</r:URN>
+	<l:RepresentedVariableName><r:String xml:lang="en">Household Type</r:String></l:RepresentedVariableName>
+	<r:Label>><r:String xml:lang="en">Household Type</r:String></r:Label>	
+	<r:Description><r:Content xml:lang="en">Defines the type of household in terms of Non-Family and Family components</r:Content></r:Description>	
+	<r:UniverseReference isReference="true isExternal="false" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Households:1</r:URN>
+			<r:TypeOfObject>Universe</r:TypeOfObject>
+	</r:UniverseReference>
+	<r:ConceptReference isReference="true isExternal="false" lateBound="false">
+			<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:HouseholdType:1</r:URN>
+			<r:TypeOfObject>Concept</r:TypeOfObject>
+	</r:ConceptReference>
+	<r:CateogrySchemeReference isReference="true isExternal="false" lateBound="false">
+			<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:CatS_HouseholdType:1</r:URN>
+			<r:TypeOfObject>CategoryScheme</r:TypeOfObject>
+	</r:CategorySchemeReference>
+	</l:RepresentedVariable>
+
+***Variable Example 2***
+
+<l:RepresentedVariable isVersionable="true" scopeOfUniqueness="Agency">
+	<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:DE_Age:1</r:URN>
+	<l:RepresentedVariableName><r:String xml:lang="en">Age of Person</r:String></c:DataElementName>
+	<r:Label><r:String xml:lang="en">Age of Person in Years</r:String></r:Label>
+	<r:Description><r:Content xml:lang="en">Age of Person expressed as a measure of the number of years of age</r:Content></r:Description>
+	<r:UniverseReference isReference="true" isExternal="true" lateBound="false">
+		<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Univ_Persons:1.0</r:URN>
+		<r:TypeOfObject>Universe</r:TypeOfObject>
+	</r:UniverseReference>
+	<r:ConceptReference isReference="true" isExternal="true" lateBound="false">
+		<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Concept_Age:1.0</r:URN>
+		<r:TypeOfObject>Concept</r:TypeOfObject>
+	</r:ConceptReference>
+	<r:NumericRepresentation interval="1" decimalPositions="0" classificationLevel="Interval">
+		<r:NumberTypeCode>Integer</r:NumericTypeCode>
+</r:NumericRepresentation>
+</l:RepresentedVariable>
+
+
+<l:Variable isVersionable="true" scopeOfUniqueness="Agency">
+	<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Var_Age:1</r:URN>
+	<l:VariableName><r:String xml:lang="en">Age of Person</r:String></l:VariableName>
+	<r:Label><r:String xml:lang="en">Age of Person in Years</r:String></r:Label>
+	<r:Description><r:Content xml:lang="en">Age of Person in the United States expressed as a measure of the number of years of age 0 to 100 with topcode of 100 being "100 or over"</r:Content></r:Description>
+	<l:RepresentedVariableReference isReference="true" isExternal="true" lateBound="false">
+		<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:DE_Age:1</r:URN>
+		<r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
+	</l:RepresentedVariableReference>
+	<r:UniverseReference isReference="true" isExternal="true" lateBound="false">
+		<r:URN>urn:ddi:us.mpc:Univ_PersonsInUS:1.0</r:URN>    <!-- Limited to Persons in US -->
+		<r:TypeOfObject>Universe</r:TypeOfObject>
+	</r:UniverseReference>
+	<r:ConceptReference isReference="true" isExternal="true" lateBound="false">
+		<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Concept_Age:1.0</r:URN>
+		<r:TypeOfObject>Concept</r:TypeOfObject>
+	</r:ConceptReference>
+	<l:VariableRepresentation>
+		<l:MeasurementUnit>Years</l:MeasurementUnit>
+		<r:NumericRepresentationReference isReference="true" isExternal="true" lateBound="false">
+			<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Num_1_100_top:1.0</r:URN>
+			<r:TypeOfObject>ManagedNumericRepresentation</r:TypeOfObject>
+		</r:NumericRepresentationReference>
+	</l:VariableRepresentation>	
+</l:Variable>
+
+
+<l:Variable isVersionable="true" scopeOfUniqueness="Agency">
+	<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Var_Age_13_19:1</r:URN>
+	<l:VariableName><r:String xml:lang="en">Age of Teenager</r:String></l:VariableName>
+	<r:Label><r:String xml:lang="en">Age of Person 13 to 19 years of age in Years</r:String></r:Label>
+	<r:Description><r:Content xml:lang="en">Age of a Teenage Person expressed as a measure of the number of years of age 13 to 19</r:Content></r:Description>
+	<l:DataElementReference isReference="true" isExternal="true" lateBound="false">
+		<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:DE_Age:1</r:URN>
+		<r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
+	</l:DataElementReference>
+	<r:UniverseReference isReference="true" isExternal="true" lateBound="false">
+		<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Univ_Persons_Age_13_19:1.0</r:URN>    <!-- Limited to Teenagers -->
+		<r:TypeOfObject>Universe</r:TypeOfObject>
+	</r:UniverseReference>
+	<r:ConceptReference isReference="true" isExternal="true" lateBound="false">
+		<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Concept_Age:1.0</r:URN>
+		<r:TypeOfObject>Concept</r:TypeOfObject>
+	</r:ConceptReference>
+	<l:VariableRepresentation>
+		<l:MeasurementUnit>Years</l:MeasurementUnit>
+		<r:NumericRepresentation classificationLevel="interval">
+			<r:RecommendedDataType>Integer</r:RecommendedDataType>
+			<r:NumericDelineationReference isReference="true" isExternal="true" lateBound="false">
+				<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Num_13_19:1.0</r:URN>
+				<r:TypeOfObject>NumericDelineation</r:TypeOfObject>
+			</r:NumericDelineationReference>
+		</r:NumericRepresentation>
+	</l:VariableRepresentation>	
+</l:Variable>
+
+***Statistical Summary***
+
+<StatisticalSummary>						
+	<VariableStatistics isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency">
+	<r:URN>urn:ddi:us.mpc:VS_2:1</r:URN>					
+		<r:VariableReference>
+			<r:URN>urn:ddi:us.mpc:V1:1</URN>
+			<r:TypeOfObject>Variable</r:TypeOfObject>
+		</r:VariableReference>				
+		<StandardWeightReference>
+			<r:URN>urn:ddi:us.mpc:SW:1</r:URN>
+			<r:TypeOfObject>StandardWeight</r:TypeOfObject>
+		</StandardWeightReference>
+		<MissingValuesReference>
+			<r:URN>urn:ddi:us.mpc:MV_1:1</r:URN>
+			<r:TypeOfObject>MissingValuesDelineation</r:TypeOfObject>
+		</MissingValuesReference>
+		<TotalResponses>100</TotalResponses>				
+		<SummaryStatistic>				
+			<TypeOfSummaryStatistic>wtCount</TypeOfSummaryStatistic>			
+			<Statistic isWeighted="true" computationBase=“validOnly">1000</Statistic>			
+		</SummaryStatistic>				
+		<UnfilteredCategoryStatistics>				
+			<VariableCategory>			
+				<CategoryValue>1</CategoryValue>		
+				<CategoryStatistic>		
+					<TypeOfCategoryStatistic>wtCount</TypeOfCategoryStatistic>	
+					<Statistic isWeighted="true" computationBase=“validOnly">450</Statistic>	
+				</CategoryStatistic>		
+				<CategoryStatistic>		
+					<TypeOfCategoryStatistic>weightedPct</TypeOfCategoryStatistic>	
+					<Statistic isWeighted="true" computationBase=“validOnly">0.45</Statistic>	
+				</CategoryStatistic>		
+			</VariableCategory>			
+			<VariableCategory>			
+				<CategoryValue>2</CategoryValue>		
+				<CategoryStatistic>		
+					<TypeOfCategoryStatistic>wtCount</TypeOfCategoryStatistic>	
+					<Statistic isWeighted="true" computationBase=“validOnly">550</Statistic>	
+				</CategoryStatistic>		
+				<CategoryStatistic>		
+					<TypeOfCategoryStatistic>weightedPct</TypeOfCategoryStatistic>	
+					<Statistic isWeighted="true" computationBase=“validOnly">0.55</Statistic>	
+				</CategoryStatistic>		
+			</VariableCategory>			
+		</UnfilteredCategoryStatistics>				
+		<FilteredCategoryStatistics>				
+			<FilterVariableReference>
+				<r:URN>urn:ddi:us.mpc:V2:1</URN>
+				<r:TypeOfObject>Variable</r:TypeOfObject>
+			</FilterVariableReference>			
+			<FilterVariableCategory>			
+				<FilterCategoryValue>a</FilterCategoryValue>		
+				<VariableCategory>		
+					<CategoryValue>1</CategoryValue>	
+					<CategoryStatistic>	
+					<TypeOfCategoryStatistic>Count</TypeOfCategoryStatistic>
+						<Statistic isWeighted="true" computationBase=“validOnly">20</Statistic>
+					</CategoryStatistic>	
+					<CategoryStatistic>	
+						<TypeOfCategoryStatistic>colPct</TypeOfCategoryStatistic>
+						<Statistic isWeighted="true" computationBase=“validOnly">0.4</Statistic>
+					</CategoryStatistic>	
+				</VariableCategory>		
+				<VariableCategory>		
+					<CategoryValue>2</CategoryValue>	
+					<CategoryStatistic>	
+						<TypeOfCategoryStatistic>Count</TypeOfCategoryStatistic>
+						<Statistic isWeighted="true" computationBase=“validOnly">30</Statistic>
+					</CategoryStatistic>	
+					<CategoryStatistic>	
+						<TypeOfCategoryStatistic>colPct</TypeOfCategoryStatistic>
+						<Statistic isWeighted="true" computationBase=“validOnly">0.6</Statistic>
+					</CategoryStatistic>	
+				</VariableCategory>		
+			</FilterVariableCategory>			
+			<FilterVariableCategory>			
+				<FilterCategoryValue>b</FilterCategoryValue>		
+				<VariableCategory>		
+					<CategoryValue>1</CategoryValue>	
+					<CategoryStatistic>	
+						<TypeOfCategoryStatistic>Count</TypeOfCategoryStatistic>
+						<Statistic isWeighted="true" computationBase=“validOnly">25</Statistic>
+					</CategoryStatistic>	
+					<CategoryStatistic>	
+						<TypeOfCategoryStatistic>colPct</TypeOfCategoryStatistic>
+						<Statistic isWeighted="true" computationBase=“validOnly">0.5</Statistic>
+					</CategoryStatistic>	
+				</VariableCategory>		
+				<VariableCategory>		
+					<CategoryValue>2</CategoryValue>	
+					<CategoryStatistic>	
+						<TypeOfCategoryStatistic>Count</TypeOfCategoryStatistic>
+						<Statistic isWeighted="true" computationBase=“validOnly">25</Statistic>
+					</CategoryStatistic>	
+					<CategoryStatistic>	
+						<TypeOfCategoryStatistic>colPct</TypeOfCategoryStatistic>
+						<Statistic isWeighted="true" computationBase=“validOnly">0.5</Statistic>
+					</CategoryStatistic>	
+				</VariableCategory>		
+			</FilterVariableCategory>			
+		</FilteredCategoryStatistics>				
+	</VariableStatistics>					
+	<VariableStatistics isIdentifiable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency">
+	<r:URN>urn:ddi:us.mpc:VS_2:1</r:URN>					
+		<r:VariableReference>
+			<r:URN>urn:ddi:us.mpc:V2:1</URN>
+			<r:TypeOfObject>Variable</r:TypeOfObject>
+		</r:VariableReference>				
+		<StandardWeightReference>
+			<r:URN>urn:ddi:us.mpc:SW:1</r:URN>
+			<r:TypeOfObject>StandardWeight</r:TypeOfObject>
+		</StandardWeightReference>
+		<MissingValuesReference>
+			<r:URN>urn:ddi:us.mpc:MV_1:1</r:URN>
+			<r:TypeOfObject>MissingValuesDelineation</r:TypeOfObject>
+		</MissingValuesReference>
+		<TotalResponses>100</TotalResponses>				
+		<SummaryStatistic>				
+			<TypeOfSummaryStatistic>wtCount</TypeOfSummaryStatistic>			
+			<Statistic isWeighted="true" computationBase=“validOnly">1000</Statistic>			
+		</SummaryStatistic>				
+		<UnfilteredCategoryStatistics>				
+			<VariableCategory>			
+				<CategoryValue>a</CategoryValue>		
+				<CategoryStatistic>		
+					<TypeOfCategoryStatistic>wtCount</TypeOfCategoryStatistic>	
+					<Statistic isWeighted="true" computationBase=“validOnly">500</Statistic>	
+				</CategoryStatistic>		
+				<CategoryStatistic>		
+					<TypeOfCategoryStatistic>weightedPct</TypeOfCategoryStatistic>	
+					<Statistic isWeighted="true" computationBase=“validOnly">0.50</Statistic>	
+				</CategoryStatistic>		
+			</VariableCategory>			
+			<VariableCategory>			
+				<CategoryValue>b</CategoryValue>		
+				<CategoryStatistic>		
+					<TypeOfCategoryStatistic>wtCount</TypeOfCategoryStatistic>	
+					<Statistic isWeighted="true" computationBase=“validOnly">500</Statistic>	
+				</CategoryStatistic>		
+				<CategoryStatistic>		
+					<TypeOfCategoryStatistic>weightedPct</TypeOfCategoryStatistic>	
+					<Statistic isWeighted="true" computationBase=“validOnly">0.50</Statistic>	
+				</CategoryStatistic>		
+			</VariableCategory>			
+		</UnfilteredCategoryStatistics>				
+	</VariableStatistics>					
+</StatisticalSummary>	
+
+***Code Representation***
+
+<r:CodeRepresentation classificationLevel="Nominal">
+	<r:RecommendedDataType>String</r:RecommendedDataType>
+	<r:CodeListReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+		<r:URN>urn:ddi:us.mpc:SIC:1.0</r:URN>
+		<r:TypeOfObject>CodeList</r:TypeOfObject>
+	</r:CodeListReference>
+	<r:CodeSubsetInformation>
+		<r:DataExistence>
+			<r:DiscreteCategory>true</r:DiscreteCategory>
+		</r:DataExistence>
+	</r:CodeSubsetInformation>
+</r:CodeRepresentationBase>
+
+***Date Time Representation***
+
+<r:DateTimeRepresentation regExp="[0-9]{2}/[0-9]{4}">
+	<r:DateFieldFormat>MM/YYYY</r:DateFieldFormat>
+	<r:DateTypeCode>gYearMonth</r:DateTypeCode>
+</r:DateTimeRepresentationBase>
+
+
+***Geographic Location Code Representation***
+
+<r:GeographicLocationCodeRepresentation>
+	<r:RecommendedDataType>String</r:RecommendedDataType>
+	<r:IncludedGeographicLocationCodes>
+		<r:AuthorizedSourceReference isReference="true" isExternal="true" lateBound="false">
+		<r:URN typeOfIdentifier="Canonical>urn:ddi:us.mpc:FIPS:1.0</r:URN>
+		<r:TypeOfObject>AuthorizedSource</r:TypeOfObject>
+		</r:AuthorizedSourceReference>
+		<r:GeographicLocationReference isReference="true" isExternal="true" lateBound="false">
+	<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:CNTY:1.0</r:URN>
+	<r:TypeOfObject>GeographicLocation</r:TypeOfObject>
+		</r:GeographicLocationReference>
+		<r:ExcludedLocationValueReference isReference="true" isExternal="true" lateBound="false">
+	<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:ALASKA_CNTY:1.0</r:URN>
+	<r:TypeOfObject>LocationValue</r:TypeOfObject>
+		</r:ExcludedLocationValueReference>
+		<r:ExcludedLocationValueReference isReference="true" isExternal="true" lateBound="false">
+	<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:HAWAII_CNTY:1.0</r:URN>
+	<r:TypeOfObject>LocationValue</r:TypeOfObject>
+		</r:ExcludedLocationValueReference>
+	</r:IncludedGeographicLocationCodes>
+</r:GeographicLocationCodeRepresentationBase>
+
+***Geographic Structure Code Representation***
+
+<r:GeographicStructureCodeRepresentationBase isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency">
+	<r:URN>urn:ddi:us.mpc:GLocDel:2</r:URN>
+	<r:GeographicStructureCodeRepresentationBaseName><r:String xml:lang="en">US Geographic Structure Codes</r:String></r:GeographicStructureCodeRepresentationBaseName>
+	<r:Label><r:String xml:lang="en">US Geographic Structure Codes from the 1990 U.S. Census</r:String></r:Label>
+	<r:Description><r:Content xml:lang="en">Contains geographic structure codes used by the U.S. Census Bureau in compiling the 1990 Census of Population and Housing. Includes only US, State and County level structures. Excludes Regions and Divisions.</r:Content></r:Description>
+	<r:IncludedGeographicStructureCodes>
+		<r:AuthorizedSourceReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:US_Census:1.0</r:URN>
+			<r:TypeOfObject>AuthorizedSource</r:TypeOfObject>
+		</r:AuthorizedSourceReference>
+		<r:GeographicStructureReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:US_1990:1.0</r:URN>
+			<r:TypeOfObject>GeographicStructure</r:TypeOfObject>
+		</r:GeographicStructureReference>
+		<r:ExcludedGeographicLevelReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:REGION:1.0</r:URN>
+			<r:TypeOfObject>GeographicLevel</r:TypeOfObject>
+		</r:ExcludedGeographicLevelReference>
+		<r:ExcludedGeographicLevelReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+			<r:URN>urn:ddi:us.mpc:DIVISION:1.0</r:URN>
+			<r:TypeOfObject>GeographicLevel</r:TypeOfObject>
+		</r:ExcludedGeographicLevelReference>
+	</r:IncludedGeographicStructureCodes>
+</r:GeographicStructureCodeRepresentationBase>
+
+***Numeric Representation***
+
+<r:NumericRepresentationBase isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" scale="1" decimalPostions="0" interval="1">
+	<r:URN>urn:ddi:us.mpc:NumRange_1_10:1</r:URN>
+	<r:NumericRepresentationBaseName><r:String xml:lang="en">Range 1-10+</r:String></r:NumericRepresentationBaseName>
+	<r:Label><r:String xml:lang="en">Number Range covering 1 through 10 plus</r:String></r:Label>
+	<r:Description><r:Content xml:lang="en">Defines the allowed content for a number range of 1 - 10 where 10 is topcoded to imply 10 or more</r:Content></r:Description>
+	<r:NumberRange>
+		<r:Low isInclusive="true">1</r:Low>
+		<r:High isInclusive="true">10</r:High>
+		<r:TopCode>10</r:TopCode>
+	</r:NumberRange>
+	<r:NumericTypeCode>Integer</r:NumericTypeCode>
+</r:NumericRepresentationBase>
+
+***Text Representation***
+
+<r:TextRepresentationBase isVersionable="true" scopeOfUniqueness="Agency" typeOfIdentifier="Canonical" minLength="5" maxLength="5" regExp="[0-9]{5}">
+	<r:URN>urn:ddi:us.icpsr:TD_1.1</r:URN>
+	<r:TextRepresentationBaseName isPreferred="true"><r:String xml:lang="en">ZIPCode</r:String></r:TextRepresentationBaseName>
+	<r:Label><r:String xml:lang="en">United States 5-digit ZIP Code</r:String></r:Label>
+	<r:Description><r:Content isPlain="true" xml:lang="en">The base 5-digit ZIP Code used by the United States Postal Service for mail delivery.</r:Content></r:Description>
+</r:TextRepresentationBase>
+
+***Category Representation***
+
+<r:CategoryRepresentationBase isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency">
+	<r:URN>urn:ddi:us.mpc:PresCandidates:2</r:URN>
+	<r:CategoryRepresentationBaseName><r:String xml:lang="en">Presidential Candidates 2000</r:String></r:CategoryRepresentationBaseName>
+	<r:Label><r:String xml:lang="en">U.S. Presidential Candidates 2000</r:String></r:Label>
+	<r:Description><r:Content xml:lang="en">Includes all candidates for the office of US President listed on any ballot in the United States in the 2000 National Election.</r:Content></r:Description>
+	<r:CatagorySchemeReference isReference="true" isExternal="true" lateBound="false" typeOfIdentifier="Canonical">
+		<r:URN>urn:ddi:us.mpc:PRES2000:1.0</r:URN>
+		<r:TypeOfObject>CatagorySchemeReference</r:TypeOfObject>
+	</r:CatagorySchemeReferenceReference>
+</r:CategoryRepresentationBase>
+
+***Distribution Representation***
+
+<r:DistributionRepresentationBase isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" decimalPositions="1">
+	<r:URN>urn:ddi:us.mpc:DistDel_1:1</r:URN>
+	<r:DistributionRepresentationBaseName><r:String xml:lang="en">Distribution 100</r:String></r:DistributionRepresentationBaseName>
+	<r:Label><r:String xml:lang="en">100% Distribution</r:String></r:Label>
+	<r:Description><r:Content xml:lang="en">Distribute percentage of total over the allowed items with a .1 precesion.</r:Content></r:Description>
+	<r:DistributionValue>100</r:DistributionValue>
+</r:DistributionRepresentationBase>
+
+***Geographic Representation***
+
+<r:GeographicRepresentationBase isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" pointFormat="DecimalDegrees" spatialPrimitive="point">
+	<r:URN>urn:ddi:us.mpc:GPS_1:1</r:URN>
+	<r:CategoryRepresentationBaseName><r:String xml:lang="en">GPS Front Door</r:String></r:GeographicRepresentationBaseName>
+	<r:Label><r:String xml:lang="en">GPS for Front Door Positioning</r:String></r:Label>
+	<r:Description><r:Content xml:lang="en">A standard collection set for GPS positions taken at the front door in the United States.</r:Content></r:Description>
+	<r:Datum>NAD83</r:Datum>
+	<r:CoordinateSystem>SPCS</r:CoordinateSystem>
+	<r:CoordinateZone>2203</r:CoordinateZone>
+	<r:ErrorCorrection></r:ErrorCorrection>
+	<r:Offset>0</r:Offset>
+	<r:GeoreferencedObject>Residential Front Door</r:GeoreferencedObject>
+	<r:CoordinatePairs isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" maxArray="2" arraySeparator="|">
+		<r:URN>urn:ddi:us.mpc:CoordPrs:1</r:URN>
+		<r:TypeOfObject>TextRepresentationBase</r:TypeOfObject>	
+	</r:CoordinatePairs>
+	<r:AlternateOffset maxLength="15">
+		<r:URN>urn:ddi:us.mpc:AltOffset:1</r:URN>
+	</r:AlternateOffset>
+	<r:AlternateCoordinateSystem maxLength="25">
+		<r:URN>urn:ddi:us.mpc:AltCoord:1</r:URN>
+	</r:AlternateCoordinateSystem>
+</r:GeographicRepresentationBase>
+
+***Location Representation***
+
+<r:LocationRepresentationBase isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency">
+	<r:URN>urn:ddi:us.mpc:LocDel_1:2</r:URN>
+	<r:LocationRepresentationBaseName><r:String xml:lang="en">Location on Image_1</r:String></r:LocationRepresentationBaseName>
+	<r:Label><r:String xml:lang="en">Location on Image</r:String></r:Label>
+	<r:Description><r:Content xml:lang="en">A location response that requires the letter "D" to be marked on an image.</r:Content></r:Description>
+	<r:Object>Image</r:Object>
+	<r:Action regExp="[Dd]">
+		<r:RegionOfAction>
+			<r:ImageArea>
+				<r:Shape>Rectangle</r:Shape>
+				<r:Coordinates>5,-5 5,-2 2,-2 2,-5</r:Coordinates>
+			</r:ImageArea>
+		</r:RegionOfAction>
+		<r:Description><r:Content xml:lang="en">Mark the letter D (upper or lower case accepted) in the upper left (3x3) section of the 10x10 gridded image.</r:Content></r:Description>
+	</r:Action>
+</r:LocationRepresentationBase>
+
+***Nominal Representation***
+
+<r:NominalRepresentationBase isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" regExp="[Xx]">
+	<r:URN>urn:ddi:us.mpc:NomDel_1:2</r:URN>
+	<r:NominalRepresentationBaseName><r:String xml:lang="en">Nominal X only</r:String></r:NominalRepresentationBaseName>
+	<r:Label><r:String xml:lang="en">Nominal X only</r:String></r:Label>
+	<r:Description><r:Content xml:lang="en">A nominal response that accepts ONLY an X mark.</r:Content></r:Description>
+</r:NominalRepresentationBase>
+
+***Ranking Representation***
+
+<r:RankingRepresentationBase isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency">
+	<r:URN>urn:ddi:us.mpc:RankDel_1:1</r:URN>
+	<r:RankingRepresentationBaseName><r:String xml:lang="en">Unique Five Point Ranking</r:String></r:RankingRepresentationBaseName>
+	<r:Label><r:String xml:lang="en">Five Point Ranking with no repetition</r:String></r:Label>
+	<r:Description><r:Content xml:lang="en">Allows for the ranking of 5 items in order where no two items can be of the same rank.</r:Content></r:Description>
+	<r:RankingRange maximumRepetitionOfSingleValue="1">
+		<r:RangeUnit>Integer</r:RangeUnit>
+		<r:MinimumValue>1</r:MinimumValue>
+		<r:MaximumValue>5</r:MaximumValue>
+	</r:RankingRange>
+</r:RankingRepresentationBase>
+
+***Scale Representation (1)***
+
+<Scale isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniquenes="Maintainable">
+  <URN>urn:ddi:us.mpc:ScaleScheme_1.Scale_1:1</URN>
+  <ScaleName><String xml:lang="en">Simple Scale</String></ScaleName>	
+  <Label><Content xml:lang="en">Simple Scale</Content></Label>
+  <Description><Content xml:lang="en">Example 1</Content></Description>		
+  <ScaleDimension dimensionNumber="1" degreeSlopeFromHorizontal="0">
+    <NumberRange>					
+      <Low included="true">0</Low>			
+      <High included="true">10</High>		
+    </NumberRange>					
+    <Anchor value="0"> 				
+      <CategoryReference>
+        <URN>urn:ddi:us.mpc:CatScheme_1.Never:1</URN>
+      <CategoryReference>
+    </Anchor> 				
+    <Anchor value="10"> 				
+      <CategoryReference>
+        <URN> urn:ddi:us.mpc:CatScheme_1.Continually:1</URN>
+      <CategoryReference>
+    </Anchor> 				
+    <ValueIncrement increment="1" startValue="0" endValue="10"/>			
+  </Dimension>
+  <DisplayLayout>ScaleLine</DisplayLayout>						
+</Scale>	
+
+***Scale Representation (2)***
+
+<Scale isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniquenes="Maintainable">
+  <URN>urn:ddi:us.mpc:ScaleScheme_1.Scale_2:1</URN>
+  <ScaleName><String xml:lang="en">Likert Scale</String></ScaleName>
+  <Label>><Content xml:lang="en">Likert Scale as scale</Content></Label>
+  <Description>><Content xml:lang="en">Example 2</Content></Description>
+  <ScaleDimension dimensionNumber="1" degreeSlopeFromHorizontal="0">
+    <NumberRange>					
+      <Low included="true">1</Low>			
+      <High included="true">5</High>		
+    </NumberRange>					
+    <Anchor value="1"> 				
+      <CategoryReference>
+        <URN> urn:ddi:us.mpc:CatScheme_1.StronglyDisagree:1</URN>
+      <CategoryReference>
+    </Anchor> 				
+    <Anchor value="2"> 				
+      <CategoryReference>
+        <URN> urn:ddi:us.mpc:CatScheme_1.Disagree:1</URN>
+      <CategoryReference>
+    </Anchor> 				
+    <Anchor value="3"> 				
+      <CategoryReference>
+        <URN> urn:ddi:us.mpc:CatScheme_1.NeitherAgreeNorDisagree:1</URN>
+      <CategoryReference>
+    </Anchor> 				
+    <Anchor value="4"> 				
+      <CategoryReference>
+        <URN> urn:ddi:us.mpc:CatScheme_1.Agree:1</URN>
+      <CategoryReference>
+    </Anchor> 				
+    <Anchor value="5"> 				
+      <CategoryReference>
+        <URN> urn:ddi:us.mpc:CatScheme_1.StronglyAgree:1</URN>
+      <CategoryReference>
+    </Anchor> 				
+    <MarkedIncrement increment="1" startValue="1" endValue="5"/>			
+    <ValueIncrement increment="1" startValue="1" endValue="5"/>			
+  </ScaleDimension>
+  <DisplayLayout>ScaleLine</DisplayLayout>						
+</Scale>							
+
+***Scale Representation (3)***
+
+<Scale isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniquenes="Maintainable">
+  <URN>urn:ddi:us.mpc:ScaleScheme_1.Scale_3:1</URN>
+  <ScaleName><String xml:lang="en">Diamond</String></ScaleName>
+  <Label><Content xml:lang="en">Dimond of Opposites</Content></Label>
+  <Description><Content xml:lang="en">Describes an area within which response is collected against opposing scales. </Content></Description>
+  <ScaleType>AnchoredScale</ScaleType>						
+  <ScaleDimension dimensionNumber="1" degreeSlopeFromHorizontal="45">
+    <Label>Repulsion</Label					
+    <NumberRange>					
+      <Low included="true">0</Low>			
+      <High included="true">10</High>		
+    </NumberRange>					
+    <MarkedIncrement increment="10" startValue="0" endValue="10"/>		
+    <ValueIncrement increment="10" startValue="0" endValue="10"/>			
+  </ScaleDimension>
+  <ScaleDimension dimensionNumber="2" degreeSlopeFromHorizontal="135">
+    <Label>Attraction</Label					
+    <NumberRange>					
+      <Low included="true">0</Low>			
+      <High included="true">10</High>		
+    </NumberRange>					
+    <MarkedIncrement increment="10" startValue="0" endValue="10"/>				
+    <ValueIncrement increment="10" startValue="0" endValue="10"/>				
+  </ScaleDimension>
+  <DimensionIntersect forAllDimensions="true" IntersectValue="0">			
+    <IncludeDimension>1</IncludeDimension>			
+    <IncludeDimension>2</IncludeDimension>			
+  </DimensionIntersect>				
+  <DisplayLayout>Outline</DisplayLayout>						
+</Scale>							
+
+***Missing Values Representation***
+
+<r:MissingValuesRepresentationBase isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" versionDate="2012-10-16" isBlankMissing="true">
+  <r:URN>urn:ddi:us.mpc:MVD1:1</r:URN>
+  <r:MaintainableObject>
+  <r:TypeOfObject>MissingValuesRepresentationBaseScheme</r:TypeOfObject>
+    <r:MaintainableID>MVDS_1</r:MaintainableID>
+    <r:MaintainableVersion>1</r:MaintainableVersion>
+  </r:MaintainableObject>
+  <r:MissingValuesRepresentationBaseName isPreferred="true" context="ANES"><r:String xml:lang="en-US">ANES standard missing values</r:String></r:MissingValuesRepresentationBaseName>
+  <r:CodeRepresentationBase isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" versionDate="2012-10-16">
+    <r:URN>urn:ddi:us.mpc:MVD1:1</r:URN>
+    <r:MaintainableObject>
+      <r:TypeOfObject>MissingValuesRepresentationBaseScheme</r:TypeOfObject>
+      <r:MaintainableID>MVDS_1</r:MaintainableID>
+      <r:MaintainableVersion>1</r:MaintainableVersion>
+    </r:MaintainableObject>
+    <r:CodeListReference isReference="true">
+      <URN>urn:ddi:CodeList_X:1</URN>		
+    </r:CodeListReference>
+  </r:CodeRepresentationBase>
+  <r:NumericRepresentationBase isVersionable="true" typeOfIdentifier="Canonical" scopeOfUniqueness="Agency" versionDate="2012-10-16">
+    <r:URN>urn:ddi:us.mpc:MVD1:1</r:URN>
+    <r:MaintainableObject>
+      <r:TypeOfObject>MissingValuesRepresentationBaseScheme</r:TypeOfObject>
+      <r:MaintainableID>MVDS_1</r:MaintainableID>
+      <r:MaintainableVersion>1</r:MaintainableVersion>
+    </r:MaintainableObject>
+  </r:NumericRepresentationBase>
+</r:MissingValueRepresentationBase>
+	

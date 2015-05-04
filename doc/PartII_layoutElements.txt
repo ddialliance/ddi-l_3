@@ -1,0 +1,8 @@
+These are that basic parts of the layout for each User Story within Part II
+
+1-User Story Title
+2-User Story description
+3-User requirements
+4-Element sets used
+5-Description of how elements are used to meet requirements - may include links to information in Part I
+6-Examples: [recommended that these become links to a text document containing all examples]

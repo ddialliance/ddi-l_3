@@ -1,0 +1,13 @@
+These are that basic parts of the layout for each described element set within Part I
+
+1-Title
+2-General statement of coverage (this may be a single complex element and contents or a set of 2 or more complex elements)
+
+3-ComplexElement Name (minus "Type")
+4-Description of the intended purpose of the element
+
+5-List of content (nested clean structure with namespaces listed only if different from parent) - provides cardinality and any internal controlled vocabulary options
+
+6-Description of how to complete (fill in) the contents. This may contain "snippets" of code to clarify use. 
+
+7-Examples: [recommended that these become links to a text document containing all examples

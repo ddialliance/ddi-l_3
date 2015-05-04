@@ -1,0 +1,120 @@
+Is this still correct??
+Review current contents
+
+Date - is it still correct?
+InOuBindCommandCode - is it still correct?
+BaseSetExamples - Inventory what is there and make sure its still correct
+StatisticalSummary - is it still correct?
+AttributeElementLists - Wendy will generate new list
+PartII_2_5_4_Notes - is it still correct?
+PartII_Sec1 - is it still correct?
+PartI_layoutIntro - is it still correct?
+Name_Label_Description - is it still correct?
+QualityDescriptions - is it still correct?
+Archive - is it still correct?
+Note - is it still correct?
+VariableRepresentation and QuestionResponseDomain - REDO (wlt will draft)
+Questions - is it still correct?
+IVMR - is it still correct?
+Data_Element - REDO (wlt will draft)
+
+
+PART I: PRIORITIZE - review grouping of elements (more grouping? more individual complex elements?)
+
+2.0 - Relationship to Other Standards  
+2.1 - DDI-C
+2.2 - ISO/IEC 11179 - elements in ISO/IEC 11179 and DDI - use of ISO/IEC 1179-5 profile
+2.3 - ISO 19115
+2.4 - SDMX
+2.5 - GSIM
+3.0 - General Structures
+3.1 - Identification and Reference Structures
+3.2 - Maintainable Objects: Modules and Schemes
+3.3 - Name, Label, and Description
+3.4 - Controlled Vocabularies
+4.0 - Specific Structures in Alphabetical Order:
+4.1 - Archive
+4.2 - Category
+4.3 - Citation
+4.4 - Code List
+4.5 - Code Value
+4.6 - Collection Event
+4.7 - Comparison
+4.8 - Concept, Universe and ConceptualVariable
+4.9 - Conceptual Component
+4.10 - Control Construct
+4.11 - Coverage
+4.12 - Data Collection
+4.13 - Data Relationship
+4.14 - Date
+4.15 - DDI Instance
+4.16 - DDI Profile
+4.17 - Delineation Structures
+4.18 - Embargo
+4.19 - Ex-Post Evaluation
+4.20 - Fragment Instance
+4.21 - Funding Information and Budget
+4.22 - Geographic Location
+4.23 - Geographic Structure
+4.24 - Group
+4.25 - Image
+4.26 - In / Out Parameter, Binding and Command Code
+4.27 - Instrument
+4.28 - Interviewer Instruction
+4.29 - Local Holding Package
+4.30 - Logical Product
+4.31 - Methodology
+4.32 - NCube
+4.33 - Note
+4.34 - Organization and Individual
+4.35 - Other Material
+4.36 - Physical Data Product
+4.37 - Physical Instance
+4.38 - Physical Structure
+4.39 - Processing Event
+4.40 - Processing Instruction
+4.41 - Quality Descriptions
+4.42 - Questions
+4.43 - Record Layout
+4.44 - Represented Variable
+4.45 - Resource Package
+4.46 - Series Statement
+4.47 - Software
+4.48 - Statistical Summary
+4.49 - Study Unit 
+4.51 - Variable Representation and Response Domain
+4.52 - Variable 
+Appendix: Change List (DDI 3.1 to 3.2)  (should this be external appendix??)
+Index for all Complex Elements:
+
+
+PART II: PRIORITIZE
+
+Overview	3
+1 - Navigating the HTML Field Level Documentation	3
+2 - DDI Structural Features	5
+2.1 - Exchange structures	5
+2.2 - Maintainable structures	7
+2.3 - Organizing Publication Package Contents	11
+2.4 - Managing Metadata Over Time	12
+2.5 - Common Structures	12
+2.5.1 - String, Controlled Vocabularies	12
+2.5.2 - Dates	14
+2.5.3 - Citation and Coverage	14
+2.5.4 - Notes	14
+2.5.5 - OtherMaterial	14
+3 - User Stories - Applying DDI	14
+3.1 - Documenting a simple study - Researcher perspective	14
+3.2 - Documenting a simple study - Archive perspective (legacy material)	14
+3.3 - Documenting a longitudinal study	14
+3.4 - Questionnaire development	14
+3.5 - Quality control of reusable content	14
+3.6 - DataElement management	14
+3.7 - Concept management	14
+3.8 - Geography and universe management	14
+3.9 - Physical data management	14
+3.10 - DDI and OAIS - Archives and provenance	14
+3.11 - DDI and GSIM - implementation of the conceptual model	14
+3.12 - DDI and Data Discovery	14
+3.13 - Metadata driven processing	14
+Appendix A: Sequence of ResourcePackage, Group, and StudyUnit	15
