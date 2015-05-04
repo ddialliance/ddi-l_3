@@ -8,5 +8,4 @@ This repository publishes changes to the DDI Lifecycle schema over time. It incl
 candidates, public reviews, and official releases. It currently covers DDI version 3.0, 3.1, and 3.2.
 
 ## See Also
-* [Colectica](http://www.colectica.com)
 * [DDI Alliance](http://www.ddialliance.org)
