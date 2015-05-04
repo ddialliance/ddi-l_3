@@ -1,0 +1,89 @@
+Technical Taskt!Schema
+minor
+N/A
+10-13-14 13:26
+10-13-14 13:26
+awackerow
+
+normal
+new
+3.2
+open
+633(Mantis): URN regular expression improvement
+The regular expressions of both, CanonicalURNType and DeprecatedURNType, allow that an agency id can be just a string without a dot, which could be - for example - just a country code. This wouldn't be allowed by the agency id registry process, but it should be detected by validation.
+Change regex in CanonicalURNType and DeprecatedURNType: from [a-zA-Z0-9-]{1,63}(.[a-zA-Z0-9-]{1,63})* to [a-zA-Z0-9-]{1,63}(.[a-zA-Z0-9-]{1,63})+ i.e. the cardinality of the additional sections of the agency id is 1..n (not 0..n)
+
+
+CHANGED:  DDIAgencyIDType regular expression FROM [a-zA-Z0-9-]{1,63}(.[a-zA-Z0-9-]{1,63})* TO [a-zA-Z0-9-]{1,63}(.[a-zA-Z0-9-]{1,63})+
+NOTE: This changes ONLY the cardinality of number of "." extensions on an Agency ID from 0..n to 1..n
+
+
+Technical Taskt!Schema
+minor
+N/A
+05-15-14 12:35
+09-25-14 12:32
+wthomas
+
+normal
+new
+3.2
+open
+623(Mantis): Revision of DDIProfile to support recursion within Used
+Proposed adoption of the ABS extension which supports recursive content (Used and NotUsed) within the object UsedType. The addition of a recursive Used element allows the specifier the be unambiguous as to what elements/attributes are used and not used in the scenario where the outer element is optional and an inner element/attribute of the outer element is mandatory. The path of the used not used statement need not specify the complete path for element/attribute it could be build up programmatically by appending the parent used path. This would make the process of building the profiles considerably simpler and you only need to make sure that the name of the current element/attribute is correct not the entire path for every path statement in the profile. Note that the attached documents also include a new attribute in Used limitMaxOccurs which has already been added to 3.2 (ABS uses 3.1)
+
+http://user.pop.umn.edu/~wlt/DDIattachments/ddiprofile
+http://users.pop.umn.edu/~wlt/DDIattachments/12-31-69
+
+
+05-15-14 12:36;wthomas;Note: filed on behave of Mark Hale (ABS)
+09-25-14 12:32;achim;My impression is that manual work should be minimized by the suggested solution. A recursion is often error prone because it is often not clear and it is more complicated to handle by a program. DDI 3 and also the profiles are intended to be written by programs. Therefore I don't see really the advantage of the proposed solution. An example of a DDI profile would be helpful to see what should be achieved. A basic version without suggested solution and a version with, to see the difference and possible advantages/disadvantages.
+
+CHANGE: NONE
+
+Technical Taskt!Schema
+minor
+N/A
+08-20-14 11:18
+09-25-14 11:55
+wthomas
+
+normal
+new
+3.2
+open
+630(Mantis): New extended dcterms.xsd has been issued
+We are still using the 2003 version of dcterms.xsd in the publication packages which limits us to objects existing at that time due to our inclusion of the xsd in the distribution package and use of a local schema location in import.
+Update to 2008 version (attached)
+http://user.pop.umn.edu/~wlt/DDIattachments/dcterms.xsd
+
+
+09-25-14 11:55;wthomas;Continue to provide a local copy and update the xsd. Review the namespace declarations for support of dc and dcterms.
+
+REPLACED dcterms.xsd with current 2008 version
+ADDED support for both namespaces dc and dcterms in instance.xsd and reusable.xsd in namespace declarations and imports
+
+
+Technical Taskt!Schema
+minor
+N/A
+09-03-14 09:17
+09-25-14 10:58
+wthomas
+
+normal
+new
+3.2
+open
+632(Mantis): Statistic is a decimal and does not allow for very large numbers
+There are occasions when the result of the statistic is a very large number requiring an xs:double
+Provide a StatisticDouble choice where a StatisticDoubleType is the same as a StatisticType except using xs:double as the extension base.
+
+ADDED: StatisticDoubleType identical to StatisticType except using the xs:double as an extension base
+ADDED: Choice of Statistic or StatisticDouble in all Statistic locations
+
+
+
+
+
+ADDED ComponentParts 0..n to LocationValueType 

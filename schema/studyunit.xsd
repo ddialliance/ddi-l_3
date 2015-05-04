@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-Copyright (c) 2014 DDI Alliance, DDI 3.2 release, 2014-02-05
+Copyright (c) 2015 DDI Alliance, DDI 3.3 release, 2015-02-15
 
-This file is part of DDI 3.2 XML Schema.
+This file is part of DDI 3.3 XML Schema.
 
-DDI 3.2 XML Schema is free software: you can redistribute it and/or modify
+DDI 3.3 XML Schema is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by the
 Free Software Foundation, either version 3 of the License, or (at your
 option) any later version.
 
-DDI 3.2 XML Schema is distributed in the hope that it will be useful, but
+DDI 3.3 XML Schema is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
 for more details.
 
 You should have received a copy of the GNU Lesser General Public License along
-with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
+with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:studyunit:3_2" xmlns:r="ddi:reusable:3_2" xmlns:a="ddi:archive:3_2" xmlns:c="ddi:conceptualcomponent:3_2" xmlns:d="ddi:datacollection:3_2" xmlns:l="ddi:logicalproduct:3_2"
-           xmlns:p="ddi:physicaldataproduct:3_2" xmlns:pi="ddi:physicalinstance:3_2" xmlns:pr="ddi:ddiprofile:3_2" targetNamespace="ddi:studyunit:3_2" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:import namespace="ddi:reusable:3_2" schemaLocation="reusable.xsd"/>
-	<xs:import namespace="ddi:archive:3_2" schemaLocation="archive.xsd"/>
-	<xs:import namespace="ddi:conceptualcomponent:3_2" schemaLocation="conceptualcomponent.xsd"/>
-	<xs:import namespace="ddi:datacollection:3_2" schemaLocation="datacollection.xsd"/>
-	<xs:import namespace="ddi:logicalproduct:3_2" schemaLocation="logicalproduct.xsd"/>
-	<xs:import namespace="ddi:physicaldataproduct:3_2" schemaLocation="physicaldataproduct.xsd"/>
-	<xs:import namespace="ddi:physicalinstance:3_2" schemaLocation="physicalinstance.xsd"/>
-	<xs:import namespace="ddi:ddiprofile:3_2" schemaLocation="ddiprofile.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:studyunit:3_3" xmlns:r="ddi:reusable:3_3" xmlns:a="ddi:archive:3_3" xmlns:c="ddi:conceptualcomponent:3_3" xmlns:d="ddi:datacollection:3_3" xmlns:l="ddi:logicalproduct:3_3"
+           xmlns:p="ddi:physicaldataproduct:3_3" xmlns:pi="ddi:physicalinstance:3_3" xmlns:pr="ddi:ddiprofile:3_3" targetNamespace="ddi:studyunit:3_3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="ddi:reusable:3_3" schemaLocation="reusable.xsd"/>
+	<xs:import namespace="ddi:archive:3_3" schemaLocation="archive.xsd"/>
+	<xs:import namespace="ddi:conceptualcomponent:3_3" schemaLocation="conceptualcomponent.xsd"/>
+	<xs:import namespace="ddi:datacollection:3_3" schemaLocation="datacollection.xsd"/>
+	<xs:import namespace="ddi:logicalproduct:3_3" schemaLocation="logicalproduct.xsd"/>
+	<xs:import namespace="ddi:physicaldataproduct:3_3" schemaLocation="physicaldataproduct.xsd"/>
+	<xs:import namespace="ddi:physicalinstance:3_3" schemaLocation="physicalinstance.xsd"/>
+	<xs:import namespace="ddi:ddiprofile:3_3" schemaLocation="ddiprofile.xsd"/>
 	<xs:element name="StudyUnit" type="StudyUnitType">
 		<xs:annotation>
 			<xs:documentation>A primary packaging and publication module within DDI representing the purpose, background, development, data capture, and data products related to a study. In DDI a study is defined as a single coordinated set of data collection/capture activities, such as a one-time survey or a single iteration of a multi-year repeated study (such as one year of a longitudinal survey). The StudyUnit brings together all of the components of the study including the description of its purpose, funding, quality statements, data collection and capture methods and activities, processing activities, and a description of the resulting data (description of its intellectual or logical content plus a description of its physical store).</xs:documentation>
@@ -100,7 +100,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Purpose" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The purpose of the study, why the study took place. This should include detailed information on the investigator's primary study questions or hypotheses as well as information on any legal basis for the data collection, such as laws requiring the collection of census data for apportionment purposes. Legal or other authorization should be provided in detail within AuthorizationSource. Purpose supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+							<xs:documentation>The purpose of the study, why the study took place. This should include detailed information on the investigator's primary study questions or hypotheses as well as information on any legal basis for the data collection, such as laws requiring the collection of census data for apportionment purposes. Legal or other authorization should be provided in detail within AuthorizationSource. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Coverage" minOccurs="0">

@@ -1,61 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-Copyright (c) 2014 DDI Alliance, DDI 3.2 release, 2014-02-05
+Copyright (c) 2015 DDI Alliance, DDI 3.3 release, 2015-02-15
 
-This file is part of DDI 3.2 XML Schema.
+This file is part of DDI 3.3 XML Schema.
 
-DDI 3.2 XML Schema is free software: you can redistribute it and/or modify
+DDI 3.3 XML Schema is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by the
 Free Software Foundation, either version 3 of the License, or (at your
 option) any later version.
 
-DDI 3.2 XML Schema is distributed in the hope that it will be useful, but
+DDI 3.3 XML Schema is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
 for more details.
 
 You should have received a copy of the GNU Lesser General Public License along
-with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
+with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 
 -->
 <!--
 Documentation of the DDI specification is provided in three ways:
 
-<A HREF="http://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/FieldLevelDocumentation/index.html">Field Level Documentation</A>
+<A HREF="http://www.ddialliance.org/Specification/DDI-Lifecycle/3.3/XMLSchema/FieldLevelDocumentation/index.html">Field Level Documentation</A>
 AUDIENCE: Developers, database developers, mappings, base level for content providers (what an object is in relation to parent and child elements)
 This documentation is found within the DDI Schemas and displayed in the HTML documentation. It provides a brief description of the purpose and content of the object. Documentation found in the complex Type description will provide more detail than the element documentation. Within a complex type, the additional documentation of sub-elements will focus on its purpose within the context of the complex type. 
 
-<A HREF="http://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/HighLevelDocumentation/DDI_Part_I_TechnicalDocument.pdf">Part I - Technical Documentation</A>
+<A HREF="http://www.ddialliance.org/Specification/DDI-Lifecycle/3.3/XMLSchema/HighLevelDocumentation/DDI_Part_I_TechnicalDocument.pdf">Part I - Technical Documentation</A>
 AUDIENCE: Developers, integrated usage and applications for content providers
-Organized by related sets of objects, e.g. Question Item, Question Grid, and Question Block, this documentation provides details of the structure and its intended application. Each set contains examples of usage. It contains information on the relationship of DDI to other standards, common XML structures used by DDI, design and consistency rules, description of major structural types (modules and schemes), technical features for identification and reference, basic types for dates and strings, and all major complex elements. The complex element content is organized alphabetically by set and an index is provided for all elements. This documentation also contains lists of: 3.1 to 3.2 changes, all unique element and attribute names, and elements by extension base (Identifiable, Versionable, Maintainable, Reference, CodeValue, etc.).
+Organized by related sets of objects, e.g. Question Item, Question Grid, and Question Block, this documentation provides details of the structure and its intended application. Each set contains examples of usage. It contains information on the relationship of DDI to other standards, common XML structures used by DDI, design and consistency rules, description of major structural types (modules and schemes), technical features for identification and reference, basic types for dates and strings, and all major complex elements. The complex element content is organized alphabetically by set and an index is provided for all elements. This documentation also contains lists of: 3.2 to 3.3 changes, all unique element and attribute names, and elements by extension base (Identifiable, Versionable, Maintainable, Reference, CodeValue, etc.).
 
-<A HREF="http://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/HighLevelDocumentation/DDI_Part_II_UserGuide.pdf">Part II - User Guide</A>
+<A HREF="http://www.ddialliance.org/Specification/DDI-Lifecycle/3.3/XMLSchema/HighLevelDocumentation/DDI_Part_II_UserGuide.pdf">Part II - User Guide</A>
 AUDIENCE: Content providers, those focusing on specific applied uses of DDI
 Provides instructions for navigating the HTML Field Level Documentation and reviews basic structural features focusing on their usage, such as exchange structures, organizing publication package content, managing data over time, common structure like strings, controlled vocabularies, dates, citation and coverage, notes and other material. This general section is followed by a set of user stories (applying DDI). The focus is on how the parts of DDI work together to describe the metadata and data for particular functions such as documenting a longitudinal study or developing a questionnaire. Wherever appropriate, Part II will reference the more detailed technical documentation in Part I.
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:instance:3_2" xmlns:a="ddi:archive:3_2" xmlns:cm="ddi:comparative:3_2" xmlns:c="ddi:conceptualcomponent:3_2" xmlns:d="ddi:datacollection:3_2" xmlns:ds="ddi:dataset:3_2"
-           xmlns:dc="http://purl.org/dc/terms/" xmlns:pr="ddi:ddiprofile:3_2" xmlns:g="ddi:group:3_2" xmlns:m3="ddi:physicaldataproduct_ncube_inline:3_2" xmlns:l="ddi:logicalproduct:3_2" xmlns:m1="ddi:physicaldataproduct_ncube_normal:3_2"
-           xmlns:p="ddi:physicaldataproduct:3_2" xmlns:pi="ddi:physicalinstance:3_2" xmlns:r="ddi:reusable:3_2" xmlns:s="ddi:studyunit:3_2" xmlns:m2="ddi:physicaldataproduct_ncube_tabular:3_2" xmlns:m4="ddi:physicaldataproduct_proprietary:3_2"
-           targetNamespace="ddi:instance:3_2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:instance:3_3" xmlns:a="ddi:archive:3_3" xmlns:cm="ddi:comparative:3_3" xmlns:c="ddi:conceptualcomponent:3_3" xmlns:d="ddi:datacollection:3_3" xmlns:ds="ddi:dataset:3_3"
+           xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:pr="ddi:ddiprofile:3_3" xmlns:g="ddi:group:3_3" xmlns:m3="ddi:physicaldataproduct_ncube_inline:3_3" xmlns:l="ddi:logicalproduct:3_3" xmlns:m1="ddi:physicaldataproduct_ncube_normal:3_3"
+           xmlns:p="ddi:physicaldataproduct:3_3" xmlns:pi="ddi:physicalinstance:3_3" xmlns:r="ddi:reusable:3_3" xmlns:s="ddi:studyunit:3_3" xmlns:m2="ddi:physicaldataproduct_ncube_tabular:3_3" xmlns:m4="ddi:physicaldataproduct_proprietary:3_3"
+           targetNamespace="ddi:instance:3_3" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
-	<xs:import namespace="ddi:archive:3_2" schemaLocation="archive.xsd"/>
-	<xs:import namespace="ddi:comparative:3_2" schemaLocation="comparative.xsd"/>
-	<xs:import namespace="ddi:conceptualcomponent:3_2" schemaLocation="conceptualcomponent.xsd"/>
-	<xs:import namespace="ddi:datacollection:3_2" schemaLocation="datacollection.xsd"/>
-	<xs:import namespace="ddi:dataset:3_2" schemaLocation="dataset.xsd"/>
+	<xs:import namespace="ddi:archive:3_3" schemaLocation="archive.xsd"/>
+	<xs:import namespace="ddi:comparative:3_3" schemaLocation="comparative.xsd"/>
+	<xs:import namespace="ddi:conceptualcomponent:3_3" schemaLocation="conceptualcomponent.xsd"/>
+	<xs:import namespace="ddi:datacollection:3_3" schemaLocation="datacollection.xsd"/>
+	<xs:import namespace="ddi:dataset:3_3" schemaLocation="dataset.xsd"/>
 	<xs:import namespace="http://purl.org/dc/terms/" schemaLocation="dcterms.xsd"/>
-	<xs:import namespace="ddi:ddiprofile:3_2" schemaLocation="ddiprofile.xsd"/>
-	<xs:import namespace="ddi:group:3_2" schemaLocation="group.xsd"/>
-	<xs:import namespace="ddi:logicalproduct:3_2" schemaLocation="logicalproduct.xsd"/>
-	<xs:import namespace="ddi:physicaldataproduct:3_2" schemaLocation="physicaldataproduct.xsd"/>
-	<xs:import namespace="ddi:physicaldataproduct_ncube_inline:3_2" schemaLocation="physicaldataproduct_ncube_inline.xsd"/>
-	<xs:import namespace="ddi:physicaldataproduct_ncube_normal:3_2" schemaLocation="physicaldataproduct_ncube_normal.xsd"/>
-	<xs:import namespace="ddi:physicaldataproduct_ncube_tabular:3_2" schemaLocation="physicaldataproduct_ncube_tabular.xsd"/>
-	<xs:import namespace="ddi:physicaldataproduct_proprietary:3_2" schemaLocation="physicaldataproduct_proprietary.xsd"/>
-	<xs:import namespace="ddi:physicalinstance:3_2" schemaLocation="physicalinstance.xsd"/>
-	<xs:import namespace="ddi:reusable:3_2" schemaLocation="reusable.xsd"/>
-	<xs:import namespace="ddi:studyunit:3_2" schemaLocation="studyunit.xsd"/>
+	<xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="dc.xsd"/>
+	<xs:import namespace="ddi:ddiprofile:3_3" schemaLocation="ddiprofile.xsd"/>
+	<xs:import namespace="ddi:group:3_3" schemaLocation="group.xsd"/>
+	<xs:import namespace="ddi:logicalproduct:3_3" schemaLocation="logicalproduct.xsd"/>
+	<xs:import namespace="ddi:physicaldataproduct:3_3" schemaLocation="physicaldataproduct.xsd"/>
+	<xs:import namespace="ddi:physicaldataproduct_ncube_inline:3_3" schemaLocation="physicaldataproduct_ncube_inline.xsd"/>
+	<xs:import namespace="ddi:physicaldataproduct_ncube_normal:3_3" schemaLocation="physicaldataproduct_ncube_normal.xsd"/>
+	<xs:import namespace="ddi:physicaldataproduct_ncube_tabular:3_3" schemaLocation="physicaldataproduct_ncube_tabular.xsd"/>
+	<xs:import namespace="ddi:physicaldataproduct_proprietary:3_3" schemaLocation="physicaldataproduct_proprietary.xsd"/>
+	<xs:import namespace="ddi:physicalinstance:3_3" schemaLocation="physicalinstance.xsd"/>
+	<xs:import namespace="ddi:reusable:3_3" schemaLocation="reusable.xsd"/>
+	<xs:import namespace="ddi:studyunit:3_3" schemaLocation="studyunit.xsd"/>
 	<xs:element name="DDIInstance" type="DDIInstanceType">
 		<xs:annotation>
 			<xs:documentation>DDIInstance is the top-level publication wrapper for any DDI document. All DDI content published as XML (with the exception of a Fragment intended for transmission) has DDIInstance as its top level structure. In addition to a citation and coverage statement for the instance, the DDIInstance can contain a Group, ResourcePackage, LocalHoldingPackage or StudyUnit.</xs:documentation>
@@ -229,20 +230,27 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="s:StudyUnit"/>
 				<xs:element ref="c:UniverseScheme"/>
 				<xs:element ref="l:VariableScheme"/>
+				<xs:element ref="d:SampleFrameScheme"/>
+				<xs:element ref="d:SamplingPlanScheme"/>
 				<!-- Versionables -->
 				<xs:element ref="l:Category"/>
 				<xs:element ref="l:CategoryGroup"/>
 				<xs:element ref="cm:CategoryMap"/>
 				<xs:element ref="l:CodeListGroup"/>
+				<xs:element ref="d:CognitiveExpertReviewActivity"/>
+				<xs:element ref="d:CognitiveInterviewActivity"/>
 				<xs:element ref="d:ComputationItem"/>
 				<xs:element ref="c:Concept"/>
 				<xs:element ref="c:ConceptGroup"/>
 				<xs:element ref="cm:ConceptMap"/>
 				<xs:element ref="c:ConceptualVariable"/>
 				<xs:element ref="c:ConceptualVariableGroup"/>
+				<xs:element ref="d:ContentReviewActivity"/>
 				<xs:element ref="d:ControlConstructGroup"/>
 				<xs:element ref="l:DataRelationship"/>
 				<xs:element ref="ds:DataSet"/>
+				<xs:element ref="d:DevelopmentPlan"/>
+				<xs:element ref="d:FocusGroupActivity"/>
 				<xs:element ref="d:GeneralInstruction"/>
 				<xs:element ref="d:GenerationInstruction"/>
 				<xs:element ref="r:GeographicLocation"/>
@@ -272,6 +280,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="a:OrganizationGroup"/>
 				<xs:element ref="p:PhysicalStructure"/>
 				<xs:element ref="p:PhysicalStructureGroup"/>
+				<xs:element ref="d:PretestActivity"/>
 				<xs:element ref="d:ProcessingEvent"/>
 				<xs:element ref="d:ProcessingEventGroup"/>
 				<xs:element ref="d:ProcessingInstructionGroup"/>
@@ -283,6 +292,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:QuestionGroup"/>
 				<xs:element ref="d:QuestionItem"/>
 				<xs:element ref="cm:QuestionMap"/>
+				<xs:element ref="d:QuestionnaireDevelopment"/>
 				<xs:element ref="p:RecordLayout"/>
 				<xs:element ref="m3:RecordLayout"/>
 				<xs:element ref="m1:RecordLayout"/>
@@ -299,6 +309,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:StatementItem"/>
 				<xs:element ref="g:SubGroup"/>
 				<xs:element ref="c:SubUniverseClass"/>
+				<xs:element ref="d:TranslationActivity"/>
 				<xs:element ref="c:Universe"/>
 				<xs:element ref="c:UniverseGroup"/>
 				<xs:element ref="cm:UniverseMap"/>
@@ -307,6 +318,10 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="cm:VariableMap"/>
 				<xs:element ref="pi:VariableStatistics"/>
 				<xs:element ref="d:Weighting"/>
+				<xs:element ref="d:SampleFrame"/>
+				<xs:element ref="d:SampleFrameGroup"/>
+				<xs:element ref="d:SamplingPlan"/>
+				<xs:element ref="d:SamplingPlanGroup"/>
 			</xs:choice>
 			<xs:element ref="r:Note" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
@@ -342,7 +357,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 			</xs:element>
 			<xs:element ref="r:Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Description of the translation process of the data and metadata</xs:documentation>
+					<xs:documentation>Description of the translation process of the data and metadata. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

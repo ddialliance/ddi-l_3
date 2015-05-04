@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-Copyright (c) 2014 DDI Alliance, DDI 3.2 release, 2014-02-05
+Copyright (c) 2015 DDI Alliance, DDI 3.3 release, 2015-02-15
 
-This file is part of DDI 3.2 XML Schema.
+This file is part of DDI 3.3 XML Schema.
 
-DDI 3.2 XML Schema is free software: you can redistribute it and/or modify
+DDI 3.3 XML Schema is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by the
 Free Software Foundation, either version 3 of the License, or (at your
 option) any later version.
 
-DDI 3.2 XML Schema is distributed in the hope that it will be useful, but
+DDI 3.3 XML Schema is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
 for more details.
 
 You should have received a copy of the GNU Lesser General Public License along
-with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
+with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:group:3_2" xmlns:r="ddi:reusable:3_2" xmlns:a="ddi:archive:3_2" xmlns:c="ddi:conceptualcomponent:3_2" xmlns:cm="ddi:comparative:3_2" xmlns:d="ddi:datacollection:3_2"
-           xmlns:l="ddi:logicalproduct:3_2" xmlns:p="ddi:physicaldataproduct:3_2" xmlns:pi="ddi:physicalinstance:3_2" xmlns:m1="ddi:physicaldataproduct_ncube_normal:3_2" xmlns:m2="ddi:physicaldataproduct_ncube_tabular:3_2"
-           xmlns:m3="ddi:physicaldataproduct_ncube_inline:3_2" xmlns:s="ddi:studyunit:3_2" xmlns:pr="ddi:ddiprofile:3_2" targetNamespace="ddi:group:3_2" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:import namespace="ddi:reusable:3_2" schemaLocation="reusable.xsd"/>
-	<xs:import namespace="ddi:archive:3_2" schemaLocation="archive.xsd"/>
-	<xs:import namespace="ddi:comparative:3_2" schemaLocation="comparative.xsd"/>
-	<xs:import namespace="ddi:conceptualcomponent:3_2" schemaLocation="conceptualcomponent.xsd"/>
-	<xs:import namespace="ddi:datacollection:3_2" schemaLocation="datacollection.xsd"/>
-	<xs:import namespace="ddi:logicalproduct:3_2" schemaLocation="logicalproduct.xsd"/>
-	<xs:import namespace="ddi:physicaldataproduct:3_2" schemaLocation="physicaldataproduct.xsd"/>
-	<xs:import namespace="ddi:physicalinstance:3_2" schemaLocation="physicalinstance.xsd"/>
-	<xs:import namespace="ddi:studyunit:3_2" schemaLocation="studyunit.xsd"/>
-	<xs:import namespace="ddi:ddiprofile:3_2" schemaLocation="ddiprofile.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:group:3_3" xmlns:r="ddi:reusable:3_3" xmlns:a="ddi:archive:3_3" xmlns:c="ddi:conceptualcomponent:3_3" xmlns:cm="ddi:comparative:3_3" xmlns:d="ddi:datacollection:3_3"
+           xmlns:l="ddi:logicalproduct:3_3" xmlns:p="ddi:physicaldataproduct:3_3" xmlns:pi="ddi:physicalinstance:3_3" xmlns:m1="ddi:physicaldataproduct_ncube_normal:3_3" xmlns:m2="ddi:physicaldataproduct_ncube_tabular:3_3"
+           xmlns:m3="ddi:physicaldataproduct_ncube_inline:3_3" xmlns:s="ddi:studyunit:3_3" xmlns:pr="ddi:ddiprofile:3_3" targetNamespace="ddi:group:3_3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="ddi:reusable:3_3" schemaLocation="reusable.xsd"/>
+	<xs:import namespace="ddi:archive:3_3" schemaLocation="archive.xsd"/>
+	<xs:import namespace="ddi:comparative:3_3" schemaLocation="comparative.xsd"/>
+	<xs:import namespace="ddi:conceptualcomponent:3_3" schemaLocation="conceptualcomponent.xsd"/>
+	<xs:import namespace="ddi:datacollection:3_3" schemaLocation="datacollection.xsd"/>
+	<xs:import namespace="ddi:logicalproduct:3_3" schemaLocation="logicalproduct.xsd"/>
+	<xs:import namespace="ddi:physicaldataproduct:3_3" schemaLocation="physicaldataproduct.xsd"/>
+	<xs:import namespace="ddi:physicalinstance:3_3" schemaLocation="physicalinstance.xsd"/>
+	<xs:import namespace="ddi:studyunit:3_3" schemaLocation="studyunit.xsd"/>
+	<xs:import namespace="ddi:ddiprofile:3_3" schemaLocation="ddiprofile.xsd"/>
 	<xs:element name="Group" type="GroupType">
 		<xs:annotation>
 			<xs:documentation>A primary packaging and publication module within DDI containing a Group of StudyUnits. The Group structure allows metadata regarding multiple study units to be published as a structured entity. Studies may be grouped "by design" such as a repeated study with intended areas of commonality between each study, or "ad hoc" where studies are grouped for applied or administrative reasons.</xs:documentation>
@@ -66,7 +66,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Abstract" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>An abstract of the ResourcePackage unit describing the nature and scope of the data collection, special characteristics of its content. Note that detailed information on the purpose of the ResourcePackage and structured coverage information are to be entered in Purpose and Coverage. Abstract supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+							<xs:documentation>An abstract of the ResourcePackage unit describing the nature and scope of the data collection, special characteristics of its content. Note that detailed information on the purpose of the ResourcePackage and structured coverage information are to be entered in Purpose and Coverage. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:AuthorizationSource" minOccurs="0" maxOccurs="unbounded">
@@ -101,7 +101,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Purpose" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The purpose of the ResourcePackage, why the ResourcePackage took place. This should include detailed information on the investigator's primary ResourcePackage questions or hypotheses as well as information on any legal basis for the data collection, such as laws requiring the collection of census data for apportionment purposes. Legal or other authorization should be provided in detail within AuthorizationSource. Purpose supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+							<xs:documentation>The purpose of the ResourcePackage, why the ResourcePackage took place. This should include detailed information on the investigator's primary ResourcePackage questions or hypotheses as well as information on any legal basis for the data collection, such as laws requiring the collection of census data for apportionment purposes. Legal or other authorization should be provided in detail within AuthorizationSource. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Coverage" minOccurs="0">
@@ -475,6 +475,42 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="d:SampleFrameScheme">
+							<xs:annotation>
+								<xs:documentation>A set of sample framess maintained by an agency, and used in the instrument.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="d:SampleFrameSchemeReference">
+							<xs:annotation>
+								<xs:documentation>References to a set of sample framess maintained by an agency, and used in the instrument.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="d:SamplingPlanScheme">
+							<xs:annotation>
+								<xs:documentation>A set of sampling plans maintained by an agency, and used in the instrument.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="d:SamplingPlanSchemeReference">
+							<xs:annotation>
+								<xs:documentation>References to a set of sampling plans maintained by an agency, and used in the instrument.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="d:DevelopmentActivityScheme">
+							<xs:annotation>
+								<xs:documentation>A set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="d:DevelopmentActivitySchemeReference">
+							<xs:annotation>
+								<xs:documentation>References to a set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -494,7 +530,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Abstract" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>An abstract of the group unit describing the nature and scope of the data collection, special characteristics of its content. Note that detailed information on the purpose of the group and structured coverage information are to be entered in Purpose and Coverage. Abstract supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+							<xs:documentation>An abstract of the group unit describing the nature and scope of the data collection, special characteristics of its content. Note that detailed information on the purpose of the group and structured coverage information are to be entered in Purpose and Coverage. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:AuthorizationSource" minOccurs="0" maxOccurs="unbounded">
@@ -546,7 +582,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Purpose" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The purpose of the group, why the group took place. This should include detailed information on the investigator's primary group questions or hypotheses as well as information on any legal basis for the data collection, such as laws requiring the collection of census data for apportionment purposes. Legal or other authorization should be provided in detail within AuthorizationSource. Purpose supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+							<xs:documentation>The purpose of the group, why the group took place. This should include detailed information on the investigator's primary group questions or hypotheses as well as information on any legal basis for the data collection, such as laws requiring the collection of census data for apportionment purposes. Legal or other authorization should be provided in detail within AuthorizationSource. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Coverage" minOccurs="0">
@@ -767,7 +803,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Abstract" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>An abstract of the sub-group unit describing the nature and scope of the data collection, special characteristics of its content. Note that detailed information on the purpose of the sub-group and structured coverage information are to be entered in Purpose and Coverage. Abstract supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+							<xs:documentation>An abstract of the sub-group unit describing the nature and scope of the data collection, special characteristics of its content. Note that detailed information on the purpose of the sub-group and structured coverage information are to be entered in Purpose and Coverage. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:AuthorizationSource" minOccurs="0" maxOccurs="unbounded">
@@ -802,7 +838,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Purpose" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The purpose of the sub-group, why the sub-group took place. This should include detailed information on the investigator's primary sub-group questions or hypotheses as well as information on any legal basis for the data collection, such as laws requiring the collection of census data for apportionment purposes. Legal or other authorization should be provided in detail within AuthorizationSource. Purpose supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+							<xs:documentation>The purpose of the sub-group, why the sub-group took place. This should include detailed information on the investigator's primary sub-group questions or hypotheses as well as information on any legal basis for the data collection, such as laws requiring the collection of census data for apportionment purposes. Legal or other authorization should be provided in detail within AuthorizationSource. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Coverage" minOccurs="0">
@@ -1129,7 +1165,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="r:Description">
 				<xs:annotation>
-					<xs:documentation>A description of the link such as the reason for adding or changing local content. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+					<xs:documentation>A description of the link such as the reason for adding or changing local content. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

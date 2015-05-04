@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-Copyright (c) 2014 DDI Alliance, DDI 3.2 release, 2014-02-05
+Copyright (c) 2015 DDI Alliance, DDI 3.3 release, 2015-02-15
 
-This file is part of DDI 3.2 XML Schema.
+This file is part of DDI 3.3 XML Schema.
 
-DDI 3.2 XML Schema is free software: you can redistribute it and/or modify
+DDI 3.3 XML Schema is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by the
 Free Software Foundation, either version 3 of the License, or (at your
 option) any later version.
 
-DDI 3.2 XML Schema is distributed in the hope that it will be useful, but
+DDI 3.3 XML Schema is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
 for more details.
 
 You should have received a copy of the GNU Lesser General Public License along
-with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
+with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:archive:3_2" xmlns:r="ddi:reusable:3_2" targetNamespace="ddi:archive:3_2" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:import namespace="ddi:reusable:3_2" schemaLocation="reusable.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:archive:3_3" xmlns:r="ddi:reusable:3_3" targetNamespace="ddi:archive:3_3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="ddi:reusable:3_3" schemaLocation="reusable.xsd"/>
 	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
 	<xs:element name="Archive" type="ArchiveType">
 		<xs:annotation>
@@ -41,12 +41,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the Archive module. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the Archive module. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the Archive module. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the Archive module. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="ArchiveSpecific" minOccurs="0" maxOccurs="unbounded">
@@ -194,7 +194,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="AvailabilityStatus" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A statement of availability for the item. This is a positive statement (as opposed to access restrictions) which may be used for publication or other purposes. Allows for structured content.</xs:documentation>
+					<xs:documentation>A statement of availability for the object. This is a positive statement (as opposed to access restrictions) which may be used for publication or other purposes. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="DataFileQuantity" minOccurs="0">
@@ -204,7 +204,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="CollectionCompleteness" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Describes the completeness of the collection for the item and its related data files and sub-items. Note coverage gaps as well as unique content . This statement may be used for publication or other purposes. Allows for structured content.</xs:documentation>
+					<xs:documentation>Describes the completeness of the collection for the item and its related data files and sub-items. Note coverage gaps as well as unique content . This statement may be used for publication or other purposes. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="Item" minOccurs="0" maxOccurs="unbounded">
@@ -261,7 +261,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="AvailabilityStatus" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A statement of availability for the collection. This is a positive statement (as opposed to access restrictions) which may be used for publication or other purposes. Allows for structured content.</xs:documentation>
+					<xs:documentation>A statement of availability for the object. This is a positive statement (as opposed to access restrictions) which may be used for publication or other purposes. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="DataFileQuantity" minOccurs="0">
@@ -271,7 +271,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="CollectionCompleteness" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Describes the completeness of the collection. Note coverage gaps as well as collections strengths. This statement may be used for publication or other purposes. Allows for structured content.</xs:documentation>
+					<xs:documentation>Describes the completeness of the collection for the item and its related data files and sub-items. Note coverage gaps as well as unique content . This statement may be used for publication or other purposes. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="Item" minOccurs="0" maxOccurs="unbounded">
@@ -294,7 +294,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:sequence>
 			<xs:element ref="r:Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the purpose in classifying the object and how it conforms to the classification. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+					<xs:documentation>A description of the purpose in classifying the object and how it conforms to the classification. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="ClassType" minOccurs="0">
@@ -324,17 +324,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the description of access. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the description of access. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the access description. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the access description. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="ConfidentialityStatement" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A statement regarding the confidentiality of the related data or metadata.</xs:documentation>
+							<xs:documentation>A statement regarding the confidentiality of the related data or metadata. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="AccessPermission" minOccurs="0" maxOccurs="unbounded">
@@ -344,27 +344,27 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="Restrictions" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A statement regarding restrictions to access. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A statement regarding restrictions to access. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="CitationRequirement" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A statement regarding the citation requirement. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A statement regarding the citation requirement. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="DepositRequirement" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A statement regarding depositor requirements. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A statement of deposit requirements for the data.  Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="AccessConditions" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A statement regarding conditions for access. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>Conditions for access to the metadata and/or data.  Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Disclaimer" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A disclaimer regarding the liability of the data producers or providers. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A disclaimer regarding the liability of the data producers or providers. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="AccessRestrictionDate" minOccurs="0">
@@ -460,17 +460,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="AvailabilityStatus" type="r:StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Availability status of the object provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>A statement of availability for the object. This is a positive statement (as opposed to access restrictions) which may be used for publication or other purposes. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="CollectionCompleteness" type="r:StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Completeness of the collection provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Describes the completeness of the collection for the item and its related data files and sub-items. Note coverage gaps as well as unique content . This statement may be used for publication or other purposes. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ConfidentialityStatement" type="r:StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Confidentiality Statement provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>A statement regarding the confidentiality of the related data or metadata. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="AccessPermission" type="FormType">
@@ -480,27 +480,27 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="Restrictions" type="r:StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Restrictions provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation> statement regarding restrictions to access. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="CitationRequirement" type="r:StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Citation Requirement provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>A statement regarding the citation requirement. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DepositRequirement" type="r:StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Deposit Requirement provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>A statement of deposit requirements for the data.  Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="AccessConditions" type="r:StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Access Conditions provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Conditions for access to the metadata and/or data.  Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Disclaimer" type="r:StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Disclaimer provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>A disclaimer regarding the liability of the data producers or providers. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="AccessRestrictionDate" type="r:AccessRestrictionDateType">
@@ -571,17 +571,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="OrganizationSchemeName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the scheme. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the OrganizationScheme. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the scheme. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the OrganizationScheme. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the scheme. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the OrganizationScheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:OrganizationSchemeReference" minOccurs="0" maxOccurs="unbounded">
@@ -670,17 +670,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="OrganizationGroupName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the group. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the OrganizationGroup. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the OrganizationGroup. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the OrganizationGroup. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the OrganizationGroup. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the OrganizationGroup. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
@@ -760,7 +760,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the organization. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the organization. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Keyword" minOccurs="0" maxOccurs="unbounded">
@@ -865,12 +865,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A display label for the Version Distinction. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+					<xs:documentation>A display label for the Version Distinction. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="r:Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the content and purpose of the Version Distinction. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+					<xs:documentation>A description of the content and purpose of the Version Distinction. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="r:EffectivePeriod" minOccurs="0">
@@ -910,7 +910,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the individual. Supports multiple languages and optional structured content.</xs:documentation>
+							<xs:documentation>A description of the individual. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Keyword" minOccurs="0" maxOccurs="unbounded">
@@ -925,7 +925,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="AdditionalInformation" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Any additional information you which to note about the individual. Supports multiple languages and optional structured content. A privacy tag may be used.</xs:documentation>
+							<xs:documentation>Any information not captured by the other descriptive objects. The privacy code may be set to indicate access restriction to this information. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="LanguageAbility" minOccurs="0" maxOccurs="unbounded">
@@ -1147,7 +1147,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="r:Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the purpose and use of the researcher ID. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+					<xs:documentation>A description of the purpose and use of the researcher ID. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="r:EffectivePeriod" minOccurs="0">
@@ -1181,7 +1181,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="AdditionalInformation" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Any additional information you which to note about this role of the Target object in this relationship. This is a structured string so it can be formatted and a privacy tag can be applied.</xs:documentation>
+					<xs:documentation>Any information not captured by the other descriptive objects. The privacy code may be set to indicate access restriction to this information. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1296,7 +1296,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the relationship. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the relationship. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Keyword" minOccurs="0" maxOccurs="unbounded">
@@ -1311,7 +1311,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="AdditionalInformation" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Any additional information you which to note about the relation. This is a structured string so it can be formatted and a privacy tag can be applied.</xs:documentation>
+							<xs:documentation>Any information not captured by the other descriptive objects. The privacy code may be set to indicate access restriction to this information. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -1720,12 +1720,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="AdditionalInformation" type="AdditionalInformationType">
 		<xs:annotation>
-			<xs:documentation>Additional Information provided using a StructuredString plus a privacy code to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Any information not captured by the other descriptive objects. The privacy code may be set to indicate access restriction to this information. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="AdditionalInformationType">
 		<xs:annotation>
-			<xs:documentation>Additional Information provided using a StructuredString plus a privacy code to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Any information not captured by the other descriptive objects. The privacy code may be set to indicate access restriction to this information. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:StructuredStringType">

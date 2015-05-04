@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-Copyright (c) 2014 DDI Alliance, DDI 3.2 release, 2014-02-05
+Copyright (c) 2015 DDI Alliance, DDI 3.3 release, 2015-02-15
 
-This file is part of DDI 3.2 XML Schema.
+This file is part of DDI 3.3 XML Schema.
 
-DDI 3.2 XML Schema is free software: you can redistribute it and/or modify
+DDI 3.3 XML Schema is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by the
 Free Software Foundation, either version 3 of the License, or (at your
 option) any later version.
 
-DDI 3.2 XML Schema is distributed in the hope that it will be useful, but
+DDI 3.3 XML Schema is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
 for more details.
 
 You should have received a copy of the GNU Lesser General Public License along
-with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
+with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:comparative:3_2" xmlns:d="ddi:datacollection:3_2" xmlns:r="ddi:reusable:3_2" targetNamespace="ddi:comparative:3_2" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:import namespace="ddi:datacollection:3_2" schemaLocation="datacollection.xsd"/>
-	<xs:import namespace="ddi:reusable:3_2" schemaLocation="reusable.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:comparative:3_3" xmlns:d="ddi:datacollection:3_3" xmlns:r="ddi:reusable:3_3" targetNamespace="ddi:comparative:3_3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="ddi:datacollection:3_3" schemaLocation="datacollection.xsd"/>
+	<xs:import namespace="ddi:reusable:3_3" schemaLocation="reusable.xsd"/>
 	<xs:element name="Comparison" type="ComparisonType">
 		<xs:annotation>
 			<xs:documentation>A maintainable module containing maps between objects of the same or similar type. Maps allow for pair-wise mapping of two objects by describing their similarities and differences in order to make assertions regarding their comparability. Currently maps allow for the comparison of concepts, variables, questions, categories, universes, and representations that have managed content (code, category, numeric, text, datetime and scale).</xs:documentation>
@@ -41,12 +41,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the comparison. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the comparison. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the comparison. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the comparison. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -144,12 +144,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the Map. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the Map. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the Map. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the Map. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="SourceSchemeReference">
@@ -188,12 +188,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:sequence>
 			<xs:element ref="Commonality" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the common features of the two items using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+					<xs:documentation>Common features of the compared objects.  Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="r:Difference" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the differences between the two items using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+					<xs:documentation>Description of the difference between the compared objects.  Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="CommonalityTypeCoded" minOccurs="0">
@@ -244,12 +244,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the RepresentationMap. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the RepresentationMap. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the RepresentationMap. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the RepresentationMap. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="SourceRepresentation">
@@ -481,7 +481,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="Commonality" type="r:StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Commonality of the compared objects provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Common features of the compared objects.  Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="CommonalityTypeCoded" type="r:CodeValueType">

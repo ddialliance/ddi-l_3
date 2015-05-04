@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-Copyright (c) 2014 DDI Alliance, DDI 3.2 release, 2014-02-05
+Copyright (c) 2015 DDI Alliance, DDI 3.3 release, 2015-02-15
 
-This file is part of DDI 3.2 XML Schema.
+This file is part of DDI 3.3 XML Schema.
 
-DDI 3.2 XML Schema is free software: you can redistribute it and/or modify
+DDI 3.3 XML Schema is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by the
 Free Software Foundation, either version 3 of the License, or (at your
 option) any later version.
 
-DDI 3.2 XML Schema is distributed in the hope that it will be useful, but
+DDI 3.3 XML Schema is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
 for more details.
 
 You should have received a copy of the GNU Lesser General Public License along
-with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
+with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:physicaldataproduct_ncube_tabular:3_2" xmlns:r="ddi:reusable:3_2" xmlns:p="ddi:physicaldataproduct:3_2" targetNamespace="ddi:physicaldataproduct_ncube_tabular:3_2"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:physicaldataproduct_ncube_tabular:3_3" xmlns:r="ddi:reusable:3_3" xmlns:p="ddi:physicaldataproduct:3_3" targetNamespace="ddi:physicaldataproduct_ncube_tabular:3_3"
            elementFormDefault="qualified">
 	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
-	<xs:import namespace="ddi:reusable:3_2" schemaLocation="reusable.xsd"/>
-	<xs:import namespace="ddi:physicaldataproduct:3_2" schemaLocation="physicaldataproduct.xsd"/>
+	<xs:import namespace="ddi:reusable:3_3" schemaLocation="reusable.xsd"/>
+	<xs:import namespace="ddi:physicaldataproduct:3_3" schemaLocation="physicaldataproduct.xsd"/>
 	<!-- COMMON RECORD LAYOUT - CUBED - MODULE 2 -->
 	<xs:element name="RecordLayout" type="RecordLayoutType" substitutionGroup="p:BaseRecordLayout">
 		<xs:annotation>

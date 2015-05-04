@@ -1,0 +1,6 @@
+REISSUE Notification 2014-05-15
+
+The DDI 3.2 schema package was reissued on 2014-05-15 to correct an error in the HTML version of the 
+Field Level Documentation which resulted in a small number of broken links. No change has been made 
+to the contents of the schemas themselves.
+

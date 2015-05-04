@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-Copyright (c) 2014 DDI Alliance, DDI 3.2 release, 2014-01-15
+Copyright (c) 2015 DDI Alliance, DDI 3.3 release, 2015-02-15
 
-This file is part of DDI 3.2 XML Schema.
+This file is part of DDI 3.3 XML Schema.
 
-DDI 3.2 XML Schema is free software: you can redistribute it and/or modify
+DDI 3.3 XML Schema is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by the
 Free Software Foundation, either version 3 of the License, or (at your
 option) any later version.
 
-DDI 3.2 XML Schema is distributed in the hope that it will be useful, but
+DDI 3.3 XML Schema is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
 for more details.
 
 You should have received a copy of the GNU Lesser General Public License along
-with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
+with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:ddiprofile:3_2" xmlns:r="ddi:reusable:3_2" targetNamespace="ddi:ddiprofile:3_2" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:import namespace="ddi:reusable:3_2" schemaLocation="reusable.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:ddiprofile:3_3" xmlns:r="ddi:reusable:3_3" targetNamespace="ddi:ddiprofile:3_3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="ddi:reusable:3_3" schemaLocation="reusable.xsd"/>
 	<xs:element name="DDIProfile" type="DDIProfileType">
 		<xs:annotation>
 			<xs:documentation>Describes the subset of valid DDI objects used by an agency for a specified purpose.</xs:documentation>
@@ -40,12 +40,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the profile. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the profile. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the profile. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the profile. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="ApplicationOfProfile" minOccurs="0" maxOccurs="unbounded">
@@ -106,7 +106,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="Instructions" type="r:StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Instructions provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Instructions for use of the profile. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="AlternateName" type="r:InternationalStringType">
@@ -149,12 +149,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="r:Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the content and purpose of the object. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+					<xs:documentation>A description of the content and purpose of the object. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="Instructions" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Instructions for the use of the object within the context of the profile. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+					<xs:documentation>Instructions for the use of the object within the context of the profile. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

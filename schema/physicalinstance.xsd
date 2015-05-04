@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-Copyright (c) 2014 DDI Alliance, DDI 3.2 release, 2014-02-05
+Copyright (c) 2015 DDI Alliance, DDI 3.3 release, 2015-02-15
 
-This file is part of DDI 3.2 XML Schema.
+This file is part of DDI 3.3 XML Schema.
 
-DDI 3.2 XML Schema is free software: you can redistribute it and/or modify
+DDI 3.3 XML Schema is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by the
 Free Software Foundation, either version 3 of the License, or (at your
 option) any later version.
 
-DDI 3.2 XML Schema is distributed in the hope that it will be useful, but
+DDI 3.3 XML Schema is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
 for more details.
 
 You should have received a copy of the GNU Lesser General Public License along
-with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
+with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:physicalinstance:3_2" xmlns:r="ddi:reusable:3_2" targetNamespace="ddi:physicalinstance:3_2" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:import namespace="ddi:reusable:3_2" schemaLocation="reusable.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:physicalinstance:3_3" xmlns:r="ddi:reusable:3_3" targetNamespace="ddi:physicalinstance:3_3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="ddi:reusable:3_3" schemaLocation="reusable.xsd"/>
 	<xs:element name="PhysicalInstance" type="PhysicalInstanceType">
 		<xs:annotation>
 			<xs:documentation>Includes information about the physical instance of a data product (an actual data file). It completes the documentation contained in the Physical Data Product module that is specific to the individual file and serves as a descriptive record of the external data file. Physical Instance provides a citation for the data file, a link to the RecordLayout(s) used by the files records, a description of it coverage (as a constraint if different from the study), check figures for quality control (e.g. digital fingerprint, record count, etc.), and a statistical summary of the data in the file at both the variable and category level.</xs:documentation>
@@ -223,7 +223,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="ProcessingCheck" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Documents processing checks and other operations performed on the data file.</xs:documentation>
+							<xs:documentation>Documents processing checks and other operations performed on the data file. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="ProcessingStatus" type="r:CodeValueType" minOccurs="0">
@@ -453,11 +453,18 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
                <xs:documentation>Type of category statistic. Supports the use of an external controlled vocabulary. DDI strongly recommends the use of a controlled vocabulary.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element ref="Statistic">
-            <xs:annotation>
-               <xs:documentation>The value of the statistics and whether it is weighted and/or includes missing values.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+         <xs:choice>
+         	<xs:element ref="Statistic">
+         	   <xs:annotation>
+         	      <xs:documentation>The value (expressed as a decimal) of the statistics and whether it is weighted and/or includes missing values.</xs:documentation>
+         	   </xs:annotation>
+         	</xs:element>
+         	<xs:element ref="StatisticDouble">
+         	   <xs:annotation>
+         	      <xs:documentation>The value (expressed as a double) of the statistics and whether it is weighted and/or includes missing values.</xs:documentation>
+         	   </xs:annotation>
+         	</xs:element>
+         </xs:choice>
       </xs:sequence>
    </xs:complexType>
    <xs:element name="TypeOfCategoryStatistic" type="r:CodeValueType">
@@ -509,19 +516,45 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
                <xs:documentation>Type of summary statistic, such as count, mean, mode, median, etc. Supports the use of an external controlled vocabulary. DDI strongly recommends the use of a controlled vocabulary.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element ref="Statistic" minOccurs="0">
-            <xs:annotation>
-               <xs:documentation>The value of the statistics and whether it is weighted and/or includes missing values.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+         <xs:choice>
+         	<xs:element ref="Statistic">
+         	   <xs:annotation>
+         	      <xs:documentation>The value (expressed as a decimal) of the statistics and whether it is weighted and/or includes missing values.</xs:documentation>
+         	   </xs:annotation>
+         	</xs:element>
+         	<xs:element ref="StatisticDouble">
+         	   <xs:annotation>
+         	      <xs:documentation>The value (expressed as a double) of the statistics and whether it is weighted and/or includes missing values.</xs:documentation>
+         	   </xs:annotation>
+         	</xs:element>
+         </xs:choice>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="StatisticType">
       <xs:annotation>
-         <xs:documentation>The value of the statistics and whether it is weighted and/or includes missing values.</xs:documentation>
+         <xs:documentation>The value (expressed as a decimal) of the statistics and whether it is weighted and/or includes missing values.</xs:documentation>
       </xs:annotation>
       <xs:simpleContent>
         <xs:extension base="xs:decimal">
+         <xs:attribute name="isWeighted" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>Set to "true" if the statistic is weighted using the weight designated in VariableStatistics.</xs:documentation>
+            </xs:annotation>
+         </xs:attribute>
+         <xs:attribute name="computationBase" type="ComputationBaseType">
+             <xs:annotation>
+                <xs:documentation>Defines the cases included in determining the statistic. The options are total=all cases, valid and missing (invalid); validOnly=Only valid values, missing (invalid) are not included in the calculation; missingOnly=Only missing (invalid) cases included in the calculation.</xs:documentation>
+             </xs:annotation>
+          </xs:attribute>
+       </xs:extension>  
+     </xs:simpleContent>
+   </xs:complexType>
+   <xs:complexType name="StatisticDoubleType">
+      <xs:annotation>
+         <xs:documentation>The value (expressed as a double) of the statistics and whether it is weighted and/or includes missing values.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleContent>
+        <xs:extension base="xs:double">
          <xs:attribute name="isWeighted" type="xs:boolean">
             <xs:annotation>
                <xs:documentation>Set to "true" if the statistic is weighted using the weight designated in VariableStatistics.</xs:documentation>
@@ -541,6 +574,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
       </xs:annotation>
    </xs:element>
    <xs:element name="Statistic" type="StatisticType">
+      <xs:annotation>
+         <xs:documentation>The value of the statistics and whether it is weighted and/or includes missing values.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="StatisticDouble" type="StatisticDoubleType">
       <xs:annotation>
          <xs:documentation>The value of the statistics and whether it is weighted and/or includes missing values.</xs:documentation>
       </xs:annotation>
@@ -607,7 +645,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="ProcessingCheck" type="r:StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Processing Check provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Documents processing checks and other operations performed on the data file. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DigitalFingerprintValue" type="xs:string">
