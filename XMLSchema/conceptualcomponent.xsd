@@ -589,7 +589,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Reference to a universe being associated with this concept. TypeOfObject should be set to Universe.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="c:TypeOfUnit" minOccurs="0">
+					<xs:element ref="TypeOfUnit" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The entity type associated with this conceptual variable. For example, individuals, families or households, groups, institutions/organizations, administrative units, etc. Supports the use of an external controlled vocabulary.</xs:documentation>
 						</xs:annotation>
@@ -817,7 +817,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>A concept that defines or aids in understanding the content of the universe. For example the Universe "Males" may link to the concept of "Male".</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="c:TypeOfUnit" minOccurs="0">
+					<xs:element ref="TypeOfUnit" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The entity type associated with this conceptual variable. For example, individuals, families or households, groups, institutions/organizations, administrative units, etc. Supports the use of an external controlled vocabulary.</xs:documentation>
 						</xs:annotation>
