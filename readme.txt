@@ -22,7 +22,7 @@ Technical Committee - TC:
     
     Johan Fihn, Swedish National Data Service
     Jeremy Iverson, Colectica
-    Jon Johnson, Institute of Education, University of London
+    Jon Johnson, Institute of Education, University College London
     Dan Smith, Colectica
 
     Past Members and invited experts:
