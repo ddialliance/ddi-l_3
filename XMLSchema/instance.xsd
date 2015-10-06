@@ -203,6 +203,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="c:ConceptualVariableScheme"/>
 				<xs:element ref="d:ControlConstructScheme"/>
 				<xs:element ref="d:DataCollection"/>
+				<xs:element ref="d:DevelopmentActivityScheme"/>
 				<xs:element ref="DDIInstance"/>
 				<xs:element ref="pr:DDIProfile"/>
 				<xs:element ref="c:GeographicLocationScheme"/>
@@ -249,7 +250,10 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:ControlConstructGroup"/>
 				<xs:element ref="l:DataRelationship"/>
 				<xs:element ref="ds:DataSet"/>
+				<xs:element ref="d:DevelopmentActivityGroup"/>
 				<xs:element ref="d:DevelopmentPlan"/>
+				<xs:element ref="d:DevelopmentProcess"/>
+				<xs:element ref="d:DevelopmentResults"/>
 				<xs:element ref="d:FocusGroupActivity"/>
 				<xs:element ref="d:GeneralInstruction"/>
 				<xs:element ref="d:GenerationInstruction"/>
