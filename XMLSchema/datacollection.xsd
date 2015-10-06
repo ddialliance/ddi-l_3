@@ -5590,9 +5590,9 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="DevelopmentActivityType">
 				<xs:sequence>
-					<xs:element ref="TypeOfContentReview">
+					<xs:element ref="TypeOfContentReview" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Identifies the specific type of content review not done as part of a Focus Group, Cognitive Expert Review, or Congnitive Interview. Supports the use of a controlled vocabulary which is strongly recommended.</xs:documentation>
+							<xs:documentation>Identifies the specific type of content review not done as part of a Focus Group, Cognitive Expert Review, or Cognitive Interview. Supports the use of a controlled vocabulary which is strongly recommended.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -5616,7 +5616,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="DevelopmentActivityType">
 				<xs:sequence>
-					<xs:element ref="TypeOfFocusGroup">
+					<xs:element ref="TypeOfFocusGroup" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Identifies the specific type of Focus Group. Supports the use of a controlled vocabulary which is strongly recommended.</xs:documentation>
 						</xs:annotation>
@@ -5642,9 +5642,9 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="DevelopmentActivityType">
 				<xs:sequence>
-					<xs:element ref="TypeOfCognitiveInterview">
+					<xs:element ref="TypeOfCognitiveInterview" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Identifies the specific type of Congnitive Interview. Supports the use of a controlled vocabulary which is strongly recommended.</xs:documentation>
+							<xs:documentation>Identifies the specific type of Cognitive Interview. Supports the use of a controlled vocabulary which is strongly recommended.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -5668,9 +5668,9 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="DevelopmentActivityType">
 				<xs:sequence>
-					<xs:element ref="TypeOfCognitiveExpertReview">
+					<xs:element ref="TypeOfCognitiveExpertReview" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Identifies the specific type of Congnitive Expert Interview. Supports the use of a controlled vocabulary which is strongly recommended.</xs:documentation>
+							<xs:documentation>Identifies the specific type of Cognitive Expert Interview. Supports the use of a controlled vocabulary which is strongly recommended.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
