@@ -780,6 +780,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>This section provides information on the Maintainable Parent of this object at its point of origination. This content will not change over time unless the version of the object changes. Note that if the ID, Agency, Version sequence is used, and the scope of uniqueness of the referenced object is the Maintainable, then the ID of the Maintainable is needed to create the structured ID portion of the canonical URN. If the system uses the deprecated URN, both the Maintainable ID and TypeOfMaintainableObject are required to create the deprecated URN structure.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="UserAttributePair" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A system specific user defined property of the object expressed as a key/value pair. As this is specific to an individual system the use of controlled vocabularies for the key is strongly recommended.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="isIdentifiable" type="xs:boolean" fixed="true">
 					<xs:annotation>
@@ -797,11 +802,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="AbstractIdentifiableType">
 				<xs:sequence>
-					<xs:element ref="UserAttributePair" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A system specific user defined property of the object expressed as a key/value pair. As this is specific to an individual system the use of controlled vocabularies for the key is strongly recommended.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:choice minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Allows for identification of the person or organization within the maintenance agency responsible for the new version.  This is primarily intended for internal use.</xs:documentation>
