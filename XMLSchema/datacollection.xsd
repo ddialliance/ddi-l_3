@@ -5780,7 +5780,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:sequence>
 			<xs:element ref="TypeOfTranslationAid" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the type of translation aid avialable. Supports the use of a controlled vocabulary.</xs:documentation>
+					<xs:documentation>Specifies the type of translation aid available. Supports the use of a controlled vocabulary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="r:Description" minOccurs="0">
@@ -5856,7 +5856,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="TranslationTargetLanguage" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work for the target langauge.</xs:documentation>
+					<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work for the target language.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -6182,7 +6182,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="DevelopmentActivityReference">
 							<xs:annotation>
-								<xs:documentation>Reference to a constiuant DevelopmentActivity for inclusion in the group. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+								<xs:documentation>Reference to a constituent DevelopmentActivity for inclusion in the group. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="DevelopmentActivityGroupReference">

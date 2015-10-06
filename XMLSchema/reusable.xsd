@@ -3561,48 +3561,48 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:choice minOccurs="0">
 				<xs:element ref="Low">
 					<xs:annotation>
-						<xs:documentation>The lower bound of the range expressed in the datatype xs:decimal. If not present, then there is no lower bound.</xs:documentation>
+						<xs:documentation>The lower bound of the range expressed in the data type xs:decimal. If not present, then there is no lower bound.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="LowDouble">
 					<xs:annotation>
-						<xs:documentation>The lower bound of the range expressed in the datatype xs:double. If not present, then there is no lower bound.</xs:documentation>
+						<xs:documentation>The lower bound of the range expressed in the data type xs:double. If not present, then there is no lower bound.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
 			<xs:choice minOccurs="0">
 				<xs:element ref="High" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The upper bound of the range in the datatype xs:decimal. If not present, then there is no upper bound.</xs:documentation>
+						<xs:documentation>The upper bound of the range in the data type xs:decimal. If not present, then there is no upper bound.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="HighDouble" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The upper bound of the range in the datatype xs:double. If not present, then there is no upper bound.</xs:documentation>
+						<xs:documentation>The upper bound of the range in the data type xs:double. If not present, then there is no upper bound.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
 			<xs:choice minOccurs="0">
 				<xs:element name="TopCode" type="xs:decimal">
 					<xs:annotation>
-						<xs:documentation>Indicates that any response equal to or greater than this value has been coded as the top-code value. Expressed in the datatype xs:decimal.</xs:documentation>
+						<xs:documentation>Indicates that any response equal to or greater than this value has been coded as the top-code value. Expressed in the data type xs:decimal.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="TopCodeDouble" type="xs:double">
 					<xs:annotation>
-						<xs:documentation>Indicates that any response equal to or greater than this value has been coded as the top-code value. Expressed in the datatype xs:decimal.</xs:documentation>
+						<xs:documentation>Indicates that any response equal to or greater than this value has been coded as the top-code value. Expressed in the data type xs:decimal.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
 			<xs:choice minOccurs="0">
 				<xs:element name="BottomCode" type="xs:decimal">
 					<xs:annotation>
-						<xs:documentation>Indicates that any response equal to or less than this value has been coded as the bottom-code value. Expressed in the datatype xs:double.</xs:documentation>
+						<xs:documentation>Indicates that any response equal to or less than this value has been coded as the bottom-code value. Expressed in the data type xs:double.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="BottomCodeDouble" type="xs:double">
 					<xs:annotation>
-						<xs:documentation>Indicates that any response equal to or less than this value has been coded as the bottom-code value. Expressed in the datatype xs:double.</xs:documentation>
+						<xs:documentation>Indicates that any response equal to or less than this value has been coded as the bottom-code value. Expressed in the data type xs:double.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
