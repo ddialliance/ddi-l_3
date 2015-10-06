@@ -1084,6 +1084,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Do not use if the referenced object is Maintainable. For references to Identifiable and Versionable objects this provides contextual information on the Maintainable Parent of this object at point of origin. Note that if the ID, Agency, Version sequence is used, and the scope of uniqueness of the referenced object is the Maintainable, then the ID of the Maintainable is needed to create the structured ID portion of the canonical URN. If the system uses the deprecated URN, both the Maintainable ID and TypeOfMaintainableObject are required to create the deprecated URN structure.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element ref="UserAttributePair" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A system specific user defined property of the object expressed as a key/value pair. As this is specific to an individual system the use of controlled vocabularies for the key is strongly recommended.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="isExternal" type="xs:boolean" default="false">
 			<xs:annotation>
