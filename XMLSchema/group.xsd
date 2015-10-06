@@ -478,12 +478,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="d:SampleFrameScheme">
 							<xs:annotation>
-								<xs:documentation>A set of sample framess maintained by an agency, and used in the instrument.</xs:documentation>
+								<xs:documentation>A set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="d:SampleFrameSchemeReference">
 							<xs:annotation>
-								<xs:documentation>References to a set of sample framess maintained by an agency, and used in the instrument.</xs:documentation>
+								<xs:documentation>References to a set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>

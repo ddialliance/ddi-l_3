@@ -160,12 +160,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="SampleFrameScheme">
 							<xs:annotation>
-								<xs:documentation>A set of sample framess maintained by an agency, and used in the instrument.</xs:documentation>
+								<xs:documentation>A set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="SampleFrameSchemeReference">
 							<xs:annotation>
-								<xs:documentation>References to a set of sample framess maintained by an agency, and used in the instrument.</xs:documentation>
+								<xs:documentation>References to a set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -2474,7 +2474,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="QuestionGroupName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the QeustionGroup. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the QuestionGroup. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
@@ -3852,7 +3852,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="TypeOfSamplingProcedure" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A generic means of classifying a SamplingProcdure. Supports the use of an external controlled vocabulary.</xs:documentation>
+							<xs:documentation>A generic means of classifying a SamplingProcedure. Supports the use of an external controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
@@ -3994,7 +3994,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="SampleFrameReference" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Reference to sample frame used. Note that this is the actual sample frame used and may differ from the recommended sample frame found in the sample plan stage referenced for this procedure. Deviation from the recommended sample frame should be described in FramLimitations.</xs:documentation>
+					<xs:documentation>Reference to sample frame used. Note that this is the actual sample frame used and may differ from the recommended sample frame found in the sample plan stage referenced for this procedure. Deviation from the recommended sample frame should be described in FrameLimitations.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="FrameLimitations" minOccurs="0">
@@ -4004,7 +4004,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="TargetSampleSize" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The desired sample size for this particular sample plan express in relation to its strata number if relevent. Provides means of expressing the formula used for determining the sample size.</xs:documentation>
+					<xs:documentation>The desired sample size for this particular sample plan express in relation to its strata number if relevant. Provides means of expressing the formula used for determining the sample size.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="DateOfSample" minOccurs="0">
@@ -4026,7 +4026,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="TargetSampleSize" type="TargetSampleSizeType">
 		<xs:annotation>
-			<xs:documentation>The desired sample size for this particular sample plan express in relation to its strata number if relevent.</xs:documentation>
+			<xs:documentation>The desired sample size for this particular sample plan express in relation to its strata number if relevant.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DateOfSample" type="r:DateType">
@@ -4051,7 +4051,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:complexType name="TargetSampleSizeType">
 		<xs:annotation>
-			<xs:documentation>The desired sample size for this particular sample plan express in relation to its strata number if relevent. Provides means of expressing the formula used for determining the sample size.</xs:documentation>
+			<xs:documentation>The desired sample size for this particular sample plan express in relation to its strata number if relevant. Provides means of expressing the formula used for determining the sample size.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="StrataNumber" minOccurs="0">
@@ -4073,7 +4073,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="StrataNumber" type="xs:integer">
 		<xs:annotation>
-			<xs:documentation>A strata within a sample frame statification.</xs:documentation>
+			<xs:documentation>A strata within a sample frame stratification.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SampleSize" type="SizeType">
@@ -4298,7 +4298,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:sequence>
 				<xs:element ref="UsageExample" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>Provide relevent illustrations of the use of the weights described produced in the weighting process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						<xs:documentation>Provide relevant illustrations of the use of the weights described produced in the weighting process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="UsageRestrictions" minOccurs="0">
@@ -4315,7 +4315,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="UsageExample" type="r:StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Provide relevent illustrations of the use of the weights described produced in the weighting process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Provide relevant illustrations of the use of the weights described produced in the weighting process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="UsageRestrictions" type="r:StructuredStringType">
@@ -4772,7 +4772,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="SampleFrameName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for a sample frame which may be repreated to express differing names for different systems. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for a sample frame which may be repeated to express differing names for different systems. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
@@ -4893,7 +4893,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="SamplingPlanSchemeName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for a sampling plan scheme which may be repreated to express differing names for different systems. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for a sampling plan scheme which may be repeated to express differing names for different systems. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
@@ -4978,7 +4978,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="SamplingPlanGroupName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for a sampling plan group which may be repreated to express differing names for different systems.</xs:documentation>
+							<xs:documentation>A name for a sampling plan group which may be repeated to express differing names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
@@ -5133,7 +5133,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:element>
 				<xs:element ref="RecommendedFrameReference" minOccurs="0" maxOccurs="unbounded">
 					<xs:annotation>
-						<xs:documentation>Identifies a specifc sample frame or frames appropriate for this plan.</xs:documentation>
+						<xs:documentation>Identifies a specific sample frame or frames appropriate for this plan.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="Stratification" minOccurs="0" maxOccurs="unbounded">
@@ -5273,7 +5273,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:element>
 				<xs:element ref="TypeOfPlan" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>Identifies a specifc sample frame or frames appropriate for this plan.</xs:documentation>
+						<xs:documentation>Identifies a specific sample frame or frames appropriate for this plan.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="SubStage" minOccurs="0" maxOccurs="unbounded">
@@ -5344,7 +5344,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="DevelopmentObjectReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>References the objects which are targets of development. This could be a full Instrument, full or partial Questionnaire flow (ControlConstruct, use the master Sequence for a full questionnaire flow), QuestionItem, QuestionGrid, QuestionBlock, QuestionGroup, or any sub-set of these objects. TypeOfObject should reflect the specific object type beinging referenced.</xs:documentation>
+			<xs:documentation>References the objects which are targets of development. This could be a full Instrument, full or partial Questionnaire flow (ControlConstruct, use the master Sequence for a full questionnaire flow), QuestionItem, QuestionGrid, QuestionBlock, QuestionGroup, or any sub-set of these objects. TypeOfObject should reflect the specific object type being referenced.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ContactReference" type="r:ReferenceType">
@@ -5428,7 +5428,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="DevelopmentActivityReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Reference to one or more Development Activities used by the Development Plan. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+							<xs:documentation>Reference to one or more Development Activities used by the Development Plan. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -5711,7 +5711,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="TranslatorRequirements" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Describes both minimum and prefered language abilities sought for the translation work as a set of source and target language requirements. Details requirements for the translator in terms of language ability for reading, speaking, and writing the source and target languages. Repeat for each language pair sought.</xs:documentation>
+							<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work as a set of source and target language requirements. Details requirements for the translator in terms of language ability for reading, speaking, and writing the source and target languages. Repeat for each language pair sought.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -5735,7 +5735,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:complexType name="TranslationMethodType">
 		<xs:annotation>
-			<xs:documentation>Describes both minimum and prefered language abilities sought for the translation work as a set of source and target language requirements.</xs:documentation>
+			<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work as a set of source and target language requirements.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="TypeOfTranslationMethod" minOccurs="0">
@@ -5828,17 +5828,17 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:complexType name="TranslatorRequirementsType">
 		<xs:annotation>
-			<xs:documentation>Describes both minimum and prefered language abilities sought for the translation work as a set of source and target language requirements.</xs:documentation>
+			<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work as a set of source and target language requirements.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="TranslationSouceLanguage" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Describes both minimum and prefered language abilities sought for the translation work for the source language.</xs:documentation>
+					<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work for the source language.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="TranslationTargetLanguage" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Describes both minimum and prefered language abilities sought for the translation work for the target langauge.</xs:documentation>
+					<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work for the target langauge.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -5865,7 +5865,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:complexType name="LanguageAbilitySoughtType">
 		<xs:annotation>
-			<xs:documentation>Describes both minimum and prefered language abilities sought for the translation work as a set of source and target language requirements.</xs:documentation>
+			<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work as a set of source and target language requirements.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="MinimumLanguageAbility" minOccurs="0">
@@ -5982,7 +5982,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:complexType name="MethodOfAdministrationType">
 		<xs:annotation>
-			<xs:documentation>Describes the method of pretest admistration using a controlled vocabulary and description.</xs:documentation>
+			<xs:documentation>Describes the method of pretest administration using a controlled vocabulary and description.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="TypeOfAdministrationMethod" minOccurs="0">
@@ -6014,7 +6014,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="MethodOfAdministration" type="MethodOfAdministrationType">
 		<xs:annotation>
-			<xs:documentation>Describes the method of pretest admistration using a controlled vocabulary and description.</xs:documentation>
+			<xs:documentation>Describes the method of pretest administration using a controlled vocabulary and description.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="AdditionalDataCollection" type="AdditionalDataCollectionType">
@@ -6029,7 +6029,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:sequence>
 			<xs:element ref="TypeOfAdditionalData" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies type of addtional data collected. Supports the use of a controlled vocabulary.</xs:documentation>
+					<xs:documentation>Specifies type of additional data collected. Supports the use of a controlled vocabulary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="r:Description" minOccurs="0">
@@ -6074,7 +6074,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:element>
 						<xs:element ref="DevelopmentActivityReference">
 							<xs:annotation>
-								<xs:documentation>Reference to an existing DevelopmentActivity for inclusion in the scheme. TypOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+								<xs:documentation>Reference to an existing DevelopmentActivity for inclusion in the scheme. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -6101,7 +6101,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="DevelopmentActivityReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing DevelopmentActivity for inclusion in the scheme. TypOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+			<xs:documentation>Reference to an existing DevelopmentActivity for inclusion in the scheme. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DevelopmentActivityGroupReference" type="r:ReferenceType">
@@ -6164,7 +6164,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="DevelopmentActivityReference">
 							<xs:annotation>
-								<xs:documentation>Reference to a constiuant DevelopmentActivity for inclusion in the group. TypOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+								<xs:documentation>Reference to a constiuant DevelopmentActivity for inclusion in the group. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="DevelopmentActivityGroupReference">
@@ -6280,7 +6280,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>	
 			<xs:element ref="DevelopmentActivityReference" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Reference to one or more Development Activities used by the Development Plan. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+					<xs:documentation>Reference to one or more Development Activities used by the Development Plan. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="DevelopmentProcessStepReference" minOccurs="0" maxOccurs="unbounded">
@@ -6427,7 +6427,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>	
 			<xs:element ref="DevelopmentActivityReference" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Reference to one or more Development Activities used by the Development Process Step. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+					<xs:documentation>Reference to one or more Development Activities used by the Development Process Step. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="ResponsibleAgencyReference" minOccurs="0" maxOccurs="unbounded">
