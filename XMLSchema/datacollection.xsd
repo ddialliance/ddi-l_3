@@ -609,6 +609,21 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
 				<xs:sequence>
+					<xs:element ref="ProcessingEventName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A name for the ProcessingEvent. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the ProcessingEvent. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the ProcessingEvent. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="ControlOperation" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Description of a Control Operation used to facilitate data control.</xs:documentation>
@@ -650,6 +665,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ProcessingEventName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the Processing Event Group using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="WeightingReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to a description of the weighting process and any resultant standard weights. TypeOfObject should be set to Weighting.</xs:documentation>
