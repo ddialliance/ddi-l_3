@@ -75,11 +75,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
-					<xs:element ref="QuestionnaireDevelopment" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Questionnaire development covers the development planning, process, and outcome for a partial or full questionnaire. Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, and question order. Extensive work is often done for individual questions that may be reused by different questionnaires with the organization or for topical areas or populations that are difficult to measure.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
+					<xs:choice minOccurs="0">
+						<xs:element ref="QuestionnaireDevelopment">
+							<xs:annotation>
+								<xs:documentation>Questionnaire development covers the development planning, process, and outcome for a partial or full questionnaire. Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, and question order. Extensive work is often done for individual questions that may be reused by different questionnaires with the organization or for topical areas or populations that are difficult to measure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="QuestionnaireDevelopmentReference">
+							<xs:annotation>
+								<xs:documentation>Reference to questionnaire development covers the development planning, process, and outcome for a partial or full questionnaire. Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, and question order. Extensive work is often done for individual questions that may be reused by different questionnaires with the organization or for topical areas or populations that are difficult to measure. TypeOfObject should be QuestionnaireDevelopment.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 					<xs:element ref="CollectionEvent" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A specific event in the collection or capture process.</xs:documentation>
@@ -197,6 +204,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="QuestionnaireDevelopmentReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to questionnaire development covers the development planning, process, and outcome for a partial or full questionnaire. Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, and question order. Extensive work is often done for individual questions that may be reused by different questionnaires with the organization or for topical areas or populations that are difficult to measure. TypeOfObject should be QuestionnaireDevelopment.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="DataCollectionModuleName" type="r:NameType">
 		<xs:annotation>
 			<xs:documentation>Name of the Data Collection Module using the DDI Name structure.</xs:documentation>
@@ -5313,21 +5325,42 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>A description of the content and purpose of the Questionnaire Development. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="DevelopmentPlan" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Describes the set of development activities that should take place.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="DevelopmentProcess" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Provides the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="DevelopmentResults" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Separates the capture of development process results from the process plan and organization. Allows for capture of the overall results, details of individual steps, or separate iterations of that step.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="DevelopmentPlan">
+							<xs:annotation>
+								<xs:documentation>Describes the set of development activities that should take place.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="DevelopmentPlanReference">
+							<xs:annotation>
+								<xs:documentation>Reference to the set of development activities that should take place. TypeOfObject should be DevelopmentPlan.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>		
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="DevelopmentProcess">
+							<xs:annotation>
+								<xs:documentation>Provides the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="DevelopmentProcessReference">
+							<xs:annotation>
+								<xs:documentation>Reference to the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities. TypeOfObject should be DevelopmentProcess.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>		
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="DevelopmentResults">
+							<xs:annotation>
+								<xs:documentation>Separates the capture of development process results from the process plan and organization. Allows for capture of the overall results, details of individual steps, or separate iterations of that step.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="DevelopmentResultsReference">
+							<xs:annotation>
+								<xs:documentation>Reference to the capture of development process results from the process plan and organization. Allows for capture of the overall results, details of individual steps, or separate iterations of that step. TypeOfObject should be DevelopmentResults.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>		
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -5365,6 +5398,21 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="DevelopmentResults" type="DevelopmentResultsType">
 		<xs:annotation>
 			<xs:documentation>Separates the capture of development process results from the process plan and organization.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DevelopmentPlanReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to the set of development activities that should take place. TypeOfObject should be DevelopmentPlan.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DevelopmentProcessReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities. TypeOfObject should be DevelopmentProcess.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DevelopmentResultsReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to the capture of development process results from the process plan and organization. Allows for capture of the overall results, details of individual steps, or separate iterations of that step. TypeOfObject should be DevelopmentResults.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="CostStructureType">
@@ -6330,16 +6378,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 <xs:element name="DevelopmentProcessStepReference" type="r:ReferenceType">
 	<xs:annotation>
 		<xs:documentation>Reference to a Development Process Steps. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
-	</xs:annotation>
-</xs:element>
-<xs:element name="DevelopmentProcessReference" type="r:ReferenceType">
-	<xs:annotation>
-		<xs:documentation>Reference to a DevelopmentProcess. TypeOfObject should be DevelopmentProcess.</xs:documentation>
-	</xs:annotation>
-</xs:element>
-<xs:element name="DevelopmentPlanReference" type="r:ReferenceType">
-	<xs:annotation>
-		<xs:documentation>Reference to a DevelopmentPlan. TypeOfObject should be DevelopmentPlan.</xs:documentation>
 	</xs:annotation>
 </xs:element>
 <xs:element name="DevelopmentProcess" type="DevelopmentProcessType">
