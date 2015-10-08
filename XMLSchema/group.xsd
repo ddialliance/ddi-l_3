@@ -19,9 +19,7 @@ You should have received a copy of the GNU Lesser General Public License along
 with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:group:3_3" xmlns:r="ddi:reusable:3_3" xmlns:a="ddi:archive:3_3" xmlns:c="ddi:conceptualcomponent:3_3" xmlns:cm="ddi:comparative:3_3" xmlns:d="ddi:datacollection:3_3"
-           xmlns:l="ddi:logicalproduct:3_3" xmlns:p="ddi:physicaldataproduct:3_3" xmlns:pi="ddi:physicalinstance:3_3" xmlns:m1="ddi:physicaldataproduct_ncube_normal:3_3" xmlns:m2="ddi:physicaldataproduct_ncube_tabular:3_3"
-           xmlns:m3="ddi:physicaldataproduct_ncube_inline:3_3" xmlns:s="ddi:studyunit:3_3" xmlns:pr="ddi:ddiprofile:3_3" targetNamespace="ddi:group:3_3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:group:3_3" xmlns:r="ddi:reusable:3_3" xmlns:a="ddi:archive:3_3" xmlns:c="ddi:conceptualcomponent:3_3" xmlns:cm="ddi:comparative:3_3" xmlns:d="ddi:datacollection:3_3" xmlns:l="ddi:logicalproduct:3_3" xmlns:p="ddi:physicaldataproduct:3_3" xmlns:pi="ddi:physicalinstance:3_3" xmlns:m1="ddi:physicaldataproduct_ncube_normal:3_3" xmlns:m2="ddi:physicaldataproduct_ncube_tabular:3_3" xmlns:m3="ddi:physicaldataproduct_ncube_inline:3_3" xmlns:s="ddi:studyunit:3_3" xmlns:pr="ddi:ddiprofile:3_3" targetNamespace="ddi:group:3_3" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="ddi:reusable:3_3" schemaLocation="reusable.xsd"/>
 	<xs:import namespace="ddi:archive:3_3" schemaLocation="archive.xsd"/>
 	<xs:import namespace="ddi:comparative:3_3" schemaLocation="comparative.xsd"/>
@@ -220,8 +218,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
-
-
 					<!-- INDIVIDUAL SCHEMES -->
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="a:OrganizationScheme">
@@ -428,6 +424,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:element>
 					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="r:QualityStandard">
+							<xs:annotation>
+								<xs:documentation>In-line inclusion of a QualityStandard.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:QualityStandardReference">
+							<xs:annotation>
+								<xs:documentation>Inclusion of a QualityStandard by reference. TypeOfObject should be set to QualityStandard.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="d:InstrumentScheme">
 							<xs:annotation>
 								<xs:documentation>In-line inclusion of a InstrumentScheme.</xs:documentation>
@@ -515,7 +523,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
 	<xs:complexType name="GroupType">
 		<xs:annotation>
 			<xs:documentation>A primary packaging and publication module within DDI containing a Group of StudyUnits. The Group structure allows metadata regarding multiple study units to be published as a structured entity. Studies may be grouped "by design" such as a repeated study with intended areas of commonality between each study, or "ad hoc" where studies are grouped for applied or administrative reasons. When grouping is done "by design", such as within a longitudinal study, common metadata such as shared methodology, common category schemes, etc. may be moved up from the individual studies into the Group and inherited by all the members of the group. Inherited metadata may be over-ridden at the lower levels. Inheritance may be turned "off" for groups of study units done on an ad-hoc basis, such as a set of studies used for a particular activity such as instruction. The purpose of groups is described using the attributes which summarize relationships along the dimensions of time, panel, geography, instrument and language. These attributes allow the purpose to be machine-actionable, while the group also includes an element for describing the purpose in human-readable format. As a publication package Group contains a Citation, Abstract, information on authorization, the universe of the group, series statement, quality statements, ex-post evaluation material, funding and budget, purpose, coverage, analysis units covered, kind of data, other materials, a list of required resource packages and embargo information. It then allows all maintainable structures within the StudyUnit to be expressed at the Group level along with individual StudyUnits. StudyUnits may also be grouped into SubGroups allowing for infinite nesting of StudyUnits.</xs:documentation>
@@ -1060,7 +1067,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:element>
 						<xs:element ref="DepositoryResourcePackageReference">
 							<xs:annotation>
-								<xs:documentation></xs:documentation>
+								<xs:documentation/>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -1220,8 +1227,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Provides a structured means of stating if the local object overrides (replaces) the depository object, adds information to the deposited object, deletes the content of the depository object without replacing it. or restricts access the deposited object by attaching an embargo or access restriction to it. Supports the use of a controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
 	<xs:simpleType name="TimeGroupCodeType">
 		<xs:annotation>
 			<xs:documentation>Indicates how all members of the group are related along the dimension of time. These relationships are inferred by the markup author, and should be considered as her/his own interpretation of the data.</xs:documentation>
