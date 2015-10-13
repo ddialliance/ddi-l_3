@@ -327,13 +327,33 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 	</xs:element>
 	<!-- COLLECTION EVENT -->
+	<xs:element name="CollectionEventName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the Collection Event using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>	
 	<xs:complexType name="CollectionEventType">
 		<xs:annotation>
 			<xs:documentation>Information on a specific data collection event including details on who was involved in data collection, the source of the data, the date and frequency of collection, mode of collection, identification of the instrument used for collection, information on the actual situation under which data was collected, actions taken to minimize loss of data, and reference to a quality standard or statement regarding the handling of the data collection process during this event.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:IdentifiableType">
-				<xs:sequence>
+				<xs:sequence>				
+					<xs:element ref="CollectionEventName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A name for the Collection Event. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the Collection Event. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the Collection Event. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>				
 					<xs:element ref="DataCollectorOrganizationReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Reference to an organization or individual, defined in the organization scheme, responsible for the data collection.</xs:documentation>
