@@ -1,4 +1,4 @@
-This is DDI version 3.2, as approved by the DDI Alliance Scientific Committee 
+This is DDI version 3.3, as approved by the DDI Alliance Scientific Committee 
 on 2013-12-20 and published with minor corrections on 2014-02-05.
 
 The current publication includes Part I - Technical Document, Part II - User Guide,
@@ -77,7 +77,7 @@ Substantive working group members:
 
 
 We would like to thank the following member organizations which have
-supported the DDI Alliance in their development of DDI version 3.0 through 3.2:
+supported the DDI Alliance in their development of DDI version 3.0 through 3.3:
 
     Australian Bureau of Statistics (ABS)
     Australian Data Archive (ADA)
@@ -137,5 +137,5 @@ supported the DDI Alliance in their development of DDI version 3.0 through 3.2:
     Yale University, USA
 
 
-DDI 3.2 XML Schema is released under the terms of the GNU Lesser General Public License.
+DDI 3.3 XML Schema is released under the terms of the GNU Lesser General Public License.
 Details see the file license.txt.
