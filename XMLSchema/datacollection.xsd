@@ -19,8 +19,7 @@ You should have received a copy of the GNU Lesser General Public License along
 with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:datacollection:3_3" xmlns:r="ddi:reusable:3_3" xmlns:a="ddi:archive:3_3" xmlns:l="ddi:logicalproduct:3_3" targetNamespace="ddi:datacollection:3_3" elementFormDefault="qualified"
-           attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:datacollection:3_3" xmlns:r="ddi:reusable:3_3" xmlns:a="ddi:archive:3_3" xmlns:l="ddi:logicalproduct:3_3" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="ddi:datacollection:3_3" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
 	<xs:import namespace="ddi:reusable:3_3" schemaLocation="reusable.xsd"/>
 	<xs:import namespace="ddi:logicalproduct:3_3" schemaLocation="logicalproduct.xsd"/>
@@ -75,11 +74,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
-					<xs:element ref="QuestionnaireDevelopment" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Questionnaire development covers the development planning, process, and outcome for a partial or full questionnaire. Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, and question order. Extensive work is often done for individual questions that may be reused by different questionnaires with the organization or for topical areas or populations that are difficult to measure.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
+					<xs:choice minOccurs="0">
+						<xs:element ref="QuestionnaireDevelopment">
+							<xs:annotation>
+								<xs:documentation>Questionnaire development covers the development planning, process, and outcome for a partial or full questionnaire. Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, and question order. Extensive work is often done for individual questions that may be reused by different questionnaires with the organization or for topical areas or populations that are difficult to measure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="QuestionnaireDevelopmentReference">
+							<xs:annotation>
+								<xs:documentation>Reference to questionnaire development covers the development planning, process, and outcome for a partial or full questionnaire. Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, and question order. Extensive work is often done for individual questions that may be reused by different questionnaires with the organization or for topical areas or populations that are difficult to measure. TypeOfObject should be QuestionnaireDevelopment.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 					<xs:element ref="CollectionEvent" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A specific event in the collection or capture process.</xs:documentation>
@@ -160,12 +166,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="SampleFrameScheme">
 							<xs:annotation>
-								<xs:documentation>A set of sample framess maintained by an agency, and used in the instrument.</xs:documentation>
+								<xs:documentation>A set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="SampleFrameSchemeReference">
 							<xs:annotation>
-								<xs:documentation>References to a set of sample framess maintained by an agency, and used in the instrument.</xs:documentation>
+								<xs:documentation>References to a set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -197,6 +203,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="QuestionnaireDevelopmentReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to questionnaire development covers the development planning, process, and outcome for a partial or full questionnaire. Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, and question order. Extensive work is often done for individual questions that may be reused by different questionnaires with the organization or for topical areas or populations that are difficult to measure. TypeOfObject should be QuestionnaireDevelopment.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="DataCollectionModuleName" type="r:NameType">
 		<xs:annotation>
 			<xs:documentation>Name of the Data Collection Module using the DDI Name structure.</xs:documentation>
@@ -232,7 +243,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to metadata regarding the methodology of the data collection process including, determining repetition patterns, sampling, collection modes, etc. TypeOfObject should be set to Methodology.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<!-- METHODOLOGY -->
 	<xs:complexType name="MethodologyType">
 		<xs:annotation>
@@ -255,7 +265,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:annotation>
 							<xs:documentation>A basic structure for describing the methodology used for weighting. In addition to a descriptive narrative, the methodology may be classified by a short term or external controlled vocabulary.</xs:documentation>
 						</xs:annotation>
-					</xs:element>	
+					</xs:element>
 					<xs:element ref="SamplingProcedure" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Describes a sampling procedure. If multiple sampling procedures were used repeat this element for each.</xs:documentation>
@@ -284,7 +294,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:annotation>
 			<xs:documentation>A basic structure for describing the methodology used for weighting. In addition to a descriptive narrative, the methodology may be classified by a short term or external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
-	</xs:element>	
+	</xs:element>
 	<xs:complexType name="WeightingMethodologyType">
 		<xs:annotation>
 			<xs:documentation>A basic structure for describing the methodology used for weighting. In addition to a descriptive narrative, the methodology may be classified by a short term or external controlled vocabulary.</xs:documentation>
@@ -317,13 +327,33 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 	</xs:element>
 	<!-- COLLECTION EVENT -->
+	<xs:element name="CollectionEventName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the Collection Event using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>	
 	<xs:complexType name="CollectionEventType">
 		<xs:annotation>
 			<xs:documentation>Information on a specific data collection event including details on who was involved in data collection, the source of the data, the date and frequency of collection, mode of collection, identification of the instrument used for collection, information on the actual situation under which data was collected, actions taken to minimize loss of data, and reference to a quality standard or statement regarding the handling of the data collection process during this event.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:IdentifiableType">
-				<xs:sequence>
+				<xs:sequence>				
+					<xs:element ref="CollectionEventName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A name for the Collection Event. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the Collection Event. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the Collection Event. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>				
 					<xs:element ref="DataCollectorOrganizationReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Reference to an organization or individual, defined in the organization scheme, responsible for the data collection.</xs:documentation>
@@ -426,7 +456,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description of the type of data source. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="OriginType">
 		<xs:annotation>
 			<xs:documentation>A citation or URI for the source of the data. Note that this is an external reference, and should not be used to point to DDI descriptions of the data, or to DDI-encoded data.</xs:documentation>
@@ -444,8 +473,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
-
 	<!-- PROCESSING -->
 	<xs:complexType name="ProcessingEventSchemeType">
 		<xs:annotation>
@@ -600,8 +627,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description of the type of group created to associate a number of processing events. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
 	<xs:complexType name="ProcessingEventType">
 		<xs:annotation>
 			<xs:documentation>ProcessingEvent can contain a number of operations of different types to express a range of events that occur together. For example a ProcessingEvent of a CleaningOperation may also include a reference to a ProcessingInstruction used in the cleaning process. Event activities include ControlOperation, CleaningOperation, Weighting, and DataAppraisalInformation. References to related processing instructions and quality statement may be included.</xs:documentation>
@@ -609,6 +634,21 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
 				<xs:sequence>
+					<xs:element ref="ProcessingEventName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A name for the ProcessingEvent. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the ProcessingEvent. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the ProcessingEvent. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="ControlOperation" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Description of a Control Operation used to facilitate data control.</xs:documentation>
@@ -650,6 +690,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ProcessingEventName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the Processing Event Group using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="WeightingReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to a description of the weighting process and any resultant standard weights. TypeOfObject should be set to Weighting.</xs:documentation>
@@ -1233,7 +1278,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Provides the content and description of a single instruction.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="InstructionType">
 		<xs:annotation>
 			<xs:documentation>Provides the content and description of a single instruction. In addition to the standard name, label, and description, an InParameter can be designated to specify information needed to process the dynamic content of the instruction, an image can be associated with the instruction, and the instruction text provided using DynamicText. Note that when using Dynamic Text, the full InstructionText must be repeated for multi-language versions of the content. Different languages may handle the dynamic portions in different locations and/or with different content. Therefore languages cannot be mixed within a dynamic text except when the full text itself has multiple language sections, for example, a foreign language term in a text. The InstructionText may also be repeated to provide a dynamic and plain text version of the instruction. This allows for accurate rendering of the instruction in a non-dynamic environment like print.</xs:documentation>
@@ -1285,8 +1329,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>An image associated with the Instruction, located at the provided URN or URL.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
 	<!-- INSTRUMENT -->
 	<xs:element name="InstrumentScheme" type="InstrumentSchemeType">
 		<xs:annotation>
@@ -1359,7 +1401,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Describes a group of instruments for administrative or conceptual purposes, which may be hierarchical.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="InstrumentGroupType">
 		<xs:annotation>
 			<xs:documentation>Describes a group of instruments for administrative or conceptual purposes, which may be hierarchical. In addition to the standard name, label, and description, contains references to the contained Instruments and InstrumentGroups.</xs:documentation>
@@ -1903,7 +1944,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 	</xs:element>
 	<xs:annotation>
-		<xs:documentation></xs:documentation>
+		<xs:documentation/>
 	</xs:annotation>
 	<xs:complexType name="ComputationItemType">
 		<xs:annotation>
@@ -2188,6 +2229,16 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>A name for the QuestionItem. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the QuestionItem. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the QuestionItem. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="r:InParameter" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Provides an identity for input objects required for the QuestionItem.</xs:documentation>
@@ -2268,7 +2319,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
 	<xs:complexType name="QuestionBlockType">
 		<xs:annotation>
 			<xs:documentation>A QuestionBlock is a specific structure used in educational and other types of testing where an object (Stimulus Material) is provided and a set of questions are asked regarding the object. The QuestionBlock generally has related QuestionBlocks that measure similar skills or aptitudes and is used randomly within a set of questionnaires to create multiple versions of a single questionnaire that can be used with large groups for testing purposes. Assembly of the QuestionBlocks into a questionnaire may the result of selection based on an experimental design model. It contains information on what the QuestionBlock is intended to measure, input and output parameters for the QuestionBlock, a description of the stimulus material and the questions related to it, instructions on sequencing and number of allowed responses, references to external aids and instructions, and an estimate of the time needed to complete the question. Note that the QuestionBlock is a reusable format for use in any number of applied uses. External aids, instructions, response sequencing etc. should contain information consistent with the general use of the QuestionBlock (QuestionItems and QuestionGrids will contain information specific to the individual question). Additional materials and information can be added within the QuestionConstruct which is the applied use of a question.</xs:documentation>
@@ -2279,6 +2329,16 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:element ref="QuestionBlockName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A name for the QuestionBlock. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the QuestionBlock. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the QuestionBlock. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:InParameter" minOccurs="0" maxOccurs="unbounded">
@@ -2434,7 +2494,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="QuestionGroupName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the QeustionGroup. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the QuestionGroup. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
@@ -2579,7 +2639,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Allows attachment of a response domain to a specific item in a code or category scheme. For example, attach a TextDomain to the value "Other".</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:choice minOccurs="1" maxOccurs="unbounded">
+			<xs:choice maxOccurs="unbounded">
 				<xs:element ref="r:CodeReference">
 					<xs:annotation>
 						<xs:documentation>Identifies the value to which the new response domain is attached by a references a specific Code within the CodeDomain.</xs:documentation>
@@ -2610,7 +2670,16 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>A name for the QuestionGrid. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the QuestionGrid. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the QuestionGrid. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="r:InParameter" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Provides an identity for input objects required for the QuestionGrid.</xs:documentation>
@@ -2719,7 +2788,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:element>
 			</xs:choice>
 		</xs:sequence>
-		<xs:attribute name="rank" use="required" type="xs:integer">
+		<xs:attribute name="rank" type="xs:integer" use="required">
 			<xs:annotation>
 				<xs:documentation>The rank order of this dimension (the order in which the value for this dimension will appear in the cell address)denoted with a 1-based indexing. Provides coordinate order (1,2,n) for the intersect point of this dimension within the cell address. For example, if the rank of this dimension is 2, the intersect point on this dimension will be the second value listed in the cell address.</xs:documentation>
 			</xs:annotation>
@@ -2735,7 +2804,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-
 	<xs:complexType name="RosterType">
 		<xs:annotation>
 			<xs:documentation>A roster is an unlabeled list of numbered rows or columns depending upon orientation. The numbers may or may not be displayed but will be used as information for creating the cell coordinate address. The Roster defines the numbering used for the coordinate system, sets a minimum and maximum number of values, and provides the condition for continuation. The Roster label is used in the same way as the label of the CodeDomain, providing a dimension level header or label.</xs:documentation>
@@ -2752,12 +2820,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="baseCodeValue" use="required" type="xs:integer">
+		<xs:attribute name="baseCodeValue" type="xs:integer" use="required">
 			<xs:annotation>
 				<xs:documentation>A base value for the first item on the Roster (normally 0 or 1 but can be set to any value especially when the use of a roster extends an enumerated list expressed as an integer.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="codeIterationValue" use="required" type="xs:integer">
+		<xs:attribute name="codeIterationValue" type="xs:integer" use="required">
 			<xs:annotation>
 				<xs:documentation>The value added to the last used value to create the iteration value for the current row or column expressed as an integer.</xs:documentation>
 			</xs:annotation>
@@ -2773,7 +2841,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-
 	<xs:complexType name="StructuredMixedGridResponseDomainType">
 		<xs:annotation>
 			<xs:documentation>Contains a mixture of response domains for the grid cells. Each response domain can be attached to a specific region of the grid, for example a single column or row. It is assumed that each cell will contain either a resonse domain or be declared as containing No Data By Definition. Any cell may also contain an internal label.</xs:documentation>
@@ -2793,7 +2860,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:complexType name="CellLabelType">
 		<xs:annotation>
 			<xs:documentation>Provide a label to be included inside of a grid cell and defines the cell or cells that contain it. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
@@ -2810,7 +2876,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
 	<xs:complexType name="GridResponseDomainType">
 		<xs:annotation>
 			<xs:documentation>Designates the response domain and the cells using the specified response domain within a QuestionGrid.</xs:documentation>
@@ -2835,7 +2900,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:complexType name="GridAttachmentType">
 		<xs:annotation>
 			<xs:documentation>Identifies the cell or cells in a grid to which the item is attached by a reference to a specific cell coordinate in a grid or by identifying a range of values along a dimension.</xs:documentation>
@@ -2860,7 +2924,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-
 	<xs:complexType name="CellCoordinatesAsDefinedType">
 		<xs:annotation>
 			<xs:documentation>Defines one or more cells by defining the applicable values of each dimension as "all values", a "specific value" or a range. For example in a simple 2 dimensional grid where dimension rank-1 is displayed as rows and dimension rank-2 as columns and the first column contains a NumericDomain; SelectDimension rank="1" allValues="true" and SelectDimension rank="2" specificValue="1" would result in the NumericDomain being attached to the first column of the grid only.</xs:documentation>
@@ -2873,7 +2936,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:complexType name="SelectDimensionType">
 		<xs:annotation>
 			<xs:documentation>For each dimension in the grid define the applicable values as "all values", a "specific value" or a range. If a rangeMinimum or rangeMaximum is provided without the other, the assumption is unbounded for the object not included.</xs:documentation>
@@ -3047,7 +3109,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>An abstract element serving as the head of a substitution group. May be substituted by any valid object of substitution type ResponseDomain.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:element name="TextDomain" type="r:TextDomainType" substitutionGroup="ResponseDomain">
 		<xs:annotation>
 			<xs:documentation>A response domain capturing a textual response.</xs:documentation>
@@ -3243,7 +3304,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
 	<xs:element name="NominalDomain" type="NominalDomainType" substitutionGroup="ResponseDomain">
 		<xs:annotation>
 			<xs:documentation>A response domain capturing a nominal (check off) response for a question grid response. A NominalDomain may only be included in-line. It cannot be included by reference.</xs:documentation>
@@ -3531,13 +3591,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
 	<xs:element name="ResponseDomainReference" type="DomainReferenceType" abstract="true">
 		<xs:annotation>
 			<xs:documentation>An abstract base for the substitution group ResponseDomainReference. TypeOfObject should be set to ManagedDateTimeRepresentation, ManagedMissingValuesRepresentation, ManagedNumericRepresentation, ManagedScaleRepresentation, or ManagedTextRepresentation.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:element name="MissingValuesDomainReference" type="DomainReferenceType" substitutionGroup="ResponseDomainReference">
 		<xs:annotation>
 			<xs:documentation>A response domain capturing the missing value response for a question item. This may only be included by reference as all MissingValue descriptions are managed. Note that MissingValues may be captured separately as process or paradata through a parallel data capture process or automatically by the instrument. The TypeOfObject should be set to ManagedMissingValuesRepresentation.</xs:documentation>
@@ -3563,7 +3621,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A response domain capturing the scale response for a question item. The TypeOfObject should be set to ManagedScaleRepresentation.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="DomainReferenceType">
 		<xs:annotation>
 			<xs:documentation>Abstract type for the head of a substitution group that allows for the use of a response domain by reference. If specific values are used to denote missing values, these can be indicated as a space-delimited list in the missingValue attribute. If the missing value is indicated by a blank, this should be indicated by setting the value of blankIsMissingValue to true.</xs:documentation>
@@ -3803,7 +3860,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="TypeOfSamplingProcedure" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A generic means of classifying a SamplingProcdure. Supports the use of an external controlled vocabulary.</xs:documentation>
+							<xs:documentation>A generic means of classifying a SamplingProcedure. Supports the use of an external controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
@@ -3945,7 +4002,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="SampleFrameReference" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Reference to sample frame used. Note that this is the actual sample frame used and may differ from the recommended sample frame found in the sample plan stage referenced for this procedure. Deviation from the recommended sample frame should be described in FramLimitations.</xs:documentation>
+					<xs:documentation>Reference to sample frame used. Note that this is the actual sample frame used and may differ from the recommended sample frame found in the sample plan stage referenced for this procedure. Deviation from the recommended sample frame should be described in FrameLimitations.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="FrameLimitations" minOccurs="0">
@@ -3955,7 +4012,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="TargetSampleSize" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The desired sample size for this particular sample plan express in relation to its strata number if relevent. Provides means of expressing the formula used for determining the sample size.</xs:documentation>
+					<xs:documentation>The desired sample size for this particular sample plan express in relation to its strata number if relevant. Provides means of expressing the formula used for determining the sample size.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="DateOfSample" minOccurs="0">
@@ -3977,7 +4034,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="TargetSampleSize" type="TargetSampleSizeType">
 		<xs:annotation>
-			<xs:documentation>The desired sample size for this particular sample plan express in relation to its strata number if relevent.</xs:documentation>
+			<xs:documentation>The desired sample size for this particular sample plan express in relation to its strata number if relevant.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DateOfSample" type="r:DateType">
@@ -4002,7 +4059,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:complexType name="TargetSampleSizeType">
 		<xs:annotation>
-			<xs:documentation>The desired sample size for this particular sample plan express in relation to its strata number if relevent. Provides means of expressing the formula used for determining the sample size.</xs:documentation>
+			<xs:documentation>The desired sample size for this particular sample plan express in relation to its strata number if relevant. Provides means of expressing the formula used for determining the sample size.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="StrataNumber" minOccurs="0">
@@ -4024,7 +4081,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="StrataNumber" type="xs:integer">
 		<xs:annotation>
-			<xs:documentation>A strata within a sample frame statification.</xs:documentation>
+			<xs:documentation>A strata within a sample frame stratification.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SampleSize" type="SizeType">
@@ -4246,27 +4303,27 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:annotation>
 			<xs:documentation>A guide to the appropriate usage of the weights generated by the processing event.</xs:documentation>
 		</xs:annotation>
-			<xs:sequence>
-				<xs:element ref="UsageExample" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Provide relevent illustrations of the use of the weights described produced in the weighting process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="UsageRestrictions" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Note specific rules or restrictions for use. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="UsageRecommendations" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Recommend best practices for the use of the weights described produced in the weighting process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:sequence>
+		<xs:sequence>
+			<xs:element ref="UsageExample" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provide relevant illustrations of the use of the weights described produced in the weighting process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="UsageRestrictions" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Note specific rules or restrictions for use. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="UsageRecommendations" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Recommend best practices for the use of the weights described produced in the weighting process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="UsageExample" type="r:StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Provide relevent illustrations of the use of the weights described produced in the weighting process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Provide relevant illustrations of the use of the weights described produced in the weighting process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="UsageRestrictions" type="r:StructuredStringType">
@@ -4327,7 +4384,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:element name="DataAppraisalInformation" type="DataAppraisalInformationType">
 		<xs:annotation>
 			<xs:documentation>Describes the result of data appraisal activities as a response rate and sampling error.</xs:documentation>
@@ -4711,9 +4767,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A name for the SampleFrame using the NameType structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
-
 	<xs:complexType name="SampleFrameType">
 		<xs:annotation>
 			<xs:documentation>An inline description of a sample frame (the source material from which a sample is drawn), i.e. phone book, data base, etc. A sample frame is intended to be versioned over time and can be reused by multiple studies.</xs:documentation>
@@ -4723,7 +4776,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="SampleFrameName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for a sample frame which may be repreated to express differing names for different systems. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for a sample frame which may be repeated to express differing names for different systems. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
@@ -4844,7 +4897,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="SamplingPlanSchemeName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for a sampling plan scheme which may be repreated to express differing names for different systems. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for a sampling plan scheme which may be repeated to express differing names for different systems. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
@@ -4929,7 +4982,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="SamplingPlanGroupName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for a sampling plan group which may be repreated to express differing names for different systems.</xs:documentation>
+							<xs:documentation>A name for a sampling plan group which may be repeated to express differing names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
@@ -4983,7 +5036,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A generic element for specifying a reason for a sampling plan group using the CodeValueType.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="SamplingPlanType">
 		<xs:annotation>
 			<xs:documentation>An inline description of a sampling plan (how the sample is drawn). A sampling plan is intended to be versioned over time and can be reused by multiple studies.</xs:documentation>
@@ -5071,50 +5123,50 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:IdentifiableType">
-			<xs:sequence>
-				<xs:element ref="SplitCondition" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Condition for using this stage. Use only when multiple top level stages are used.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="FrameRequirements" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Describes the minimum requirements of the frame needed to use this sample stage. For example, if a stratification by age is specified in the stage the sample frame would need to support this stratification.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="RecommendedFrameReference" minOccurs="0" maxOccurs="unbounded">
-					<xs:annotation>
-						<xs:documentation>Identifies a specifc sample frame or frames appropriate for this plan.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="Stratification" minOccurs="0" maxOccurs="unbounded">
-					<xs:annotation>
-						<xs:documentation>Describe all stratifications here. Note that each stratified group will be sampled using the same sampling plan. For example stratifying a state by ZIP Code areas in each of 5 mean income quintiles and then doing a random sample of the households in set of ZIP Codes. Allows for oversampling of identified subpopulations.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="SamplingUnit" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Sampling unit for this stage</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="TypeOfPlan" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Indicate PlanCode if different from parent. Note that all strata resulting from the stratification process must use the same sampling plan.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="SelectionProbability" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>If known and available, provide the selection probability for each sampling unit.  This is one number for equal probability sampling, such as SRS.  For PPS, a description of the size criterion is needed.  For other unequal designs, a description of of how the probabilities are assigned is needed.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="SubStage" minOccurs="0" maxOccurs="unbounded">
-					<xs:annotation>
-						<xs:documentation>A substage assumes that its sample frame is the result of its parent stage.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:sequence>
+				<xs:sequence>
+					<xs:element ref="SplitCondition" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Condition for using this stage. Use only when multiple top level stages are used.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="FrameRequirements" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Describes the minimum requirements of the frame needed to use this sample stage. For example, if a stratification by age is specified in the stage the sample frame would need to support this stratification.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="RecommendedFrameReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a specific sample frame or frames appropriate for this plan.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Stratification" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describe all stratifications here. Note that each stratified group will be sampled using the same sampling plan. For example stratifying a state by ZIP Code areas in each of 5 mean income quintiles and then doing a random sample of the households in set of ZIP Codes. Allows for oversampling of identified subpopulations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplingUnit" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Sampling unit for this stage</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="TypeOfPlan" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Indicate PlanCode if different from parent. Note that all strata resulting from the stratification process must use the same sampling plan.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SelectionProbability" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>If known and available, provide the selection probability for each sampling unit.  This is one number for equal probability sampling, such as SRS.  For PPS, a description of the size criterion is needed.  For other unequal designs, a description of of how the probabilities are assigned is needed.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SubStage" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A substage assumes that its sample frame is the result of its parent stage.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
 			</xs:extension>
-		</xs:complexContent>	
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="SplitCondition" type="r:StructuredStringType">
 		<xs:annotation>
@@ -5211,28 +5263,28 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:IdentifiableType">
-			<xs:sequence>
-				<xs:element ref="Stratification" minOccurs="0" maxOccurs="unbounded">
-					<xs:annotation>
-						<xs:documentation>Condition for using this stage. Use only when multiple top level stages are used.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="SamplingUnit" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>A split results in multiple strata using different sampling plans. For example a study of those who fish which samples those engaged in fishing at particular locations (strata 1) and those who have fishing licenses (strata 2).</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="TypeOfPlan" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Identifies a specifc sample frame or frames appropriate for this plan.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="SubStage" minOccurs="0" maxOccurs="unbounded">
-					<xs:annotation>
-						<xs:documentation>Allows for recursive nesting.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:sequence>
+				<xs:sequence>
+					<xs:element ref="Stratification" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Condition for using this stage. Use only when multiple top level stages are used.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplingUnit" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A split results in multiple strata using different sampling plans. For example a study of those who fish which samples those engaged in fishing at particular locations (strata 1) and those who have fishing licenses (strata 2).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="TypeOfPlan" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Identifies a specific sample frame or frames appropriate for this plan.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SubStage" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Allows for recursive nesting.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -5264,21 +5316,42 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>A description of the content and purpose of the Questionnaire Development. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="DevelopmentPlan" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Describes the set of development activities that should take place.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="DevelopmentProcess" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Provides the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="DevelopmentResults" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Separates the capture of development process results from the process plan and organization. Allows for capture of the overall results, details of individual steps, or separate iterations of that step.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="DevelopmentPlan">
+							<xs:annotation>
+								<xs:documentation>Describes the set of development activities that should take place.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="DevelopmentPlanReference">
+							<xs:annotation>
+								<xs:documentation>Reference to the set of development activities that should take place. TypeOfObject should be DevelopmentPlan.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="DevelopmentProcess">
+							<xs:annotation>
+								<xs:documentation>Provides the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="DevelopmentProcessReference">
+							<xs:annotation>
+								<xs:documentation>Reference to the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities. TypeOfObject should be DevelopmentProcess.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="DevelopmentResults">
+							<xs:annotation>
+								<xs:documentation>Separates the capture of development process results from the process plan and organization. Allows for capture of the overall results, details of individual steps, or separate iterations of that step.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="DevelopmentResultsReference">
+							<xs:annotation>
+								<xs:documentation>Reference to the capture of development process results from the process plan and organization. Allows for capture of the overall results, details of individual steps, or separate iterations of that step. TypeOfObject should be DevelopmentResults.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -5295,7 +5368,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="DevelopmentObjectReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>References the objects which are targets of development. This could be a full Instrument, full or partial Questionnaire flow (ControlConstruct, use the master Sequence for a full questionnaire flow), QuestionItem, QuestionGrid, QuestionBlock, QuestionGroup, or any sub-set of these objects. TypeOfObject should reflect the specific object type beinging referenced.</xs:documentation>
+			<xs:documentation>References the objects which are targets of development. This could be a full Instrument, full or partial Questionnaire flow (ControlConstruct, use the master Sequence for a full questionnaire flow), QuestionItem, QuestionGrid, QuestionBlock, QuestionGroup, or any sub-set of these objects. TypeOfObject should reflect the specific object type being referenced.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ContactReference" type="r:ReferenceType">
@@ -5316,6 +5389,21 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="DevelopmentResults" type="DevelopmentResultsType">
 		<xs:annotation>
 			<xs:documentation>Separates the capture of development process results from the process plan and organization.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DevelopmentPlanReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to the set of development activities that should take place. TypeOfObject should be DevelopmentPlan.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DevelopmentProcessReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities. TypeOfObject should be DevelopmentProcess.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DevelopmentResultsReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to the capture of development process results from the process plan and organization. Allows for capture of the overall results, details of individual steps, or separate iterations of that step. TypeOfObject should be DevelopmentResults.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="CostStructureType">
@@ -5379,7 +5467,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="DevelopmentActivityReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Reference to one or more Development Activities used by the Development Plan. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+							<xs:documentation>Reference to one or more Development Activities used by the Development Plan. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -5407,17 +5495,17 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:annotation>
 							<xs:documentation>A name for the Development Activity. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
-					</xs:element>	
+					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A display label for the Development Activity. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
-					</xs:element>	
+					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
-								<xs:annotation>
+						<xs:annotation>
 							<xs:documentation>A description of the content and purpose of the Development Activity. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
-					</xs:element>	
+					</xs:element>
 					<xs:element ref="DesiredOutcome" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Describe the desired outcomes of the development activity. Address why the activity should take place, means of determining successful completion, etc.</xs:documentation>
@@ -5451,7 +5539,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:annotation>
 			<xs:documentation>A name for the Development Activity. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 		</xs:annotation>
-	</xs:element>	
+	</xs:element>
 	<xs:element name="DesiredOutcome" type="r:StructuredStringType">
 		<xs:annotation>
 			<xs:documentation>Describe the desired outcomes of the development activity. Address why the activity should take place, means of determining successful completion, etc. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
@@ -5514,7 +5602,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Describe the process to be used for staff recruitment in this class. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="DebriefingProcessType">
 		<xs:annotation>
 			<xs:documentation>Describe the debriefing process. Specifies if debriefing is required. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
@@ -5541,9 +5628,9 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="DevelopmentActivityType">
 				<xs:sequence>
-					<xs:element ref="TypeOfContentReview">
+					<xs:element ref="TypeOfContentReview" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Identifies the specific type of content review not done as part of a Focus Group, Cognitive Expert Review, or Congnitive Interview. Supports the use of a controlled vocabulary which is strongly recommended.</xs:documentation>
+							<xs:documentation>Identifies the specific type of content review not done as part of a Focus Group, Cognitive Expert Review, or Cognitive Interview. Supports the use of a controlled vocabulary which is strongly recommended.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -5567,7 +5654,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="DevelopmentActivityType">
 				<xs:sequence>
-					<xs:element ref="TypeOfFocusGroup">
+					<xs:element ref="TypeOfFocusGroup" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Identifies the specific type of Focus Group. Supports the use of a controlled vocabulary which is strongly recommended.</xs:documentation>
 						</xs:annotation>
@@ -5593,9 +5680,9 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="DevelopmentActivityType">
 				<xs:sequence>
-					<xs:element ref="TypeOfCognitiveInterview">
+					<xs:element ref="TypeOfCognitiveInterview" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Identifies the specific type of Congnitive Interview. Supports the use of a controlled vocabulary which is strongly recommended.</xs:documentation>
+							<xs:documentation>Identifies the specific type of Cognitive Interview. Supports the use of a controlled vocabulary which is strongly recommended.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -5619,9 +5706,9 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="DevelopmentActivityType">
 				<xs:sequence>
-					<xs:element ref="TypeOfCognitiveExpertReview">
+					<xs:element ref="TypeOfCognitiveExpertReview" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Identifies the specific type of Congnitive Expert Interview. Supports the use of a controlled vocabulary which is strongly recommended.</xs:documentation>
+							<xs:documentation>Identifies the specific type of Cognitive Expert Interview. Supports the use of a controlled vocabulary which is strongly recommended.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -5662,7 +5749,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="TranslatorRequirements" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Describes both minimum and prefered language abilities sought for the translation work as a set of source and target language requirements. Details requirements for the translator in terms of language ability for reading, speaking, and writing the source and target languages. Repeat for each language pair sought.</xs:documentation>
+							<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work as a set of source and target language requirements. Details requirements for the translator in terms of language ability for reading, speaking, and writing the source and target languages. Repeat for each language pair sought.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -5686,7 +5773,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:complexType name="TranslationMethodType">
 		<xs:annotation>
-			<xs:documentation>Describes both minimum and prefered language abilities sought for the translation work as a set of source and target language requirements.</xs:documentation>
+			<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work as a set of source and target language requirements.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="TypeOfTranslationMethod" minOccurs="0">
@@ -5713,7 +5800,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:sequence>
 			<xs:element ref="TypeOfTranslationAid" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the type of translation aid avialable. Supports the use of a controlled vocabulary.</xs:documentation>
+					<xs:documentation>Specifies the type of translation aid available. Supports the use of a controlled vocabulary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="r:Description" minOccurs="0">
@@ -5779,22 +5866,22 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:complexType name="TranslatorRequirementsType">
 		<xs:annotation>
-			<xs:documentation>Describes both minimum and prefered language abilities sought for the translation work as a set of source and target language requirements.</xs:documentation>
+			<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work as a set of source and target language requirements.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="TranslationSouceLanguage" minOccurs="0">
+			<xs:element ref="TranslationSourceLanguage" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Describes both minimum and prefered language abilities sought for the translation work for the source language.</xs:documentation>
+					<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work for the source language.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="TranslationTargetLanguage" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Describes both minimum and prefered language abilities sought for the translation work for the target langauge.</xs:documentation>
+					<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work for the target language.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="TranslationSouceLanguage" type="LanguageAbilitySoughtType">
+	<xs:element name="TranslationSourceLanguage" type="LanguageAbilitySoughtType">
 		<xs:annotation>
 			<xs:documentation>Identifies the language and the individuals ability to read, write, and speak the designated language using a controlled vocabulary as minimum and preferred requirements.</xs:documentation>
 		</xs:annotation>
@@ -5816,7 +5903,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:complexType name="LanguageAbilitySoughtType">
 		<xs:annotation>
-			<xs:documentation>Describes both minimum and prefered language abilities sought for the translation work as a set of source and target language requirements.</xs:documentation>
+			<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work as a set of source and target language requirements.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="MinimumLanguageAbility" minOccurs="0">
@@ -5871,23 +5958,23 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:annotation>
 			<xs:documentation>Description of the method and mode of data collection in administering the pretest. Notes any additional data collected in the administration of the pretest.</xs:documentation>
 		</xs:annotation>
-			<xs:sequence>
-				<xs:element ref="MethodOfAdministration" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Describes the method of pretest administration using a controlled vocabulary and description.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="ModeOfPretestCollection" minOccurs="0" maxOccurs="unbounded">
-					<xs:annotation>
-						<xs:documentation>Describes the mode of collection used in the pretest. Repeat of multiple modes of collection were used. Indicate the primary mode using isPrimary attribute if applicable.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="AdditionalDataCollection" minOccurs="0" maxOccurs="unbounded">
-					<xs:annotation>
-						<xs:documentation>Description of the method and mode of data collection in administering the pretest. Notes any additional data collected in the administration of the pretest.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:sequence>
+		<xs:sequence>
+			<xs:element ref="MethodOfAdministration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes the method of pretest administration using a controlled vocabulary and description.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ModeOfPretestCollection" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Describes the mode of collection used in the pretest. Repeat of multiple modes of collection were used. Indicate the primary mode using isPrimary attribute if applicable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="AdditionalDataCollection" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Description of the method and mode of data collection in administering the pretest. Notes any additional data collected in the administration of the pretest.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="ModeOfPretestCollection" type="ModeOfPretestCollectionType">
 		<xs:annotation>
@@ -5913,7 +6000,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:annotation>
 					<xs:documentation>Method of delivery for the pretest mode (i.e., mail, hand-delivery, etc.). Supports the use of a controlled vocabulary.</xs:documentation>
 				</xs:annotation>
-				</xs:element>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="isPrimary" type="xs:boolean">
 			<xs:annotation>
@@ -5933,7 +6020,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:complexType name="MethodOfAdministrationType">
 		<xs:annotation>
-			<xs:documentation>Describes the method of pretest admistration using a controlled vocabulary and description.</xs:documentation>
+			<xs:documentation>Describes the method of pretest administration using a controlled vocabulary and description.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="TypeOfAdministrationMethod" minOccurs="0">
@@ -5965,7 +6052,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="MethodOfAdministration" type="MethodOfAdministrationType">
 		<xs:annotation>
-			<xs:documentation>Describes the method of pretest admistration using a controlled vocabulary and description.</xs:documentation>
+			<xs:documentation>Describes the method of pretest administration using a controlled vocabulary and description.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="AdditionalDataCollection" type="AdditionalDataCollectionType">
@@ -5980,7 +6067,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:sequence>
 			<xs:element ref="TypeOfAdditionalData" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies type of addtional data collected. Supports the use of a controlled vocabulary.</xs:documentation>
+					<xs:documentation>Specifies type of additional data collected. Supports the use of a controlled vocabulary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="r:Description" minOccurs="0">
@@ -6025,7 +6112,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:element>
 						<xs:element ref="DevelopmentActivityReference">
 							<xs:annotation>
-								<xs:documentation>Reference to an existing DevelopmentActivity for inclusion in the scheme. TypOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+								<xs:documentation>Reference to an existing DevelopmentActivity for inclusion in the scheme. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -6052,7 +6139,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="DevelopmentActivityReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing DevelopmentActivity for inclusion in the scheme. TypOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+			<xs:documentation>Reference to an existing DevelopmentActivity for inclusion in the scheme. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DevelopmentActivityGroupReference" type="r:ReferenceType">
@@ -6115,7 +6202,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="DevelopmentActivityReference">
 							<xs:annotation>
-								<xs:documentation>Reference to a constiuant DevelopmentActivity for inclusion in the group. TypOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+								<xs:documentation>Reference to a constituent DevelopmentActivity for inclusion in the group. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="DevelopmentActivityGroupReference">
@@ -6143,71 +6230,71 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description of the type of group created to associate a number of Development Activities. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-<xs:complexType name="DevelopmentResultsType">
-	<xs:annotation>
-		<xs:documentation>Provides a name, label and description for the Development Results and lists the individual development activities which should take place.</xs:documentation>
-	</xs:annotation>
-	<xs:complexContent>
-	<xs:extension base="r:VersionableType">
-		<xs:sequence>
-			<xs:element ref="DevelopmentResultsName" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>A name for the DevelopmentResults. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
-				</xs:annotation>
-			</xs:element>	
-			<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>A display label for the Development Results. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
-				</xs:annotation>
-			</xs:element>	
-			<xs:element ref="r:Description" minOccurs="0">
+	<xs:complexType name="DevelopmentResultsType">
+		<xs:annotation>
+			<xs:documentation>Provides a name, label and description for the Development Results and lists the individual development activities which should take place.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:VersionableType">
+				<xs:sequence>
+					<xs:element ref="DevelopmentResultsName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-					<xs:documentation>A description of the overall Development Results. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-				</xs:annotation>
-			</xs:element>	
-			<xs:element ref="DevelopmentPlanReference" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>References the Development Plan which the results refer to.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="DevelopmentProcessReference" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>References the Development Process which the results refer to.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="ResultsDate" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The date or date range of obtaining results from the development work.</xs:documentation>
-				</xs:annotation>
-			</xs:element>	
-			<xs:element ref="ResultDetail" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Details of specific results of the development plan and process. May refer to specific development activities or DevelopmentSteps within a DevelopmentProcess.</xs:documentation>
-				</xs:annotation>
-			</xs:element>	
-		</xs:sequence>
-	</xs:extension>
-	</xs:complexContent>
-</xs:complexType>	
-<xs:element name="DevelopmentResultsName" type="r:NameType">
-	<xs:annotation>
-		<xs:documentation>A name for the DevelopmentResults. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
-	</xs:annotation>
-</xs:element>	
-<xs:element name="ResultsDate" type="r:DateType">
-	<xs:annotation>
-		<xs:documentation>The date or date range of obtaining results from the development work.</xs:documentation>
-	</xs:annotation>
-</xs:element>	
-<xs:element name="ResultDetail" type="ResultDetailType">
-	<xs:annotation>
-		<xs:documentation>Details of specific results of the development plan and process. May refer to specific development activities or DevelopmentSteps within a DevelopmentProcess.</xs:documentation>
-	</xs:annotation>
-</xs:element>	
-<xs:complexType name="ResultDetailType">
-	<xs:annotation>
-		<xs:documentation>Details of specific results of the development plan and process. May refer to specific development activities or DevelopmentSteps within a DevelopmentProcess.</xs:documentation>
-	</xs:annotation>
+							<xs:documentation>A name for the DevelopmentResults. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the Development Results. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the overall Development Results. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="DevelopmentPlanReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>References the Development Plan which the results refer to.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="DevelopmentProcessReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>References the Development Process which the results refer to.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ResultsDate" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The date or date range of obtaining results from the development work.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ResultDetail" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Details of specific results of the development plan and process. May refer to specific development activities or DevelopmentSteps within a DevelopmentProcess.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="DevelopmentResultsName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>A name for the DevelopmentResults. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ResultsDate" type="r:DateType">
+		<xs:annotation>
+			<xs:documentation>The date or date range of obtaining results from the development work.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ResultDetail" type="ResultDetailType">
+		<xs:annotation>
+			<xs:documentation>Details of specific results of the development plan and process. May refer to specific development activities or DevelopmentSteps within a DevelopmentProcess.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ResultDetailType">
+		<xs:annotation>
+			<xs:documentation>Details of specific results of the development plan and process. May refer to specific development activities or DevelopmentSteps within a DevelopmentProcess.</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TypeOfResult" minOccurs="0">
 				<xs:annotation>
@@ -6218,20 +6305,20 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:annotation>
 					<xs:documentation>A description of the Results Detail. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
-			</xs:element>	
+			</xs:element>
 			<xs:element ref="ResultsDate" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The date or date range of obtaining results from the development work.</xs:documentation>
 				</xs:annotation>
-			</xs:element>	
+			</xs:element>
 			<xs:element ref="RequirementsAssessment" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Description of whether specific requirements for the activities providing these results were met.</xs:documentation>
 				</xs:annotation>
-			</xs:element>	
+			</xs:element>
 			<xs:element ref="DevelopmentActivityReference" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Reference to one or more Development Activities used by the Development Plan. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+					<xs:documentation>Reference to one or more Development Activities used by the Development Plan. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="DevelopmentProcessStepReference" minOccurs="0" maxOccurs="unbounded">
@@ -6240,249 +6327,237 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-</xs:complexType>	
-<xs:element name="TypeOfResult" type="r:CodeValueType">
-	<xs:annotation>
-		<xs:documentation>Identifies the specific type of result. Supports the use of an external controlled vocabulary.</xs:documentation>
-	</xs:annotation>
-</xs:element>
-<xs:element name="RequirementsAssessment" type="RequirementsAssessmentType">
-	<xs:annotation>
-		<xs:documentation>Description of whether specific requirements for the activities providing these results were met.</xs:documentation>
-	</xs:annotation>
-</xs:element>	
-<xs:complexType name="RequirementsAssessmentType">
-	<xs:annotation>
-		<xs:documentation>Description of whether specific requirements for the activities providing these results were met.</xs:documentation>
-	</xs:annotation>
-	<xs:sequence>
-		<xs:element name="TypeOfRequirementsAssessment" minOccurs="0">
-			<xs:annotation>
-				<xs:documentation>Identifies the type of requirement being assessed such as staffing, funding, source materials, etc. Supports the use of an external controlled vocabulary.</xs:documentation>
-			</xs:annotation>
-		</xs:element>
-		<xs:element ref="r:Description" minOccurs="0">
-			<xs:annotation>
-				<xs:documentation>A description of the Requirements Assessment. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-			</xs:annotation>
-		</xs:element>	
-	</xs:sequence>
-	<xs:attribute name="isSatisfied" type="xs:boolean">
+	</xs:complexType>
+	<xs:element name="TypeOfResult" type="r:CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A boolean statement of whether the requirement was satisfied or not. A value of "true" indicates that the minimum requirement was satisfied. Note any specific information in the Description.</xs:documentation>
+			<xs:documentation>Identifies the specific type of result. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
-	</xs:attribute>
-</xs:complexType>	
-<xs:element name="TypeOfRequirementsAssessment" type="r:CodeValueType">
-	<xs:annotation>
-		<xs:documentation>Identifies the specific type of result. Supports the use of an external controlled vocabulary.</xs:documentation>
-	</xs:annotation>
-</xs:element>
-<xs:element name="DevelopmentProcessStepReference" type="r:ReferenceType">
-	<xs:annotation>
-		<xs:documentation>Reference to a Development Process Steps. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
-	</xs:annotation>
-</xs:element>
-<xs:element name="DevelopmentProcessReference" type="r:ReferenceType">
-	<xs:annotation>
-		<xs:documentation>Reference to a DevelopmentProcess. TypeOfObject should be DevelopmentProcess.</xs:documentation>
-	</xs:annotation>
-</xs:element>
-<xs:element name="DevelopmentPlanReference" type="r:ReferenceType">
-	<xs:annotation>
-		<xs:documentation>Reference to a DevelopmentPlan. TypeOfObject should be DevelopmentPlan.</xs:documentation>
-	</xs:annotation>
-</xs:element>
-<xs:element name="DevelopmentProcess" type="DevelopmentProcessType">
-	<xs:annotation>
-		<xs:documentation>Provides the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities</xs:documentation>
-	</xs:annotation>
-</xs:element>
-<xs:complexType name="DevelopmentProcessType">
-	<xs:annotation>
-		<xs:documentation>Provides a name, label and description for the Development Process and lists the individual development activities which should take place.</xs:documentation>
-	</xs:annotation>
-	<xs:complexContent>
-	<xs:extension base="r:VersionableType">
+	</xs:element>
+	<xs:element name="RequirementsAssessment" type="RequirementsAssessmentType">
+		<xs:annotation>
+			<xs:documentation>Description of whether specific requirements for the activities providing these results were met.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="RequirementsAssessmentType">
+		<xs:annotation>
+			<xs:documentation>Description of whether specific requirements for the activities providing these results were met.</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="DevelopmentProcessName" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="TypeOfRequirementsAssessment" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A name for the DevelopmentProcess. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+					<xs:documentation>Identifies the type of requirement being assessed such as staffing, funding, source materials, etc. Supports the use of an external controlled vocabulary.</xs:documentation>
 				</xs:annotation>
-			</xs:element>	
-			<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>A display label for the Development Process. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
-				</xs:annotation>
-			</xs:element>	
+			</xs:element>
 			<xs:element ref="r:Description" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A description of the Requirements Assessment. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="isSatisfied" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>A boolean statement of whether the requirement was satisfied or not. A value of "true" indicates that the minimum requirement was satisfied. Note any specific information in the Description.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="TypeOfRequirementsAssessment" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>Identifies the specific type of result. Supports the use of an external controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DevelopmentProcessStepReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to a Development Process Steps. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DevelopmentProcess" type="DevelopmentProcessType">
+		<xs:annotation>
+			<xs:documentation>Provides the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="DevelopmentProcessType">
+		<xs:annotation>
+			<xs:documentation>Provides a name, label and description for the Development Process and lists the individual development activities which should take place.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:VersionableType">
+				<xs:sequence>
+					<xs:element ref="DevelopmentProcessName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-					<xs:documentation>A description of the overall Development Process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-				</xs:annotation>
-			</xs:element>	
-			<xs:element ref="DevelopmentPlanReference" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>References the Development Plan which the results refer to.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="DevelopmentProcessStep" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Steps within the development process.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:extension>
-	</xs:complexContent>
-</xs:complexType>	
-<xs:element name="DevelopmentProcessName" type="r:NameType">
-	<xs:annotation>
-		<xs:documentation>A name for the DevelopmentProcess. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
-	</xs:annotation>
-</xs:element>	
-<xs:element name="DevelopmentProcessStep" type="DevelopmentProcessStepType">
-	<xs:annotation>
-		<xs:documentation>Steps within the development process.</xs:documentation>
-	</xs:annotation>
-</xs:element>
-<xs:complexType name="DevelopmentProcessStepType">
-	<xs:annotation>
-		<xs:documentation>Provides a name, label and description for the Development Process and lists the individual development activities which should take place.</xs:documentation>
-	</xs:annotation>
-	<xs:complexContent>
-	<xs:extension base="r:IdentifiableType">
+							<xs:documentation>A name for the DevelopmentProcess. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the Development Process. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the overall Development Process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="DevelopmentPlanReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>References the Development Plan which the results refer to.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="DevelopmentProcessStep" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Steps within the development process.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="DevelopmentProcessName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>A name for the DevelopmentProcess. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DevelopmentProcessStep" type="DevelopmentProcessStepType">
+		<xs:annotation>
+			<xs:documentation>Steps within the development process.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="DevelopmentProcessStepType">
+		<xs:annotation>
+			<xs:documentation>Provides a name, label and description for the Development Process and lists the individual development activities which should take place.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:IdentifiableType">
+				<xs:sequence>
+					<xs:element ref="PredecessorStepReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the DevelopmentProcessStep that appears before this step. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SuccessorStepReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the DevelopmentProcessStep that appears after this step. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="DevelopmentObjectReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the development object that is the target of this development step. If it is an external object create a description as OtherMaterial and reference the OtherMaterial. Use the attribute "objectLanguage" to specify any language preference. Repeat for multiple development objects. TypeOfObject should relate to the object referenced.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ResourceUsed" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Existing resources used in the process step.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the overall Development Process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="DevelopmentActivityReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to one or more Development Activities used by the Development Process Step. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ResponsibleAgencyReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to an Organization or Individual responsible for this step. TypeOfObject should be Organization or Individual.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Prerequisite" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A description of the overall prerequisites for completing this Development Processing Step. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ConditionForAcceptance" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The conditions under which the output of the Development Process Step is accepted.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ActivityDate" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The date or date range of activity in this step.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="PredecessorStepReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to the DevelopmentProcessStep that appears before this step. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SuccessorStepReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to the DevelopmentProcessStep that appears after this step. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ResponsibleAgencyReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an Organization or Individual responsible for this step. TypeOfObject should be Organization or Individual.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ActivityDate" type="r:DateType">
+		<xs:annotation>
+			<xs:documentation>The date or date range of activity in this step.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Prerequisite" type="r:StructuredStringType">
+		<xs:annotation>
+			<xs:documentation>A description of the overall prerequisites for completing this Development Processing Step. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ConditionForAcceptance" type="r:StructuredStringType">
+		<xs:annotation>
+			<xs:documentation>The conditions under which the output of the Development Process Step is accepted. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ResourceUsed" type="ResourceUsedType">
+		<xs:annotation>
+			<xs:documentation>Existing resources used in the process step.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ResourceUsedType">
+		<xs:annotation>
+			<xs:documentation>Provides a name, label and description for the Development Process and lists the individual development activities which should take place.</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="PredecessorStepReference" minOccurs="0" maxOccurs="unbounded">
+			<xs:element ref="TypeOfResource" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Reference to the DevelopmentProcessStep that appears before this step. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
-				</xs:annotation>
-			</xs:element>	
-			<xs:element ref="SuccessorStepReference" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Reference to the DevelopmentProcessStep that appears after this step. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
-				</xs:annotation>
-			</xs:element>	
-			<xs:element ref="DevelopmentObjectReference" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Reference to the development object that is the target of this development step. If it is an external object create a description as OtherMaterial and reference the OtherMaterial. Use the attribute "objectLanguage" to specify any language preference. Repeat for multiple development objects. TypeOfObject should relate to the object referenced.</xs:documentation>
+					<xs:documentation>Type of resource used. Supports the use of an external controlled vocabulary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="ResourceUsed" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Existing resources used in the process step.</xs:documentation>
-				</xs:annotation>
-			</xs:element>	
 			<xs:element ref="r:Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the overall Development Process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-				</xs:annotation>
-			</xs:element>	
-			<xs:element ref="DevelopmentActivityReference" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Reference to one or more Development Activities used by the Development Process Step. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+					<xs:documentation>A description of the Resource. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="ResponsibleAgencyReference" minOccurs="0" maxOccurs="unbounded">
+			<xs:element ref="ResourceObjectReference" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Reference to an Organization or Individual responsible for this step. TypeOfObject should be Organization or Individual.</xs:documentation>
-				</xs:annotation>
-			</xs:element>	
-			<xs:element ref="Prerequisite" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>A description of the overall prerequisites for completing this Development Processing Step. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-				</xs:annotation>
-			</xs:element>	
-			<xs:element ref="ConditionForAcceptance" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>The conditions under which the output of the Development Process Step is accepted.</xs:documentation>
+					<xs:documentation>Reference to the resource object used by this development step. If it is an external object create a description as OtherMaterial and reference the OtherMaterial. Use the attribute "objectLanguage" to specify any language preference. Repeat for multiple development objects. TypeOfObject should relate to the object referenced.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="ActivityDate" minOccurs="0">
+			<xs:element ref="ResourceUsage" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The date or date range of activity in this step.</xs:documentation>
+					<xs:documentation>The use of the resource within the DevelopmentProcessingStep. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
-			</xs:element>	
+			</xs:element>
 		</xs:sequence>
-	</xs:extension>
-	</xs:complexContent>
-</xs:complexType>	
-<xs:element name="PredecessorStepReference" type="r:ReferenceType">
-	<xs:annotation>
-		<xs:documentation>Reference to the DevelopmentProcessStep that appears before this step. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
-	</xs:annotation>
-</xs:element>	
-<xs:element name="SuccessorStepReference" type="r:ReferenceType">
-	<xs:annotation>
-		<xs:documentation>Reference to the DevelopmentProcessStep that appears after this step. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
-	</xs:annotation>
-</xs:element>	
-<xs:element name="ResponsibleAgencyReference" type="r:ReferenceType">
-	<xs:annotation>
-		<xs:documentation>Reference to an Organization or Individual responsible for this step. TypeOfObject should be Organization or Individual.</xs:documentation>
-	</xs:annotation>
-</xs:element>	
-<xs:element name="ActivityDate" type="r:DateType">
-	<xs:annotation>
-		<xs:documentation>The date or date range of activity in this step.</xs:documentation>
-	</xs:annotation>
-</xs:element>	
-<xs:element name="Prerequisite" type="r:StructuredStringType">
-	<xs:annotation>
-		<xs:documentation>A description of the overall prerequisites for completing this Development Processing Step. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-	</xs:annotation>
-</xs:element>	
-<xs:element name="ConditionForAcceptance" type="r:StructuredStringType">
-	<xs:annotation>
-		<xs:documentation>The conditions under which the output of the Development Process Step is accepted. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-	</xs:annotation>
-</xs:element>
-<xs:element name="ResourceUsed" type="ResourceUsedType">
-	<xs:annotation>
-		<xs:documentation>Existing resources used in the process step.</xs:documentation>
-	</xs:annotation>
-</xs:element>	
-<xs:complexType name="ResourceUsedType">
-	<xs:annotation>
-		<xs:documentation>Provides a name, label and description for the Development Process and lists the individual development activities which should take place.</xs:documentation>
-	</xs:annotation>
-		<xs:sequence>
-		<xs:element ref="TypeOfResource" minOccurs="0">
-			<xs:annotation>
-				<xs:documentation>Type of resource used. Supports the use of an external controlled vocabulary.</xs:documentation>
-			</xs:annotation>
-		</xs:element>	
-		<xs:element ref="r:Description" minOccurs="0">
-			<xs:annotation>
-				<xs:documentation>A description of the Resource. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-			</xs:annotation>
-		</xs:element>	
-		<xs:element ref="ResourceObjectReference" minOccurs="0">
-			<xs:annotation>
-				<xs:documentation>Reference to the resource object used by this development step. If it is an external object create a description as OtherMaterial and reference the OtherMaterial. Use the attribute "objectLanguage" to specify any language preference. Repeat for multiple development objects. TypeOfObject should relate to the object referenced.</xs:documentation>
-			</xs:annotation>
-		</xs:element>
-		<xs:element ref="ResourceUsage" minOccurs="0">
-			<xs:annotation>
-				<xs:documentation>The use of the resource within the DevelopmentProcessingStep. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-			</xs:annotation>
-		</xs:element>	
-	</xs:sequence>
-</xs:complexType>	
-
-<xs:element name="TypeOfResource" type="r:CodeValueType">
-	<xs:annotation>
-		<xs:documentation>Identifies the specific type of resource used. Supports the use of an external controlled vocabulary.</xs:documentation>
-	</xs:annotation>
-</xs:element>
-<xs:element name="ResourceObjectReference"  type="r:ReferenceType">
-	<xs:annotation>
-		<xs:documentation>Reference to the resource object used by this development step. If it is an external object create a description as OtherMaterial and reference the OtherMaterial. Use the attribute "objectLanguage" to specify any language preference. Repeat for multiple development objects. TypeOfObject should relate to the object referenced.</xs:documentation>
-	</xs:annotation>
-</xs:element>
-<xs:element name="ResourceUsage"  type="r:StructuredStringType">
-	<xs:annotation>
-		<xs:documentation>The use of the resource within the DevelopmentProcessingStep. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-	</xs:annotation>
-</xs:element>	
-
+	</xs:complexType>
+	<xs:element name="TypeOfResource" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>Identifies the specific type of resource used. Supports the use of an external controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ResourceObjectReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to the resource object used by this development step. If it is an external object create a description as OtherMaterial and reference the OtherMaterial. Use the attribute "objectLanguage" to specify any language preference. Repeat for multiple development objects. TypeOfObject should relate to the object referenced.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ResourceUsage" type="r:StructuredStringType">
+		<xs:annotation>
+			<xs:documentation>The use of the resource within the DevelopmentProcessingStep. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<!-- end of Questionnaire Developement CONTENT -->
 </xs:schema>

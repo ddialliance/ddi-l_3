@@ -152,12 +152,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>A description of the content and purpose of the Map. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="SourceSchemeReference">
+					<xs:element ref="SourceSchemeReference" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Mappings are unidirectional. The scheme referenced as the source is the scheme contents that would be transformed into the scheme contents identified as the target scheme contents.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="TargetSchemeReference">
+					<xs:element ref="TargetSchemeReference" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Reference to the scheme containing the target structure.</xs:documentation>
 						</xs:annotation>
@@ -380,19 +380,19 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:complexType name="ItemMapType">
 		<xs:annotation>
-			<xs:documentation>Maps two items of the same type within the Source and Target Schemes identified.</xs:documentation>
+			<xs:documentation>Maps a Source and one or more Target items of the same type within the Source and Target Schemes identified.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:IdentifiableType">
 				<xs:sequence>
-					<xs:element name="SourceItem" type="r:IDType">
+					<xs:element ref="SourceItemReference" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The ID of the source object in the source scheme already identified. Note that the version of the object is whichever version of it that exists in the version of the parent scheme as identified.</xs:documentation>
+							<xs:documentation>A reference to the source object in the source scheme already identified. TypeOfObject dependent on object of comparison.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="TargetItem" type="r:IDType">
+					<xs:element ref="TargetItemReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>The ID of the target object in the target scheme already identified. Note that the version of the object is whichever version of it that exists in the version of the parent scheme as identified.</xs:documentation>
+							<xs:documentation>A reference the target object or objects in the target scheme already identified. TypeOfObject dependent on object of comparison. Note that if multiple target items are identified the correspondence between the source and ALL target items must be identical.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Correspondence" minOccurs="0">
@@ -447,6 +447,16 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="SourceSchemeReference" type="r:SchemeReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to any Scheme using SchemeReference which allows for the specification of objects to exclude. TypeOfObject should be set to  CategoryScheme, CodeListScheme, ConceptScheme, ConceptualVariableScheme, ControlConstructScheme, DefaultVariableScheme, GeographicLocationScheme, GeographicStructureScheme, InstrumentScheme, InterviewerInstructionScheme, ManagedRepresentationScheme, NCubeScheme, OrganizationScheme, PhysicalStructureScheme, ProcessingEventScheme, ProcessingInstructionScheme, QualityStatementScheme, QuestionScheme, RecordLayoutScheme, RepresentedVariableScheme, SourceScheme, TargetScheme, UniverseScheme, or VariableSchemeReference.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SourceItemReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>A reference to the source object in the source scheme already identified. TypeOfObject dependent on object of comparison.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TargetItemReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>A reference the target object or objects in the target scheme already identified. TypeOfObject dependent on object of comparison. Note that if multiple target items are identified the correspondence between the source and ALL target items must be identical.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="TargetSchemeReference" type="r:SchemeReferenceType">
