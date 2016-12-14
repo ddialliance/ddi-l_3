@@ -34,10 +34,7 @@ Organized by related sets of objects, e.g. Question Item, Question Grid, and Que
 AUDIENCE: Content providers, those focusing on specific applied uses of DDI
 Provides instructions for navigating the HTML Field Level Documentation and reviews basic structural features focusing on their usage, such as exchange structures, organizing publication package content, managing data over time, common structure like strings, controlled vocabularies, dates, citation and coverage, notes and other material. This general section is followed by a set of user stories (applying DDI). The focus is on how the parts of DDI work together to describe the metadata and data for particular functions such as documenting a longitudinal study or developing a questionnaire. Wherever appropriate, Part II will reference the more detailed technical documentation in Part I.
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:instance:3_3" xmlns:a="ddi:archive:3_3" xmlns:cm="ddi:comparative:3_3" xmlns:c="ddi:conceptualcomponent:3_3" xmlns:d="ddi:datacollection:3_3" xmlns:ds="ddi:dataset:3_3"
-           xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:pr="ddi:ddiprofile:3_3" xmlns:g="ddi:group:3_3" xmlns:m3="ddi:physicaldataproduct_ncube_inline:3_3" xmlns:l="ddi:logicalproduct:3_3" xmlns:m1="ddi:physicaldataproduct_ncube_normal:3_3"
-           xmlns:p="ddi:physicaldataproduct:3_3" xmlns:pi="ddi:physicalinstance:3_3" xmlns:r="ddi:reusable:3_3" xmlns:s="ddi:studyunit:3_3" xmlns:m2="ddi:physicaldataproduct_ncube_tabular:3_3" xmlns:m4="ddi:physicaldataproduct_proprietary:3_3"
-           targetNamespace="ddi:instance:3_3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:instance:3_3" xmlns:a="ddi:archive:3_3" xmlns:cm="ddi:comparative:3_3" xmlns:c="ddi:conceptualcomponent:3_3" xmlns:d="ddi:datacollection:3_3" xmlns:ds="ddi:dataset:3_3" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:pr="ddi:ddiprofile:3_3" xmlns:g="ddi:group:3_3" xmlns:m3="ddi:physicaldataproduct_ncube_inline:3_3" xmlns:l="ddi:logicalproduct:3_3" xmlns:m1="ddi:physicaldataproduct_ncube_normal:3_3" xmlns:p="ddi:physicaldataproduct:3_3" xmlns:pi="ddi:physicalinstance:3_3" xmlns:r="ddi:reusable:3_3" xmlns:s="ddi:studyunit:3_3" xmlns:m2="ddi:physicaldataproduct_ncube_tabular:3_3" xmlns:m4="ddi:physicaldataproduct_proprietary:3_3" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="ddi:instance:3_3" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
 	<xs:import namespace="ddi:archive:3_3" schemaLocation="archive.xsd"/>
 	<xs:import namespace="ddi:comparative:3_3" schemaLocation="comparative.xsd"/>
@@ -203,6 +200,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="c:ConceptualVariableScheme"/>
 				<xs:element ref="d:ControlConstructScheme"/>
 				<xs:element ref="d:DataCollection"/>
+				<xs:element ref="d:DevelopmentActivityScheme"/>
 				<xs:element ref="DDIInstance"/>
 				<xs:element ref="pr:DDIProfile"/>
 				<xs:element ref="c:GeographicLocationScheme"/>
@@ -249,7 +247,10 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:ControlConstructGroup"/>
 				<xs:element ref="l:DataRelationship"/>
 				<xs:element ref="ds:DataSet"/>
+				<xs:element ref="d:DevelopmentActivityGroup"/>
 				<xs:element ref="d:DevelopmentPlan"/>
+				<xs:element ref="d:DevelopmentProcess"/>
+				<xs:element ref="d:DevelopmentResults"/>
 				<xs:element ref="d:FocusGroupActivity"/>
 				<xs:element ref="d:GeneralInstruction"/>
 				<xs:element ref="d:GenerationInstruction"/>
@@ -284,6 +285,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:ProcessingEvent"/>
 				<xs:element ref="d:ProcessingEventGroup"/>
 				<xs:element ref="d:ProcessingInstructionGroup"/>
+				<xs:element ref="r:QualityStandard"/>
 				<xs:element ref="r:QualityStatement"/>
 				<xs:element ref="r:QualityStatementGroup"/>
 				<xs:element ref="d:QuestionBlock"/>

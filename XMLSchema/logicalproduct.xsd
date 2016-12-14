@@ -889,7 +889,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:attribute>
 				<xs:attribute name="isWeight" type="xs:boolean" default="false">
 					<xs:annotation>
-						<xs:documentation>Set to "true" if the variable is used a weight when analyzing data within the data set. If set to true provide a reference to the Applied Usage of the appropriate Processing Event Weight usign WeightingAppliedUsage.</xs:documentation>
+						<xs:documentation>Set to "true" if the variable is used a weight when analyzing data within the data set. If set to true provide a reference to the Applied Usage of the appropriate Processing Event Weight using WeightingAppliedUsage.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
