@@ -251,6 +251,21 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
 				<xs:sequence>
+					<xs:element ref="MethodologyName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A name for the Methodology. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the Methodology. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the Methodology. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="DataCollectionMethodology" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A basic structure for describing the methodology used for collecting data. Repeat this element if multiple methodologies are used.</xs:documentation>
@@ -3813,6 +3828,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="TypeOfDataCollectionMethodology" type="r:CodeValueType">
 		<xs:annotation>
 			<xs:documentation>A brief textual description or classification of the type of data collection methodology. Supports the use of an external controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MethodologyName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the Methodology using the DDI Name structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DataCollectionMethodology" type="DataCollectionMethodologyType">
