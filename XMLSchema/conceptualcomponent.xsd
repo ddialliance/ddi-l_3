@@ -594,6 +594,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>The entity type associated with this conceptual variable. For example, individuals, families or households, groups, institutions/organizations, administrative units, etc. Supports the use of an external controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+						<xs:element ref="r:CategorySchemeReference">
+							<xs:annotation>
+								<xs:documentation>Reference to a previously category scheme that represents the conceptual variable's enumerated conceptual domain.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
