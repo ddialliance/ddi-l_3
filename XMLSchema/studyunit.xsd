@@ -56,6 +56,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Identifies the authorizing agency for the study and allows for the full text of the authorization (law, regulation, or other form of authorization). May be used to list authorizations from oversight committees and other regulatory agencies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="r:DefiningConceptReference" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A concept that defines or aids in understanding the content of the study unit.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="r:UniverseReference" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Reference to the universe statement from the universe scheme, describing the group of persons or other elements that are the object of research and to which any analytic results refer. Age, nationality, and residence commonly help to delineate a given universe, but any of a number of factors may be involved, such as sex, race, income, veteran status, criminal convictions, etc. The universe may consist of elements other than persons, such as housing units, court cases, deaths, countries, etc. In general, it should be possible to tell from the description of the universe whether a given individual or element (hypothetical or real) is a member of the population under study. A universe may be described as "inclusive" or "exclusive". This StudyUnit level reference is normally to the top level of the UniverseScheme.</xs:documentation>
