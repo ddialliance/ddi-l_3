@@ -41,6 +41,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="r:MaintainableType">
 				<xs:sequence>
+					<xs:element ref="TypeOfStudyUnit" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A brief textual identification of the StudyUnit. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="r:Citation" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The citation for the study. DDI strongly recommends that at minimum a Title be provided.</xs:documentation>
@@ -231,6 +236,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="TypeOfStudyUnit" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>A brief textual description or classification of the StudyUnit. Supports the use of an external controlled vocabulary. DDI recommends the use of a controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="StudyBudget" type="r:BudgetType">
 		<xs:annotation>
 			<xs:documentation>A description of the budget that can contain a reference to an external budget document.</xs:documentation>

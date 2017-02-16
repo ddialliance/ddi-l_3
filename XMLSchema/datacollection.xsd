@@ -1763,6 +1763,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="ControlConstructType">
 				<xs:sequence>
+					<xs:element ref="TypeOfIfThenElse" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A brief textual identification of the IfThenElse. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="IfCondition" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The condition which must be met to trigger the Then clause, expressed as a CommandCode. The condition is an expression in the programming language used in the instrument.</xs:documentation>
@@ -1953,6 +1958,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="ControlConstructType">
 				<xs:sequence>
+					<xs:element ref="TypeOfComputationItem" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A brief textual identification of the ComputationItem. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="r:CommandCode" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Code which contains the value of the variable in programming terms.</xs:documentation>
@@ -4394,6 +4404,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Information on the command used to generate the dynamic portion of a text field.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="TypeOfIfThenElse" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>A brief textual description or classification of the IfThenElse. Supports the use of an external controlled vocabulary. DDI recommends the use of a controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="IfCondition" type="r:CommandCodeType">
 		<xs:annotation>
 			<xs:documentation>Information on the command used to determine whether the "If" condition is met.</xs:documentation>
@@ -4502,6 +4517,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="SourceQuestion" type="SourceReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to a question used in the derivation or coding instruction. TypeOfObject should be set to QuestionItem or Question Grid.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TypeOfComputationItem" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>A brief textual description or classification of the ComputationItem. Supports the use of an external controlled vocabulary. DDI recommends the use of a controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ControlConstructReference" type="ControlConstructReferenceType">
