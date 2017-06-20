@@ -236,12 +236,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Indicates the software that was used to create the data file.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="CaseQuantity" type="xs:integer" minOccurs="0">
+					<xs:element name="CaseQuantity" type="xs:nonNegativeInteger" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Number of cases or observations in the data file. Caution in using optional checksums is recommended. Conflict between checksums and the items being counted can cause problems with warning flags during processing. If using checksum to capture information for internal processing purposes, the use of automatically generated check sums is strongly urged.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="OverallRecordCount" type="xs:integer" minOccurs="0">
+					<xs:element name="OverallRecordCount" type="xs:nonNegativeInteger" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Overall record count in the data file. Caution in using optional checksums is recommended. Conflict between checksums and the items being counted can cause problems with warning flags during processing. If using checksum to capture information for internal processing purposes, the use of automatically generated check sums is strongly urged.</xs:documentation>
 						</xs:annotation>
@@ -349,7 +349,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
                <xs:documentation>Reference to the variable to which the statistics apply.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="TotalResponses" type="xs:integer" minOccurs="0">
+         <xs:element name="TotalResponses" type="xs:nonNegativeInteger" minOccurs="0">
             <xs:annotation>
                <xs:documentation>The total number of responses to this variable. This element is especially useful if the number of responses does not match added case counts. It may also be used to sum the frequencies for variable categories.</xs:documentation>
             </xs:annotation>

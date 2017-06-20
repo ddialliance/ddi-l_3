@@ -575,7 +575,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="levelNumber" type="xs:integer" use="required">
+		<xs:attribute name="levelNumber" type="xs:nonNegativeInteger" use="required">
 			<xs:annotation>
 				<xs:documentation>Designated identifier for the level; generally increases as the level of indention for nesting increases.</xs:documentation>
 			</xs:annotation>
@@ -609,7 +609,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>Indicates whether the code is discrete (that is, placed at the lowest level in a hierarchy and has no children).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="levelNumber" type="xs:integer" use="optional">
+				<xs:attribute name="levelNumber" type="xs:nonNegativeInteger" use="optional">
 					<xs:annotation>
 						<xs:documentation>Level number of the code.</xs:documentation>
 					</xs:annotation>
@@ -1285,12 +1285,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="dimensionCount" type="xs:integer" use="optional">
+				<xs:attribute name="dimensionCount" type="xs:nonNegativeInteger" use="optional">
 					<xs:annotation>
 						<xs:documentation>The number of dimensions found in the NCube. Caution in using optional checksums is recommended. Conflict between checksums and the items being counted can cause problems with warning flags during processing. If using checksum to capture information for internal processing purposes, the use of automatically generated check sums is strongly urged.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="cellCount" type="xs:integer" use="optional">
+				<xs:attribute name="cellCount" type="xs:nonNegativeInteger" use="optional">
 					<xs:annotation>
 						<xs:documentation>The number of cells (measures) found in the NCube. Note that this is the number of cells produced by dimension structure not the number of cells containing data in a sparse NCube. Caution in using optional checksums is recommended. Conflict between checksums and the items being counted can cause problems with warning flags during processing. If using checksum to capture information for internal processing purposes, the use of automatically generated check sums is strongly urged.</xs:documentation>
 					</xs:annotation>
@@ -1409,7 +1409,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>If "true" indicates that the record type has a field which identifies its record type. In logical structures with a single record type there is generally no identifier. Most multi-record files will have a variable that identifies the record type.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="variableQuantity" type="xs:integer" use="optional">
+				<xs:attribute name="variableQuantity" type="xs:nonNegativeInteger" use="optional">
 					<xs:annotation>
 						<xs:documentation>Number of variables in the logical record. Caution in using optional checksums is recommended. Conflict between checksums and the items being counted can cause problems with warning flags during processing. If using checksum to capture information for internal processing purposes, the use of automatically generated check sums is strongly urged.</xs:documentation>
 					</xs:annotation>
@@ -1914,7 +1914,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:sequence>
 			</xs:choice>
 		</xs:sequence>
-		<xs:attribute name="rank" type="xs:integer" use="required">
+		<xs:attribute name="rank" type="xs:nonNegativeInteger" use="required">
 			<xs:annotation>
 				<xs:documentation>Identify the dimension being described by its rank value within the NCube description.</xs:documentation>
 			</xs:annotation>
@@ -1931,7 +1931,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="rank" type="xs:integer" use="required">
+		<xs:attribute name="rank" type="xs:nonNegativeInteger" use="required">
 			<xs:annotation>
 				<xs:documentation>The rank order of this dimension (the order in which the value for this dimension will appear in the cell address)denoted with a 1-based indexing. Provides coordinate order (1,2,n) for the intersect point of this dimension within the cell address. For example, if the rank of this dimension is 2, the intersect point on this dimension will be the second value listed in the cell address.</xs:documentation>
 			</xs:annotation>
@@ -1968,12 +1968,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Identifies the independent (denominator) and dependent (numerator) dimensions for calculating aggregate measures such as percent. When two or more independent or dependent dimensions are listed here, the value is defined as the intersection of the listed dimensions.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="IndependentDimension" type="xs:integer" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="IndependentDimension" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The rank of a dimension that acts as the denominator (independent variable).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DependentDimension" type="xs:integer" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="DependentDimension" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The rank of a dimension that acts as the numerator (dependent variable).</xs:documentation>
 				</xs:annotation>

@@ -239,7 +239,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>The URL or URN for the collection.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ItemQuantity" type="xs:integer" minOccurs="0">
+			<xs:element name="ItemQuantity" type="xs:nonNegativeInteger" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The number of items in the collection. This is a check sum and should be updated as the contents of the collection changes. The use of this element is best restricted to completed collections where change in the number of objects is not dynamic.</xs:documentation>
 				</xs:annotation>
@@ -1751,9 +1751,9 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>The CallNumber expressed as an xs:string.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="DataFileQuantity" type="xs:integer">
+	<xs:element name="DataFileQuantity" type="xs:nonNegativeInteger">
 		<xs:annotation>
-			<xs:documentation>The DataFileQuantity expressed as an xs:integer.</xs:documentation>
+			<xs:documentation>The DataFileQuantity expressed as an xs:nonNegativeInteger.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="RelationReference" type="r:ReferenceType">
