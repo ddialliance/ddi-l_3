@@ -3725,6 +3725,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Can describe a segment within a larger object such as a text or video segment.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="SizeInBytes" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Specifies the size of the file in bytes.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute ref="xml:lang" use="optional">
 					<xs:annotation>
@@ -3769,6 +3774,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="Segment" type="SegmentType">
 		<xs:annotation>
 			<xs:documentation>A structure used to express explicit segments within different types of external materials (Textual, Audio, Video, XML, and Image).</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SizeInBytes" type="xs:integer">
+		<xs:annotation>
+			<xs:documentation>Specifies the size of the file in bytes.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="TextualType">

@@ -265,6 +265,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>A URN or URL for the data file with a flag to indicate if it is a public copy.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="r:SizeInBytes" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Specifies the size of the file in bytes.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="isMaster" type="xs:boolean" use="optional">
 					<xs:annotation>
