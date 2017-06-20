@@ -2508,7 +2508,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:choice minOccurs="0">
 						<xs:element ref="r:CategorySchemeReference">
 							<xs:annotation>
-								<xs:documentation>Reference to a category scheme that contains the representation domain of the RepresentedVariable. Use this element when only the category specifications are provided. If both a code and the related category must be specified use CodeRepresentation (member of the substitution group ValueRepresentation). TypeOfObject should be set to CategoryScheme.</xs:documentation>
+								<xs:documentation>DEPRECATED. DDI strongly recommends use of the CategorySchemeReference provided by the ConceptualVariable. Reference to a category scheme that contains the representation domain of the RepresentedVariable. Use this element when only the category specifications are provided. If both a code and the related category must be specified use CodeRepresentation (member of the substitution group ValueRepresentation). TypeOfObject should be set to CategoryScheme.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="r:ValueRepresentation">

@@ -251,6 +251,21 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
 				<xs:sequence>
+					<xs:element ref="MethodologyName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A name for the Methodology. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the Methodology. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the Methodology. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="DataCollectionMethodology" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A basic structure for describing the methodology used for collecting data. Repeat this element if multiple methodologies are used.</xs:documentation>
@@ -1763,6 +1778,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="ControlConstructType">
 				<xs:sequence>
+					<xs:element ref="TypeOfIfThenElse" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A brief textual identification of the IfThenElse. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="IfCondition" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The condition which must be met to trigger the Then clause, expressed as a CommandCode. The condition is an expression in the programming language used in the instrument.</xs:documentation>
@@ -1953,6 +1973,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="ControlConstructType">
 				<xs:sequence>
+					<xs:element ref="TypeOfComputationItem" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A brief textual identification of the ComputationItem. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="r:CommandCode" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Code which contains the value of the variable in programming terms.</xs:documentation>
@@ -3815,6 +3840,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description or classification of the type of data collection methodology. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="MethodologyName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the Methodology using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="DataCollectionMethodology" type="DataCollectionMethodologyType">
 		<xs:annotation>
 			<xs:documentation>A basic structure for describing the methodology used for collecting data.</xs:documentation>
@@ -4394,6 +4424,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Information on the command used to generate the dynamic portion of a text field.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="TypeOfIfThenElse" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>A brief textual description or classification of the IfThenElse. Supports the use of an external controlled vocabulary. DDI recommends the use of a controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="IfCondition" type="r:CommandCodeType">
 		<xs:annotation>
 			<xs:documentation>Information on the command used to determine whether the "If" condition is met.</xs:documentation>
@@ -4502,6 +4537,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="SourceQuestion" type="SourceReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to a question used in the derivation or coding instruction. TypeOfObject should be set to QuestionItem or Question Grid.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TypeOfComputationItem" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>A brief textual description or classification of the ComputationItem. Supports the use of an external controlled vocabulary. DDI recommends the use of a controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ControlConstructReference" type="ControlConstructReferenceType">
