@@ -817,6 +817,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>Date of version using the union set BaseDateType. Duration should not be used in this field, even though allowed by the ISO format enforced by the parser.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
+				<xs:attribute name="isPublished" type="xs:boolean" default="false">
+					<xs:annotation>
+						<xs:documentation>Indicates that the maintainable will not be changed without versioning, and is a stable target for referencing.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -930,11 +935,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:attribute name="externalReferenceDefaultURI" type="xs:anyURI" use="optional">
 					<xs:annotation>
 						<xs:documentation>Use to provide a default value for the URI of external references. Use of a URI in a reference within this maintainable overrides the value entered here. Nested maintainables should redeclare the contents of this attribute for clarity.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="isPublished" type="xs:boolean" default="false">
-					<xs:annotation>
-						<xs:documentation>Indicates that the maintainable will not be changed without versioning, and is a stable target for referencing.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute ref="xml:lang" use="optional">
