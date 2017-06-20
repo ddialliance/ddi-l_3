@@ -20,7 +20,12 @@ Technical Committee - TC:
     Current Members and invited experts:
     
     Johan Fihn, Swedish National Data Service
+    Larry Hoyle, University of Kansas
     Jeremy Iverson, Colectica
+    Daniel Gillman, Bureau of Labor Statistics
+    Jay Greenfield, BAH
+    Olof Olsson, Swedish National Data Service
+    Flavio Rizzolo, Statistics Canada
     Dan Smith, Colectica
 
     Past Members and invited experts:
@@ -28,7 +33,6 @@ Technical Committee - TC:
     Cavan Capps, Invited expert 
     Mark Diggory, Harvard-MIT Data Center
     J Gager, Technical expert
-    Daniel Gillman, Invited standards expert
     Arofan Gregory, Lead technical expert
     Pascal Heus, World Bank, Development Data Group (DECDG)
     I-Lin Kuo, Invited expert
