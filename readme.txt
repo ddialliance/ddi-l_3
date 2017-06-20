@@ -14,15 +14,18 @@ Technical Committee - TC:
 
     Current Leadership:
 
-    Arofan Gregory, Lead technical expert
     Wendy Thomas, Minnesota Population Center, Chair [2006-], Vice Chair [2004-2005]
-    Joachim Wackerow, GESIS - Leibniz Institute for the Social Sciences, Vice Chair [2007-]
+    Jon Johnson, UKDA, Vice Chair [2016-]
     
     Current Members and invited experts:
     
     Johan Fihn, Swedish National Data Service
+    Larry Hoyle, University of Kansas
     Jeremy Iverson, Colectica
-    Jon Johnson, Institute of Education, University College London
+    Daniel Gillman, Bureau of Labor Statistics
+    Jay Greenfield, BAH
+    Olof Olsson, Swedish National Data Service
+    Flavio Rizzolo, Statistics Canada
     Dan Smith, Colectica
 
     Past Members and invited experts:
@@ -30,13 +33,14 @@ Technical Committee - TC:
     Cavan Capps, Invited expert 
     Mark Diggory, Harvard-MIT Data Center
     J Gager, Technical expert
-    Daniel Gillman, Invited standards expert
+    Arofan Gregory, Lead technical expert
     Pascal Heus, World Bank, Development Data Group (DECDG)
     I-Lin Kuo, Invited expert
     Ken Miller, UK Data Archive
     Chris Nelson, Technical expert
     Jostein Ryssevik, Open Data Foundation, Chair [2004-2005], Vice Chair [2006]
     Oliver Watteler, GESIS - Leibniz Institute for the Social Sciences
+    Joachim Wackerow, GESIS - Leibniz Institute for the Social Sciences, Vice Chair [2007-2016]
 
 
 Substantive working group members:
