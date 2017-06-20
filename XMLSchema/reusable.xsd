@@ -7081,14 +7081,14 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:sequence>
 		</xs:choice>
 	</xs:complexType>
-	<xs:element name="ProcessingInstructionReference" type="ProcessingInstructionReferenceType">
+	<xs:element name="ProcessingInstructionReference" type="ReferenceWithBindingType">
 		<xs:annotation>
 			<xs:documentation>A reference to a General or Generation Instruction that was used by the parent object, e.g. an instruction used to derive a Variable or used by a ProcessingEvent. The basic Reference structure is extended to allow for the use of Binding to link specific source parameters to the InParameter of the instruction at the point of use. TypeOfObject should be set to GeneralInstruction or GenerationInstruction.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ProcessingInstructionReferenceType">
+	<xs:complexType name="ReferenceWithBindingType">
 		<xs:annotation>
-			<xs:documentation>A reference to a General or Generation Instruction that was used by the parent object, e.g. an instruction used to derive a Variable or used by a ProcessingEvent. The basic Reference structure is extended to allow for the use of Binding to link specific source parameters to the InParameter of the instruction at the point of use. If there is a conflict between a Binding in the instruction of a specific source to an InParameter and the Binding information provided in the ProcessingInstructionReference, the Binding information in the reference overrides that found in the instruction. TypeOfObject should be set to GeneralInstruction or GenerationInstruction.</xs:documentation>
+			<xs:documentation>A reference to a an object that uses inputs and/or outputs that allows specification of the binding of these parameters at the point of reference. The basic Reference structure is extended to allow for the use of Binding to link specific source parameters to the InParameter of the instruction at the point of use. If there is a conflict between a Binding of a specific source to an InParameter and the Binding information in the referenced object, the Binding information in the reference overrides that found in the instruction.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ReferenceType">
