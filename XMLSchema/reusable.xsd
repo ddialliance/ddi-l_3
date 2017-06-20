@@ -300,7 +300,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:attribute>
 		<xs:attribute name="isPlainText" type="xs:boolean" default="true">
 			<xs:annotation>
-				<xs:documentation>Indicates that the content is to be treated as plain text (no formatting). You may use DDIProfile to fix the value of this attribute to true in cases where you wish to indicate that your system treats all content should be treated as plain text.</xs:documentation>
+				<xs:documentation>Indicates that the content does not use the embedded XHTML schemas. DDI recommends against using the embedded XHTML schemas, as these may be removed in future versions. When including XHTML content, set the textFormat to "xhtml", set isPlainText to "true", and XML encode the XHTML. You may use DDIProfile to fix the value of this attribute to true in cases where you wish to indicate that your system treats all content should be treated as plain text.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="textFormat" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Specifies the format of the text content, for example "plainText", "markdown", "html5", "latex", or "xhtml". DDI recommends against using the embedded XHTML schemas, as these may be removed in future versions. When including XHTML content, set the textFormat to "xhtml", set isPlainText to "true", and XML encode the XHTML.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
