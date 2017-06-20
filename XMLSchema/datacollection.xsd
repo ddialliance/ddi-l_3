@@ -2817,6 +2817,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
+			<xs:element ref="CreateSummary" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Allows for the creation of a summary field containing a label (such as Total, Mean, Count, etc.) an the command information for creating the value of the cell.</xs:documentation>
+				</xs:annotation>
+			</xs:element>					
 		</xs:sequence>
 		<xs:attribute name="rank" type="xs:integer" use="required">
 			<xs:annotation>
@@ -2834,6 +2839,26 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+	<xs:element name="CreateSummary" type="CreateSummaryType">
+		<xs:annotation>
+			<xs:documentation>Allows for the creation of a summary field containing a label (such as Total, Mean, Count, etc.) an the command information for creating the value of the cell.</xs:documentation>
+		</xs:annotation>
+	</xs:element>					
+	<xs:complexType name="CreateSummaryType">
+		<xs:annotation>
+			<xs:documentation>Allows for the creation of a summary field containing a label (such as Total, Mean, Count, etc.) an the command information for creating the value of the cell.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:CommandCodeType">
+				<xs:sequence>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the for the summary (i.e. Count, Total, Mean, etc.). Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>				
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent	
 	<xs:complexType name="RosterType">
 		<xs:annotation>
 			<xs:documentation>A roster is an unlabeled list of numbered rows or columns depending upon orientation. The numbers may or may not be displayed but will be used as information for creating the cell coordinate address. The Roster defines the numbering used for the coordinate system, sets a minimum and maximum number of values, and provides the condition for continuation. The Roster label is used in the same way as the label of the CodeDomain, providing a dimension level header or label.</xs:documentation>
