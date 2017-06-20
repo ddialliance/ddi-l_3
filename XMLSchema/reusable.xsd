@@ -39,10 +39,10 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<!-- ID Type -->
 	<xs:simpleType name="BaseIDType">
 		<xs:annotation>
-			<xs:documentation>A type which is used for restricting the characters in DDI ID structures. Valid characters include A-Z, a-z, 0-9, *, @, $, -, and _.</xs:documentation>
+			<xs:documentation>A type which is used for restricting the characters in DDI ID structures. Valid characters include A-Z, a-z, 0-9, *, @, $, -, and _. Note that the BaseIDType supports the use of the ID as needed to change the scopeOfUniqueness from Maintainable to Agency. Use the full unique ID in this field which is objectID OR maintainableID.objectID.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[A-Za-z0-9\*@$\-_]+"/>
+			<xs:pattern value="[A-Za-z0-9\*@$\-_]+(\.[A-Za-z0-9\*@$\-_]+)*"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- Agency ID Type -->
