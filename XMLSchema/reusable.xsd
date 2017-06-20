@@ -4113,6 +4113,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>A description of the nature of the relationship between the parent element of the relationship item and the DDI object to which it is related. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element ref="TypeOfRelationship" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes how the resource is related to the item. Supports the use of an external controlled vocabulary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="Image" type="ImageType">
@@ -4990,6 +4995,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="RelationshipDescription" type="StructuredStringType">
 		<xs:annotation>
 			<xs:documentation>A description of the nature of the relationship between the parent element of the relationship item and the DDI object to which it is related. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TypeOfRelation" type="CodeValueType">
+		<xs:annotation>
+			<xs:documentation>Describes how the resource is related to the item. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="TopicalCoverageReference" type="ReferenceType">
