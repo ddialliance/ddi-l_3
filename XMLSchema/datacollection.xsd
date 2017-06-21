@@ -2222,11 +2222,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing QuestionGroup using the Reference structure. TypeOfObject should be set to QuestionGroup.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="QuestionType" abstract="true">
+	<xs:element name="Question" type="r:VersionablType" abstract="true">
 		<xs:annotation>
 			<xs:documentation>The abstract base for all questions. Acts as the head of a substitution group.</xs:documentation>
 		</xs:annotation>
-	</xs:complexType>
+	</xs:element>
 	<xs:element name="QuestionGrid" type="QuestionGridType" substitutionGroup="QuestionType">
 		<xs:annotation>
 			<xs:documentation>Structures the QuestionGrid as an NCube-like structure providing dimension information, labeling options, and response domains attached to one or more cells within the grid.</xs:documentation>
@@ -4554,12 +4554,17 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description or classification of the intended response unit/respondent. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="GeneralInstruction" type="GeneralInstructionType">
+	<xs:element name="ProcessingInstruction" type="r:AbstractVersionable" abstract="true">
+		<xs:annotation>
+			<xs:documentation>The abstract base for all ProcessingInstructions (GenerationInstruction, GeneralInstruction). Acts as the head of a substitution group.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GeneralInstruction" type="GeneralInstructionType" substitutionGroup="ProcessingInstruction">
 		<xs:annotation>
 			<xs:documentation>Processing instructions that pertain to data collection or data processing overall such as handling of non-response to questions, imputation practices, suppression rules, etc.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="GenerationInstruction" type="GenerationInstructionType">
+	<xs:element name="GenerationInstruction" type="GenerationInstructionType" substitutionGroup="ProcessingInstruction">
 		<xs:annotation>
 			<xs:documentation>Processing instructions for recodes, derivations from multiple question or variable sources, and derivations based on external sources.</xs:documentation>
 		</xs:annotation>
