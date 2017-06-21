@@ -827,6 +827,21 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>The entity type associated with this conceptual variable. For example, individuals, families or households, groups, institutions/organizations, administrative units, etc. Supports the use of an external controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="r:LocationValueReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to specific LocationValue for the Universe as described in a GeographicLocation.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="GeographyOfUniverse" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the content and purpose of the Universe. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="TimePeriod" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to specific time period for the Universe. Repeat for non-continuous time periods.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="UniverseGenerationCode" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>An expression of the universe in terms of the code used to generate or define it. For example how a given universe may be differentiated within a parent universe.</xs:documentation>
@@ -856,6 +871,16 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="UniverseName" type="r:NameType">
 		<xs:annotation>
 			<xs:documentation>Name of the Universe using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GeographyOfUniverse" type="r:StructuredStringType">
+		<xs:annotation>
+			<xs:documentation>A description of the geography that this universe represents.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TimePeriod" type="r:DateType">
+		<xs:annotation>
+			<xs:documentation>Reference to specific time period for the Universe. Repeat for non-continuous time periods.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SubUniverseClass" type="SubUniverseClassType">
