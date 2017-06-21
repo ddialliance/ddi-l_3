@@ -7584,7 +7584,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:element name="DefiningConceptReference" type="r:ReferenceType">
+	<xs:element name="DefiningConceptReference" type="ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing Concept using the Reference structure. TypeOfObject should be set to Concept.</xs:documentation>
 		</xs:annotation>
