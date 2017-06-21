@@ -317,6 +317,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="r:IdentifiableType">
 				<xs:sequence>
+					<xs:element ref="TypeOfAccess" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The type of data access condition. the use of a controlled vocabulary is strongly recommended. At minimum his should include, e.g. PreviousFormalName, Nickname (or CommonName), Other.</xs:documentation>
+						</xs:annotation>
+					</xs:element>				
 					<xs:element ref="AccessTypeName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A name by which the description of access is known. May be expressed in multiple languages. Repeat the element to express names with different content, for example, different names for different systems.</xs:documentation>
@@ -381,6 +386,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="TypeOfAccess" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>The type of data access condition. Supports the use of a controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>	
 	<xs:element name="AccessTypeName" type="r:NameType">
 		<xs:annotation>
 			<xs:documentation>Name of the Type of Access using the DDI Name structure.</xs:documentation>
@@ -1019,7 +1029,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:annotation>
 					<xs:documentation>Title that follows the name of the individual, such as Esq.</xs:documentation>
 				</xs:annotation>
-			</xs:element>
+		<xs:element ref="TypeOfIndividualName" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The type of individual name provided. the use of a controlled vocabulary is strongly recommended. At minimum his should include, e.g. PreviousFormalName, Nickname (or CommonName), Other.</xs:documentation>
+				</xs:annotation>
+			</xs:element>			</xs:element>
 			<xs:element name="FullName" type="r:InternationalStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This provides a means of providing a full name as a single object for display or print such as identification badges etc. For example a person with the name of William Grace for official use may prefer a display name of Bill Grace on a name tag or other informal publication.</xs:documentation>
@@ -1035,11 +1049,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>An abbreviation or acronym for the name. This may be expressed in multiple languages. It is assumed that if only a single language is provided that it may be used in any of the other languages within which the name itself is expressed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="TypeOfIndividualName" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The type of individual name provided. the use of a controlled vocabulary is strongly recommended. At minimum his should include, e.g. PreviousFormalName, Nickname (or CommonName), Other.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+	
 		</xs:sequence>
 		<xs:attribute name="sex" type="SexSpecificationType" use="optional">
 			<xs:annotation>
