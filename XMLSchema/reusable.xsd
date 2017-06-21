@@ -2673,6 +2673,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>If maintained within a scheme, the URN of the scheme containing the codelist.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
+				<xs:attribute name="translationGroupID" type="xs:string" use="optional">
+					<xs:annotation>
+						<xs:documentation>The ID of the translation. Allows the ability to group keyword/subjects which are translations.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
