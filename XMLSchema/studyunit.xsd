@@ -207,6 +207,16 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 								<xs:documentation>Inclusion of an existing Physical Instance module by reference.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
+						<xs:element ref="r:PhysicalInstanceGroup">
+							<xs:annotation>
+								<xs:documentation>Allows physical instance modules to be grouped with or without hierarchical structure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:PhysicalInstanceGroupReference">
+							<xs:annotation>
+								<xs:documentation>Inclusion of a PhysicalInstanceGroup that allows categories to be grouped with or without hierarchical structure by reference. TypeOfObject should be set to PhysicalInstanceGroup.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="a:Archive">
