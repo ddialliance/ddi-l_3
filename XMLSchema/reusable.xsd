@@ -3194,10 +3194,20 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Provides a reference to the LocationValue or Values that the current LocationValue immediately precedes partially or fully. For example, if the LocationValue was the Dakota Territory (1861-1889) preceded the State of North Dakota and the State of South Dakota as defined in 1890. The Dakota Territory provided "part" of its area in the creation of each new LocationValue.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="ImmediateParentLocationValue" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Provides a reference to the location that is the immediate parent of described LocationValue within the specified Geographic Structure Hierarchy as well as the GeographicTime of the relationship. May be repeated for layered hierarchies, providing a pointer to the immediate parent in each hierarchy in the layers. Example 1 - Single Hiearchy: Country-State, where the ImmediateParentLocationValue of the State would reference the Country LocationValue. Example 2 - Layered Hierachy: Country-State-County-Place-Tract (portion) (the portion of a Tract within a Place) Hierarchy 1: Country-State-County-Tract, ImmediateParentLocationValue County; Hierarch 2: Country-State-Place-Tract (portion) ImmediateParentLocationValue Place</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ImmediateParentLocationValue" type="ComponentPartsType">
+		<xs:annotation>
+			<xs:documentation>Provides a reference to the location that is the immediate parent of described LocationValue within the specified Geographic Structure Hierarchy as well as the GeographicTime of the relationship.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="ComponentParts" type="ComponentPartsType">
 		<xs:annotation>
 			<xs:documentation>A stack of LocationValueReferences to each of the locations of the specified PrimaryComponentLevel type that make up the Component Area. Includes a GeographicTime to allow for repetition for change over time.</xs:documentation>
