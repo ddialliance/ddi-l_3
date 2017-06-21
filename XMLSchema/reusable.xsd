@@ -5682,6 +5682,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>This is a standard XML date type code and supports the use of an external controlled vocabulary. Examples are date, dateTime, gYearMonth, gYear, and duration</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="Range" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates the high and low values (endpoints) of a non-numeric scale. This can be expressed as a value that matches the DateTime format. Repeatable in order to express as set of non-continuous values.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="regExp" type="xs:string" use="optional">
 					<xs:annotation>
@@ -6678,6 +6683,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:element ref="DateTypeCode">
 						<xs:annotation>
 							<xs:documentation>This is a standard XML date type code and supports the use of an external controlled vocabulary. Examples are date, dateTime, gYearMonth, gYear, and duration</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Range" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates the high and low values (endpoints) of a non-numeric scale. This can be expressed as a value that matches the DateTime format. Repeatable in order to express as set of non-continuous values.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
