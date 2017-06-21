@@ -747,7 +747,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 
 	<!-- AgentType -->
 	<xs:complexType name="AgentType">
-		<xs:annotation>Base class for Individual and Organization. This allows strongly typed references.</xs:annotation>
+		<xs:annotation>
+			<xs:documentation>
+				Base class for Individual and Organization. This allows strongly typed references.
+			</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
 				<xs:sequence>
