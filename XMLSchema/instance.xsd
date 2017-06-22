@@ -213,6 +213,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="g:LocalResourcePackageContent"/>
 				<xs:element ref="g:LocalStudyUnitContent"/>
 				<xs:element ref="r:ManagedRepresentationScheme"/>
+				<xs:element ref="d:MeasurementScheme"/>
 				<xs:element ref="l:NCubeScheme"/>
 				<xs:element ref="a:OrganizationScheme"/>
 				<xs:element ref="p:PhysicalDataProduct"/>
@@ -271,6 +272,9 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="r:ManagedRepresentationGroup"/>
 				<xs:element ref="r:ManagedScaleRepresentation"/>
 				<xs:element ref="r:ManagedTextRepresentation"/>
+				<xs:element ref="d:MeasurementConstruct"/>
+				<xs:element ref="d:MeasurementGroup"/>
+				<xs:element ref="d:MeasurementItem"/>
 				<xs:element ref="d:Methodology"/>
 				<xs:element ref="l:NCube"/>
 				<xs:element ref="l:NCubeGroup"/>

@@ -822,6 +822,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>Date of version using the union set BaseDateType. Duration should not be used in this field, even though allowed by the ISO format enforced by the parser.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
+				<xs:attribute name="isPublished" type="xs:boolean" default="false">
+					<xs:annotation>
+						<xs:documentation>Indicates that the maintainable will not be changed without versioning, and is a stable target for referencing.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -935,11 +940,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:attribute name="externalReferenceDefaultURI" type="xs:anyURI" use="optional">
 					<xs:annotation>
 						<xs:documentation>Use to provide a default value for the URI of external references. Use of a URI in a reference within this maintainable overrides the value entered here. Nested maintainables should redeclare the contents of this attribute for clarity.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="isPublished" type="xs:boolean" default="false">
-					<xs:annotation>
-						<xs:documentation>Indicates that the maintainable will not be changed without versioning, and is a stable target for referencing.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute ref="xml:lang" use="optional">
@@ -1559,6 +1559,21 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): r:ManagedTextRepresentation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="MeasurementConstruct">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:MeasurementConstruct</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MeasurementGroup">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:MeasurementGroup</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MeasurementItem">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:MeasurementItem</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Methodology">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): d:Methodology</xs:documentation>
@@ -1912,6 +1927,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:enumeration value="ManagedRepresentationScheme">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): r:ManagedRepresentationScheme</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MeasurementScheme">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:MeasurementScheme</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="NCubeScheme">
@@ -5429,6 +5449,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing Question using the Reference structure. TypeOfObject should be set to QuestionItem, QuestionGrid, or QuestionBlock.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="MeasurementReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing MeasurementItem using the Reference structure. TypeOfObject should be set to MeasurementItem.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="WeightVariableReference" type="ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing Variable using the Reference structure. TypeOfObject should be set to Variable.</xs:documentation>
@@ -5562,6 +5587,16 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="QuestionSchemeReference" type="SchemeReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to a QuestionScheme using SchemeReference which allows for the specification of objects to exclude. TypeOfObject should be set to QuestionScheme.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MeasurementSchemeReference" type="SchemeReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to a MeasurementScheme. TypeOfObject should be set to MeasurementScheme.</xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="MeasurementItemReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing MeasurementItem using the Reference structure. TypeOfObject should be set to MeasurementItem.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ControlConstructSchemeReference" type="SchemeReferenceType">

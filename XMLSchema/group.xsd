@@ -355,6 +355,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:element>
 					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="d:MeasurementScheme">
+							<xs:annotation>
+								<xs:documentation>In-line inclusion of a MeasurementScheme.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:MeasurementSchemeReference">
+							<xs:annotation>
+								<xs:documentation>Inclusion of a MeasurementScheme by reference. TypeOfObject should be set to MeasurementScheme.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="l:CategoryScheme">
 							<xs:annotation>
 								<xs:documentation>In-line inclusion of a CategoryScheme.</xs:documentation>

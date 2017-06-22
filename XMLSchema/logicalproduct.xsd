@@ -856,6 +856,11 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Reference to question(s) used to collect data for this variable. This references the wording and response domain of the question, not the question flow (if the same question was asked in reference to multiple objects (i.e., Age of each child). Use SourceParameterReference and/or VariableRepresentation/ProcessingInstructionReference to differentiate sources associated with flow patterns or data processing instructions.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="r:MeasurementReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to measurement(s) used to collect data for this variable.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="EmbargoReference" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Reference to any embargoes placed on the contents of this variable. Embargoes may limit access to the data and/or metadata to specific groups and/or for specified periods of time.</xs:documentation>
