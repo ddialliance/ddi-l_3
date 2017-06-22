@@ -186,6 +186,8 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 								<xs:documentation>Allows for inclusion of an PhysicalInstance by reference.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
+					</xs:choice>
+					<xs:choice>
 						<xs:element ref="pi:PhysicalInstanceGroup">
 							<xs:annotation>
 								<xs:documentation>Allows physical instance modules to be grouped with or without hierarchical structure.</xs:documentation>
@@ -723,6 +725,8 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 								<xs:documentation>Inclusion of PhysicalInstance applying to the group as a whole by reference.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
+					</xs:choice>
+					<xs:choice>
 						<xs:element ref="pi:PhysicalInstanceGroup">
 							<xs:annotation>
 								<xs:documentation>Allows physical instance modules to be grouped with or without hierarchical structure.</xs:documentation>
