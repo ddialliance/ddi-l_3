@@ -1033,11 +1033,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:annotation>
 					<xs:documentation>Title that follows the name of the individual, such as Esq.</xs:documentation>
 				</xs:annotation>
-		<xs:element ref="TypeOfIndividualName" minOccurs="0">
+			</xs:element>				
+		    <xs:element ref="TypeOfIndividualName" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The type of individual name provided. the use of a controlled vocabulary is strongly recommended. At minimum his should include, e.g. PreviousFormalName, Nickname (or CommonName), Other.</xs:documentation>
 				</xs:annotation>
-			</xs:element>			</xs:element>
+			</xs:element>
 			<xs:element name="FullName" type="r:InternationalStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This provides a means of providing a full name as a single object for display or print such as identification badges etc. For example a person with the name of William Grace for official use may prefer a display name of Bill Grace on a name tag or other informal publication.</xs:documentation>
