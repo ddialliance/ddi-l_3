@@ -5362,7 +5362,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="DefaultDecimalPositions" type="xs:integer">
 		<xs:annotation>
-			<xs:documentation>The DefaultDecimalPositions expressed as an xs:nonNegativeInteger.</xs:documentation>
+			<xs:documentation>The DefaultDecimalPositions expressed as an xs:integer.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DefaultVariableSchemeReference" type="SchemeReferenceType">
