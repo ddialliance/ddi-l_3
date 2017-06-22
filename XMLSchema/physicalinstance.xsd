@@ -743,12 +743,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the category group. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the PhysicalInstanceGroup. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the CategoryGroup. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the PhysicalInstanceGroup. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
@@ -799,7 +799,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="PhysicalInstanceGroupName" type="r:NameType">
 		<xs:annotation>
-			<xs:documentation>Name of the Category Group using the DDI Name structure.</xs:documentation>
+			<xs:documentation>Name of the PhysicalInstanceGroup using the DDI Name structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 </xs:schema>
