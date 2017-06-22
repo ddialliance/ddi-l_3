@@ -453,7 +453,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="numberOfPhysicalSegments" type="xs:integer" default="1">
+				<xs:attribute name="numberOfPhysicalSegments" type="xs:nonNegativeInteger" default="1">
 					<xs:annotation>
 						<xs:documentation>Number of physical records segments each logical record (case) is divided into. Express as an integer. Caution in using checksums is recommended. Conflict between checksums and the items being counted can cause problems with warning flags during processing. If using checksum to capture information for internal processing purposes, the use of automatically generated check sums is strongly urged.</xs:documentation>
 					</xs:annotation>
@@ -582,7 +582,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:element>
 					</xs:sequence>
 				</xs:sequence>
-				<xs:attribute name="segmentOrder" type="xs:integer" default="1">
+				<xs:attribute name="segmentOrder" type="xs:nonNegativeInteger" default="1">
 					<xs:annotation>
 						<xs:documentation>Indicates the position of this physical record segment within the logical record expressed as an integer.</xs:documentation>
 					</xs:annotation>
@@ -644,22 +644,22 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:annotation>
 			</xs:element>
 			<xs:sequence>
-				<xs:element name="StartPosition" type="xs:integer" minOccurs="0">
+				<xs:element name="StartPosition" type="xs:nonNegativeInteger" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Position of the first character of the data item in fixed format file.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="ArrayPosition" type="xs:integer" minOccurs="0">
+				<xs:element name="ArrayPosition" type="xs:nonNegativeInteger" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Array number of the data item for delimited files.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="EndPosition" type="xs:integer" minOccurs="0">
+				<xs:element name="EndPosition" type="xs:nonNegativeInteger" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Position of the last character of the data item in fixed format. Must be specified if a value for Width is not provided.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Width" type="xs:integer" minOccurs="0">
+				<xs:element name="Width" type="xs:nonNegativeInteger" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Data item width for fixed format file, maximum width for delimited file. Must be specified if a value for EndPosition is not provided.</xs:documentation>
 					</xs:annotation>

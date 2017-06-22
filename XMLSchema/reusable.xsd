@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-Copyright (c) 2014 DDI Alliance, DDI 3.2 release, 2014-02-05
+Copyright (c) 2015 DDI Alliance, DDI 3.3 release, 2015-02-15
 
-This file is part of DDI 3.2 XML Schema.
+This file is part of DDI 3.3 XML Schema.
 
-DDI 3.2 XML Schema is free software: you can redistribute it and/or modify
+DDI 3.3 XML Schema is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by the
 Free Software Foundation, either version 3 of the License, or (at your
 option) any later version.
 
-DDI 3.2 XML Schema is distributed in the hope that it will be useful, but
+DDI 3.3 XML Schema is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
 for more details.
 
 You should have received a copy of the GNU Lesser General Public License along
-with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
+with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:reusable:3_2" xmlns:dc="http://purl.org/dc/terms/" xmlns:xhtml="http://www.w3.org/1999/xhtml" targetNamespace="ddi:reusable:3_2" elementFormDefault="qualified"
-           attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:reusable:3_3" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="ddi:reusable:3_3" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
 	<xs:import namespace="http://www.w3.org/1999/xhtml" schemaLocation="ddi-xhtml11.xsd"/>
+	<xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="dc.xsd"/>
 	<xs:import namespace="http://purl.org/dc/terms/" schemaLocation="dcterms.xsd"/>
 	<!-- Regular Expressions for DDI Identification -->
 	<!-- CHANGES in Regular Expressions for any base type BaseIDType, DDIAgencyIDType, or VersionType must be propagated to the derivative regular expressions:
@@ -35,8 +35,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	        CanonicalURNType is derived from  "&URNRegex;:&DDIRegex;:&DDIAgencyIDType;:&IDType;:&VersionType;"
 	        DeprecatedURNType is derived from "&URNRegex;:&DDIRegex;:&DDIAgencyIDType;:&ObjectNameRegex;:&BaseIDType;(:&ObjectNameRegex;:&BaseIDType;)?:&VersionType;"
 	        Note that each part of the two URN types is delimited by a colon ":"
-	-->        
-
+	-->
 	<!-- ID Type -->
 	<xs:simpleType name="BaseIDType">
 		<xs:annotation>
@@ -46,7 +45,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:pattern value="[A-Za-z0-9\*@$\-_]+"/>
 		</xs:restriction>
 	</xs:simpleType>
-
 	<!-- Agency ID Type -->
 	<xs:simpleType name="DDIAgencyIDType">
 		<xs:annotation>
@@ -56,10 +54,9 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1"/>
 			<xs:maxLength value="253"/>
-			<xs:pattern value="[a-zA-Z0-9\-]{1,63}(\.[a-zA-Z0-9\-]{1,63})*"/>
+			<xs:pattern value="[a-zA-Z0-9\-]{1,63}(\.[a-zA-Z0-9\-]{1,63})+"/>
 		</xs:restriction>
 	</xs:simpleType>
-
 	<!-- Version Type -->
 	<xs:simpleType name="VersionType">
 		<xs:annotation>
@@ -69,7 +66,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:pattern value="[0-9]+(\.[0-9]+)*"/>
 		</xs:restriction>
 	</xs:simpleType>
-
 	<!-- DDI URN Type -->
 	<xs:simpleType name="CanonicalURNType">
 		<xs:annotation>
@@ -93,10 +89,8 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:union memberTypes="CanonicalURNType DeprecatedURNType"/>
 	</xs:simpleType>
-
 	<!-- End of Regular Expressions for DDI Identification -->
 	<!-- BASIC TYPES -->
-
 	<xs:simpleType name="BaseDateType">
 		<xs:annotation>
 			<xs:documentation>Union type which allows for the use of a date-time combination (YYYY-MM-DDTHH:MM:SS), date (YYYYY-MM-DD), year-month (YYYY-MM), year (YYYY), and duration (PnYnMnDnHnMnS) as valid values. These are formatted according to ISO 8601. Note that although a duration is allowed there are few situations where it is applicable.</xs:documentation>
@@ -253,7 +247,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:complexType name="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Packaging structure for multiple language versions of the same string content. for objects that allow for internal formatting using XHTML tags. Where an element of this type is repeatable, the expectation is that each repetition contains different content, each of which can be expressed in multiple languages.</xs:documentation>
+			<xs:documentation>Packaging structure for multiple language versions of the same string content for objects that allow for internal formatting using XHTML tags. Where an element of this type is repeatable, the expectation is that each repetition contains different content, each of which can be expressed in multiple languages.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="Content" maxOccurs="unbounded">
@@ -306,7 +300,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:attribute>
 		<xs:attribute name="isPlainText" type="xs:boolean" default="true">
 			<xs:annotation>
-				<xs:documentation>Indicates that the content is to be treated as plain text (no formatting). You may use DDIProfile to fix the value of this attribute to true in cases where you wish to indicate that your system treats all content should be treated as plain text.</xs:documentation>
+				<xs:documentation>Indicates that the content does not use the embedded XHTML schemas. DDI recommends against using the embedded XHTML schemas, as these may be removed in future versions. When including XHTML content, set the textFormat to "xhtml", set isPlainText to "true", and XML encode the XHTML. You may use DDIProfile to fix the value of this attribute to true in cases where you wish to indicate that your system treats all content should be treated as plain text.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="textFormat" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Specifies the format of the text content, for example "plainText", "markdown", "html5", "latex", or "xhtml". DDI recommends against using the embedded XHTML schemas, as these may be removed in future versions. When including XHTML content, set the textFormat to "xhtml", set isPlainText to "true", and XML encode the XHTML.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -386,7 +385,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the Parameter. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the Parameter. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:choice minOccurs="0">
@@ -416,7 +415,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
 	<xs:complexType name="BindingType">
 		<xs:annotation>
 			<xs:documentation>A structure used to bind the content of a parameter declared as the source to a parameter declared as the target. For example, binding the output of a question to the input of a generation instruction. Question A has an OutParameter X. Generation Instruction has an InParameter Y used in the recode instruction. Binding defines the content of InParameter Y to be whatever is provided by OutParameter X for use in the calculation of the recode.</xs:documentation>
@@ -434,7 +432,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:element name="DefaultValue" type="ValueType">
 		<xs:annotation>
 			<xs:documentation>This provides a default value for the parameter if the parameter supplies only empty content or is otherwise unavailable.</xs:documentation>
@@ -469,7 +466,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:annotation>
 			<xs:documentation>A parameter that may accept content from outside its parent element. In addition to standard parameter content may provide the instructions for limiting the allowable array index.</xs:documentation>
 		</xs:annotation>
-
 		<xs:complexContent>
 			<xs:extension base="ParameterType">
 				<xs:attribute name="limitArrayIndex" type="xs:NMTOKENS">
@@ -480,7 +476,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
 	<xs:element name="OutParameter" type="ParameterType">
 		<xs:annotation>
 			<xs:documentation>A parameter that contains output from its parent object, such as the specific response value of a question.</xs:documentation>
@@ -491,12 +486,9 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A structure used to bind the content of a parameter declared as the source to a parameter declared as the target.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<!--END I/O PARAMETERS AND BINDING -->
-
 	<!-- Commands -->
 	<!--BEGIN NEW COMMANDCODE -->
-
 	<xs:element name="CommandCode" type="CommandCodeType">
 		<xs:annotation>
 			<xs:documentation>Content of the command itself expressed in the language specified in the parent object.</xs:documentation>
@@ -509,7 +501,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:sequence>
 			<xs:element ref="Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the purpose and use of the command code provided. Supports multiple languages.</xs:documentation>
+					<xs:documentation>A description of the purpose and use of the command code provided. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="Command" minOccurs="0" maxOccurs="unbounded">
@@ -628,8 +620,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Any URN or URL.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
 	<xs:complexType name="StructuredCommandType" abstract="true">
 		<xs:annotation>
 			<xs:documentation>This type structures an empty stub which is used as the basis for extensions added using external namespaces such as MathML. The DDI 3.0 extension methodology is used here - a new module is declared, and the StructuredCommand element is used as the head of a substitution group to insert whatever XML is needed to express the command.</xs:documentation>
@@ -647,7 +637,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Used to identify described identifiable objects for purposes of internal and/or external referencing. Elements of this type cannot be versioned or maintained except as part of a complex parent element. Provides containers for Uniform Resource Name (URN) as well as ID information. An entity can either be identified either by a URN and/or an identification sequence. At a minimum, one or the other is required. You must designate they type of URN supported by your agency, either "Canonical" or "Deprecated". To fully support interoperability both the DDI URN and identification sequence should be used. Note that to support interoperability of the canonical and deprecated URN. If both URN and the identification sequence is used, and there is any conflict, the URN takes precedence. The action attribute is used ONLY for inheritance is a Group structure. For the local use the maintainable you can "Add", "Delete", or "Replace" an identified object. These actions only effect the local usage of the content. These changes cannot be inherited.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:choice minOccurs="1" maxOccurs="2">
+			<xs:choice maxOccurs="2">
 				<xs:annotation>
 					<xs:documentation>Must contain either the URN or the full Identification Sequence. Both structures may be provided. If there is a conflict between the contents of the URN and the Identification Sequence, the URN takes precedence. DO NOT provide 2 URNs or 2 Identification Sequences</xs:documentation>
 				</xs:annotation>
@@ -779,6 +769,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>This section provides information on the Maintainable Parent of this object at its point of origination. This content will not change over time unless the version of the object changes. Note that if the ID, Agency, Version sequence is used, and the scope of uniqueness of the referenced object is the Maintainable, then the ID of the Maintainable is needed to create the structured ID portion of the canonical URN. If the system uses the deprecated URN, both the Maintainable ID and TypeOfMaintainableObject are required to create the deprecated URN structure.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="UserAttributePair" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A system specific user defined property of the object expressed as a key/value pair. As this is specific to an individual system the use of controlled vocabularies for the key is strongly recommended.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="isIdentifiable" type="xs:boolean" fixed="true">
 					<xs:annotation>
@@ -796,11 +791,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="AbstractIdentifiableType">
 				<xs:sequence>
-					<xs:element ref="UserAttributePair" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A system specific user defined property of the object expressed as a key/value pair. As this is specific to an individual system the use of controlled vocabularies for the key is strongly recommended.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:choice minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Allows for identification of the person or organization within the maintenance agency responsible for the new version.  This is primarily intended for internal use.</xs:documentation>
@@ -830,6 +820,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:attribute name="versionDate" type="BaseDateType" use="optional">
 					<xs:annotation>
 						<xs:documentation>Date of version using the union set BaseDateType. Duration should not be used in this field, even though allowed by the ISO format enforced by the parser.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="isPublished" type="xs:boolean" default="false">
+					<xs:annotation>
+						<xs:documentation>Indicates that the maintainable will not be changed without versioning, and is a stable target for referencing.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -918,7 +913,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A reference to an object which the object being described here is based upon using a standard Reference structure. The TypeOfObject may be any Versionable or Maintainable object.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<!-- Maintainable -->
 	<xs:complexType name="AbstractMaintainableType" abstract="true">
 		<xs:annotation>
@@ -948,11 +942,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>Use to provide a default value for the URI of external references. Use of a URI in a reference within this maintainable overrides the value entered here. Nested maintainables should redeclare the contents of this attribute for clarity.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="isPublished" type="xs:boolean" default="false">
-					<xs:annotation>
-						<xs:documentation>Indicates that the maintainable will not be changed without versioning, and is a stable target for referencing.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
 				<xs:attribute ref="xml:lang" use="optional">
 					<xs:annotation>
 						<xs:documentation>This is used to designate the language of the metadata content of the maintainable. If a lower level xml:lang attribute conflicts with the content at the maintainable level, the object level value takes precedence.</xs:documentation>
@@ -975,11 +964,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
-
 	<!-- SIMPLE TYPES FOR IDS -->
-
-
 	<!-- Action Code Type -->
 	<xs:simpleType name="ActionCodeType">
 		<xs:annotation>
@@ -1039,14 +1024,13 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-
 	<!-- Reference -->
 	<xs:complexType name="ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Used for referencing an identified entity expressed in DDI XML, either by a URN and/or an identification sequence. If both are supplied, the URN takes precedence. At a minimum, one or the other is required. If the identification sequence is used the content of MaintainableObject may be required to be able to assemble the canonical or deprecated DDI URN. To fully support interoperability both the DDI URN and the full identification sequence should be used. Note that to support interoperability of the canonical and deprecated URN, at minimum the MaintainableIdentifier and TypeOfMaintainableObject should be supplied if the canonical URN is being used for the reference. The lateBound attribute has a boolean value, which - if set to true - indicates that the latest version should be used. Use the attribute lateBoundRestriction to indicate when a portion, such as the major version number, should be restricted to a specific value and then late bound within that restriction. Element descriptions will contain a list of applicable TypeOfObject values.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:choice minOccurs="1" maxOccurs="2">
+			<xs:choice maxOccurs="2">
 				<xs:annotation>
 					<xs:documentation>Must contain either the URN or the full Identification Sequence. Both structures may be provided. If there is a conflict between the contents of the URN and the Identification Sequence, the URN takes precedence. DO NOT provide 2 URNs or 2 Identification Sequences</xs:documentation>
 				</xs:annotation>
@@ -1081,6 +1065,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:element ref="MaintainableObject" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Do not use if the referenced object is Maintainable. For references to Identifiable and Versionable objects this provides contextual information on the Maintainable Parent of this object at point of origin. Note that if the ID, Agency, Version sequence is used, and the scope of uniqueness of the referenced object is the Maintainable, then the ID of the Maintainable is needed to create the structured ID portion of the canonical URN. If the system uses the deprecated URN, both the Maintainable ID and TypeOfMaintainableObject are required to create the deprecated URN structure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="UserAttributePair" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A system specific user defined property of the object expressed as a key/value pair. As this is specific to an individual system the use of controlled vocabularies for the key is strongly recommended.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1130,7 +1119,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>This is a list of all current object types of Identifiable, Versionalbe, or Maintainable type. These values are intended to remain consistent over time, even if the name of an object is altered.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<!-- IDENTIFIABLE OBJECTS -->
 			<xs:enumeration value="Access">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): a:Access</xs:documentation>
@@ -1189,6 +1177,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:enumeration value="DefaultAccess">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): a:DefaultAccess</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DevelopmentProcessStep">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:DevelopmentProcessStep</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="DeviationFromSampleDesign">
@@ -1281,9 +1274,19 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): p:PhysicalRecordSegment</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="PretestActivity">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:PretestActivity</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="RecordRelationship">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): l:RecordRelationship</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SampleFrameAccess">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:SampleFrameAccess</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="SamplingProcedure">
@@ -1294,6 +1297,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:enumeration value="SpatialCoverage">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): r:SpatialCoverage</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Stage">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:Stage</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="StandardUsed">
@@ -1311,6 +1319,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): d:StimulusMaterial</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="SubStage">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:SubStage</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="TemporalCoverage">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): r:TemporalCoverage</xs:documentation>
@@ -1326,7 +1339,21 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): r:TopicalCoverage</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<!-- VERSIONABLE OBJECTS -->
+			<xs:enumeration value="TranslationActivity">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:TranslationActivity</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TranslationAidResource">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:TranslationAidResource</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WeightingMethodology">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:WeightingMethodology</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Category">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): l:Category</xs:documentation>
@@ -1345,6 +1372,16 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:enumeration value="CodeListGroup">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): l:CodeListGroup</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CognitiveExpertReviewActivity">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:CognitiveExpertReviewActivity</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CognitiveInterviewActivity">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:CognitiveInterviewActivity</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="ComputationItem">
@@ -1377,6 +1414,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): c:ConceptualVariableGroup</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="ContentReviewActivity">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:ContentReviewActivity</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="ControlConstructGroup">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): d:ControlConstructGroup</xs:documentation>
@@ -1390,6 +1432,36 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:enumeration value="DataSet">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): ds:DataSet</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DevelopmentActivity">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:DevelopmentActivity</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DevelopmentActivityGroup">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:DevelopmentActivityGroup</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DevelopmentPlan">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:DevelopmentPlan</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DevelopmentProcess">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:DevelopmentProcess</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DevelopmentResults">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:DevelopmentResults</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="FocusGroupActivity">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:FocusGroupActivity</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="GeneralInstruction">
@@ -1487,6 +1559,21 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): r:ManagedTextRepresentation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="MeasurementConstruct">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:MeasurementConstruct</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MeasurementGroup">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:MeasurementGroup</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MeasurementItem">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:MeasurementItem</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Methodology">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): d:Methodology</xs:documentation>
@@ -1517,6 +1604,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): a:OrganizationGroup</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="PretestActivity">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:PretestActivity</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="PhysicalStructure">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): p:PhysicalStructure</xs:documentation>
@@ -1540,6 +1632,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:enumeration value="ProcessingInstructionGroup">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): d:ProcessingInstructionGroup</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="QualityStandard">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): r:QualityStandard</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="QualityStatement">
@@ -1582,6 +1679,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): cm:QuestionMap</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="QuestionnaireDevelopment">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:QuestionnaireDevelopment</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="RecordLayout">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): p:RecordLayout, m1:RecordLayout, m2:RecordLayout, m3:RecordLayout, or m4:RecordLayout</xs:documentation>
@@ -1622,6 +1724,26 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): l:RepresentedVariableGroup</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="SampleFrame">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:SampleFrame</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SampleFrameGroup">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:SampleFrameGroup</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SamplingPlan">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:SamplingPlan</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SamplingPlanGroup">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:SamplingPlanGroup</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Sequence">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): d:Sequence</xs:documentation>
@@ -1640,6 +1762,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:enumeration value="SubUniverseClass">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): c:SubUniverseClass</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TranslationActivity">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:TranslationActivity</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Universe">
@@ -1682,7 +1809,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): d:Weighting</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<!-- MAINTAINABLE OBJECTS -->
 			<xs:enumeration value="Archive">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): a:Archive</xs:documentation>
@@ -1743,6 +1869,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): pr:DDIProfile</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="DevelopmentActivityScheme">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:DevelopmentActivityScheme</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="GeographicLocationScheme">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): c:GeographicLocationScheme</xs:documentation>
@@ -1798,6 +1929,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): r:ManagedRepresentationScheme</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="MeasurementScheme">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:MeasurementScheme</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="NCubeScheme">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): l:NCubeScheme</xs:documentation>
@@ -1816,6 +1952,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:enumeration value="PhysicalInstance">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): pi:PhysicalInstance</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PhysicalInstanceGroup">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): pi:PhysicalInstanceGroup</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="PhysicalStructureScheme">
@@ -1858,6 +1999,16 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): g:ResourcePackage</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="SampleFrameScheme">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:SampleFrameScheme</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SamplingPlanScheme">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:SamplingPlanScheme</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="StudyUnit">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): s:StudyUnit</xs:documentation>
@@ -1873,11 +2024,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): l:VariableScheme</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<!-- IDENTIFIABLE OBJECTS -->
+			<!-- VERSIONABLE OBJECTS -->
+			<!-- MAINTAINABLE OBJECTS -->
 		</xs:restriction>
 	</xs:simpleType>
-
 	<!-- Regular Expressions for DDI Identification -->
-
 	<xs:complexType name="NameType">
 		<xs:annotation>
 			<xs:documentation>A reusable type assigned to an element with the naming convention XxxName e.g. OrganizationName at selected locations where the element may be assumed to be administered by a registry or is otherwise shared. This is a human understandable name (word, phrase, or mnemonic) that reflects the ISO/IEC 11179-5 naming principles. An item administered by a registry should have at least one name. Names within an administered registry should follow the naming conventions of the registry. If more than one name is provided the context of each name should be noted and one name selected as the preferred name. See ISO/IEC 11179-5 Information Technology - Metadata Registries (MDR) Part 5: naming and identification principles. ISO/IEC1179-5:2005(E).</xs:documentation>
@@ -1914,7 +2066,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="MeasurePurpose" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The purpose of the type of metadata quality and its value. Supports multiple languages and the use of structured content.</xs:documentation>
+					<xs:documentation>The purpose of the type of metadata quality measure and its value. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="MeasureValue" minOccurs="0">
@@ -1924,7 +2076,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A textual description of the quality of this set of metadata which expands on or is provided in lieu of other objects within MetadataQuality. Supports multiple languages and the use of structured content.</xs:documentation>
+					<xs:documentation>A textual description of the quality of this set of metadata which expands on or is provided in lieu of other objects within MetadataQuality. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1936,7 +2088,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="MeasurePurpose" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>The purpose of the type of metadata quality and its value. Supports multiple languages and the use of structured content.</xs:documentation>
+			<xs:documentation>The purpose of the type of metadata quality measure and its value. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="MeasureValue" type="CodeValueType">
@@ -1966,7 +2118,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="SeriesDescription" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Describe the purpose of coverage of the series. The structure supports the use of multiple language versions of the content.</xs:documentation>
+					<xs:documentation>Describe the purpose of coverage of the series. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -2090,7 +2242,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>The copyright statement.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:group ref="dc:elementsAndRefinementsGroup">
+			<xs:group ref="dcterms:elementsAndRefinementsGroup">
 				<xs:annotation>
 					<xs:documentation>Element including a sequence of Dublin Core fields that may be used to supplement - but not replace - the DDI citation.</xs:documentation>
 				</xs:annotation>
@@ -2102,7 +2254,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual identification of the language of the cited object. Supports the use of an external controlled vocabulary. DDI strongly recommend the use of language codes supported by xs:language which include the 2 and 3 character and extended structures defined by RFC4646 or its successors.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="CreatorType">
 		<xs:annotation>
 			<xs:documentation>Holds the name of the creator and/or a reference to the creator as described within a DDI Organization scheme. Repeat this element for multiple creators.</xs:documentation>
@@ -2166,7 +2317,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:annotation>
 				</xs:element>
 			</xs:sequence>
-			<xs:element ref="ContributorReference" maxOccurs="1">
+			<xs:element ref="ContributorReference">
 				<xs:annotation>
 					<xs:documentation>Reference to a creator as described within a DDI Organization Scheme.</xs:documentation>
 				</xs:annotation>
@@ -2249,7 +2400,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Additional information regarding the role and actions of the this funding source.</xs:documentation>
+					<xs:documentation>Additional information regarding the role and actions of the this funding source. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -2278,7 +2429,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Describe the content and coverage of the embargo. Structure supports multiple languages.</xs:documentation>
+							<xs:documentation>Describe the content and coverage of the embargo. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Date" minOccurs="0">
@@ -2288,7 +2439,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="Rationale" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Indicates the reason for the embargo.</xs:documentation>
+							<xs:documentation>Indicates the reason for the embargo. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="AgencyOrganizationReference" minOccurs="0">
@@ -2336,17 +2487,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A label for the Lifecycle Event. May be repeated to provide different labels needed due to system or application constraints.</xs:documentation>
+							<xs:documentation>A label for the LifecycleEvent. May be repeated to provide different labels needed due to system or application constraints.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="EventType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Indicates the type of event, using a typology meaningful to the documenter. Supports the use of a controlled vocabulary.</xs:documentation>
+							<xs:documentation>Indicates the type of LifecycleEvent, using a typology meaningful to the documenter. Supports the use of a controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Date" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The date or date range of the lifecycle event.</xs:documentation>
+							<xs:documentation>The date or date range of the LifecycleEvent.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="AgencyOrganizationReference" minOccurs="0" maxOccurs="unbounded">
@@ -2356,7 +2507,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the event such as what the event included, its importance, or other significant information. Structure supports the use of multiple languages.</xs:documentation>
+							<xs:documentation>A description of the event such as what the event included, its importance, or other significant information. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Relationship" minOccurs="0" maxOccurs="unbounded">
@@ -2481,7 +2632,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>Allows for the specification of a ending date for the period that this label is valid. The date must be formatted according to ISO 8601.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="maxLength" type="xs:integer" use="optional">
+				<xs:attribute name="maxLength" type="xs:nonNegativeInteger" use="optional">
 					<xs:annotation>
 						<xs:documentation>A positive integer indicating the maximum number of characters in the label.</xs:documentation>
 					</xs:annotation>
@@ -2609,7 +2760,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the content and purpose of the software. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+					<xs:documentation>A description of the content and purpose of the software. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="Date" minOccurs="0">
@@ -2659,7 +2810,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A summary description of the geographic (spatial) coverage of the module. It may include information on all levels of spatial coverage, in addition to the overall coverage. This field can map to Dublin Core Coverage, which does not support structured strings. Therefore, if there is intent to map to Dublin Core, the text should not be marked up with XHTML. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A summary description of the geographic (spatial) coverage of the module. It may include information on all levels of spatial coverage, in addition to the overall coverage. This field can map to Dublin Core Coverage, which does not support structured strings. Therefore, if there is intent to map to Dublin Core, the text should not be marked up with XHTML. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="CountryCode" minOccurs="0" maxOccurs="unbounded">
@@ -2778,12 +2929,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the GeographicStructure. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the GeographicStructure. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the GeographicStructure. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the GeographicStructure. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="AuthorizedSource" minOccurs="0" maxOccurs="unbounded">
@@ -2881,12 +3032,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="startPosition" type="xs:integer">
+		<xs:attribute name="startPosition" type="xs:nonNegativeInteger">
 			<xs:annotation>
 				<xs:documentation>The start position of the first character expressed as an integer.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="length" type="xs:integer">
+		<xs:attribute name="length" type="xs:nonNegativeInteger">
 			<xs:annotation>
 				<xs:documentation>The length of the segment expressed as an integer.</xs:documentation>
 			</xs:annotation>
@@ -2906,7 +3057,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the GeographicLevel. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the GeographicLevel. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="GeographicLevelCode" minOccurs="0" maxOccurs="unbounded">
@@ -2992,12 +3143,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the GeographicLocation. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the GeographicLocation. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the GeographicLocation. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the GeographicLocation. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:choice>
@@ -3048,6 +3199,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Use to attach one or more characteristics which define the area. These are often useful in terms of selection. For example a U.S. Block may be classified as Urban, Rural, or Mixed. The defining characteristic supports the use of a controlled vocabulary and may provide a time period for which the characteristic is valid.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="ComponentParts" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A stack of LocationValueReferences to each of the locations of the specified PrimaryComponentLevel type that make up the Component Area. Includes a GeographicTime to allow for repetition for change over time.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="GeographicTime" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The time period for which the description (names and codes) are valid. Use a date range when start and end periods are known (or the location description is still valid). If the range is unknown indicate a single date for which you know the description is valid. This will allow others to relate it to a fuller date range if external information become available.</xs:documentation>
@@ -3077,7 +3233,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A stack of LocationValueReferences to each of the locations of the specified PrimaryComponentLevel type that make up the Component Area. Includes a GeographicTime to allow for repetition for change over time.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="ComponentPartsType">
 		<xs:annotation>
 			<xs:documentation>A stack of LocationValueReferences to each of the locations of the specified PrimaryComponentLevel type that make up the Component Area. Includes a GeographicTime to allow for repetition for change over time.</xs:documentation>
@@ -3122,8 +3277,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
-
 	<xs:complexType name="GeographicLocationIdentifierType">
 		<xs:annotation>
 			<xs:documentation>Describes the GeographicLocation as represented by a specific GeographicCode provided by an Authorized Source.</xs:documentation>
@@ -3171,7 +3324,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Name of the Location Value using the DDI Name structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="BoundingBoxType">
 		<xs:annotation>
 			<xs:documentation>Set of north, south, east, west coordinates defining a rectangle that encompasses the full extent of geographic coverage.</xs:documentation>
@@ -3217,7 +3369,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:maxInclusive value="90"/>
 		</xs:restriction>
 	</xs:simpleType>
-
 	<xs:complexType name="PolygonType">
 		<xs:annotation>
 			<xs:documentation>A closed plane figure bounded by three or more line segments, representing a geographic area. Contains either the URI of the file containing the polygon, a specific link code for the shape within the file, and a file format, or a minimum of 4 points to describe the polygon in-line. Note that the first and last point must be identical in order to close the polygon. A triangle has 4 points. A geographic time designating the time period that the shape is valid should be included. If the date range is unknown use a SingleDate indicating a date that the shape was known to be valid.</xs:documentation>
@@ -3359,7 +3510,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-
 	<xs:element name="Range" type="RangeType">
 		<xs:annotation>
 			<xs:documentation>Indicates the range of items expressed as a string, such as an alphabetic range.</xs:documentation>
@@ -3409,54 +3559,54 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:sequence>
 			<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A display label for the number range. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+					<xs:documentation>A display label for the number range. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
 				<xs:element ref="Low">
 					<xs:annotation>
-						<xs:documentation>The lower bound of the range expressed in the datatype xs:decimal. If not present, then there is no lower bound.</xs:documentation>
+						<xs:documentation>The lower bound of the range expressed in the data type xs:decimal. If not present, then there is no lower bound.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="LowDouble">
 					<xs:annotation>
-						<xs:documentation>The lower bound of the range expressed in the datatype xs:double. If not present, then there is no lower bound.</xs:documentation>
+						<xs:documentation>The lower bound of the range expressed in the data type xs:double. If not present, then there is no lower bound.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
 			<xs:choice minOccurs="0">
 				<xs:element ref="High" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The upper bound of the range in the datatype xs:decimal. If not present, then there is no upper bound.</xs:documentation>
+						<xs:documentation>The upper bound of the range in the data type xs:decimal. If not present, then there is no upper bound.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="HighDouble" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The upper bound of the range in the datatype xs:double. If not present, then there is no upper bound.</xs:documentation>
+						<xs:documentation>The upper bound of the range in the data type xs:double. If not present, then there is no upper bound.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
 			<xs:choice minOccurs="0">
 				<xs:element name="TopCode" type="xs:decimal">
 					<xs:annotation>
-						<xs:documentation>Indicates that any response equal to or greater than this value has been coded as the top-code value. Expressed in the datatype xs:decimal.</xs:documentation>
+						<xs:documentation>Indicates that any response equal to or greater than this value has been coded as the top-code value. Expressed in the data type xs:decimal.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="TopCodeDouble" type="xs:double">
 					<xs:annotation>
-						<xs:documentation>Indicates that any response equal to or greater than this value has been coded as the top-code value. Expressed in the datatype xs:decimal.</xs:documentation>
+						<xs:documentation>Indicates that any response equal to or greater than this value has been coded as the top-code value. Expressed in the data type xs:decimal.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
 			<xs:choice minOccurs="0">
 				<xs:element name="BottomCode" type="xs:decimal">
 					<xs:annotation>
-						<xs:documentation>Indicates that any response equal to or less than this value has been coded as the bottom-code value. Expressed in the datatype xs:double.</xs:documentation>
+						<xs:documentation>Indicates that any response equal to or less than this value has been coded as the bottom-code value. Expressed in the data type xs:double.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="BottomCodeDouble" type="xs:double">
 					<xs:annotation>
-						<xs:documentation>Indicates that any response equal to or less than this value has been coded as the bottom-code value. Expressed in the datatype xs:double.</xs:documentation>
+						<xs:documentation>Indicates that any response equal to or less than this value has been coded as the bottom-code value. Expressed in the data type xs:double.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
@@ -3529,7 +3679,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-
 	<!-- PROPRIETARY -->
 	<xs:complexType name="ProprietaryInfoType">
 		<xs:annotation>
@@ -3573,7 +3722,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the referenced material. This field can map to a Dublin Core abstract. Note that Dublin Core does not support structure within the abstract element. Supports multiple languages and optional structured content.</xs:documentation>
+							<xs:documentation>A description of the referenced material. This field can map to a Dublin Core abstract. Note that Dublin Core does not support structure within the abstract element. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Citation" minOccurs="0">
@@ -3604,6 +3753,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:element ref="Segment" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Can describe a segment within a larger object such as a text or video segment.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SizeInBytes" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Specifies the size of the file in bytes.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -3647,13 +3801,16 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:element name="Segment" type="SegmentType">
 		<xs:annotation>
 			<xs:documentation>A structure used to express explicit segments within different types of external materials (Textual, Audio, Video, XML, and Image).</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
+	<xs:element name="SizeInBytes" type="xs:nonNegativeInteger">
+		<xs:annotation>
+			<xs:documentation>Specifies the size of the file in bytes.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:complexType name="TextualType">
 		<xs:annotation>
 			<xs:documentation>Defines the segment of textual content used by the parent object. Can identify a set of lines and or characters used to define the segment.</xs:documentation>
@@ -3671,29 +3828,27 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
-
 	<xs:element name="Textual" type="TextualType">
 		<xs:annotation>
 			<xs:documentation>Defines the segment of textual content used by the parent object.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="LineParameterType">
 		<xs:annotation>
 			<xs:documentation>Specification of the line and offset for the beginning and end of the segment.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="StartLine" type="xs:integer" default="0">
+			<xs:element name="StartLine" type="xs:nonNegativeInteger" default="0">
 				<xs:annotation>
 					<xs:documentation>Number of lines from beginning of the document.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StartOffset" type="xs:integer" default="0">
+			<xs:element name="StartOffset" type="xs:nonNegativeInteger" default="0">
 				<xs:annotation>
 					<xs:documentation>Number of characters from start of the line specified in StartLine.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EndLine" type="xs:integer" minOccurs="0">
+			<xs:element name="EndLine" type="xs:nonNegativeInteger" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Number of lines from beginning of the document.</xs:documentation>
 				</xs:annotation>
@@ -3710,18 +3865,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Specification of the line and offset for the beginning and end of the segment.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="CharacterParameterType">
 		<xs:annotation>
 			<xs:documentation>Specification of the character offset for the beginning and end of the segment.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="StartCharOffset" type="xs:integer" default="0">
+			<xs:element name="StartCharOffset" type="xs:nonNegativeInteger" default="0">
 				<xs:annotation>
 					<xs:documentation>Number of characters from beginning of the document, indicating the inclusive start of the text range.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EndCharOffset" type="xs:integer" minOccurs="0">
+			<xs:element name="EndCharOffset" type="xs:nonNegativeInteger" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Number of characters from the beginning of the document, indicating the inclusive end of the text segment.</xs:documentation>
 				</xs:annotation>
@@ -3733,8 +3887,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Specification of the character offset for the beginning and end of the segment.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
 	<xs:complexType name="AudioType">
 		<xs:annotation>
 			<xs:documentation>Describes the type and length of the audio segment.</xs:documentation>
@@ -3767,8 +3919,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Describes the type and length of the audio segment.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
 	<xs:complexType name="VideoType">
 		<xs:annotation>
 			<xs:documentation>Describes the type and length of the video segment.</xs:documentation>
@@ -3801,7 +3951,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Describes the type and length of the video segment.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="ImageAreaType">
 		<xs:annotation>
 			<xs:documentation>Defines the shape and area of an image used as part of a location representation. The shape is defined as a Rectangle, Circle, or Polygon and Coordinates provides the information required to define it.</xs:documentation>
@@ -3829,7 +3978,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Specifies a type of geometric shape for the purpose of determining the required information needed to render the object.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:simpleType name="ShapeCodedType">
 		<xs:annotation>
 			<xs:documentation>Specifies a type of geometric shape for the purpose of determining the required information needed to render the object.</xs:documentation>
@@ -3852,16 +4000,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-
 	<!-- Ex Post Evaluation -->
-
 	<xs:element name="ExPostEvaluation" type="ExPostEvaluationType">
 		<xs:annotation>
 			<xs:documentation>Evaluation for the purpose of reviewing the study, data collection, data processing, or management processes.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
 	<xs:complexType name="ExPostEvaluationType">
 		<xs:annotation>
 			<xs:documentation>Evaluation for the purpose of reviewing the study, data collection, data processing, or management processes. Results may feed into a revision process for future data collection or management. Identifies the type of evaluation undertaken, who did the evaluation, the evaluation process, outcomes and completion date.</xs:documentation>
@@ -3879,12 +4023,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="EvaluationProcess" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Describes the evaluation process. Supports multi-lingual content. Allows the optional use of structured content.</xs:documentation>
+					<xs:documentation>Describes the process of the Evaluation. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="Outcomes" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Describes the outcomes of the evaluation process. Supports multi-lingual content. Allows the optional use of structured content.</xs:documentation>
+					<xs:documentation>Describes the outcomes of the evaluation process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -3906,15 +4050,14 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="EvaluationProcess" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Purpose of the Evaluation provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Describes the process of the Evaluation. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Outcomes" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Outcomes provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Describes the outcomes of the evaluation process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="EvaluatorType">
 		<xs:annotation>
 			<xs:documentation>Describes the type of evaluation, completion date, evaluation process and outcomes of the ExPost Evaluation. Allows identification of the Evaluator via reference to and organization or individual and provides for the optional use of a controlled vocabulary to define the specific role of the evaluator.</xs:documentation>
@@ -3937,9 +4080,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing Organization or Individual using the Reference structure. TypeOfObject should be set to Organization or Individual.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
-
 	<!-- NOTES -->
 	<xs:element name="Note" type="NoteType">
 		<xs:annotation>
@@ -3978,7 +4118,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="NoteContent" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The content of the note. Note should contain content except when it is a production flag that is fully explained by its "type". If the note provides system specific information in a structured way using XHTML formating, DDI strongly recommends the use of local extensions or the Key/Value pair structure in ProprietaryInfo whenever possible.</xs:documentation>
+					<xs:documentation>The content of the note. Note should contain content except when it is a production flag that is fully explained by its "type". If the note provides system specific information in a structured way using XHTML formating, DDI strongly recommends the use of local extensions or the Key/Value pair structure in ProprietaryInfo whenever possible. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="ProprietaryInfo" minOccurs="0">
@@ -4010,7 +4150,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="RelationshipDescription" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the nature of the relationship between the parent element of the relationship item and the DDI object to which it is related.</xs:documentation>
+					<xs:documentation>A description of the nature of the relationship between the parent element of the relationship item and the DDI object to which it is related. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="TypeOfRelationship" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes how the resource is related to the item. Supports the use of an external controlled vocabulary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -4036,7 +4181,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="dpi" type="xs:integer" use="optional">
+		<xs:attribute name="dpi" type="xs:nonNegativeInteger" use="optional">
 			<xs:annotation>
 				<xs:documentation>Provides the resolution of the image in dots per inch to assist in selecting the appropriate image for various uses.</xs:documentation>
 			</xs:annotation>
@@ -4078,12 +4223,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="Reason" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The reason for the access restriction.</xs:documentation>
+							<xs:documentation>The reason for the access restriction. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="User" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The user group to whom the restriction applies</xs:documentation>
+							<xs:documentation>The user group to whom the restriction applies. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -4100,17 +4245,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="QualityStatementSchemeName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the scheme. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the QualityStatementScheme. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the scheme. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the QualityStatementScheme. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the scheme. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the QualityStatementScheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="QualityStatementSchemeReference" minOccurs="0" maxOccurs="unbounded">
@@ -4190,17 +4335,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="QualityStatementGroupName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the group. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the QualityStatementGroup. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the QualityStatementGroup. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the QualityStatementGroup. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the QualityStatementGroup. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the QualityStatementGroup. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="UniverseReference" minOccurs="0" maxOccurs="unbounded">
@@ -4273,12 +4418,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the QualityStatement. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the QualityStatement. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the QualityStatement. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the QualityStatement. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:choice minOccurs="0">
@@ -4289,7 +4434,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:element>
 						<xs:element ref="OtherQualityStatement">
 							<xs:annotation>
-								<xs:documentation>Describes the steps taken to ensure quality that are not related to a specific standard. Language variants should be captured within a single OtherQualityStatement. Repeat the OtherQualityStatement for differing content if needed.</xs:documentation>
+								<xs:documentation>Describes the steps taken to ensure quality that are not related to a specific standard. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat the OtherQualityStatement for differing content if needed.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -4299,22 +4444,92 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="OtherQualityStatement" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Other Quality Statement provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Describes the steps taken to ensure quality that are not related to a specific standard. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat the OtherQualityStatement for differing content if needed.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="QualityStandardReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing Quality Standard using the Reference structure. TypeOfObject should be set to QualityStandard.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="QualityStandardName" type="NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the Quality Standard using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="QualityStandard" type="QualityStandardType">
+		<xs:annotation>
+			<xs:documentation>A formal description of a quality standard, and the quality concepts which it requires.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="QualityStandardType">
+		<xs:annotation>
+			<xs:documentation>A formal description of a quality standard, and the quality concepts which it requires.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="VersionableType">
+				<xs:sequence>
+					<xs:element ref="QualityStandardName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Name of the QualityStandard using the DDI Name structure.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the QualityStandard. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the QualityStandard. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Standard" type="OtherMaterialType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Provide the citation and location of the source published standard using the OtherMaterialType.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ComplianceDefinition" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Provides a list of quality concepts in the quality standard.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element ref="ComplianceConceptReference" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>A reference to a concept which relates to an area of coverage of the standard.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element ref="ExternalComplianceCode" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Specification of a code which relates to an area of coverage of the standard. Supports the use of an external controlled vocabulary.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="StandardType">
 		<xs:annotation>
 			<xs:documentation>Identifies the external standard used and describes the level of compliance with the standard in terms specific aspects of the standard's content.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element ref="QualityStandardReference" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Provide the citation and location of the published standard by referencing a Quality Standard item.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element ref="StandardUsed" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Provide the citation and location of the published standard using the OtherMaterialType.</xs:documentation>
+					<xs:documentation>Provide the citation and location of the published standard using the OtherMaterialType if not using a defined Quality Standard item.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="Compliance" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Allows for a quality statement based on frameworks to be described using itemized properties. A reference to a concept, a coded value, or both can be used to specify the property from the standard framework identified in StandardUsed. ComplianceDescription can provide further details or a general description of compliance with a standard.</xs:documentation>
+					<xs:documentation>Allows for a quality statement based on frameworks to be described using itemized properties. A reference to a concept, a coded value, or both can be used to specify the property from the standard framework identified in the QualityStandardReference or StandardUsed. ComplianceDescription can provide further details or a general description of compliance with a standard.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -4331,7 +4546,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="ComplianceDescription" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Compliance Description provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Describe the measures taken to comply with the standards and/or specific levels of compliance by providing further details or a general description of compliance with the standard. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="QualityStatementName" type="NameType">
@@ -4339,13 +4554,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Name of the QualityStatement using the DDI Name structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:element name="Compliance" type="ComplianceType">
 		<xs:annotation>
 			<xs:documentation>Allows for a quality statement based on frameworks to be described using itemized properties. A reference to a concept, a coded value, or both can be used to specify the property from the standard framework identified in StandardUsed. ComplianceDescription can provide further details or a general description of compliance with a standard.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="ComplianceType">
 		<xs:annotation>
 			<xs:documentation>Allows for a quality statement based on frameworks to be described using itemized properties. A reference to a concept, a coded value, or both can be used to specify the property from the standard framework identified in StandardUsed. ComplianceDescription can provide further details or a general description of compliance with a standard.</xs:documentation>
@@ -4361,25 +4574,18 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Specification of a code which relates to an area of coverage of the standard. Supports the use of an external controlled vocabulary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="Compliance" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Allows for a quality statement based on frameworks to be described using itemized properties. A reference to a concept, a coded value, or both can be used to specify the property from the standard framework identified in StandardUsed. ComplianceDescription can provide further details or a general description of compliance with a standard.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element ref="ComplianceDescription" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Describe the measures taken to comply with the standards and/or specific levels of compliance by providing further details or a general description of compliance with the standard.</xs:documentation>
+					<xs:documentation>Describe the measures taken to comply with the standards and/or specific levels of compliance by providing further details or a general description of compliance with the standard. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
 	<xs:element name="ComplianceConceptReference" type="ReferenceType">
 		<xs:annotation>
 			<xs:documentation>A reference to a concept which relates to an area of coverage of the standard using the ReferenceStructure. TypeOfObject should be set to Concept.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:element name="ExternalComplianceCode" type="CodeValueType">
 		<xs:annotation>
 			<xs:documentation>Specification of a code which relates to an area of coverage of the standard. Supports the use of an external controlled vocabulary.</xs:documentation>
@@ -4397,7 +4603,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:sequence>
 			<xs:element ref="Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the overall budget of the project. Supports structured content including tables.</xs:documentation>
+					<xs:documentation>A description of the overall budget of the project. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="BudgetDocument" minOccurs="0" maxOccurs="unbounded">
@@ -4439,9 +4645,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>The value for a key/value pair. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
-
 	<!--EMAIL-->
 	<xs:complexType name="EmailType">
 		<xs:annotation>
@@ -4511,7 +4714,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Coded values specifying time zones as an offset from Greenwich Meridian Time. For example, United States Eastern Standard Time is -5.00. Supports the use of an external controlled vocabulary. DDI strongly recommends the use of the time offset tied to a controlled vocabulary. If any other method is used, the use of a controlled vocabulary will facilitate interoperability.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<!-- COUNTRY -->
 	<xs:element name="CountryCode" type="CountryCodeType" abstract="true">
 		<xs:annotation>
@@ -4710,7 +4912,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="NoteContent" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Note Content provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>The content of the note. Note should contain content except when it is a production flag that is fully explained by its "type". If the note provides system specific information in a structured way using XHTML formating, DDI strongly recommends the use of local extensions or the Key/Value pair structure in ProprietaryInfo whenever possible. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="URN" type="URNType">
@@ -4723,7 +4925,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>ID of the object expressed according to the DDI ID definition.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:element name="VersionRationale" type="VersionRationaleType">
 		<xs:annotation>
 			<xs:documentation>Textual description of the rationale/purpose for the version change and a coded value to provide an internal processing flag within and organization or system. Note that versioning can only take place on objects owned by the specified DDI Agency. If you are creating a local instance of an object from another agency for current or future modification use BasedOnObject. If the changes being made result in what you determine to be new object rather than a version of a previous object, i.e. the change is too extensive to consider it a version of the existing object, create a new object and use BasedOnObject to provide a link to the object or objects that were a basis for the new object.</xs:documentation>
@@ -4813,7 +5014,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="Rationale" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Rationale provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>The reason for the embargo. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="LifecycleEvent" type="LifecycleEventType">
@@ -4828,12 +5029,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="Description" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Description provides additional detailed information regarding the element. Note that in comparing two like types of elements, description should be used as the basis for comparison.</xs:documentation>
+			<xs:documentation>Description provides additional detailed information regarding the element. Note that in comparing two like types of elements, description should be used as the basis for comparison. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="RelationshipDescription" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>A description of the nature of the relationship between the parent element of the relationship item and the DDI object to which it is related.</xs:documentation>
+			<xs:documentation>A description of the nature of the relationship between the parent element of the relationship item and the DDI object to which it is related. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TypeOfRelationship" type="CodeValueType">
+		<xs:annotation>
+			<xs:documentation>Describes how the resource is related to the item. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="TopicalCoverageReference" type="ReferenceType">
@@ -5045,12 +5251,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="Reason" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Reason provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Reason for the access restriction. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="User" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>User provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>The user group to whom the restriction applies. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="UniverseReference" type="ReferenceType">
@@ -5075,7 +5281,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="SeriesDescription" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Series Description provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Description of the series. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="AnalysisUnit" type="CodeValueType">
@@ -5106,7 +5312,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="GeographicLevelDescription" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Geographic Level Description provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>A description of the Geographic Level.   Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="UserID" type="UserIDType">
@@ -5116,7 +5322,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="Abstract" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Abstract provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>An abstract or brief summary of the document. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ArrayBase" type="xs:integer">
@@ -5166,7 +5372,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="Difference" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Difference provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Description of the difference between two objects.  Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DimensionRankValue" type="DimensionRankValueType">
@@ -5192,7 +5398,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:element>
 			</xs:choice>
 		</xs:sequence>
-		<xs:attribute name="rank" type="xs:integer" use="required">
+		<xs:attribute name="rank" type="xs:nonNegativeInteger" use="required">
 			<xs:annotation>
 				<xs:documentation>Enter the rank (placement) order in which the value from this dimension appears in the coordinate address of any cell in the NCube matrix.</xs:documentation>
 			</xs:annotation>
@@ -5207,12 +5413,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:annotation>
 			<xs:documentation>Specifies the orderValue of the Measure in the MeasureDimension described in the NCubeInstance along with its arrayOrder if multiple measures are provided as an array in a single storage location.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="dimensionValue" type="xs:integer">
+		<xs:attribute name="dimensionValue" type="xs:nonNegativeInteger">
 			<xs:annotation>
 				<xs:documentation>The value of the dimension used to determine the cell address.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="arrayOrder" type="xs:integer" default="0">
+		<xs:attribute name="arrayOrder" type="xs:nonNegativeInteger" default="0">
 			<xs:annotation>
 				<xs:documentation>Oder within the array. Note that this attribute assumes an array base of 0. The array order assumes that the measures will always be displayed in the same order and that sparse content (a missing value in the array) will be clear between two delimiters in this array. (For example 1,1,1 or 1,,1)</xs:documentation>
 			</xs:annotation>
@@ -5228,14 +5434,14 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing NCube using the Reference structure. TypeOfObject should be set to NCubeReference.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="NumberOfCases" type="xs:integer">
+	<xs:element name="NumberOfCases" type="xs:nonNegativeInteger">
 		<xs:annotation>
-			<xs:documentation>The NumberOfCases expressed as an xs:integer.</xs:documentation>
+			<xs:documentation>The NumberOfCases expressed as an xs:nonNegativeInteger.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Purpose" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Purpose provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>The purpose of the object. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="QuestionReference" type="ReferenceType">
@@ -5243,12 +5449,16 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing Question using the Reference structure. TypeOfObject should be set to QuestionItem, QuestionGrid, or QuestionBlock.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="MeasurementReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing MeasurementItem using the Reference structure. TypeOfObject should be set to MeasurementItem.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="WeightVariableReference" type="ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing Variable using the Reference structure. TypeOfObject should be set to Variable.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:element name="FunderRole" type="CodeValueType">
 		<xs:annotation>
 			<xs:documentation>A brief textual description or classification of the funder's role. Supports the use of an external controlled vocabulary.</xs:documentation>
@@ -5379,6 +5589,16 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to a QuestionScheme using SchemeReference which allows for the specification of objects to exclude. TypeOfObject should be set to QuestionScheme.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="MeasurementSchemeReference" type="SchemeReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to a MeasurementScheme. TypeOfObject should be set to MeasurementScheme.</xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="MeasurementItemReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing MeasurementItem using the Reference structure. TypeOfObject should be set to MeasurementItem.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="ControlConstructSchemeReference" type="SchemeReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to a ControlConstructScheme using SchemeReference which allows for the specification of objects to exclude. TypeOfObject should be set to ControlConstructScheme.</xs:documentation>
@@ -5414,13 +5634,16 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to a CodeListScheme using SchemeReference which allows for the specification of objects to exclude. TypeOfObject should be set to CodeListScheme.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:element name="CodeListReference" type="ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing CodeList using the Reference structure. TypeOfObject should be set to CodeList.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
+	<xs:element name="PhysicalInstanceGroupReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Inclusion of a PhysicalInstanceGroup that allows PhysicalInstances to be grouped with or without hierarchical structure by reference. TypeOfObject should be set to PhysicalInstanceGroup.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:complexType name="RepresentationType" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Abstract type for the head of a substitution group for a variable representation or a question response domain. If specific values are used to denote missing values, these can be indicated as a space-delimited list in the missingValue attribute. If the missing value is indicated by a blank, this should be indicated by setting the value of blankIsMissingValue to true.</xs:documentation>
@@ -5434,11 +5657,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:element ref="GenericOutputFormat" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This field provides a recommended generic treatment of the data for display by an application. The value should come from a controlled vocabulary.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="MeasurementUnit" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Records the measurement unit, for example, 'km', 'miles', etc. Supports the use of a controlled vocabulary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -5464,12 +5682,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="RepresentationType">
-				<xs:attribute name="maxLength" type="xs:integer" use="optional">
+				<xs:attribute name="maxLength" type="xs:nonNegativeInteger" use="optional">
 					<xs:annotation>
 						<xs:documentation>The maximum number of characters allowed.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="minLength" type="xs:integer" use="optional">
+				<xs:attribute name="minLength" type="xs:nonNegativeInteger" use="optional">
 					<xs:annotation>
 						<xs:documentation>The minimum number of characters allowed.</xs:documentation>
 					</xs:annotation>
@@ -5497,6 +5715,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:element ref="DateTypeCode">
 						<xs:annotation>
 							<xs:documentation>This is a standard XML date type code and supports the use of an external controlled vocabulary. Examples are date, dateTime, gYearMonth, gYear, and duration</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Range" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates the high and low values (endpoints) of a non-numeric scale. This can be expressed as a value that matches the DateTime format. Repeatable in order to express as set of non-continuous values.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -5541,14 +5764,9 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>The number of decimal positions expressed as an integer (precision of the number).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="interval" type="xs:integer" use="optional">
+				<xs:attribute name="interval" type="xs:nonNegativeInteger" use="optional">
 					<xs:annotation>
 						<xs:documentation>The interval between valid responses expressed as an integer.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="interval" type="xs:decimal" use="optional">
-					<xs:annotation>
-						<xs:documentation>The level to which a number is considered to be accurate. Expressed as a decimal.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -5605,7 +5823,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="UsageDescription" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the use of the external category file.</xs:documentation>
+							<xs:documentation>A description of the use of the external category file. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -5614,7 +5832,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="UsageDescription" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>A description of the use of the external category file.</xs:documentation>
+			<xs:documentation>A description of the use of the external category file. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="GeographicRepresentationBaseType">
@@ -5729,7 +5947,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="TextDomainType">
-				<xs:attribute name="maxArray" type="xs:integer" default="1">
+				<xs:attribute name="maxArray" type="xs:nonNegativeInteger" default="1">
 					<xs:annotation>
 						<xs:documentation>The maximum number of coordinate pairs listed in the array. The two values in a coordinate pair are separated by a comma. Pairs in an array are separated by the character indicated in the arraySeparator attribute. Default value is "1".</xs:documentation>
 					</xs:annotation>
@@ -5742,7 +5960,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
 	<xs:complexType name="GeographicLocationCodeRepresentationBaseType">
 		<xs:annotation>
 			<xs:documentation>Allows for the use of all or part of a GeographicLocation description to be used as a response domain or value representation by a question or variable. In addition to the basic objects of a representation it describes the Geographic Location values available for use by the question or variable.</xs:documentation>
@@ -5801,8 +6018,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing GeographicLocation using the Reference structure. TypeOfObject should be set to GeographicLocation.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
 	<xs:complexType name="GeographicStructureCodeRepresentationBaseType">
 		<xs:annotation>
 			<xs:documentation>Allows for the use of all or part of a GeographicStructure description to be used as a response domain or value representation by a question or variable. In addition to the basic objects of a representation it describes the Geographic Structure values available for use by the question or variable.</xs:documentation>
@@ -5851,7 +6066,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing GeographicLevel using the Reference structure. TypeOfObject should be set to GeographicLevel.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:complexType name="ScaleRepresentationBaseType">
 		<xs:annotation>
 			<xs:documentation>A means of capturing the structure of Scale for use as a question response domain or variable value representation. In addition to the basic objects of the representation, the structure defines the dimensions of the scale, an intersect for a multi-dimensional scale, and display layout.</xs:documentation>
@@ -5900,7 +6114,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:sequence>
 			<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A display label for the scale. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+					<xs:documentation>A display label for the scale. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
@@ -5931,7 +6145,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="dimensionNumber" type="xs:integer" default="1">
+		<xs:attribute name="dimensionNumber" type="xs:nonNegativeInteger" default="1">
 			<xs:annotation>
 				<xs:documentation>A number used to identify this dimension when describing its intersect point with one or more dimensions in the same scale representation. The dimension is denoted with a 1-based indexing. Dimension in the scale are numbered (1,2,n).</xs:documentation>
 			</xs:annotation>
@@ -6016,8 +6230,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-
-
 	<xs:complexType name="NominalRepresentationBaseType">
 		<xs:annotation>
 			<xs:documentation>A means of capturing the features of a nominal (marked/unmarked) response domain. Note that this is not the same as a code or category list with a yes/no set of responses. This representation is generally used in QuestionGrids when defining the response domain of a grid cell. In addition to the basic objects of a representation, the structure defines the allowed content of the mark using a regular expression.</xs:documentation>
@@ -6075,7 +6287,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Describes the specific actions that should take place. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+					<xs:documentation>Describes the specific actions that should take place. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -6117,7 +6329,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="RangeType">
-				<xs:attribute name="maximumRepetitionOfSingleValue" type="xs:integer" default="1">
+				<xs:attribute name="maximumRepetitionOfSingleValue" type="xs:nonNegativeInteger" default="1">
 					<xs:annotation>
 						<xs:documentation>Allows values to be expressed more than once, for example if respondent can specify a "tie" by repeating a single value.</xs:documentation>
 					</xs:annotation>
@@ -6146,8 +6358,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
-
 	<xs:complexType name="TextDomainType">
 		<xs:annotation>
 			<xs:documentation>A response domain capturing a textual response. Contains the equivalent content of a TextRepresentation including the length of the text and restriction of content using a regular expression. Adds a set of elements available to all Response Domains; Label, Description, OutParameter, designation of response cardinality, and a declaration of an offset date for the data content. Has an equivalent TextDomainReference which references a ManagedTextRepresentation.</xs:documentation>
@@ -6157,12 +6367,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the domain. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the domain. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the domain. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the domain. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="OutParameter" minOccurs="0">
@@ -6184,8 +6394,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
-
 	<xs:element name="ManagedRepresentationScheme" type="ManagedRepresentationSchemeType">
 		<xs:annotation>
 			<xs:documentation>This scheme contains sets of values described by ManagedRepresentation. These are used by reference to define Variable Representation and Question Response Domain.</xs:documentation>
@@ -6200,17 +6408,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="ManagedRepresentationSchemeName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the scheme. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the ManagedRepresentationScheme. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the scheme. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the ManagedRepresentationScheme. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the scheme. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the ManagedRepresentationScheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="ManagedRepresentationSchemeReference" minOccurs="0" maxOccurs="unbounded">
@@ -6276,7 +6484,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing ManagedMissingValuesRepresentation using the Reference structure. TypeOfObject should be set to managedMissingValuesRepresentation.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:element name="ManagedRepresentationSchemeName" type="NameType">
 		<xs:annotation>
 			<xs:documentation>Name of the ManagedRepresentationScheme using the DDI Name structure.</xs:documentation>
@@ -6311,17 +6518,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="ManagedRepresentationGroupName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the group. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the ManagedRepresentationGroup. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the ManagedRepresentationGroup. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the ManagedRepresentationGroup. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the ManagedRepresentationGroup. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the ManagedRepresentationGroup. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="UniverseReference" minOccurs="0" maxOccurs="unbounded">
@@ -6395,19 +6602,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description of the type of group created to associate a number of ManagedRepresentationDescriptions. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:element name="ManagedRepresentation" type="VersionableType" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Substitution group head for referencing Managed Representations.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:element name="ManagedTextRepresentation" type="ManagedTextRepresentationType" substitutionGroup="ManagedRepresentation">
 		<xs:annotation>
 			<xs:documentation>Means of describing text based content used by reference to define Variable Representation and Question Response Domain.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ManagedTextRepresentationType" substitutionGroup="ManagedRepresentation">
+	<xs:complexType name="ManagedTextRepresentationType">
 		<xs:annotation>
 			<xs:documentation>Means of describing text based content used by reference to define Variable Representation and Question Response Domain. Text Representations cover all non-code and non-category representations/response domains that should be treated or analyzed as characters regardless of whether the character is a number or a letter. In addition to the name, label, and description, the scheme defines the maximum and minimum length of the allowed text and allows for the use of a regular expression to further define the valid content.</xs:documentation>
 		</xs:annotation>
@@ -6421,12 +6626,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the representation. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the ManagedTextRepresentation. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the representation. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the ManagedTextRepresentation. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="RecommendedDataType" minOccurs="0">
@@ -6439,18 +6644,13 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>This field provides a recommended generic treatment of the data for display by an application. The value should come from a controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="MeasurementUnit" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>Records the measurement unit, for example, 'km', 'miles', etc. Supports the use of a controlled vocabulary.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="maxLength" type="xs:integer" use="optional">
+				<xs:attribute name="maxLength" type="xs:nonNegativeInteger" use="optional">
 					<xs:annotation>
 						<xs:documentation>The maximum number of characters allowed.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="minLength" type="xs:integer" use="optional">
+				<xs:attribute name="minLength" type="xs:nonNegativeInteger" use="optional">
 					<xs:annotation>
 						<xs:documentation>The minimum number of characters allowed.</xs:documentation>
 					</xs:annotation>
@@ -6473,14 +6673,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Name of the ManagedTextRepresentation using the DDI Name structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
 	<xs:element name="ManagedDateTimeRepresentation" type="ManagedDateTimeRepresentationType" substitutionGroup="ManagedRepresentation">
 		<xs:annotation>
 			<xs:documentation>Means of describing DateTime so that they can be reused by multiple variables or questions/question constructs.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ManagedDateTimeRepresentationType" substitutionGroup="ManagedRepresentation">
+	<xs:complexType name="ManagedDateTimeRepresentationType">
 		<xs:annotation>
 			<xs:documentation>Means of describing DateTime so that they can be reused by multiple variables or questions/question constructs. Regardless of the format of the data the content may be treated as a date and or time and converted to ISO standard structure if sufficient information is supplied. In addition to the name, label, and description of the representation, the structure provides the DateField Format, a DateTypeCode and a regular expression for further defining allowed content.</xs:documentation>
 		</xs:annotation>
@@ -6489,17 +6687,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="ManagedDateTimeRepresentationName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the representation. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the ManagedDateTimeRepresentation. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the representation. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the ManagedDateTimeRepresentation. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the representation. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the ManagedDateTimeRepresentation. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="RecommendedDataType" minOccurs="0">
@@ -6512,11 +6710,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>This field provides a recommended generic treatment of the data for display by an application. The value should come from a controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="MeasurementUnit" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>Records the measurement unit, for example, 'km', 'miles', etc. Supports the use of a 	controlled vocabulary.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element ref="DateFieldFormat" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Describes the format of the date field, in formats such as YYYY/MM or MM-DD-YY, etc. If this element is omitted, then the format is assumed to be the XML Schema format corresponding to the type attribute value.</xs:documentation>
@@ -6525,6 +6718,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:element ref="DateTypeCode">
 						<xs:annotation>
 							<xs:documentation>This is a standard XML date type code and supports the use of an external controlled vocabulary. Examples are date, dateTime, gYearMonth, gYear, and duration</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Range" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates the high and low values (endpoints) of a non-numeric scale. This can be expressed as a value that matches the DateTime format. Repeatable in order to express as set of non-continuous values.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -6546,15 +6744,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Name of the ManagedDateTimeRepresentation using the DDI Name structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
-
 	<xs:element name="ManagedNumericRepresentation" type="ManagedNumericRepresentationType" substitutionGroup="ManagedRepresentation">
 		<xs:annotation>
 			<xs:documentation>A means of capturing a managed representation of a numbers (item that are analyzed as numbers) which can be referenced by a variable or question and used as a value representation or response domain.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ManagedNumericRepresentationType" substitutionGroup="ManagedRepresentation">
+	<xs:complexType name="ManagedNumericRepresentationType">
 		<xs:annotation>
 			<xs:documentation>A means of capturing a managed representation of a numbers (item that are analyzed as numbers) which can be referenced by a variable or question and used as a value representation or response domain. In addition to the name, label, and description of the managed numeric representation, the structure defines the number range of valid values, plus information on the format, scale, number of decimals, and intervals between valid responses within the range.</xs:documentation>
 		</xs:annotation>
@@ -6568,12 +6763,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the representation. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the ManagedNumericRepresentation. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the representation. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the ManagedNumericRepresentation. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="RecommendedDataType" minOccurs="0">
@@ -6584,11 +6779,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:element ref="GenericOutputFormat" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>This field provides a recommended generic treatment of the data for display by an application. The value should come from a controlled vocabulary.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="MeasurementUnit" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>Records the measurement unit, for example, 'km', 'miles', etc. Supports the use of a 	controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="NumberRange" minOccurs="0" maxOccurs="unbounded">
@@ -6617,7 +6807,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>The number of decimal positions expressed as an integer (precision of the number).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="interval" type="xs:integer" use="optional">
+				<xs:attribute name="interval" type="xs:nonNegativeInteger" use="optional">
 					<xs:annotation>
 						<xs:documentation>The interval between valid responses expressed as an integer.</xs:documentation>
 					</xs:annotation>
@@ -6625,11 +6815,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:attribute name="classificationLevel" type="CategoryRelationCodeType" use="optional">
 					<xs:annotation>
 						<xs:documentation>Indicates the type of relationship, nominal, ordinal, interval, ratio, or continuous. Use where appropriate for the representation type.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="accuracy" type="xs:decimal" use="optional">
-					<xs:annotation>
-						<xs:documentation>The level to which a number is considered to be accurate. Expressed as a decimal.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -6650,7 +6835,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A means of capturing a managed representation of a Scale for use by a Response Domain Reference or Value Representation Reference.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ManagedScaleRepresentationType" substitutionGroup="ManagedRepresentation">
+	<xs:complexType name="ManagedScaleRepresentationType">
 		<xs:annotation>
 			<xs:documentation>A means of capturing a managed representation of a Scale for use by a Response Domain Reference or Value Representation Reference. In addition to the name, label, and description of the representation, the structure defines the dimensions of the scale, an intersect for a multi-dimensional scale, and display layout.</xs:documentation>
 		</xs:annotation>
@@ -6664,12 +6849,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the representation. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the ManagedScaleRepresentation. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the representation. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the ManagedScaleRepresentation. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="RecommendedDataType" minOccurs="0">
@@ -6680,11 +6865,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:element ref="GenericOutputFormat" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>This field provides a recommended generic treatment of the data for display by an application. The value should come from a controlled vocabulary.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="MeasurementUnit" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>Records the measurement unit, for example, 'km', 'miles', etc. Supports the use of a 	controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="ScaleDimension" minOccurs="0" maxOccurs="unbounded">
@@ -6721,7 +6901,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Means of describing the Missing Values within a managed representation so that they can be reused by multiple variables and questions.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ManagedMissingValuesRepresentationType" substitutionGroup="ManagedRepresentation">
+	<xs:complexType name="ManagedMissingValuesRepresentationType">
 		<xs:annotation>
 			<xs:documentation>Means of describing the Missing Values within a managed representation so that they can be reused by multiple variables and questions. Variable has a separate Missing Values location for this representation. Questions must use a StructuredMixedResponseDomain to include both standard response and Missing Value responses in a single question. In addition to the name, label, and description of the representation, the structure defines the type of the missing values, a optional generation instruction for deriving the value to be recorded, and the ability to define a blank as a missing value.</xs:documentation>
 		</xs:annotation>
@@ -6730,22 +6910,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="ManagedMissingValuesRepresentationName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the missing value. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the ManagedMissingValuesRepresentation. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the managed representation. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the ManagedMissingValuesRepresentation. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the managed representation. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="MeasurementUnit" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>Records the measurement unit, for example, 'km', 'miles', etc. Supports the use of a 	controlled vocabulary.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the ManagedMissingValuesRepresentation. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -6770,7 +6945,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:choice>
 					<xs:element ref="ProcessingInstructionReference" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>An optional reference to a GenerationInstruction describing how to generate the value for this representation when used as a response domain or missing value representation.</xs:documentation>
+							<xs:documentation>An optional reference to a GenerationInstruction describing how to generate the value for this representation when used as a response domain or missing value representation. TypeOfObject should be set to GeneralInstruction or GenerationInstruction.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -6811,18 +6986,17 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:annotation>
 			<xs:documentation>Indicates the minimum and maximum number of occurrences of a response within the given parameters.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="minimumResponses" type="xs:integer">
+		<xs:attribute name="minimumResponses" type="xs:nonNegativeInteger">
 			<xs:annotation>
 				<xs:documentation>Minimum number of responses accepted expressed and an integer.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="maximumResponses" type="xs:integer">
+		<xs:attribute name="maximumResponses" type="xs:nonNegativeInteger">
 			<xs:annotation>
 				<xs:documentation>Maximum number of responses accepted expressed and an integer.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-
 	<xs:element name="ValueRepresentation" type="RepresentationType" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Substitution group head for describing the representation value of the variable.</xs:documentation>
@@ -6873,13 +7047,11 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Substitution group head for referencing Managed representations for use as a ValueRepresentation in a variable. TypeOfObject should be set to ManagedDateTimeRepresentation, ManagedNumericRepresentation, ManagedScaleRepresentation, or ManagedTextRepresentation.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:element name="TextRepresentationReference" type="RepresentationReferenceType" substitutionGroup="ValueRepresentationReference">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing ManagedTextRepresentation using the RepresentationReference structure. TypeOfObject should be set to ManagedTextRepresentation</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
 	<xs:element name="NumericRepresentationReference" type="RepresentationReferenceType" substitutionGroup="ValueRepresentationReference">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing ManagedNumericRepresentation using the RepresentationReference structure. TypeOfObject should be set to ManagedNumericRepresentation</xs:documentation>
@@ -6895,9 +7067,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing ManagedScaleRepresentation using the RepresentationReference structure. TypeOfObject should be set to ManagedScaleRepresentation</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
-
 	<xs:complexType name="RepresentationReferenceType">
 		<xs:annotation>
 			<xs:documentation>References the managed representation of the variables' values. Allows for the listing of values to be treated as missing in order to support 3.1 structures. The prefered method is the use of a reference to MissingValues description using MissingValuesReference. If both are used and there is a conflict in the content, MissingValuesReference will override the content provided in the ValueRepresentationReference. TypeOfObject should be set to ManagedDateTimeRepresentation, ManagedNumericRepresentation, ManagedScaleRepresentation, or ManagedTextRepresentation.</xs:documentation>
@@ -6927,7 +7096,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Allows further specification of the codes to use from the CodeList by defining the level or only the most discrete codes of a hierarchical CodeList, the range of codes to use, or an itemized sub-set.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="IncludedLevel" type="xs:integer" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="IncludedLevel" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Identifies the specific level to include using the levelNumber. Repeat if more than one level is included.</xs:documentation>
 				</xs:annotation>
@@ -6959,7 +7128,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Use when only the lowest, most discrete codes in the CodeList will be expressed as valid values. Identifies those levels of a CodeList with a regular hierarchy or those indicates discrete codes within an irregular hierarchy. All other codes will be used as labels within the hierarchy to clearly express content, but will not be valid as a response or representation value.</xs:documentation>
 		</xs:annotation>
 		<xs:choice>
-			<xs:element name="LevelNumber" type="xs:integer">
+			<xs:element name="LevelNumber" type="xs:nonNegativeInteger">
 				<xs:annotation>
 					<xs:documentation>Use for a regular hierarchy. List the Level Number of the lowest or most discrete level of data available.</xs:documentation>
 				</xs:annotation>
@@ -6994,12 +7163,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="ProcessingInstructionReference" type="ProcessingInstructionReferenceType">
 		<xs:annotation>
-			<xs:documentation>A reference to a General or Generation Instruction that was used by the parent object, e.g. an instruction used to derive a Variable or used by a ProcessingEvent. The basic Reference structure is extended to allow for the use of Binding to link specific source parameters to the InParameter of the instruction at the point of use. TypeOfObject should be set to ProcessingInstruction.</xs:documentation>
+			<xs:documentation>A reference to a General or Generation Instruction that was used by the parent object, e.g. an instruction used to derive a Variable or used by a ProcessingEvent. The basic Reference structure is extended to allow for the use of Binding to link specific source parameters to the InParameter of the instruction at the point of use. TypeOfObject should be set to GeneralInstruction or GenerationInstruction.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="ProcessingInstructionReferenceType">
 		<xs:annotation>
-			<xs:documentation>A reference to a General or Generation Instruction that was used by the parent object, e.g. an instruction used to derive a Variable or used by a ProcessingEvent. The basic Reference structure is extended to allow for the use of Binding to link specific source parameters to the InParameter of the instruction at the point of use. If there is a conflict between a Binding in the iinstruction of a specific source to an InParameter and the Binding information provided in the ProcessingInstructionReference, the Binding information in the reference overrides that found in the instruction. TypeOfObject should be set to ProcessingInstruction.</xs:documentation>
+			<xs:documentation>A reference to a General or Generation Instruction that was used by the parent object, e.g. an instruction used to derive a Variable or used by a ProcessingEvent. The basic Reference structure is extended to allow for the use of Binding to link specific source parameters to the InParameter of the instruction at the point of use. If there is a conflict between a Binding in the instruction of a specific source to an InParameter and the Binding information provided in the ProcessingInstructionReference, the Binding information in the reference overrides that found in the instruction. TypeOfObject should be set to GeneralInstruction or GenerationInstruction.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ReferenceType">
@@ -7028,8 +7197,6 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Specifies by reference the ResourcePackages required to resolve the module.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-
 	<xs:complexType name="RequiredResourcePackagesType">
 		<xs:annotation>
 			<xs:documentation>Specifies by reference the ResourcePackages required to resolve the module.</xs:documentation>
@@ -7064,7 +7231,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="StatementOfAuthorization" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Text of the authorization. May be repeated for multiple languages.</xs:documentation>
+					<xs:documentation>Text of the authorization. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="LegalMandate" type="xs:string" minOccurs="0" maxOccurs="unbounded">
@@ -7086,50 +7253,50 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="StatementOfAuthorization" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Statement Of Authorization provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Text of the authorization. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-   <xs:simpleType name="KindOfDataTypeType">
-      <xs:annotation>
-         <xs:documentation>Provides a description of the types of data described by the KindOfData element.</xs:documentation>
-      </xs:annotation>
-      <xs:restriction base="xs:string">
-       <xs:enumeration value="Qualitative">
-          <xs:annotation>
-             <xs:documentation>Narrative or descriptive accounts that may be subjected to interpretive analysis</xs:documentation>
-          </xs:annotation>
-       </xs:enumeration>
-       <xs:enumeration value="Quantitative">
-          <xs:annotation>
-             <xs:documentation>Numerical or coded data that may be subjected to statistical analysis</xs:documentation>
-          </xs:annotation>
-       </xs:enumeration>
-       <xs:enumeration value="Mixed">
-          <xs:annotation>
-             <xs:documentation>Both qualitative and quantitative data within the same collection.</xs:documentation>
-          </xs:annotation>
-       </xs:enumeration>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:element name="KindOfData" type="KindOfDataType">
-         <xs:annotation>
-            <xs:documentation>Describes, with a string or a term from a controlled vocabulary, the kind of data documented in the logical product(s) of a study unit. Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc.</xs:documentation>
-         </xs:annotation>
-   </xs:element>
-   <xs:complexType name="KindOfDataType">
-         <xs:annotation>
-            <xs:documentation>Describes, with a string or a term from a controlled vocabulary, the kind of data documented in the logical product(s) of a study unit. Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc.</xs:documentation>
-         </xs:annotation>
-         <xs:simpleContent>
-            <xs:extension base="CodeValueType">
-                <xs:attribute name="type" type="KindOfDataTypeType" use="optional">
-                              <xs:annotation>
-                                     <xs:documentation>Provides a description of the types of data described by the KindOfData element.</xs:documentation>
-                              </xs:annotation>
-                        </xs:attribute>
-            </xs:extension>
-         </xs:simpleContent>
-   </xs:complexType>
+	<xs:simpleType name="KindOfDataTypeType">
+		<xs:annotation>
+			<xs:documentation>Provides a description of the types of data described by the KindOfData element.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Qualitative">
+				<xs:annotation>
+					<xs:documentation>Narrative or descriptive accounts that may be subjected to interpretive analysis</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Quantitative">
+				<xs:annotation>
+					<xs:documentation>Numerical or coded data that may be subjected to statistical analysis</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Mixed">
+				<xs:annotation>
+					<xs:documentation>Both qualitative and quantitative data within the same collection.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="KindOfData" type="KindOfDataType">
+		<xs:annotation>
+			<xs:documentation>Describes, with a string or a term from a controlled vocabulary, the kind of data documented in the logical product(s) of a study unit. Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="KindOfDataType">
+		<xs:annotation>
+			<xs:documentation>Describes, with a string or a term from a controlled vocabulary, the kind of data documented in the logical product(s) of a study unit. Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="CodeValueType">
+				<xs:attribute name="type" type="KindOfDataTypeType" use="optional">
+					<xs:annotation>
+						<xs:documentation>Provides a description of the types of data described by the KindOfData element.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:element name="ContentDateOffset" type="ContentDateOffsetType">
 		<xs:annotation>
 			<xs:documentation>Identifies the difference between the date applied to the data as a whole and this specific item.</xs:documentation>
@@ -7171,7 +7338,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:sequence>
 			<xs:element ref="Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the content and purpose of the segment used. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+					<xs:documentation>A description of the content and purpose of the segment used. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -7180,12 +7347,12 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:documentation>The array base is the value of the designation for the first item in an array and is set to either 0 or 1. Unix based systems and most current programming systems use an array base of 0. Traditional codebooks normally set the array base at 1, for example the first data item in a fixed format ASCII file record begins at character 1.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="startPosition" type="xs:integer">
+		<xs:attribute name="startPosition" type="xs:nonNegativeInteger">
 			<xs:annotation>
 				<xs:documentation>The start position of the first character expressed as an integer.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="length" type="xs:integer">
+		<xs:attribute name="length" type="xs:nonNegativeInteger">
 			<xs:annotation>
 				<xs:documentation>The length of the segment expressed as an integer.</xs:documentation>
 			</xs:annotation>
@@ -7304,7 +7471,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Records the measurement unit, for example, Square Kilometer, Square Mile. Supports the use of an external controlled vocabulary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="AreaMeasure" minOccurs="0" type="xs:decimal">
+			<xs:element name="AreaMeasure" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The area measure expressed as a decimal for the measurement unit designated.</xs:documentation>
 				</xs:annotation>
@@ -7349,7 +7516,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ReferenceType">
-				<xs:attribute name="orderValue" type="xs:integer" default="1">
+				<xs:attribute name="orderValue" type="xs:nonNegativeInteger" default="1">
 					<xs:annotation>
 						<xs:documentation>The reference has an additional attribute orderValue which defines the position of the referenced MeasureDefinition along the MeasureDimension so that it can be used as part of the cell address. The default value is "1". Additional MeasureDefinitions should have incremental values (2,3,4,...)</xs:documentation>
 					</xs:annotation>
@@ -7378,7 +7545,7 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ReferenceType">
-				<xs:attribute name="arrayOrder" type="xs:integer" default="0">
+				<xs:attribute name="arrayOrder" type="xs:nonNegativeInteger" default="0">
 					<xs:annotation>
 						<xs:documentation>Oder within the array. Note that this attribute assumes an array base of 0. The array order assumes that the measures will always be displayed in the same order and that sparse content (a missing value in the array) will be clear between two delimiters in this array. (For example 1,1,1 or 1,,1)</xs:documentation>
 					</xs:annotation>
@@ -7462,4 +7629,9 @@ with DDI 3.2 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:element name="DefiningConceptReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing Concept using the Reference structure. TypeOfObject should be set to Concept.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 </xs:schema>

@@ -236,12 +236,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Indicates the software that was used to create the data file.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="CaseQuantity" type="xs:integer" minOccurs="0">
+					<xs:element name="CaseQuantity" type="xs:nonNegativeInteger" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Number of cases or observations in the data file. Caution in using optional checksums is recommended. Conflict between checksums and the items being counted can cause problems with warning flags during processing. If using checksum to capture information for internal processing purposes, the use of automatically generated check sums is strongly urged.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="OverallRecordCount" type="xs:integer" minOccurs="0">
+					<xs:element name="OverallRecordCount" type="xs:nonNegativeInteger" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Overall record count in the data file. Caution in using optional checksums is recommended. Conflict between checksums and the items being counted can cause problems with warning flags during processing. If using checksum to capture information for internal processing purposes, the use of automatically generated check sums is strongly urged.</xs:documentation>
 						</xs:annotation>
@@ -263,6 +263,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:element ref="DataFileURI">
 						<xs:annotation>
 							<xs:documentation>A URN or URL for the data file with a flag to indicate if it is a public copy.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:SizeInBytes" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Specifies the size of the file in bytes.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -344,7 +349,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
                <xs:documentation>Reference to the variable to which the statistics apply.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="TotalResponses" type="xs:integer" minOccurs="0">
+         <xs:element name="TotalResponses" type="xs:nonNegativeInteger" minOccurs="0">
             <xs:annotation>
                <xs:documentation>The total number of responses to this variable. This element is especially useful if the number of responses does not match added case counts. It may also be used to sum the frequencies for variable categories.</xs:documentation>
             </xs:annotation>
@@ -714,4 +719,87 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
              </xs:enumeration>
          </xs:restriction>
      </xs:simpleType>
+	<xs:element name="PhysicalInstanceGroup" type="PhysicalInstanceGroupType">
+		<xs:annotation>
+			<xs:documentation>Contains a group of PhysicalInstance descriptions, which may be ordered or hierarchical. In addition to the name, label, and description of the group, the structure allows for defining the group by reference to a DefiningConcept.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="PhysicalInstanceGroupType">
+		<xs:annotation>
+			<xs:documentation>Contains a group of PhysicalInstance descriptions, which may be ordered or hierarchical. In addition to the name, label, and description of the group, the structure allows for defining the group by reference to a DefiningConcept.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:MaintainableType">
+				<xs:sequence>
+					<xs:element ref="TypeOfPhysicalInstanceGroup" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A brief textual identification of the group type. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="PhysicalInstanceGroupName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A name for the group. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the PhysicalInstanceGroup. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the content and purpose of the PhysicalInstanceGroup. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the universe statement describing the persons or other objects to which the contents of this group pertain.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:ConceptReference" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Reference to the concept expressed by the objects in this group.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Subject" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>If subjects are listed for this group, it is strongly recommended that the subjects listed also be found in the TopicalCoverage element for the parent packaging element when this group is included directly or by reference in a module containing a coverage element. Use of subject at the group level allows for associating objects as a type of subject based group or to identify subject characteristics of a reusable group of objects.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Keyword" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>If keywords are listed for this group, it is strongly recommended that the keywords listed also be found in the TopicalCoverage element for the parent packaging element when this group is included directly or by reference in a module containing a coverage element. Use of keyword at the group level allows for associating objects as a type of keyword based group or to identify keyword characteristics of a reusable group of objects.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="r:PhysicalInstanceReference">
+							<xs:annotation>
+								<xs:documentation>A PhysicalInstance defined as a member of this group.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:PhysicalInstanceGroupReference">
+							<xs:annotation>
+								<xs:documentation>A PhysicalInstanceGroup that is a member of this group (nesting structure).</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+				</xs:sequence>
+				<xs:attribute name="isOrdered" type="xs:boolean" default="false">
+					<xs:annotation>
+						<xs:documentation>If set to "true" indicates that the content of the group is ordered as it appears within the XML structure.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="TypeOfPhysicalInstanceGroup" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>A brief textual description of the type of group created to associate a number of physical instance modules. Supports the use of an external controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="PhysicalInstanceGroupName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the PhysicalInstanceGroup using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 </xs:schema>
