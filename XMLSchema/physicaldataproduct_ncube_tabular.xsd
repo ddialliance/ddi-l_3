@@ -82,7 +82,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:documentation>The column identifier expressed as a string.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="row" type="xs:integer" use="required">
+		<xs:attribute name="row" type="xs:nonNegativeInteger" use="required">
 			<xs:annotation>
 				<xs:documentation>The row number expressed as an integer.</xs:documentation>
 			</xs:annotation>
@@ -230,12 +230,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="p:PhysicalLocationType">
 				<xs:sequence>
-					<xs:element name="ColumnNumber" type="xs:integer">
+					<xs:element name="ColumnNumber" type="xs:nonNegativeInteger">
 						<xs:annotation>
 							<xs:documentation>Column in which data item is found. This is an integer defined in relationship to a specified "first" column NOT the column identifier found in the spreadsheet. Begin numbering columns from the upper left corner of the table as defined in TopLeftTableAnchor attribute "column".</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="RowSequence" type="xs:integer" minOccurs="0">
+					<xs:element name="RowSequence" type="xs:nonNegativeInteger" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>A single case may be represented on a single row or a series of rows, particularly when multiple measures are used. This element designates the row, with the assumption that there is a single row per case unless otherwise stated.</xs:documentation>
 						</xs:annotation>
