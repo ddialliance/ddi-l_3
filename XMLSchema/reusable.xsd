@@ -3806,7 +3806,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A structure used to express explicit segments within different types of external materials (Textual, Audio, Video, XML, and Image).</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SizeInBytes" type="xs:integer">
+	<xs:element name="SizeInBytes" type="xs:nonNegativeInteger">
 		<xs:annotation>
 			<xs:documentation>Specifies the size of the file in bytes.</xs:documentation>
 		</xs:annotation>
