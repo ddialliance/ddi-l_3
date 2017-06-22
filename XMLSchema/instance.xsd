@@ -283,6 +283,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="m2:NCubeInstance"/>
 				<xs:element ref="a:Organization"/>
 				<xs:element ref="a:OrganizationGroup"/>
+				<xs:element ref="pi:PhysicalInstanceGroup"/>
 				<xs:element ref="p:PhysicalStructure"/>
 				<xs:element ref="p:PhysicalStructureGroup"/>
 				<xs:element ref="d:PretestActivity"/>

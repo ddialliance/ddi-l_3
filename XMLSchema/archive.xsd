@@ -239,7 +239,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>The URL or URN for the collection.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ItemQuantity" type="xs:integer" minOccurs="0">
+			<xs:element name="ItemQuantity" type="xs:nonNegativeInteger" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The number of items in the collection. This is a check sum and should be updated as the contents of the collection changes. The use of this element is best restricted to completed collections where change in the number of objects is not dynamic.</xs:documentation>
 				</xs:annotation>
@@ -746,8 +746,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 
 	<!-- AgentType -->
-	<xs:complexType name="AgentType">
-		<xs:annotation><xs:documentation>TODO</xs:documentation></xs:annotation>
+	<xs:complexType name="AgentType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>
+				Base class for Individual and Organization. This allows strongly typed references.
+			</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
 				<xs:sequence>
@@ -1221,11 +1225,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Identifies the Source organization or individual in the relationship. References either an Organization or an Individual and specifies their relationship in terms of parent, child, or sibling.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="AgentReference">
-				<xs:annotation>
-					<xs:documentation>A reference to an Agent, which can be an Organization or an Individual.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:choice>
+				<xs:element ref="OrganizationReference">
+					<xs:annotation>
+						<xs:documentation>A reference to an Organization described in DDI.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="IndividualReference">
+					<xs:annotation>
+						<xs:documentation>A reference to an Individual described in DDI.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
 			<xs:element ref="RelationshipCode" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>A specification of the relationship of the Source to the Target in terms of Parent (superior), Child (subordinate), or Sibling (on par).</xs:documentation>
@@ -1238,11 +1249,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Identifies the Target organization or individual in the relationship. References either an Organiztion or an Individual and specifies the role of the Target in relationship to the Source. Multiple roles for specified periods may be identified.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="AgentReference">
-				<xs:annotation>
-					<xs:documentation>A reference to an Agent, which can be an Organization or an Individual.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:choice>
+				<xs:element ref="OrganizationReference">
+					<xs:annotation>
+						<xs:documentation>A reference to an Organization described in DDI.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="IndividualReference">
+					<xs:annotation>
+						<xs:documentation>A reference to an Individual described in DDI.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
 			<xs:element ref="Role" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Describes the role of Target Individual or Organization in relation to the Source Object.</xs:documentation>
@@ -1616,12 +1634,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Name of the location using the DDI Name structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="AgentReference" type="r:ReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to an existing Agent using the Reference structure. An Agent can be an Individual or an Organization. TypeOfObject should be set to Agent.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-
 	<xs:complexType name="LocationNameType">
 		<xs:annotation>
 			<xs:documentation>Name of the location using the DDI Name structure and the ability to add an effective date.</xs:documentation>
@@ -1751,9 +1763,9 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>The CallNumber expressed as an xs:string.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="DataFileQuantity" type="xs:integer">
+	<xs:element name="DataFileQuantity" type="xs:nonNegativeInteger">
 		<xs:annotation>
-			<xs:documentation>The DataFileQuantity expressed as an xs:integer.</xs:documentation>
+			<xs:documentation>The DataFileQuantity expressed as an xs:nonNegativeInteger.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="RelationReference" type="r:ReferenceType">

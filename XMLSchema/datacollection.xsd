@@ -776,12 +776,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A specific rate of response and/or a description of the rate of response for a specific processing event that includes data appraisal.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="SampleSize" type="xs:integer" minOccurs="0">
+			<xs:element name="SampleSize" type="xs:nonNegativeInteger" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The size of the sample from whom data was requested.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="NumberOfResponses" type="xs:integer" minOccurs="0">
+			<xs:element name="NumberOfResponses" type="xs:nonNegativeInteger" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The number of responses within the specified sample.</xs:documentation>
 				</xs:annotation>
@@ -3106,7 +3106,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:element>
 			</xs:choice>
 		</xs:sequence>
-		<xs:attribute name="rank" type="xs:integer" use="required">
+		<xs:attribute name="rank" type="xs:nonNegativeInteger" use="required">
 			<xs:annotation>
 				<xs:documentation>The rank order of this dimension (the order in which the value for this dimension will appear in the cell address)denoted with a 1-based indexing. Provides coordinate order (1,2,n) for the intersect point of this dimension within the cell address. For example, if the rank of this dimension is 2, the intersect point on this dimension will be the second value listed in the cell address.</xs:documentation>
 			</xs:annotation>
@@ -3148,12 +3148,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:documentation>The value added to the last used value to create the iteration value for the current row or column expressed as an integer.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="minimumRequired" type="xs:integer" default="1">
+		<xs:attribute name="minimumRequired" type="xs:nonNegativeInteger" default="1">
 			<xs:annotation>
 				<xs:documentation>The minimum number of rows or columns required expressed as an integer.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="maximumAllowed" type="xs:integer">
+		<xs:attribute name="maximumAllowed" type="xs:nonNegativeInteger">
 			<xs:annotation>
 				<xs:documentation>The maximum number of rows or columns allowed expressed as an integer. Leaving this attribute with no value implies that the maximum allowed is unbounded.</xs:documentation>
 			</xs:annotation>
@@ -3258,7 +3258,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:annotation>
 			<xs:documentation>For each dimension in the grid define the applicable values as "all values", a "specific value" or a range. If a rangeMinimum or rangeMaximum is provided without the other, the assumption is unbounded for the object not included.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="rank" type="xs:integer" use="required">
+		<xs:attribute name="rank" type="xs:nonNegativeInteger" use="required">
 			<xs:annotation>
 				<xs:documentation>The rank value of the dimension for which the selection criteria apply.</xs:documentation>
 			</xs:annotation>
@@ -4346,7 +4346,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:CodeValueType">
-				<xs:attribute name="numberOfUnits" type="xs:integer" use="required">
+				<xs:attribute name="numberOfUnits" type="xs:nonNegativeInteger" use="required">
 					<xs:annotation>
 						<xs:documentation>The number of units.</xs:documentation>
 					</xs:annotation>
@@ -4443,7 +4443,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="StrataNumber" type="xs:integer">
+	<xs:element name="StrataNumber" type="xs:nonNegativeInteger">
 		<xs:annotation>
 			<xs:documentation>A strata within a sample frame stratification.</xs:documentation>
 		</xs:annotation>
@@ -5603,7 +5603,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="strataNumber" type="xs:integer" use="required">
+		<xs:attribute name="strataNumber" type="xs:nonNegativeInteger" use="required">
 			<xs:annotation>
 				<xs:documentation>Assign a number to the strata being described</xs:documentation>
 			</xs:annotation>
