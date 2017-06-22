@@ -104,6 +104,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:element>
 					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="MeasurementScheme">
+							<xs:annotation>
+								<xs:documentation>Describes a set of measurements used for data collection.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:MeasurementSchemeReference">
+							<xs:annotation>
+								<xs:documentation>A reference to a MeasurementScheme describing a set of measurements used for data collection.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="ControlConstructScheme">
 							<xs:annotation>
 								<xs:documentation>Describes a set of control constructs used to produce the flow pattern of a questionnaire or steps in a data capture process.</xs:documentation>
@@ -764,12 +776,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A specific rate of response and/or a description of the rate of response for a specific processing event that includes data appraisal.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="SampleSize" type="xs:integer" minOccurs="0">
+			<xs:element name="SampleSize" type="xs:nonNegativeInteger" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The size of the sample from whom data was requested.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="NumberOfResponses" type="xs:integer" minOccurs="0">
+			<xs:element name="NumberOfResponses" type="xs:nonNegativeInteger" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The number of responses within the specified sample.</xs:documentation>
 				</xs:annotation>
@@ -1580,12 +1592,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="ControlConstruct">
 							<xs:annotation>
-								<xs:documentation>Extensible structure for control elements used in describing flow logic within the instrument.: IfThenElse, RepeatUntil, RepeatWhile, Loop, Sequence, ComputationItem, StatementItem, and QuestionConstruct.</xs:documentation>
+								<xs:documentation>Extensible structure for control elements used in describing flow logic within the instrument.: IfThenElse, RepeatUntil, RepeatWhile, Loop, Sequence, ComputationItem, StatementItem, MeasurementConstruct, and QuestionConstruct.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="ControlConstructReference">
 							<xs:annotation>
-								<xs:documentation>Extensible structure for control elements used in describing flow logic within the instrument.: IfThenElse, RepeatUntil, RepeatWhile, Loop, Sequence, ComputationItem, StatementItem, and QuestionConstruct. TypeOfObject should reflect the type of ControlConstruct being referenced. Value should be IfThenElse, RepeatUntil, RepeatWhile, Loop, Sequence, ComputationItem, StatementItem, or QuestionConstruct.</xs:documentation>
+								<xs:documentation>Extensible structure for control elements used in describing flow logic within the instrument.: IfThenElse, RepeatUntil, RepeatWhile, Loop, Sequence, ComputationItem, StatementItem, MeasurementConstruct and QuestionConstruct. TypeOfObject should reflect the type of ControlConstruct being referenced. Value should be IfThenElse, RepeatUntil, RepeatWhile, Loop, Sequence, ComputationItem, StatementItem, MeasurementConstruct or QuestionConstruct.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -1670,7 +1682,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="ControlConstructReference">
 							<xs:annotation>
-								<xs:documentation>Reference to constituent ControlConstruct (from the substitution group). TypeOfObject should be set to IfThenElse, RepeatUntil, RepeatWhile, Loop, Sequence, ComputationItem, StatementItem, or QuestionConstruct.</xs:documentation>
+								<xs:documentation>Reference to constituent ControlConstruct (from the substitution group). TypeOfObject should be set to IfThenElse, RepeatUntil, RepeatWhile, Loop, Sequence, ComputationItem, StatementItem, MeasurementConstruct or QuestionConstruct.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="ControlConstructGroupReference">
@@ -2237,6 +2249,280 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Contains a group of Questions, which may be ordered or hierarchical.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="MeasurementItem" type="MeasurementItemType">
+		<xs:annotation>
+			<xs:documentation>Structure a single Measurement which may contain one or more response domains (i.e., a list of valid category responses where if "Other" is indicated a text response can be used to specify the intent of "Other").</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="MeasurementItemType">
+		<xs:annotation>
+			<xs:documentation>Structure a single Measurement which may contain one or more response domains (i.e., a list of valid category responses where if "Other" is indicated a text response can be used to specify the intent of "Other"). The structure provides detail on the intent of the measurement, they type of capture, the valid response options and the number of allowed responses, references to external aids and instructions, and an estimation of the time needed to respond to the measurement. Note that the MeasurementItem is a reusable format for use in any number of applied uses. Additional materials and information can be added within the MeasurementConstruct which is the applied use of a measurement.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:VersionableType">
+				<xs:sequence>
+					<xs:element ref="MeasurementItemName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A name for the MeasurementItem. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the MeasurementItem. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the MeasurementItem. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:InParameter" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Provides an identity for input objects required for the MeasurementItem.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:OutParameter" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Provides an identify for the output objects of the MeasurementItem.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Binding" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A structure used to bind the content of a parameter declared as the source to a parameter declared as the target.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="TypeOfMeasurementItem" minOccurs="0" maxOccurs="unbounded" >
+						<xs:annotation>
+							<xs:documentation>A brief term defining the type of MeasurementItem. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="MeasurementItemIntent" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The purpose of the MeasurementItem in terms of what it is designed to measure.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:choice minOccurs="0">
+						<xs:choice minOccurs="0">
+							<xs:element ref="ResponseDomain">
+								<xs:annotation>
+									<xs:documentation>Contains a response domain for the measurement item. Typically used to describe simple response domains (textual, numeric, etc.).</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element ref="ResponseDomainReference">
+								<xs:annotation>
+									<xs:documentation>The inclusion of a response domain by reference (must be supported by a managed representation). An abstract element. May be substituted by any valid object of substitution type ResponseDomainReference.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:choice>
+						<xs:element ref="StructuredMixedResponseDomain">
+							<xs:annotation>
+								<xs:documentation>Use in cases where the measurement requires the option for multiple response domains.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:element ref="r:ResponseCardinality" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Allows the designation of the minimum and maximum number of responses allowed for this measurement. Note that each response domain has its own response cardinality.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:ConceptReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A reference to the concept associated with the response to the measurement.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ExternalAid" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A pointer to an external aid presented by the instrument such as a text card, image, audio, or audiovisual aid. Typically a URN. Use type attribute to describe the type of external aid provided. Example of terms to use would include: imageOnly audioOnly audioVisual multiMedia.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="ExternalInterviewerInstruction">
+							<xs:annotation>
+								<xs:documentation>External reference to an interviewer instruction not expressed as DDI XML using OtherMaterial.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="InterviewerInstructionReference">
+							<xs:annotation>
+								<xs:documentation>Reference to an interviewer instruction expressed as DDI XML.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+				</xs:sequence>
+				<xs:attribute name="estimatedSecondsResponseTime" type="xs:decimal" use="optional">
+					<xs:annotation>
+						<xs:documentation>The estimated amount of time required to perform the measurement expressed in seconds. Decimal values should be used to define fractions of seconds.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="TypeOfMeasurementItem" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>A brief term defining the type of MeasurementItem. Supports the use of an external controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MeasurementItemIntent" type="r:StructuredStringType">
+		<xs:annotation>
+			<xs:documentation>Intent of the Measurement. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="MeasurementSchemeType">
+		<xs:annotation>
+			<xs:documentation>Contains a set of MeasurementItems and MeasurementGroups. In addition to the standard name, label, and description of the MeasurementScheme, may contain another MeasurementScheme by reference, a listing of MeasurementItems (in-line or by reference), and a listing of MeasurementGroups (in-line or by reference).</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:MaintainableType">
+				<xs:sequence>
+					<xs:element ref="MeasurementSchemeName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A name for the MeasurementScheme. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the scheme. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the content and purpose of the MeasurementItemScheme. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:MeasurementSchemeReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Allows for the inclusion of another MeasurementItemScheme by reference.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="MeasurementItem">
+							<xs:annotation>
+								<xs:documentation>Describes a MeasurementItem in-line.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:MeasurementItemReference">
+							<xs:annotation>
+								<xs:documentation>Allows for the inclusion of an existing MeasurementItem by reference.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="MeasurementGroup">
+							<xs:annotation>
+								<xs:documentation>Contains a group of MeasurementItems, which may be ordered or hierarchical.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="MeasurementGroupReference">
+							<xs:annotation>
+								<xs:documentation>Allows the inclusion of an existing MeasurementItemGroup by reference.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="MeasurementScheme" type="MeasurementSchemeType">
+		<xs:annotation>
+			<xs:documentation>Contains a set of MeasurementItems and MeasurementGroups.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MeasurementSchemeName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the MeasurementScheme using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MeasurementGroupReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing MeasurementGroup using the Reference structure. TypeOfObject should be set to MeasurementGroup.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MeasurementGroup" type="MeasurementGroupType">
+		<xs:annotation>
+			<xs:documentation>Contains a group of MeasurementItems, which may be ordered or hierarchical.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+<xs:complexType name="MeasurementGroupType">
+		<xs:annotation>
+			<xs:documentation>Contains a group of MeasurementItem, which may be ordered or hierarchical. In addition to the name, label, and description of the group, the structure allows for defining the type of group using an optional controlled vocabulary, a reference to a defining universe or concept for the group, a subject classification for the group, and a listing of MeasurementItems and MeasurementGroups in any order.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:VersionableType">
+				<xs:sequence>
+					<xs:element ref="TypeOfMeasurementGroup" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A brief textual identification of the group type. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="MeasurementGroupName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A name for the group. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the question group. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the content and purpose of the MeasurementItemGroup. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the universe statement describing the persons or other objects to which the contents of this MeasurementItem group pertain.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:ConceptReference" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Reference to the concept expressed by the MeasurementItem in this group.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Subject" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>If subjects are listed for this group, it is strongly recommended that the subjects listed also be found in the TopicalCoverage element for the parent packaging element when this group is included directly or by reference in a module containing a coverage element. Use of subject at the group level allows for associating objects as a type of subject based group or to identify subject characteristics of a reusable group of objects.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Keyword" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>If keywords are listed for this group, it is strongly recommended that the keywords listed also be found in the TopicalCoverage element for the parent packaging element when this group is included directly or by reference in a module containing a coverage element. Use of keyword at the group level allows for associating objects as a type of keyword based group or to identify keyword characteristics of a reusable group of objects.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="r:MeasurementItemReference">
+							<xs:annotation>
+								<xs:documentation>Reference to constituent MeasurementItem.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="MeasurementGroupReference">
+							<xs:annotation>
+								<xs:documentation>Reference to constituent MeasurementGroup. This allows for nesting of MeasurementGroups.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+				</xs:sequence>
+				<xs:attribute name="isOrdered" type="xs:boolean" default="false">
+					<xs:annotation>
+						<xs:documentation>If set to "true" indicates that the content of the group is ordered as it appears within the XML structure.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="MeasurementGroupName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the MeasurementGroup using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TypeOfMeasurementGroup" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>A brief textual description of the type of group created to associate a number of MeasurementItem. Supports the use of an external controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+
 	<xs:element name="QuestionItem" type="QuestionItemType">
 		<xs:annotation>
 			<xs:documentation>Structure a single Question which may contain one or more response domains (i.e., a list of valid category responses where if "Other" is indicated a text response can be used to specify the intent of "Other").</xs:documentation>
@@ -2344,6 +2630,8 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+
+
 	<xs:complexType name="QuestionBlockType">
 		<xs:annotation>
 			<xs:documentation>A QuestionBlock is a specific structure used in educational and other types of testing where an object (Stimulus Material) is provided and a set of questions are asked regarding the object. The QuestionBlock generally has related QuestionBlocks that measure similar skills or aptitudes and is used randomly within a set of questionnaires to create multiple versions of a single questionnaire that can be used with large groups for testing purposes. Assembly of the QuestionBlocks into a questionnaire may the result of selection based on an experimental design model. It contains information on what the QuestionBlock is intended to measure, input and output parameters for the QuestionBlock, a description of the stimulus material and the questions related to it, instructions on sequencing and number of allowed responses, references to external aids and instructions, and an estimate of the time needed to complete the question. Note that the QuestionBlock is a reusable format for use in any number of applied uses. External aids, instructions, response sequencing etc. should contain information consistent with the general use of the QuestionBlock (QuestionItems and QuestionGrids will contain information specific to the individual question). Additional materials and information can be added within the QuestionConstruct which is the applied use of a question.</xs:documentation>
@@ -2598,6 +2886,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Name of the Question Item using the DDI Name structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="MeasurementItemName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the Measurement Item using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="StructuredMixedResponseDomain" type="StructuredMixedResponseDomainType">
 		<xs:annotation>
 			<xs:documentation>A structure to allow for mixing multiple response domains in a single question. These may also include intervening text statements that are tightly bound to a response domain. A common example is the use of a CodeDomain and a TextDomain where the TextDomain is associated with the value with the label "Other" in the CodeDomain.</xs:documentation>
@@ -2813,7 +3106,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:element>
 			</xs:choice>
 		</xs:sequence>
-		<xs:attribute name="rank" type="xs:integer" use="required">
+		<xs:attribute name="rank" type="xs:nonNegativeInteger" use="required">
 			<xs:annotation>
 				<xs:documentation>The rank order of this dimension (the order in which the value for this dimension will appear in the cell address)denoted with a 1-based indexing. Provides coordinate order (1,2,n) for the intersect point of this dimension within the cell address. For example, if the rank of this dimension is 2, the intersect point on this dimension will be the second value listed in the cell address.</xs:documentation>
 			</xs:annotation>
@@ -2855,12 +3148,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:documentation>The value added to the last used value to create the iteration value for the current row or column expressed as an integer.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="minimumRequired" type="xs:integer" default="1">
+		<xs:attribute name="minimumRequired" type="xs:nonNegativeInteger" default="1">
 			<xs:annotation>
 				<xs:documentation>The minimum number of rows or columns required expressed as an integer.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="maximumAllowed" type="xs:integer">
+		<xs:attribute name="maximumAllowed" type="xs:nonNegativeInteger">
 			<xs:annotation>
 				<xs:documentation>The maximum number of rows or columns allowed expressed as an integer. Leaving this attribute with no value implies that the maximum allowed is unbounded.</xs:documentation>
 			</xs:annotation>
@@ -2965,7 +3258,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:annotation>
 			<xs:documentation>For each dimension in the grid define the applicable values as "all values", a "specific value" or a range. If a rangeMinimum or rangeMaximum is provided without the other, the assumption is unbounded for the object not included.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="rank" type="xs:integer" use="required">
+		<xs:attribute name="rank" type="xs:nonNegativeInteger" use="required">
 			<xs:annotation>
 				<xs:documentation>The rank value of the dimension for which the selection criteria apply.</xs:documentation>
 			</xs:annotation>
@@ -3068,6 +3361,47 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>For each dimension in the grid define the applicable values as "all values", a "specific value" or a range.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="MeasurementConstruct" type="MeasurementConstructType" substitutionGroup="ControlConstruct">
+		<xs:annotation>
+			<xs:documentation>A construct which ties measurement content to the programmatic logic of the control constructs.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="MeasurementConstructType">
+		<xs:annotation>
+			<xs:documentation>A construct which ties measurement content to the programmatic logic of the control constructs. Contains a reference to a MeasurementItem, identifies the response unit, analysis unit, and universe. May provide an estimate of the number of minutes needed to respond.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ControlConstructType">
+				<xs:sequence>
+					<xs:element ref="r:MeasurementReference" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Reference to a Measurement.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ResponseUnit" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Identifies the intended Response unit (respondent). Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:AnalysisUnit" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The analysis unit, expressed as a term which may come from a controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the universe statement containing a description of the persons or other elements that this measurement refers to.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="estimatedSecondsResponseTime" type="xs:decimal" use="optional">
+					<xs:annotation>
+						<xs:documentation>The estimated amount of time required to perform the data capture expressed in seconds. Decimal values should be used to define fractions of seconds. At the measurement construct level it refers to the estimated time within the context of is use in a data capture process.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>	
 	<xs:element name="QuestionConstruct" type="QuestionConstructType" substitutionGroup="ControlConstruct">
 		<xs:annotation>
 			<xs:documentation>A construct which ties question content to the programmatic logic of the control constructs.</xs:documentation>
@@ -4012,7 +4346,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:CodeValueType">
-				<xs:attribute name="numberOfUnits" type="xs:integer" use="required">
+				<xs:attribute name="numberOfUnits" type="xs:nonNegativeInteger" use="required">
 					<xs:annotation>
 						<xs:documentation>The number of units.</xs:documentation>
 					</xs:annotation>
@@ -4109,7 +4443,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="StrataNumber" type="xs:integer">
+	<xs:element name="StrataNumber" type="xs:nonNegativeInteger">
 		<xs:annotation>
 			<xs:documentation>A strata within a sample frame stratification.</xs:documentation>
 		</xs:annotation>
@@ -4539,6 +4873,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to a question used in the derivation or coding instruction. TypeOfObject should be set to QuestionItem or Question Grid.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="SourceMeasurement" type="SourceReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to a measurement. TypeOfObject should be set to MeasurementItem.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="TypeOfComputationItem" type="r:CodeValueType">
 		<xs:annotation>
 			<xs:documentation>A brief textual description or classification of the ComputationItem. Supports the use of an external controlled vocabulary. DDI recommends the use of a controlled vocabulary.</xs:documentation>
@@ -4546,12 +4885,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="ControlConstructReference" type="ControlConstructReferenceType">
 		<xs:annotation>
-			<xs:documentation>A reference to a control construct of any type with the ability to bind the InParameter or OutParameter of the ControlConstruct to external information as needed. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, or StatementItem.</xs:documentation>
+			<xs:documentation>A reference to a control construct of any type with the ability to bind the InParameter or OutParameter of the ControlConstruct to external information as needed. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, or StatementItem.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="ControlConstructReferenceType">
 		<xs:annotation>
-			<xs:documentation>A reference to a control construct of any type with the ability to bind the InParameter or OutParameter of the ControlConstruct to external information as needed.ComputationItem, IfThenElse, Loop, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, or StatementItem</xs:documentation>
+			<xs:documentation>A reference to a control construct of any type with the ability to bind the InParameter or OutParameter of the ControlConstruct to external information as needed.ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, or StatementItem</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:ReferenceType">
@@ -5264,7 +5603,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="strataNumber" type="xs:integer" use="required">
+		<xs:attribute name="strataNumber" type="xs:nonNegativeInteger" use="required">
 			<xs:annotation>
 				<xs:documentation>Assign a number to the strata being described</xs:documentation>
 			</xs:annotation>
