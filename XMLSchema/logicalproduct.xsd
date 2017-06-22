@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-Copyright (c) 2014 DDI Alliance, DDI 3.2 release, 2014-02-05
+Copyright (c) 2015 DDI Alliance, DDI 3.3 release, 2015-02-15
 
-This file is part of DDI 3.2 XML Schema.
+This file is part of DDI 3.3 XML Schema.
 
-DDI 3.2 XML Schema is free software: you can redistribute it and/or modify
+DDI 3.3 XML Schema is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by the
 Free Software Foundation, either version 3 of the License, or (at your
 option) any later version.
 
-DDI 3.2 XML Schema is distributed in the hope that it will be useful, but
+DDI 3.3 XML Schema is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
 for more details.
@@ -19,8 +19,8 @@ You should have received a copy of the GNU Lesser General Public License along
 with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:logicalproduct:3_2" xmlns:r="ddi:reusable:3_2" targetNamespace="ddi:logicalproduct:3_2" elementFormDefault="qualified">
-	<xs:import namespace="ddi:reusable:3_2" schemaLocation="reusable.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ddi:logicalproduct:3_3" xmlns:r="ddi:reusable:3_3" targetNamespace="ddi:logicalproduct:3_3" elementFormDefault="qualified">
+	<xs:import namespace="ddi:reusable:3_3" schemaLocation="reusable.xsd"/>
 	<!-- BASE LOGICAL PRODUCT -->
 	<xs:element name="BaseLogicalProduct" type="BaseLogicalProductType" abstract="true">
 		<xs:annotation>
@@ -41,12 +41,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the LogicalProduct. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the LogicalProduct. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the LogicalProduct. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the LogicalProduct. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Coverage" minOccurs="0">
@@ -179,17 +179,17 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="CategorySchemeName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the scheme. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the CategoryScheme. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the scheme. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the CategoryScheme. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the scheme. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the CategoryScheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:CategorySchemeReference" minOccurs="0" maxOccurs="unbounded">
@@ -244,22 +244,22 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="TypeOfCategoryGroup" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A brief textual identification of the group type. Supports the use of an external controlled vocabulary.</xs:documentation>
+							<xs:documentation>A brief textual identification of the CategoryGroup type. Supports the use of an external controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="CategoryGroupName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the group. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the CategoryGroup. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the category group. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the CategoryGroup. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the CategoryGroup. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the CategoryGroup. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="DefiningCategoryReference" minOccurs="0">
@@ -337,12 +337,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the category. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations or of different types or applications.</xs:documentation>
+							<xs:documentation>A display label for the category. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.or of different types or applications.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the category. May be expressed in multiple languages and supports the use of structured content. Note that comparison of categories is done using the content of description.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the category. Note that comparison of categories is done using the content of description. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:ConceptReference" minOccurs="0">
@@ -430,12 +430,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the CodeListScheme. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the CodeListScheme. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the CodeListScheme. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the CodeListScheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:CodeListSchemeReference" minOccurs="0" maxOccurs="unbounded">
@@ -497,12 +497,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the CodeList. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the CodeList. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the CodeList. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the CodeList. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:RecommendedDataType" minOccurs="0">
@@ -561,7 +561,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="r:Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the code Level. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+					<xs:documentation>A description of the code Level. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="CategoryRelationship" minOccurs="0">
@@ -668,12 +668,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the CodeList group. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the CodeListGroup. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the CodeListGroup. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the CodeListGroup. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
@@ -743,12 +743,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the scheme. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the VariableScheme. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the VariableScheme. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the VariableScheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:VariableSchemeReference" minOccurs="0" maxOccurs="unbounded">
@@ -803,12 +803,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the Variable. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the Variable. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the Variable. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the Variable. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:OutParameter" minOccurs="0">
@@ -834,6 +834,11 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:element ref="r:ConceptualVariableReference" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Reference to the ConceptualVariable that describes the core of this variable. The ConceptualVariable provides linked Concept and Universe specifications. These may be constrained by specifications within the Variable description. TypeOfObject should be set to ConceptualVariable.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="WeightingProcessReference" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>When isWeight is set to true provide a reference to the Weighting process description used to generate this value. TypeOfObject will be Weighting</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
@@ -889,12 +894,17 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:attribute>
 				<xs:attribute name="isWeight" type="xs:boolean" default="false">
 					<xs:annotation>
-						<xs:documentation>Set to "true" if the variable is used a weight when analyzing data within the data set.</xs:documentation>
+						<xs:documentation>Set to "true" if the variable is used a weight when analyzing data within the data set. If set to true provide a reference to the Applied Usage of the appropriate Processing Event Weight using WeightingAppliedUsage.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="WeightingProcessReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>When isWeight is set to true provide a reference to the Weighting process description.TypeOfObject should be Weighting.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="VariableName" type="r:NameType">
 		<xs:annotation>
 			<xs:documentation>Name of the Variable using the DDI Name structure.</xs:documentation>
@@ -942,7 +952,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="r:ProcessingInstructionReference" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A reference to either a general or generation instruction that was provided to those who converted information from one form to another to create a particular variable. This might include the reordering of numeric information into another form or the conversion of textual information into numeric information.</xs:documentation>
+					<xs:documentation>A reference to either a general or generation instruction that was provided to those who converted information from one form to another to create a particular variable. This might include the reordering of numeric information into another form or the conversion of textual information into numeric information. TypeOfObject should be set to GeneralInstruction or GenerationInstruction.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
@@ -960,6 +970,11 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:element ref="MissingValuesReference" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Reference to an existing MissingValuesRepresentation using the Reference structure. If this content conflicts with content provided in the ValueRepresentation regarding Missing Values. The content of the MissingValuesRepresentation overrides. TypeOfObject will be MissingValuesRepresentation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="r:MeasurementUnit" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Records the measurement unit, for example, 'km', 'miles', etc. Supports the use of a controlled vocabulary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="r:ContentDateOffset" minOccurs="0">
@@ -1008,7 +1023,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 			<xs:element ref="r:Description" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the generation process. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+					<xs:documentation>A description of the generation process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="r:CommandCode" minOccurs="0" maxOccurs="unbounded">
@@ -1047,17 +1062,17 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="VariableGroupName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the group. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the VariableGroup. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the variable group. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the VariableGroup. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the VariableGroup. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the VariableGroup. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
@@ -1123,12 +1138,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the NCubeScheme. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the NCubeScheme. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the NCubeScheme. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the NCubeScheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -1226,12 +1241,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the NCube. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the NCube. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and structure of the NCube. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and structure of the NCube. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
@@ -1256,7 +1271,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Purpose" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Purpose for which the NCube was created. For example, designed to support a set of age pyramids generated yearly.</xs:documentation>
+							<xs:documentation>Purpose for which the NCube was created. For example, designed to support a set of age pyramids generated yearly. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Dimension" minOccurs="0" maxOccurs="unbounded">
@@ -1317,12 +1332,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the DataRelationship. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the DataRelationship. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the DataRelationship. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the DataRelationship. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="LogicalRecord" minOccurs="0" maxOccurs="unbounded">
@@ -1358,12 +1373,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the LogicalRecord. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the LogicalRecord. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the LogicalRecord. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the LogicalRecord. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="VariableValueReference" minOccurs="0">
@@ -1592,12 +1607,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the RecordRelationship. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the RecordRelationship. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the RecordRelationship. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the RecordRelationship. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="SourceLogicalRecordReference">
@@ -1790,17 +1805,17 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="NCubeGroupName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the group. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the NCubeGroup. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the NCube group. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the NCubeGroup. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the NCubeGroup. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the NCubeGroup. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
@@ -1858,7 +1873,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the CoordinateRegion. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the CoordinateRegion. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
@@ -1868,7 +1883,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content of the CoordinateRegion. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content of the CoordinateRegion. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="DimensionValue" minOccurs="0" maxOccurs="unbounded">
@@ -2347,12 +2362,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the RepresentedVariableScheme. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the RepresentedVariableScheme. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the RepresentedVariableScheme. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the RepresentedVariableScheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:RepresentedVariableSchemeReference" minOccurs="0" maxOccurs="unbounded">
@@ -2417,17 +2432,17 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="RepresentedVariableGroupName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the group. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the RepresentedVariableGroup. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the RepresentedVariableGroup. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the RepresentedVariableGroup. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the RepresentedVariableGroup. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the RepresentedVariableGroup. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
@@ -2500,12 +2515,12 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the RepresentedVariable. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the RepresentedVariable. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the RepresentedVariable. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+							<xs:documentation>A description of the RepresentedVariable. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:choice>
@@ -2530,7 +2545,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:choice minOccurs="0">
 						<xs:element ref="r:CategorySchemeReference">
 							<xs:annotation>
-								<xs:documentation>Reference to a category scheme that contains the representation domain of the RepresentedVariable. Use this element when only the category specifications are provided. If both a code and the related category must be specified use CodeRepresentation (member of the substitution group ValueRepresentation). TypeOfObject should be set to CategoryScheme.</xs:documentation>
+								<xs:documentation>DEPRECATED. DDI strongly recommends use of the CategorySchemeReference provided by the ConceptualVariable. Reference to a category scheme that contains the representation domain of the RepresentedVariable. Use this element when only the category specifications are provided. If both a code and the related category must be specified use CodeRepresentation (member of the substitution group ValueRepresentation). TypeOfObject should be set to CategoryScheme.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="r:ValueRepresentation">
