@@ -729,7 +729,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Contains a group of PhysicalInstance descriptions, which may be ordered or hierarchical. In addition to the name, label, and description of the group, the structure allows for defining the group by reference to a DefiningConcept.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:VersionableType">
+			<xs:extension base="r:MaintainableType">
 				<xs:sequence>
 					<xs:element ref="TypeOfPhysicalInstanceGroup" minOccurs="0">
 						<xs:annotation>
