@@ -921,7 +921,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Name of the SubUniverse Class using the DDI Name structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="TypeOfUnit" type="CodeValueType">
+	<xs:element name="TypeOfUnit" type="r:CodeValueType">
 		<xs:annotation>
 			<xs:documentation>A brief textual description or classification of the class of object of interest. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
