@@ -319,7 +319,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:sequence>
 					<xs:element ref="TypeOfAccess" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The type of data access condition. the use of a controlled vocabulary is strongly recommended. At minimum his should include, e.g. PreviousFormalName, Nickname (or CommonName), Other.</xs:documentation>
+							<xs:documentation>The type of data access condition. The use of a controlled vocabulary is strongly recommended. </xs:documentation>
 						</xs:annotation>
 					</xs:element>				
 					<xs:element ref="AccessTypeName" minOccurs="0" maxOccurs="unbounded">
