@@ -3122,6 +3122,27 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+	<xs:element name="CreateSummary" type="CreateSummaryType">
+		<xs:annotation>
+			<xs:documentation>Note that this is generally usable only with single valid response domain in grid. More complex uses should be carefully documented using details in CommandCode and Input/output Parameters.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="CreateSummary" type="CreateSummaryType">
+		<xs:annotation>
+			<xs:documentation>Note that this is generally usable only with single valid response domain in grid. More complex uses should be carefully documented using details in CommandCode and Input/output Parameters.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:CommandCodeType">
+				<xs:sequence>
+					<xs:element ref="r:Label" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Label for the summary type used.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>	
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="RosterType">
 		<xs:annotation>
 			<xs:documentation>A roster is an unlabeled list of numbered rows or columns depending upon orientation. The numbers may or may not be displayed but will be used as information for creating the cell coordinate address. The Roster defines the numbering used for the coordinate system, sets a minimum and maximum number of values, and provides the condition for continuation. The Roster label is used in the same way as the label of the CodeDomain, providing a dimension level header or label.</xs:documentation>
