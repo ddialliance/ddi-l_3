@@ -5669,6 +5669,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>This field provides a recommended generic treatment of the data for display by an application. The value should come from a controlled vocabulary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element ref="MeasurementUnit" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Records the measurement unit, for example, 'km', 'miles', etc. Supports the use of a controlled vocabulary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="missingValue" type="xs:NMTOKENS" use="optional">
 			<xs:annotation>

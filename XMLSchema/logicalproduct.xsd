@@ -972,11 +972,6 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Reference to an existing MissingValuesRepresentation using the Reference structure. If this content conflicts with content provided in the ValueRepresentation regarding Missing Values. The content of the MissingValuesRepresentation overrides. TypeOfObject will be MissingValuesRepresentation</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="r:MeasurementUnit" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Records the measurement unit, for example, 'km', 'miles', etc. Supports the use of a controlled vocabulary.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element ref="r:ContentDateOffset" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Identifies the difference between the date applied to the data as a whole and this specific item such as previous year's income or residence 5 years ago.</xs:documentation>
