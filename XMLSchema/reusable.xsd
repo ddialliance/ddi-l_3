@@ -5779,6 +5779,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>The interval between valid responses expressed as an integer.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
+				<xs:attribute name="accuracy" type="xs:decimal" use="optional">
+					<xs:annotation>
+						<xs:documentation>The level to which a number is considered to be accurate. Expressed as a decimal. </xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -6825,6 +6830,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:attribute name="classificationLevel" type="CategoryRelationCodeType" use="optional">
 					<xs:annotation>
 						<xs:documentation>Indicates the type of relationship, nominal, ordinal, interval, ratio, or continuous. Use where appropriate for the representation type.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="accuracy" type="xs:decimal" use="optional">
+					<xs:annotation>
+						<xs:documentation>The level to which a number is considered to be accurate. Expressed as a decimal. </xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
