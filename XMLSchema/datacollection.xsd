@@ -3399,6 +3399,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Provides for the ability to fix a value within a cell or cells of the grid.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="CellLabel" type="CellLabelType">
+		<xs:annotation>
+			<xs:documentation>Provides for the addition of a label within a cell or cells of the grid. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="GridResponseDomain" type="GridResponseDomainType">
 		<xs:annotation>
 			<xs:documentation>Designates the response domain and the cells using the specified response domain within a QuestionGrid.</xs:documentation>
