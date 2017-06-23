@@ -4904,27 +4904,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description or classification of the ComputationItem. Supports the use of an external controlled vocabulary. DDI recommends the use of a controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ControlConstructReference" type="ControlConstructReferenceType">
+	<xs:element name="ControlConstructReference" type="r:ReferenceWithBindingType">
 		<xs:annotation>
 			<xs:documentation>A reference to a control construct of any type with the ability to bind the InParameter or OutParameter of the ControlConstruct to external information as needed. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, or StatementItem.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ControlConstructReferenceType">
-		<xs:annotation>
-			<xs:documentation>A reference to a control construct of any type with the ability to bind the InParameter or OutParameter of the ControlConstruct to external information as needed.ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, or StatementItem</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="r:ReferenceType">
-				<xs:sequence>
-					<xs:element ref="r:Binding" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A structure used to bind the content of a parameter declared as the source to a parameter declared as the target. For example, binding the output of a question to the input of a generation instruction. Question A has an OutParameter X. Generation Instruction has an InParameter Y used in the recode instruction. Binding defines the content of InParameter Y to be whatever is provided by OutParameter X for use in the calculation of the recode.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:element name="SourceVariable" type="SourceReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to a variable used in the derivation or coding instruction.ComputationItem, TypeOfObject should be set to Variable.</xs:documentation>
