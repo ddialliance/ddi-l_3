@@ -651,6 +651,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Briefly describes the kind of data documented in the logical product(s) of a group unit. Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc. Supports the use of an external controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="r:GeneralDataFormat" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Briefly describes the data formats documented in the logical product(s) of a group unit. Examples include Numeric, Text, Audio, Visual, Geospatial, StillImage, Software, 3D, etc. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (KindOfDataFormat) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="r:OtherMaterial" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Contains references to other materials relevant to the group unit, whether in DDI form or external. Links can be made from items in this section to any identifiable element in the instance. Best practice is to include OtherMaterial inside the maintainable containing the objects that are related to the OtherMaterial.</xs:documentation>
@@ -922,6 +927,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:element ref="r:KindOfData" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Briefly describes the kind of data documented in the logical product(s) of a sub-group unit. Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:GeneralDataFormat" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Briefly describes the data formats documented in the logical product(s) of a sub-group unit. Examples include Numeric, Text, Audio, Visual, Geospatial, StillImage, Software, 3D, etc. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (KindOfDataFormat) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:OtherMaterial" minOccurs="0" maxOccurs="unbounded">
