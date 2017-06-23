@@ -978,12 +978,30 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description of the type of group created to associate a number of processing instructions. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="GeneralInstructionType">
+	<xs:element name="ProcessingInstructionGroupName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the Processing Instruction Group using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ProcessingInstruction" type="ProcessingInstructionType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Substitution group head for types of processing instruction.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ProcessingInstructionType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Substitution group head for types of processing instruction.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:VersionableType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GeneralInstructionType" substitutionBase="ProcessingInstruction">
 		<xs:annotation>
 			<xs:documentation>Processing instructions that pertain to data collection or data processing overall such as handling of non-response to questions, imputation practices, suppression rules, etc. General instructions should be listed separately to allow for referencing of specific processes.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:VersionableType">
+			<xs:extension base="ProcessingInstructionType">
 				<xs:sequence>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
@@ -1009,12 +1027,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="GenerationInstructionType">
+	<xs:complexType name="GenerationInstructionType" substitutionBase="ProcessingInstruction">>
 		<xs:annotation>
 			<xs:documentation>Processing instructions for recodes, derivations from multiple question or variable sources, and derivations based on external sources. Instructions should be listed separately so they can be referenced individually.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:VersionableType">
+			<xs:extension base="ProcessingInstructionType">
 				<xs:sequence>
 					<xs:element ref="SourceQuestion" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -4923,12 +4941,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description or classification of the intended response unit/respondent. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="GeneralInstruction" type="GeneralInstructionType">
+	<xs:element name="GeneralInstruction" type="GeneralInstructionType" substitutionBase="ProcessingInstruction">
 		<xs:annotation>
 			<xs:documentation>Processing instructions that pertain to data collection or data processing overall such as handling of non-response to questions, imputation practices, suppression rules, etc.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="GenerationInstruction" type="GenerationInstructionType">
+	<xs:element name="GenerationInstruction" type="GenerationInstructionType" substitutionBase="ProcessingInstruction">
 		<xs:annotation>
 			<xs:documentation>Processing instructions for recodes, derivations from multiple question or variable sources, and derivations based on external sources.</xs:documentation>
 		</xs:annotation>
