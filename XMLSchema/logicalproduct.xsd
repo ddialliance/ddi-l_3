@@ -826,7 +826,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Reference to variable(s) used as a basis for recoding, derivation, or other means of calculating the data for this variable. This reference is intended to provide basic information on the source variable structure including value representation, measurement unit, etc. Note that if a variable is used by reference within multiple VariableSchemes you can identify its role within a specific VariableScheme by including that VariableScheme in the sourceContext attribute of the reference. Use ProcessingInstructionReference to provide additional information on the transformation of the source variable(s) into the data for this variable. If additional processing detail is required use the InParameter, OutParameter, and ParameterLinkage options in the GenerationInstruction and ProcessingInstructionReference.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="RepresentedVariableReference" minOccurs="0" maxOccurs="1">
+					<xs:element ref="r:RepresentedVariableReference" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Reference to the RepresentedVariable that describes the core of this variable (the RepresentedVariable that the variable is the implementation of). The RepresentedVariable contains the broad reusable specification of the Variable, i.e., concept, universe, and value representation. These may be constrained by specifications within the Variable description. TypeOfObject should be set to RepresentedVariable.</xs:documentation>
 						</xs:annotation>
@@ -2381,7 +2381,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 								<xs:documentation>Describes a RepresentedVariable contained in the RepresentedVariableScheme. A RepresentedVariable contains a reference to the Concept and Universe (or ConceptualVariable) as well as the representation of the RepresentedVariable. Representation may be provided in-line or by reference to a managed representation. RepresentedVariables are the core reusable parts of a Variable. RepresentedVariable maps to the GSIM Represented Variable.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element ref="RepresentedVariableReference">
+						<xs:element ref="r:RepresentedVariableReference">
 							<xs:annotation>
 								<xs:documentation>Inclusion of an existing RepresentedVariable by reference. TypeOfObject should be set to RepresentedVariable.</xs:documentation>
 							</xs:annotation>
@@ -2466,7 +2466,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:annotation>
 					</xs:element>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="RepresentedVariableReference">
+						<xs:element ref="r:RepresentedVariableReference">
 							<xs:annotation>
 								<xs:documentation>Reference to constituent RepresentedVariable (from the substitution group). TypeOfObject should be set to RepresentedVariable.</xs:documentation>
 							</xs:annotation>
@@ -2566,11 +2566,6 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="RepresentedVariableName" type="r:NameType">
 		<xs:annotation>
 			<xs:documentation>Name of the RepresentedVariable using the DDI Name structure.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="RepresentedVariableReference" type="r:ReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to an existing RepresentedVariable using the Reference structure. TypeOfObject should be set to RepresentedVariable</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 </xs:schema>

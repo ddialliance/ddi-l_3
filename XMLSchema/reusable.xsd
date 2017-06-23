@@ -5193,6 +5193,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing Variable using the Reference structure. TypeOfObject should be set to Variable.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="RepresentedVariableReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing RepresentedVariable using the Reference structure. TypeOfObject should be set to RepresentedVariable</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="GeographicTime" type="DateType">
 		<xs:annotation>
 			<xs:documentation>The date (and, optionally, time) of a specific geographic value (code). This is necessary because geographic boundaries change over time.</xs:documentation>
