@@ -876,6 +876,11 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>The entity to which the data refer, for example, individuals, families or households, groups, institutions/organizations, administrative units, etc. Supports the use of an external controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="r:UnitTypeReference" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Reference to the unit type containing a description of the unit type that this Variable refers to, and to which any analytic results refer. TypeOfObject should be set to UnitType.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="VariableRepresentation" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Describes the representation of the variable in the data set, including allowed content, data typing, and computation information.</xs:documentation>
@@ -2530,9 +2535,9 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 						<xs:sequence>
-							<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="1">
+							<xs:element ref="r:UnitTypeReference" minOccurs="0" maxOccurs="1">
 								<xs:annotation>
-									<xs:documentation>Reference to the universe statement containing a description of the widest possible group of persons or other elements that this RepresentedVariable refers to, and to which any analytic results refer. TypeOfObject should be set to Universe.</xs:documentation>
+									<xs:documentation>Reference to the unit type containing a description of the unit type that this RepresentedVariable refers to, and to which any analytic results refer. TypeOfObject should be set to UnitType.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element ref="r:ConceptReference" minOccurs="0" maxOccurs="1">
