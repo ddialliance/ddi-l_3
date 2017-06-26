@@ -2703,11 +2703,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>If maintained within a scheme, the URN of the scheme containing the codelist.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="translationGroupID" type="xs:string" use="optional">
-					<xs:annotation>
-						<xs:documentation>The ID of the translation. Allows the ability to group keyword/subjects which are translations.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -3206,7 +3201,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:element>
 					<xs:element ref="ComponentParts" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A stack of LocationValueReferences to each of the locations of the specified PrimaryComponentLevel type that make up the Component Area. Includes a GeographicTime to allow for repetition for change over time.</xs:documentation>
+							<xs:documentation>A stack of LocationValueReferences to each of the locations of the specified PrimaryComponentLevel type that make up the Component Area. Includes a GeographicTime to allow for repetition for change over time. Repeat this object for different GeographicTime.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ImmediateParentLocation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Provides a reference to a location or locations that define the immediate parent of described LocationValue within the specified Geographic Structure Hierarchy as well as the GeographicTime of the relationship. Contains multiple LocationValueReferences for layered hierarchies, providing a pointer to the immediate parent in each hierarchy in the layers. Example 1 - Single Hiearchy: Country-State, where the ImmediateParentLocationValue of the State would reference the Country LocationValue. Example 2 - Layered Hierachy: Country-State-County-Place-Tract (portion) (the portion of a Tract within a Place) Hierarchy 1: Country-State-County-Tract, ImmediateParentLocationValue County; Hierarch 2: Country-State-Place-Tract (portion) ImmediateParentLocationValue Place. Repeat object to provide information on change in ImmediateParent over time.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="GeographicTime" minOccurs="0">
@@ -3233,19 +3233,24 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="ComponentParts" type="ComponentPartsType">
+	<xs:element name="ImmediateParentLocation" type="LocationValueBundleType">
+		<xs:annotation>
+			<xs:documentation>Provides a reference to a location or locations that define the immediate parent of described LocationValue within the specified Geographic Structure Hierarchy as well as the GeographicTime of the relationship. Contains multiple LocationValueReferences for layered hierarchies, providing a pointer to the immediate parent in each hierarchy in the layers..</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ComponentParts" type="LocationValueBundleType">
 		<xs:annotation>
 			<xs:documentation>A stack of LocationValueReferences to each of the locations of the specified PrimaryComponentLevel type that make up the Component Area. Includes a GeographicTime to allow for repetition for change over time.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ComponentPartsType">
+	<xs:complexType name="LocationValueBundleType">
 		<xs:annotation>
-			<xs:documentation>A stack of LocationValueReferences to each of the locations of the specified PrimaryComponentLevel type that make up the Component Area. Includes a GeographicTime to allow for repetition for change over time.</xs:documentation>
+			<xs:documentation>A stack of LocationValueReferences to each of the locations bundled together for a specific purpose Includes a GeographicTime to allow for repetition for change over time.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="LocationValueReference" minOccurs="0">
+			<xs:element ref="LocationValueReference" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Reference to the LocationValue of a basic building block of the composite area.</xs:documentation>
+					<xs:documentation>Reference to the LocationValue of an included area.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="GeographicTime" minOccurs="0">
@@ -5664,6 +5669,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>This field provides a recommended generic treatment of the data for display by an application. The value should come from a controlled vocabulary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element ref="MeasurementUnit" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Records the measurement unit, for example, 'km', 'miles', etc. Supports the use of a controlled vocabulary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="missingValue" type="xs:NMTOKENS" use="optional">
 			<xs:annotation>
@@ -5772,6 +5782,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:attribute name="interval" type="xs:nonNegativeInteger" use="optional">
 					<xs:annotation>
 						<xs:documentation>The interval between valid responses expressed as an integer.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="accuracy" type="xs:decimal" use="optional">
+					<xs:annotation>
+						<xs:documentation>The level to which a number is considered to be accurate. Expressed as a decimal. </xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -6607,22 +6622,30 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description of the type of group created to associate a number of ManagedRepresentationDescriptions. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ManagedRepresentation" type="VersionableType" abstract="true">
+	<xs:element name="ManagedRepresentation" type="ManagedRepresentationType" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Substitution group head for referencing Managed Representations.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:complexType name="ManagedRepresentationType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Substitution group head for referencing Managed Representations.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="VersionableType"/>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:element name="ManagedTextRepresentation" type="ManagedTextRepresentationType" substitutionGroup="ManagedRepresentation">
 		<xs:annotation>
 			<xs:documentation>Means of describing text based content used by reference to define Variable Representation and Question Response Domain.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ManagedTextRepresentationType">
+	<xs:complexType name="ManagedTextRepresentationType" substitutionGroup="ManagedRepresentation">
 		<xs:annotation>
 			<xs:documentation>Means of describing text based content used by reference to define Variable Representation and Question Response Domain. Text Representations cover all non-code and non-category representations/response domains that should be treated or analyzed as characters regardless of whether the character is a number or a letter. In addition to the name, label, and description, the scheme defines the maximum and minimum length of the allowed text and allows for the use of a regular expression to further define the valid content.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="VersionableType">
+			<xs:extension base="ManagedRepresentationType">
 				<xs:sequence>
 					<xs:element ref="ManagedTextRepresentationName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -6683,12 +6706,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Means of describing DateTime so that they can be reused by multiple variables or questions/question constructs.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ManagedDateTimeRepresentationType">
+	<xs:complexType name="ManagedDateTimeRepresentationType" substitutionGroup="ManagedRepresentation">>
 		<xs:annotation>
 			<xs:documentation>Means of describing DateTime so that they can be reused by multiple variables or questions/question constructs. Regardless of the format of the data the content may be treated as a date and or time and converted to ISO standard structure if sufficient information is supplied. In addition to the name, label, and description of the representation, the structure provides the DateField Format, a DateTypeCode and a regular expression for further defining allowed content.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="VersionableType">
+			<xs:extension base="ManagedRepresentationType">
 				<xs:sequence>
 					<xs:element ref="ManagedDateTimeRepresentationName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -6754,12 +6777,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A means of capturing a managed representation of a numbers (item that are analyzed as numbers) which can be referenced by a variable or question and used as a value representation or response domain.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ManagedNumericRepresentationType">
+	<xs:complexType name="ManagedNumericRepresentationType" substitutionGroup="ManagedRepresentation">>
 		<xs:annotation>
 			<xs:documentation>A means of capturing a managed representation of a numbers (item that are analyzed as numbers) which can be referenced by a variable or question and used as a value representation or response domain. In addition to the name, label, and description of the managed numeric representation, the structure defines the number range of valid values, plus information on the format, scale, number of decimals, and intervals between valid responses within the range.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="VersionableType">
+			<xs:extension base="ManagedRepresentationType">
 				<xs:sequence>
 					<xs:element ref="ManagedNumericRepresentationName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -6822,6 +6845,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>Indicates the type of relationship, nominal, ordinal, interval, ratio, or continuous. Use where appropriate for the representation type.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
+				<xs:attribute name="accuracy" type="xs:decimal" use="optional">
+					<xs:annotation>
+						<xs:documentation>The level to which a number is considered to be accurate. Expressed as a decimal. </xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -6840,12 +6868,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A means of capturing a managed representation of a Scale for use by a Response Domain Reference or Value Representation Reference.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ManagedScaleRepresentationType">
+	<xs:complexType name="ManagedScaleRepresentationType" substitutionGroup="ManagedRepresentation">>
 		<xs:annotation>
 			<xs:documentation>A means of capturing a managed representation of a Scale for use by a Response Domain Reference or Value Representation Reference. In addition to the name, label, and description of the representation, the structure defines the dimensions of the scale, an intersect for a multi-dimensional scale, and display layout.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="VersionableType">
+			<xs:extension base="ManagedRepresentationType">
 				<xs:sequence>
 					<xs:element ref="ManagedScaleRepresentationName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -6906,12 +6934,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Means of describing the Missing Values within a managed representation so that they can be reused by multiple variables and questions.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ManagedMissingValuesRepresentationType">
+	<xs:complexType name="ManagedMissingValuesRepresentationType" substitutionGroup="ManagedRepresentation">>
 		<xs:annotation>
 			<xs:documentation>Means of describing the Missing Values within a managed representation so that they can be reused by multiple variables and questions. Variable has a separate Missing Values location for this representation. Questions must use a StructuredMixedResponseDomain to include both standard response and Missing Value responses in a single question. In addition to the name, label, and description of the representation, the structure defines the type of the missing values, a optional generation instruction for deriving the value to be recorded, and the ability to define a blank as a missing value.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="VersionableType">
+			<xs:extension base="ManagedRepresentationType">
 				<xs:sequence>
 					<xs:element ref="ManagedMissingValuesRepresentationName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -7166,14 +7194,14 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:sequence>
 		</xs:choice>
 	</xs:complexType>
-	<xs:element name="ProcessingInstructionReference" type="ProcessingInstructionReferenceType">
+	<xs:element name="ProcessingInstructionReference" type="ReferenceWithBindingType">
 		<xs:annotation>
 			<xs:documentation>A reference to a General or Generation Instruction that was used by the parent object, e.g. an instruction used to derive a Variable or used by a ProcessingEvent. The basic Reference structure is extended to allow for the use of Binding to link specific source parameters to the InParameter of the instruction at the point of use. TypeOfObject should be set to GeneralInstruction or GenerationInstruction.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ProcessingInstructionReferenceType">
+	<xs:complexType name="ReferenceWithBindingType">
 		<xs:annotation>
-			<xs:documentation>A reference to a General or Generation Instruction that was used by the parent object, e.g. an instruction used to derive a Variable or used by a ProcessingEvent. The basic Reference structure is extended to allow for the use of Binding to link specific source parameters to the InParameter of the instruction at the point of use. If there is a conflict between a Binding in the instruction of a specific source to an InParameter and the Binding information provided in the ProcessingInstructionReference, the Binding information in the reference overrides that found in the instruction. TypeOfObject should be set to GeneralInstruction or GenerationInstruction.</xs:documentation>
+			<xs:documentation>A reference to an object containing a Binding, e.g. a GeneralInstruction, GenerationInstruction, ControlConstruct, etc. The basic Reference structure is extended to allow for the use of Binding to link specific OutParameters and InParameter at the point of use. If there is a conflict between a Binding in the reference and the Binding information provided in the object of the reference, the Binding information in the reference overrides that found in the object of the reference.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ReferenceType">
