@@ -978,11 +978,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description of the type of group created to associate a number of processing instructions. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ProcessingInstructionGroupName" type="r:NameType">
-		<xs:annotation>
-			<xs:documentation>Name of the Processing Instruction Group using the DDI Name structure.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
 	<xs:element name="ProcessingInstruction" type="ProcessingInstructionType" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Substitution group head for types of processing instruction.</xs:documentation>
@@ -996,7 +991,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:extension base="r:VersionableType"/>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="GeneralInstructionType" substitutionBase="ProcessingInstruction">
+	<xs:complexType name="GeneralInstructionType">
 		<xs:annotation>
 			<xs:documentation>Processing instructions that pertain to data collection or data processing overall such as handling of non-response to questions, imputation practices, suppression rules, etc. General instructions should be listed separately to allow for referencing of specific processes.</xs:documentation>
 		</xs:annotation>
@@ -1027,7 +1022,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="GenerationInstructionType" substitutionBase="ProcessingInstruction">>
+	<xs:complexType name="GenerationInstructionType">
 		<xs:annotation>
 			<xs:documentation>Processing instructions for recodes, derivations from multiple question or variable sources, and derivations based on external sources. Instructions should be listed separately so they can be referenced individually.</xs:documentation>
 		</xs:annotation>
@@ -2252,12 +2247,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing QuestionGroup using the Reference structure. TypeOfObject should be set to QuestionGroup.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="QuestionGrid" type="QuestionGridType" substitutionGroup="QuestionType">
+	<xs:element name="QuestionGrid" type="QuestionGridType">
 		<xs:annotation>
 			<xs:documentation>Structures the QuestionGrid as an NCube-like structure providing dimension information, labeling options, and response domains attached to one or more cells within the grid.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="QuestionBlock" type="QuestionBlockType" substitutionGroup="QuestionType">
+	<xs:element name="QuestionBlock" type="QuestionBlockType">
 		<xs:annotation>
 			<xs:documentation>A QuestionBlock is a specific structure used in educational and other types of testing where an object (Stimulus Material) is provided and a set of questions are asked regarding the object.</xs:documentation>
 		</xs:annotation>
@@ -2541,19 +2536,19 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:complexType name="QuestionType" abstract="true">
 		<xs:annotation>
-			<xs:documentation>Serves as a substitution head for different forms of Questions"</xs:documentation>
+			<xs:documentation>Serves as a common extension base for different forms of Questions</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType"/>
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:element name="QuestionItem" type="QuestionItemType" substitutionGroup="QuestionType">
+	<xs:element name="QuestionItem" type="QuestionItemType">
 		<xs:annotation>
 			<xs:documentation>Structure a single Question which may contain one or more response domains (i.e., a list of valid category responses where if "Other" is indicated a text response can be used to specify the intent of "Other").</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="QuestionItemType" substitutionGroup="QuestionType">
+	<xs:complexType name="QuestionItemType">
 		<xs:annotation>
 			<xs:documentation>Structure a single Question which may contain one or more response domains (i.e., a list of valid category responses where if "Other" is indicated a text response can be used to specify the intent of "Other"). The structure provides detail on the intent of the question, the text of the question, the valid response options and the number of allowed responses, references to external aids and instructions, and an estimation of the time needed to respond to the question. Note that the QuestionItem is a reusable format for use in any number of applied uses. External aids, instructions, response sequencing etc. should contain information consistent with the general use of the QuestionItem. Additional materials and information can be added within the QuestionConstruct which is the applied use of a question.</xs:documentation>
 		</xs:annotation>
@@ -2657,7 +2652,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 
 
-	<xs:complexType name="QuestionBlockType" substitutionGroup="QuestionType">
+	<xs:complexType name="QuestionBlockType">
 		<xs:annotation>
 			<xs:documentation>A QuestionBlock is a specific structure used in educational and other types of testing where an object (Stimulus Material) is provided and a set of questions are asked regarding the object. The QuestionBlock generally has related QuestionBlocks that measure similar skills or aptitudes and is used randomly within a set of questionnaires to create multiple versions of a single questionnaire that can be used with large groups for testing purposes. Assembly of the QuestionBlocks into a questionnaire may the result of selection based on an experimental design model. It contains information on what the QuestionBlock is intended to measure, input and output parameters for the QuestionBlock, a description of the stimulus material and the questions related to it, instructions on sequencing and number of allowed responses, references to external aids and instructions, and an estimate of the time needed to complete the question. Note that the QuestionBlock is a reusable format for use in any number of applied uses. External aids, instructions, response sequencing etc. should contain information consistent with the general use of the QuestionBlock (QuestionItems and QuestionGrids will contain information specific to the individual question). Additional materials and information can be added within the QuestionConstruct which is the applied use of a question.</xs:documentation>
 		</xs:annotation>
@@ -3001,7 +2996,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="QuestionGridType" substitutionGroup="QuestionType">
+	<xs:complexType name="QuestionGridType">
 		<xs:annotation>
 			<xs:documentation>Structures the QuestionGrid as an NCube-like structure providing dimension information, labeling options, and response domains attached to one or more cells within the grid. Provides the intent of the QuestionGrid, input and output parameters for the grid, the question text for the grid, details on the dimensions, allowed responses, and additional cell contents of the grid, references to external aids and instructions, and an estimate of the time required to complete the grid. Note that the QuestionGrid is a reusable format for use in any number of applied uses. External aids, instructions, response sequencing etc. should contain information consistent with the general use of the QuestionGrid. Additional materials and information can be added within the QuestionConstruct which is the applied use of a question.</xs:documentation>
 		</xs:annotation>
@@ -3157,7 +3152,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Note that this is generally usable only with single valid response domain in grid. More complex uses should be carefully documented using details in CommandCode and Input/output Parameters.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="CreateSummaryType" type="CreateSummary">
+	<xs:complexType name="CreateSummaryType">
 		<xs:annotation>
 			<xs:documentation>Note that this is generally usable only with single valid response domain in grid. More complex uses should be carefully documented using details in CommandCode and Input/output Parameters.</xs:documentation>
 		</xs:annotation>
@@ -3233,10 +3228,10 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:annotation>
 			<xs:documentation>Provides the ability to fix the value of a grid cell and defines the cell or cells. Designates the fixed value to be used and the location of the cell or cells within the grid.</xs:documentation>
 		</xs:annotation>
-			<xs:sequence>
-			<xs:element name="r:Value" minOccurs="0">
+		<xs:sequence>
+			<xs:element ref="r:Value" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Identifies the value to which the cell(s) defined in GridAttachement should be fixed. Supports the use of meaningful leading or trailing spaces. Note that care should be taken to make sure this is a valid value within the response domain of the cell.</xs:documentation>
+					<xs:documentation>Identifies the value to which the cell(s) defined in GridAttachment should be fixed. Supports the use of meaningful leading or trailing spaces. Note that care should be taken to make sure this is a valid value within the response domain of the cell.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="GridAttachment" minOccurs="0" maxOccurs="unbounded">
@@ -4541,7 +4536,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Size of the sample.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SampleSizeFormulaReference" type="r:ProcessingInstructionReferenceType">
+	<xs:element name="SampleSizeFormulaReference" type="r:ReferenceWithBindingType">
 		<xs:annotation>
 			<xs:documentation>Reference to the General or GenerationInstruction containing the formula or instruction used to determine sample size. The basic Reference structure is extended to allow for the use of Binding to link specific source parameters to the InParameter of the instruction at the point of use. If there is a conflict between a Binding in the instruction of a specific source to an InParameter and the Binding information provided in the ProcessingInstructionReference, the Binding information in the reference overrides that found in the instruction. TypeOfObject should be set to GeneralInstruction or GenerationInstruction.</xs:documentation>
 		</xs:annotation>
@@ -4946,12 +4941,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description or classification of the intended response unit/respondent. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="GeneralInstruction" type="GeneralInstructionType" substitutionBase="ProcessingInstruction">
+	<xs:element name="GeneralInstruction" type="GeneralInstructionType" substitutionGroup="ProcessingInstruction">
 		<xs:annotation>
 			<xs:documentation>Processing instructions that pertain to data collection or data processing overall such as handling of non-response to questions, imputation practices, suppression rules, etc.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="GenerationInstruction" type="GenerationInstructionType" substitutionBase="ProcessingInstruction">
+	<xs:element name="GenerationInstruction" type="GenerationInstructionType" substitutionGroup="ProcessingInstruction">
 		<xs:annotation>
 			<xs:documentation>Processing instructions for recodes, derivations from multiple question or variable sources, and derivations based on external sources.</xs:documentation>
 		</xs:annotation>
