@@ -2456,7 +2456,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 	</xs:element>
 
-<xs:complexType name="MeasurementGroupType">
+	<xs:complexType name="MeasurementGroupType">
 		<xs:annotation>
 			<xs:documentation>Contains a group of MeasurementItem, which may be ordered or hierarchical. In addition to the name, label, and description of the group, the structure allows for defining the type of group using an optional controlled vocabulary, a reference to a defining universe or concept for the group, a subject classification for the group, and a listing of MeasurementItems and MeasurementGroups in any order.</xs:documentation>
 		</xs:annotation>
@@ -3211,7 +3211,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice minOccurs="0" maxOccurs="unbounded">
-				<xs:element ref="GridResponseDomain">
+				<xs:element ref="GridResponseDomainInMixed">
 					<xs:annotation>
 						<xs:documentation>Identifies a response type found in the grid and defines the cell or cells that contain it.</xs:documentation>
 					</xs:annotation>
@@ -3281,6 +3281,50 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="GridResponseDomainInMixed" type="GridResponseDomainInMixedType">9
+		<xs:annotation>
+			<xs:documentation>Designates the response domain and the cells using the specified response domain within a QuestionGrid. Supports the use of ResponseAttachmentLocation and attachmentBase for defining specific relationships between response domains in a StructuredMixedGridResponseDomain. Functions similar to a ResponseDomainInMixed within a QuestionItem.</xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:complexType name="GridResponseDomainInMixedType">
+		<xs:annotation>
+			<xs:documentation>Designates the response domain and the cells using the specified response domain within a QuestionGrid. Supports the use of ResponseAttachmentLocation and attachmentBase for defining specific relationships between response domains in a StructuredMixedGridResponseDomain. Functions similar to a ResponseDomainInMixed within a QuestionItem.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice>
+				<xs:element ref="ResponseDomain">
+					<xs:annotation>
+						<xs:documentation>This is a substitution head and can be replaced by any valid member of the substitution group for ResponseDomain.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="ResponseDomainReference">
+					<xs:annotation>
+						<xs:documentation>The inclusion of a response domain by reference (must be supported by a managed representation). An abstract element. May be substituted by any valid object of substitution type ResponseDomainReference.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element ref="ResponseAttachmentLocation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Allows attachment of a secondary response domain to a specific item within another response domain used in the question grid. For example, attach a TextDomain to the value "Other" using the TextDomain label (Please specify) as a label for the TextDomain.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="GridAttachment" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies the cell or cells in a grid to which the item is attached by a reference to a specific cell coordinate in a grid or by identifying a range of values along a dimension.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="attachmentBase" type="xs:integer" use="optional">
+			<xs:annotation>
+				<xs:documentation>If another response domain will be attached to the response domain listed withinResponseDomainInMixed provide a value in attachmentBase to allow for unique identification within this question grid. ResponseAttachmentLocation contains an attribute attachmentDomain which will provide a link from the domain that is being attached to the domain it is being attached to.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="ResponseAttachmentLocation" type="AttachmentLocationType">
+		<xs:annotation>
+			<xs:documentation>Allows attachment of a secondary response domain to a specific item within another response domain used in the question grid. For example, attach a TextDomain to the value "Other" using the TextDomain label (Please specify) as a label for the TextDomain.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:complexType name="GridAttachmentType">
 		<xs:annotation>
 			<xs:documentation>Identifies the cell or cells in a grid to which the item is attached by a reference to a specific cell coordinate in a grid or by identifying a range of values along a dimension.</xs:documentation>
