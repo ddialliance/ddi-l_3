@@ -3281,7 +3281,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="GridResponseDomainInMixed" type="GridResponseDomainInMixedType">9
+	<xs:element name="GridResponseDomainInMixed" type="GridResponseDomainInMixedType">
 		<xs:annotation>
 			<xs:documentation>Designates the response domain and the cells using the specified response domain within a QuestionGrid. Supports the use of ResponseAttachmentLocation and attachmentBase for defining specific relationships between response domains in a StructuredMixedGridResponseDomain. Functions similar to a ResponseDomainInMixed within a QuestionItem.</xs:documentation>
 		</xs:annotation>
