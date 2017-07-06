@@ -978,12 +978,25 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description of the type of group created to associate a number of processing instructions. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="ProcessingInstruction" type="ProcessingInstructionType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Substitution group head for types of processing instruction.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ProcessingInstructionType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Substitution group head for types of processing instruction.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:VersionableType"/>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="GeneralInstructionType">
 		<xs:annotation>
 			<xs:documentation>Processing instructions that pertain to data collection or data processing overall such as handling of non-response to questions, imputation practices, suppression rules, etc. General instructions should be listed separately to allow for referencing of specific processes.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:VersionableType">
+			<xs:extension base="ProcessingInstructionType">
 				<xs:sequence>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
@@ -1014,7 +1027,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Processing instructions for recodes, derivations from multiple question or variable sources, and derivations based on external sources. Instructions should be listed separately so they can be referenced individually.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:VersionableType">
+			<xs:extension base="ProcessingInstructionType">
 				<xs:sequence>
 					<xs:element ref="SourceQuestion" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -2521,7 +2534,14 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description of the type of group created to associate a number of MeasurementItem. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
+	<xs:complexType name="QuestionType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Serves as a common extension base for different forms of Questions</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:VersionableType"/>
+		</xs:complexContent>
+	</xs:complexType>
 
 	<xs:element name="QuestionItem" type="QuestionItemType">
 		<xs:annotation>
@@ -2533,7 +2553,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Structure a single Question which may contain one or more response domains (i.e., a list of valid category responses where if "Other" is indicated a text response can be used to specify the intent of "Other"). The structure provides detail on the intent of the question, the text of the question, the valid response options and the number of allowed responses, references to external aids and instructions, and an estimation of the time needed to respond to the question. Note that the QuestionItem is a reusable format for use in any number of applied uses. External aids, instructions, response sequencing etc. should contain information consistent with the general use of the QuestionItem. Additional materials and information can be added within the QuestionConstruct which is the applied use of a question.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:VersionableType">
+			<xs:extension base="QuestionType">
 				<xs:sequence>
 					<xs:element ref="QuestionItemName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -2637,7 +2657,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A QuestionBlock is a specific structure used in educational and other types of testing where an object (Stimulus Material) is provided and a set of questions are asked regarding the object. The QuestionBlock generally has related QuestionBlocks that measure similar skills or aptitudes and is used randomly within a set of questionnaires to create multiple versions of a single questionnaire that can be used with large groups for testing purposes. Assembly of the QuestionBlocks into a questionnaire may the result of selection based on an experimental design model. It contains information on what the QuestionBlock is intended to measure, input and output parameters for the QuestionBlock, a description of the stimulus material and the questions related to it, instructions on sequencing and number of allowed responses, references to external aids and instructions, and an estimate of the time needed to complete the question. Note that the QuestionBlock is a reusable format for use in any number of applied uses. External aids, instructions, response sequencing etc. should contain information consistent with the general use of the QuestionBlock (QuestionItems and QuestionGrids will contain information specific to the individual question). Additional materials and information can be added within the QuestionConstruct which is the applied use of a question.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:VersionableType">
+			<xs:extension base="QuestionType">
 				<xs:sequence>
 					<xs:element ref="QuestionBlockName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -2981,7 +3001,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Structures the QuestionGrid as an NCube-like structure providing dimension information, labeling options, and response domains attached to one or more cells within the grid. Provides the intent of the QuestionGrid, input and output parameters for the grid, the question text for the grid, details on the dimensions, allowed responses, and additional cell contents of the grid, references to external aids and instructions, and an estimate of the time required to complete the grid. Note that the QuestionGrid is a reusable format for use in any number of applied uses. External aids, instructions, response sequencing etc. should contain information consistent with the general use of the QuestionGrid. Additional materials and information can be added within the QuestionConstruct which is the applied use of a question.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:VersionableType">
+			<xs:extension base="QuestionType">
 				<xs:sequence>
 					<xs:element ref="QuestionGridName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -3052,6 +3072,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Provides for the addition of a label within a cell or cells of the grid. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="FixedCellValue" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Provides for the ability to fix a value within a cell or cells of the grid.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="r:ConceptReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A reference to the concept the QuestionGrid is intended to gather data on.</xs:documentation>
@@ -3113,7 +3138,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:attribute>
 		<xs:attribute name="displayCode" type="xs:boolean" default="true">
 			<xs:annotation>
-				<xs:documentation>If set to "true" (default value) the code value associated with the category label will be displayed. Set to "false" if only the category label should be displayed.</xs:documentation>
+				<xs:documentation>If set to "true" (default value) the code value associated with the category label will be displayed. Set to "false" if only the category label should not be displayed.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="displayLabel" type="xs:boolean" default="true">
@@ -3121,6 +3146,27 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:documentation>If set to "true" (default value) the label of the CodeList will be displayed. Set to "false" to suppress this display.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="CreateSummary" type="CreateSummaryType">
+		<xs:annotation>
+			<xs:documentation>Note that this is generally usable only with single valid response domain in grid. More complex uses should be carefully documented using details in CommandCode and Input/output Parameters.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="CreateSummaryType">
+		<xs:annotation>
+			<xs:documentation>Note that this is generally usable only with single valid response domain in grid. More complex uses should be carefully documented using details in CommandCode and Input/output Parameters.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:CommandCodeType">
+				<xs:sequence>
+					<xs:element ref="r:Label" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Label for the summary type used.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>	
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="RosterType">
 		<xs:annotation>
@@ -3176,6 +3222,23 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FixedCellValueType">
+		<xs:annotation>
+			<xs:documentation>Provides the ability to fix the value of a grid cell and defines the cell or cells. Designates the fixed value to be used and the location of the cell or cells within the grid.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="r:Value" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identifies the value to which the cell(s) defined in GridAttachment should be fixed. Supports the use of meaningful leading or trailing spaces. Note that care should be taken to make sure this is a valid value within the response domain of the cell.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="GridAttachment" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies the cell or cells in a grid to which the label is attached by a reference to a specific cell coordinate in a grid or by identifying a range of values along a dimension.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CellLabelType">
@@ -3326,9 +3389,14 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Contains a mixture of response domains for the grid cells. Each response domain can be attached to a specific region of the grid, for example a single column or row.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="FixedCellValue" type="FixedCellValueType">
+		<xs:annotation>
+			<xs:documentation>Provides for the ability to fix a value within a cell or cells of the grid.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="CellLabel" type="CellLabelType">
 		<xs:annotation>
-			<xs:documentation>Provide a label to be included inside of a grid cell and defines the cell or cells that contain it. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>Provides for the addition of a label within a cell or cells of the grid. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="GridResponseDomain" type="GridResponseDomainType">
@@ -3593,6 +3661,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
+				<xs:attribute name="displayCode" type="xs:boolean" default="true">
+					<xs:annotation>
+						<xs:documentation>If set to "true" (default value) the code value associated with the category label will be displayed. Set to "false" if only the category label should not be displayed.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -3906,6 +3979,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
+				<xs:attribute name="displayCode" type="xs:boolean" default="true">
+					<xs:annotation>
+						<xs:documentation>If set to "true" (default value) the code value associated with the category label will be displayed. Set to "false" if only the category label should not be displayed.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -3947,6 +4025,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
+				<xs:attribute name="displayCode" type="xs:boolean" default="true">
+					<xs:annotation>
+						<xs:documentation>If set to "true" (default value) the code value associated with the category label will be displayed. Set to "false" if only the category label should not be displayed.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -4453,7 +4536,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Size of the sample.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SampleSizeFormulaReference" type="r:ProcessingInstructionReferenceType">
+	<xs:element name="SampleSizeFormulaReference" type="r:ReferenceWithBindingType">
 		<xs:annotation>
 			<xs:documentation>Reference to the General or GenerationInstruction containing the formula or instruction used to determine sample size. The basic Reference structure is extended to allow for the use of Binding to link specific source parameters to the InParameter of the instruction at the point of use. If there is a conflict between a Binding in the instruction of a specific source to an InParameter and the Binding information provided in the ProcessingInstructionReference, the Binding information in the reference overrides that found in the instruction. TypeOfObject should be set to GeneralInstruction or GenerationInstruction.</xs:documentation>
 		</xs:annotation>
@@ -4858,12 +4941,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description or classification of the intended response unit/respondent. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="GeneralInstruction" type="GeneralInstructionType">
+	<xs:element name="GeneralInstruction" type="GeneralInstructionType" substitutionGroup="ProcessingInstruction">
 		<xs:annotation>
 			<xs:documentation>Processing instructions that pertain to data collection or data processing overall such as handling of non-response to questions, imputation practices, suppression rules, etc.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="GenerationInstruction" type="GenerationInstructionType">
+	<xs:element name="GenerationInstruction" type="GenerationInstructionType" substitutionGroup="ProcessingInstruction">
 		<xs:annotation>
 			<xs:documentation>Processing instructions for recodes, derivations from multiple question or variable sources, and derivations based on external sources.</xs:documentation>
 		</xs:annotation>
@@ -4883,27 +4966,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description or classification of the ComputationItem. Supports the use of an external controlled vocabulary. DDI recommends the use of a controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ControlConstructReference" type="ControlConstructReferenceType">
+	<xs:element name="ControlConstructReference" type="r:ReferenceWithBindingType">
 		<xs:annotation>
 			<xs:documentation>A reference to a control construct of any type with the ability to bind the InParameter or OutParameter of the ControlConstruct to external information as needed. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, or StatementItem.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="ControlConstructReferenceType">
-		<xs:annotation>
-			<xs:documentation>A reference to a control construct of any type with the ability to bind the InParameter or OutParameter of the ControlConstruct to external information as needed.ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, or StatementItem</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="r:ReferenceType">
-				<xs:sequence>
-					<xs:element ref="r:Binding" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A structure used to bind the content of a parameter declared as the source to a parameter declared as the target. For example, binding the output of a question to the input of a generation instruction. Question A has an OutParameter X. Generation Instruction has an InParameter Y used in the recode instruction. Binding defines the content of InParameter Y to be whatever is provided by OutParameter X for use in the calculation of the recode.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:element name="SourceVariable" type="SourceReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to a variable used in the derivation or coding instruction.ComputationItem, TypeOfObject should be set to Variable.</xs:documentation>

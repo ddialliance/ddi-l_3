@@ -1278,7 +1278,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing SubGroup using the Reference structure. TypeOfObject should be set to SubGroup.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SubGroup" type="SubGroupType">
+	<xs:element name="SubGroup" type="GroupType">
 		<xs:annotation>
 			<xs:documentation>The subgroup element is a container for a group that is a child of a higher-level group described in this module, but may also be a parent to other (subordinate) groups.</xs:documentation>
 		</xs:annotation>
