@@ -797,9 +797,9 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 								<xs:documentation>A description of study units comprising a subordinate Group within the main Group.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element ref="GroupReference">
+						<xs:element ref="r:GroupReference">
 							<xs:annotation>
-								<xs:documentation>Inclusion of a subordiante Group by reference.</xs:documentation>
+								<xs:documentation>Inclusion of a subordinate Group by reference.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
