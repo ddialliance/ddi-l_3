@@ -7308,7 +7308,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:simpleType>
 	<xs:element name="KindOfData" type="KindOfDataType">
 		<xs:annotation>
-			<xs:documentation>Describes, with a string or a term from a controlled vocabulary, the kind of data documented in the logical product(s) of a study unit. Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc.</xs:documentation>
+			<xs:documentation>Describes, with a string or a term from a controlled vocabulary, the kind of data documented in a StudyUnit. Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="KindOfDataType">
@@ -7325,6 +7325,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
+	<xs:element name="GeneralDataFormat" type="CodeValueType">
+		<xs:annotation>
+			<xs:documentation>Expresses the variety of data formats covered i.e. Numeric, Text, Audio, Visual, Geospatial, StillImage, Software, 3D, other. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (KindOfDataFormat) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="ContentDateOffset" type="ContentDateOffsetType">
 		<xs:annotation>
 			<xs:documentation>Identifies the difference between the date applied to the data as a whole and this specific item.</xs:documentation>
