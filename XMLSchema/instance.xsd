@@ -314,7 +314,6 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="l:RepresentedVariableGroup"/>
 				<xs:element ref="d:Sequence"/>
 				<xs:element ref="d:StatementItem"/>
-				<xs:element ref="g:SubGroup"/>
 				<xs:element ref="c:SubUniverseClass"/>
 				<xs:element ref="d:TranslationActivity"/>
 				<xs:element ref="c:Universe"/>

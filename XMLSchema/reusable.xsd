@@ -42,7 +42,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A type which is used for restricting the characters in DDI ID structures. Valid characters include A-Z, a-z, 0-9, *, @, $, -, and _.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[A-Za-z0-9\*@$\-_]+"/>
+			<xs:pattern value="[A-Za-z0-9\*@$\-_]+(\.[A-Zz-z0-9*@$-_]+)?"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- Agency ID Type -->
@@ -1752,11 +1752,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:enumeration value="StatementItem">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): d:StatementItem</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="SubGroup">
-				<xs:annotation>
-					<xs:documentation>Use for reference to the following object(s): g:SubGroup</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="SubUniverseClass">
