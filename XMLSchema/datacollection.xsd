@@ -2360,6 +2360,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
+					<xs:element ref="r:RepresentedVariableReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the RepresentedVariable that describes the data to be collected by this measurement. The RepresentedVariable contains the broad reusable specification of the Variable, i.e., concept, universe, and value representation. When more than one ResponseDomain exists, one RepresentedVariable should be created for each ResponseDomain in the same order as the corresponding ResponseDomain. TypeOfObject should be set to RepresentedVariable.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="estimatedSecondsResponseTime" type="xs:decimal" use="optional">
 					<xs:annotation>
@@ -2641,6 +2646,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
+					<xs:element ref="r:RepresentedVariableReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the RepresentedVariable that describes the data to be collected by this question. The RepresentedVariable contains the broad reusable specification of the Variable, i.e., concept, universe, and value representation. When more than one ResponseDomain exists, one RepresentedVariable should be created for each ResponseDomain in the same order as the corresponding ResponseDomain. TypeOfObject should be set to RepresentedVariable.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="estimatedSecondsResponseTime" type="xs:decimal" use="optional">
 					<xs:annotation>
@@ -3099,6 +3109,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
+					<xs:element ref="r:RepresentedVariableReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the RepresentedVariable that describes the data to be collected by this question grid. The RepresentedVariable contains the broad reusable specification of the Variable, i.e., concept, universe, and value representation. When more than one ResponseDomain exists, one RepresentedVariable should be created for each ResponseDomain in the same order as the corresponding ResponseDomain. TypeOfObject should be set to RepresentedVariable.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="estimatedSecondsResponseTime" type="xs:decimal" use="optional">
 					<xs:annotation>

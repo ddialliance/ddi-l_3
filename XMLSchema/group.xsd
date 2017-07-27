@@ -513,6 +513,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:element>
 					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="c:UnitTypeScheme">
+							<xs:annotation>
+								<xs:documentation>In-line inclusion of a UnitTypeScheme.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:UnitTypeSchemeReference">
+							<xs:annotation>
+								<xs:documentation>Inclusion of a UnitTypeScheme by reference. TypeOfObject should be set to UnitTypeScheme.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="d:SampleFrameScheme">
 							<xs:annotation>
 								<xs:documentation>A set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>

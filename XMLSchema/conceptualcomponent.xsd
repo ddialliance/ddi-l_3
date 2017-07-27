@@ -118,6 +118,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
+					<xs:choice maxOccurs="unbounded" minOccurs="0">
+						<xs:element ref="UnitTypeScheme">
+							<xs:annotation>
+								<xs:documentation>Contains a collection of unit types.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:UnitTypeSchemeReference">
+							<xs:annotation>
+								<xs:documentation>Allows for inclusion by reference of a previously defined unit type scheme, either internal to or external to the DDI instance.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -584,14 +596,9 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Reference to a Concept that is being linked to a Universe identified by the UniverseReference. TypeOfObject should be set to Concept.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="r:UniverseReference" minOccurs="0">
+					<xs:element ref="r:UnitTypeReference" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Reference to a universe being associated with this concept. TypeOfObject should be set to Universe.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="TypeOfUnit" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>The entity type associated with this conceptual variable. For example, individuals, families or households, groups, institutions/organizations, administrative units, etc. Supports the use of an external controlled vocabulary.</xs:documentation>
+							<xs:documentation>Reference to a unit type being associated with this conceptual variable. TypeOfObject should be set to UnitType.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:CategorySchemeReference">
@@ -820,6 +827,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:element ref="DefiningConceptReference" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>A concept that defines or aids in understanding the content of the universe. For example the Universe "Males" may link to the concept of "Male".</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:UnitTypeReference" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Reference to a unit type being associated with this conceptual variable. TypeOfObject should be set to UnitType.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="TypeOfUnit" minOccurs="0">
@@ -1304,4 +1316,200 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A Scheme containing a set of geographic locations, each for a single Geography type, e.g., States, OR Counties, OR Countries, etc.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	
+	<xs:complexType name="UnitTypeSchemeType">
+		<xs:annotation>
+			<xs:documentation>This scheme contains a set of Unit Types referenced by the metadata at different points in the lifecycle. In addition to the name, label, and description of the scheme, the structure supports the inclusion of another UnitTypeScheme by reference and a set of UnitType descriptions either in-line or by reference.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:MaintainableType">
+				<xs:sequence>
+					<xs:element ref="UnitTypeSchemeName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A name for the scheme. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the scheme. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the content and purpose of the scheme. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:UnitTypeSchemeReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Inclusion of an existing UnitTypeScheme by reference.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="UnitType">
+							<xs:annotation>
+								<xs:documentation>In-line description of a UnitType. These are used by reference at various points in the lifecycle.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:UnitTypeReference">
+							<xs:annotation>
+								<xs:documentation>The inclusion of an existing UnitType by reference.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="UnitTypeGroup">
+							<xs:annotation>
+								<xs:documentation>In-line description of a group of UnitTypes.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="UnitTypeGroupReference">
+							<xs:annotation>
+								<xs:documentation>The inclusion of an existing UnitTypeGroup by reference. TypeOfObject should be set to UnitTypeGroup.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="UnitTypeScheme" type="UnitTypeSchemeType">
+		<xs:annotation>
+			<xs:documentation>This scheme contains a set of Unit Types referenced by the metadata at different points in the lifecycle.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UnitTypeSchemeName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the Unit Type using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UnitTypeGroupReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing UnitTypeGroup using the Reference structure. TypeOfObject should be set to UnitTypeGroup.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UnitTypeGroup" type="UnitTypeGroupType">
+		<xs:annotation>
+			<xs:documentation>Contains a group of UnitTypes.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="UnitTypeGroupType">
+		<xs:annotation>
+			<xs:documentation>Contains a group of UnitTypes, which may describe an ordered or hierarchical relationship structure. Specifies the purpose of the group, a name, label, and description of the group, its relationship to a specific universe or concept, and lists the members of the group.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:VersionableType">
+				<xs:sequence>
+					<xs:element ref="TypeOfUnitTypeGroup" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A generic element for specifying a reason for a UnitTypeGroup. Note that this element can contain either a term from a controlled vocabulary list or a textual description.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="UnitTypeGroupName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A name for the group. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the UnitTypeGroup. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the content and purpose of the UnitTypeGroup. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the universe statement describing the persons or other objects to which the contents of this group pertain.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:ConceptReference" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Reference to the concept expressed by the objects in this group.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Subject" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>If subjects are listed for this group, it is strongly recommended that the subjects listed also be found in the TopicalCoverage element for the parent packaging element when this group is included directly or by reference in a module containing a coverage element. Use of subject at the group level allows for associating objects as a type of subject based group or to identify subject characteristics of a reusable group of objects.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Keyword" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>If keywords are listed for this group, it is strongly recommended that the keywords listed also be found in the TopicalCoverage element for the parent packaging element when this group is included directly or by reference in a module containing a coverage element. Use of keyword at the group level allows for associating objects as a type of keyword based group or to identify keyword characteristics of a reusable group of objects.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="r:UnitTypeReference">
+							<xs:annotation>
+								<xs:documentation>Reference to constituent UnitType. TypeOfObject should be set to UnitType.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="UnitTypeGroupReference">
+							<xs:annotation>
+								<xs:documentation>Reference to constituent UnitTypeGroup. This allows for nesting of UnitTypeGroups.  TypeOfObject should be set to UnitTypeGroup.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+				</xs:sequence>
+				<xs:attribute name="isOrdered" type="xs:boolean" default="false">
+					<xs:annotation>
+						<xs:documentation>If set to "true" indicates that the content of the group is ordered as it appears within the XML structure.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="UnitTypeGroupName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the UnitTypeGroup using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TypeOfUnitTypeGroup" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>A brief textual description of the type of group created to associate a number of unit types. Supports the use of an external controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UnitType" type="UnitTypeType">
+		<xs:annotation>
+			<xs:documentation>A Unit Type is a class of objects of interest. A Unit Type is used to describe a class or group of Units based on a single characteristic with no specification of time and geography.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="UnitTypeType">
+		<xs:annotation>
+			<xs:documentation>A Unit Type is a class of objects of interest. A Unit Type is used to describe a class or group of Units based on a single characteristic with no specification of time and geography. For example, the Unit Type of "Person" groups together a set of Units based on the characteristic that they are "Persons". It concerns not only Unit Types used in dissemination, but anywhere in the statistical process. For example, using administrative data might involve the use of a fiscal unit. [GSIM 1.1]</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:VersionableType">
+				<xs:sequence>
+					<xs:element ref="UnitTypeName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Name of the UnitType using the DDI Name structure.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the UnitType. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the UnitType. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:ConceptReference">
+						<xs:annotation>
+							<xs:documentation>Reference to the Concept that defines the UnitType. TypeOfObject should be set to Concept.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="UnitTypeName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the UnitType using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
 </xs:schema>
