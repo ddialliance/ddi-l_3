@@ -2797,7 +2797,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="SoftwarePackage" type="CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description of the software package. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description of the software package. Supports the use of an external controlled vocabulary.The DDI Alliance has provided a controlled vocabulary (SoftwarePackage) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Function" type="CodeValueType">
@@ -3495,7 +3495,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="RecommendedDataType" type="CodeValueType">
 		<xs:annotation>
-			<xs:documentation>This is the data type as recommended by the data producer. Different storage systems may override this or declare a more tightly specified data type. Supports the use of a controlled vocabulary. DDI strongly recommends the use of a controlled vocabulary.</xs:documentation>
+			<xs:documentation>This is the data type as recommended by the data producer. Different storage systems may override this or declare a more tightly specified data type. Supports the use of a controlled vocabulary. DDI strongly recommends the use of a controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (DateType) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:simpleType name="CategoryRelationCodeType">
@@ -4155,7 +4155,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="TypeOfNote" type="CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description or classification of the type of Note. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description or classification of the type of Note. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (TypeOfNote) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="RelationshipType">
@@ -4731,7 +4731,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:simpleType>
 	<xs:element name="TimeZone" type="CodeValueType">
 		<xs:annotation>
-			<xs:documentation>Coded values specifying time zones as an offset from Greenwich Meridian Time. For example, United States Eastern Standard Time is -5.00. Supports the use of an external controlled vocabulary. DDI strongly recommends the use of the time offset tied to a controlled vocabulary. If any other method is used, the use of a controlled vocabulary will facilitate interoperability.</xs:documentation>
+			<xs:documentation>Coded values specifying time zones as an offset from Greenwich Meridian Time. For example, United States Eastern Standard Time is -5.00. Supports the use of an external controlled vocabulary. DDI strongly recommends the use of the time offset tied to a controlled vocabulary. If any other method is used, the use of a controlled vocabulary will facilitate interoperability. The DDI Alliance has provided a controlled vocabulary (TimeZone) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<!-- COUNTRY -->
@@ -5044,7 +5044,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="EventType" type="CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description or classification of the lifecycle event. Supports the use of an external controlled vocabulary. DDI strongly recommends the use of a controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description or classification of the lifecycle event. Supports the use of an external controlled vocabulary. DDI strongly recommends the use of a controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (LifecycleEventType) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Description" type="StructuredStringType">
@@ -5321,7 +5321,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="AnalysisUnit" type="CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description or classification of the unit of analysis. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description or classification of the unit of analysis. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (AnalysisUnit) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="GeographicStructureReference" type="GeographicStructureReferenceType">
@@ -5372,7 +5372,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="CharacterSet" type="CodeValueType">
 		<xs:annotation>
-			<xs:documentation>Identification of the character set used in the referenced file. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>Identification of the character set used in the referenced file. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (CharacterSet) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="GeographicLevelCode" type="CodeValueType">
@@ -5387,7 +5387,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="DefaultDataType" type="CodeValueType">
 		<xs:annotation>
-			<xs:documentation>Defines the data type to use unless otherwise specified. Supports the use of an external controlled vocabulary. Similar content to RecommendedDataType.</xs:documentation>
+			<xs:documentation>Defines the data type to use unless otherwise specified. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (DateType) to support this element at http://www.ddialliance.org/controlled-vocabularies. Similar content to RecommendedDataType.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DefaultDelimiter" type="DelimiterType">
@@ -5963,7 +5963,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="DateTypeCode" type="CodeValueType">
 		<xs:annotation>
-			<xs:documentation>This is a standard XML date type code and supports the use of an external controlled vocabulary. Examples are date, dateTime, gYearMonth, gYear, and duration</xs:documentation>
+			<xs:documentation>This is a standard XML date type code and supports the use of an external controlled vocabulary. Examples are date, dateTime, gYearMonth, gYear, and duration. The DDI Alliance has provided a controlled vocabulary (DateType) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="AlternateOffset" type="TextDomainType">
@@ -6880,7 +6880,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="NumericTypeCode" type="CodeValueType">
 		<xs:annotation>
-			<xs:documentation>Type of numeric i.e., integer, decimal, float, etc. Supports the use of an external controlled vocabulary. The use of a controlled vocabulary is strongly recommended.</xs:documentation>
+			<xs:documentation>Type of numeric i.e., integer, decimal, float, etc. Supports the use of an external controlled vocabulary. The use of a controlled vocabulary is strongly recommended. The DDI Alliance has provided a controlled vocabulary (NumericType) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ManagedNumericRepresentationName" type="NameType">
@@ -7269,7 +7269,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="AggregationMethod" type="CodeValueType">
 		<xs:annotation>
-			<xs:documentation>Identification of the type of aggregation method used. Supports the use of a controlled vocabulary.</xs:documentation>
+			<xs:documentation>Identification of the type of aggregation method used. Supports the use of a controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (AggregationMethod) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="AuthorizationSource" type="AuthorizationSourceType">
