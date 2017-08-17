@@ -227,6 +227,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="l:RepresentedVariableScheme"/>
 				<xs:element ref="g:ResourcePackage"/>
 				<xs:element ref="s:StudyUnit"/>
+				<xs:element ref="c:UnitTypeScheme"/>
 				<xs:element ref="c:UniverseScheme"/>
 				<xs:element ref="l:VariableScheme"/>
 				<xs:element ref="d:SampleFrameScheme"/>
@@ -314,9 +315,10 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="l:RepresentedVariableGroup"/>
 				<xs:element ref="d:Sequence"/>
 				<xs:element ref="d:StatementItem"/>
-				<xs:element ref="g:SubGroup"/>
 				<xs:element ref="c:SubUniverseClass"/>
 				<xs:element ref="d:TranslationActivity"/>
+				<xs:element ref="c:UnitType"/>
+				<xs:element ref="c:UnitTypeGroup"/>
 				<xs:element ref="c:Universe"/>
 				<xs:element ref="c:UniverseGroup"/>
 				<xs:element ref="cm:UniverseMap"/>
