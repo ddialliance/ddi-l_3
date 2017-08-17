@@ -1138,17 +1138,17 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="Read" type="r:CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description of the individuals ability to read the stated language. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description of the individuals ability to read the stated language. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (LanguageProficiency) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Write" type="r:CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description of the individuals ability to write the stated language. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description of the individuals ability to write the stated language. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (LanguageProficiency) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Speak" type="r:CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description of the individuals ability to speak the stated language. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description of the individuals ability to speak the stated language. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (LanguageProficiency) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="ResearcherIDType">
@@ -1471,7 +1471,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="TypeOfAddress" type="r:CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description of the type of address presented, i.e., mailing address, location address, etc. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description of the type of address presented, i.e., mailing address, location address, etc. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (TypeofAddress) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<!--TELEPHONE-->
@@ -1509,7 +1509,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="TypeOfTelephone" type="r:CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description of the type of telephone number provided, i.e., Office, Cell, Home, etc. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description of the type of telephone number provided, i.e., Office, Cell, Home, etc. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (TypeofTelephone) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<!--INSTANT MESSAGING-->

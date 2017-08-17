@@ -453,7 +453,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="TypeOfConceptGroup" type="r:CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description of the reason that a group was formed. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description of the reason that a group was formed. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (TypeOfConceptGroup) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DefiningConceptReference" type="r:ReferenceType">
