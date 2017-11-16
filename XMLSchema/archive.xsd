@@ -865,7 +865,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>Currently there is only a single DDI Agency Registry. Use "DDIAgencyRegistry".</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="startDate" type="xs:dateTime">
+				<xs:attribute name="activationDate" type="xs:dateTime">
 					<xs:annotation>
 						<xs:documentation>The date when this agency ID was registered or become active.</xs:documentation>
 					</xs:annotation>
