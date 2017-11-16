@@ -2999,12 +2999,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Identifies the unique portion of the code string as a segment.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element ref="ArrayBase">
+				<xs:annotation>
+					<xs:documentation>The array base is the value of the designation for the first item in an array and is generally set to either 0 or 1. Unix based systems and most current programming systems use an array base of 0. Traditional codebooks normally set the array base at 1, for example the first data item in a fixed format ASCII file record begins at character 1.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="arrayBase" type="ArrayBaseCodeType">
-			<xs:annotation>
-				<xs:documentation>The array base is the value of the designation for the first item in an array and is set to either 0 or 1. Unix based systems and most current programming systems use an array base of 0. Traditional codebooks normally set the array base at 1, for example the first data item in a fixed format ASCII file record begins at character 1.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 	</xs:complexType>
 	<xs:element name="ParentIdentificationPortion" type="IdentificationPortionType">
 		<xs:annotation>
@@ -7374,12 +7374,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>A description of the content and purpose of the segment used. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element ref="ArrayBase">
+				<xs:annotation>
+					<xs:documentation>The array base is the value of the designation for the first item in an array and is generally set to either 0 or 1. Unix based systems and most current programming systems use an array base of 0. Traditional codebooks normally set the array base at 1, for example the first data item in a fixed format ASCII file record begins at character 1.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="arrayBase" type="ArrayBaseCodeType">
-			<xs:annotation>
-				<xs:documentation>The array base is the value of the designation for the first item in an array and is set to either 0 or 1. Unix based systems and most current programming systems use an array base of 0. Traditional codebooks normally set the array base at 1, for example the first data item in a fixed format ASCII file record begins at character 1.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
 		<xs:attribute name="startPosition" type="xs:nonNegativeInteger">
 			<xs:annotation>
 				<xs:documentation>The start position of the first character expressed as an integer.</xs:documentation>
@@ -7391,23 +7391,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:simpleType name="ArrayBaseCodeType">
-		<xs:annotation>
-			<xs:documentation>The array base is the value of the designation for the first item in an array and is set to either 0 or 1. Unix based systems and most current programming systems use an array base of 0. Traditional codebooks normally set the array base at 1, for example the first data item in a fixed format ASCII file record begins at character 1.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="0">
-				<xs:annotation>
-					<xs:documentation>The array base is set to 0 (zero).</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="1">
-				<xs:annotation>
-					<xs:documentation>The array base is set to 1 (one).</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:element name="CodeReference" type="ReferenceType">
 		<xs:annotation>
 			<xs:documentation>References the Code within a CodeList using the Reference structure. TypeOfObject should be set to Code.</xs:documentation>
@@ -7668,3 +7651,4 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 	</xs:element>
 </xs:schema>
+
