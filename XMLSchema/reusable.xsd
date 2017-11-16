@@ -7174,7 +7174,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:choice>
 			<xs:sequence>
-				<xs:element name="CodeReference" minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="CodeReference" minOccurs="0" maxOccurs="unbounded">
 					<xs:annotation>
 						<xs:documentation>Reference to the Code within the CodeList used by the representation. Repeat for including multiple values.</xs:documentation>
 					</xs:annotation>
