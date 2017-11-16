@@ -157,6 +157,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Instructions for the use of the object within the context of the profile. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element ref="r:DefaultValue" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>This field provides a default value for the specified element or attribute if it holds simple content, and the value must be a valid one per the DDI schemas. This assumes that the value is not specified in the DDI instance itself, which would override the default. The value should also be provided as part of the XPath expression supplied for the field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="isRequired" type="xs:boolean" default="false">
 			<xs:annotation>
@@ -166,11 +171,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:attribute name="xpath" type="xs:string" use="required">
 			<xs:annotation>
 				<xs:documentation>Contains an XPath which points to an element or attribute in DDI instances which is used by the profile. All subelements of a used element are assumed to be supported unless explicitly addressed by the profile. The number of supported repetitions may be included in the XPath expression.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="defaultValue" type="xs:string" use="optional">
-			<xs:annotation>
-				<xs:documentation>This field provides a default value for the specified element or attribute if it holds simple content, and the value must be a valid one per the DDI schemas. This assumes that the value is not specified in the DDI instance itself, which would override the default. The value should also be provided as part of the XPath expression supplied for the field.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="limitMaxOccurs" type="xs:string" use="optional">
