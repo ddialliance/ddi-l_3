@@ -2876,7 +2876,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Reference to the Geographic Level as described in the GeographicStructure. TypeOfObject should be set to GeographicLevel.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="LevelName" type="xs:string">
+			<xs:element ref="GeographicLevelName">
 				<xs:annotation>
 					<xs:documentation>Name of a geographic level. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 				</xs:annotation>
