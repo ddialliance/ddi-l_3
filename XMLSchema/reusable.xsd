@@ -5396,7 +5396,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>References the Variable holding the dimension value. Use this instead of the value attribute when the value must be obtained from the data file at the location of the variable indicated in the reference.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Value">
+				<xs:element ref="Value">
 					<xs:annotation>
 						<xs:documentation>The value of this dimension for this particular data item.</xs:documentation>
 					</xs:annotation>
