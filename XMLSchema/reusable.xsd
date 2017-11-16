@@ -323,43 +323,43 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:complexType name="CodeValueType">
 		<xs:annotation>
-			<xs:documentation>Allows for string content which may be taken from an externally maintained controlled vocabulary (code value). If the content is from a controlled vocabulary provide the code value, as well as a reference to the code list from which the value is taken. Provide as many of the identifying attributes as needed to adequately identify the controlled vocabulary. Note that DDI has published a number of controlled vocabularies applicable to several locations using the CodeValue structure. Use of shared controlled vocabularies helps support interoperability and machine actionability.</xs:documentation>
+			<xs:documentation>Allows for string content which may be taken from an externally maintained controlled vocabulary (code value). If the content is from a controlled vocabulary provide the code value, as well as a reference to the controlled vocabulary from which the value is taken. Provide as many of the identifying attributes as needed to adequately identify the controlled vocabulary. Note that DDI has published a number of controlled vocabularies applicable to several locations using the CodeValue structure. Use of shared controlled vocabularies helps support interoperability and machine actionability.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="xs:string">
-				<xs:attribute name="codeListID" type="xs:string" use="optional">
+				<xs:attribute name="controlledVocabularyID" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>The ID of the code list (controlled vocabulary) that the content was taken from.</xs:documentation>
+						<xs:documentation>The ID of the controlled vocabulary that the content was taken from.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListName" type="xs:string" use="optional">
+				<xs:attribute name="controlledVocabularyName" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>The name of the code list.</xs:documentation>
+						<xs:documentation>The name of the controlled vocabulary.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListAgencyName" type="xs:string" use="optional">
+				<xs:attribute name="controlledVocabularyAgencyName" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>The name of the agency maintaining the code list.</xs:documentation>
+						<xs:documentation>The name of the agency maintaining the controlled vocabulary.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListVersionID" type="xs:string" default="1.0">
+				<xs:attribute name="controlledVocabularyVersionID" type="xs:string" default="1.0">
 					<xs:annotation>
-						<xs:documentation>The version number of the code list (default is 1.0).</xs:documentation>
+						<xs:documentation>The version number of the controlled vocabulary (default is 1.0).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="otherValue" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>If the value of the string is "Other" or the equivalent from the codelist, this attribute can provide a more specific value not found in the codelist.</xs:documentation>
+						<xs:documentation>If the value of the string is "Other" or the equivalent from the controlled vocabulary, this attribute can provide a more specific value not found in the controlled vocabulary.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListURN" type="xs:string" use="optional">
+				<xs:attribute name="controlledVocabularyURN" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>The URN of the codelist.</xs:documentation>
+						<xs:documentation>The URN of the controlled vocabulary.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListSchemeURN" type="xs:string" use="optional">
+				<xs:attribute name="controlledVocabularySchemeURN" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>If maintained within a scheme, the URN of the scheme containing the codelist.</xs:documentation>
+						<xs:documentation>If maintained within a scheme, the URN of the scheme containing the controlled vocabulary.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -2659,43 +2659,43 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:complexType name="InternationalCodeValueType">
 		<xs:annotation>
-			<xs:documentation>Allows for string content which may be taken from an externally maintained controlled vocabulary (code value). If the content is from a controlled vocabulary provide the code value, as well as a reference to the code list from which the value is taken. This differs from a CodeValue only by the provision of a language-location specification. DDI uses the International CodeValue in cases where controlled vocabularies are assumed to be highly language specific, such as nationally maintained subject headings, thesauri, or keywords derived from the content of documents. The ability to identify language is especially important when supporting searches by external language-specific search engines. Provide as many of the identifying attributes as needed to adequately identify the controlled vocabulary.</xs:documentation>
+			<xs:documentation>Allows for string content which may be taken from an externally maintained controlled vocabulary. If the content is from a controlled vocabulary provide the code value, as well as a reference to the code list from which the value is taken. This differs from a CodeValue only by the provision of a language-location specification. DDI uses the International CodeValue in cases where controlled vocabularies are assumed to be highly language specific, such as nationally maintained subject headings, thesauri, or keywords derived from the content of documents. The ability to identify language is especially important when supporting searches by external language-specific search engines. Provide as many of the identifying attributes as needed to adequately identify the controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="StringType">
-				<xs:attribute name="codeListID" type="xs:string" use="optional">
+				<xs:attribute name="controlledVocabularyID" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>The ID of the code list (controlled vocabulary) that the content was taken from.</xs:documentation>
+						<xs:documentation>The ID of the code controlled vocabulary that the content was taken from.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListName" type="xs:string" use="optional">
+				<xs:attribute name="controlledVocabularyName" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>The name of the code list.</xs:documentation>
+						<xs:documentation>The name of the controlledVocabulary.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListAgencyName" type="xs:string" use="optional">
+				<xs:attribute name="controlledVocabularyAgencyName" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>The name of the agency maintaining the code list.</xs:documentation>
+						<xs:documentation>The name of the agency maintaining the controlledVocabulary.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListVersionID" type="xs:string" default="1.0">
+				<xs:attribute name="controlledVocabularyVersionID" type="xs:string" default="1.0">
 					<xs:annotation>
-						<xs:documentation>The version number of the code list (default is 1.0).</xs:documentation>
+						<xs:documentation>The version number of the controlledVocabulary (default is 1.0).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="otherValue" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>If the value of the string is "Other" or the equivalent from the codelist, this attribute can provide a more specific value not found in the codelist.</xs:documentation>
+						<xs:documentation>If the value of the string is "Other" or the equivalent from the controlledVocabulary, this attribute can provide a more specific value not found in the codelist.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListURN" type="xs:string" use="optional">
+				<xs:attribute name="controlledVocabularyURN" type="xs:string" use="optional">
 					<xs:annotation>
 						<xs:documentation>The URN of the codelist.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListSchemeURN" type="xs:string" use="optional">
+				<xs:attribute name="controlledVocabularySchemeURN" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>If maintained within a scheme, the URN of the scheme containing the codelist.</xs:documentation>
+						<xs:documentation>If maintained within a scheme, the URN of the scheme containing the controlledVocabulary.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -4769,19 +4769,19 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="CountryCodeType">
-				<xs:attribute name="codeListID" fixed="ISO3166_2ch">
+				<xs:attribute name="controlledVocabularyID" fixed="ISO3166_2ch">
 					<xs:annotation>
-						<xs:documentation>The ID of the code list (controlled vocabulary) that the content was taken from.</xs:documentation>
+						<xs:documentation>The ID of the controlled vocabulary that the content was taken from.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListName" fixed="ISO3166 2-letter">
+				<xs:attribute name="controlledVocabularyName" fixed="ISO3166 2-letter">
 					<xs:annotation>
 						<xs:documentation>The name of the code list. Fixed as ISO3166 2-letter</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListAgencyName" fixed="DDI Alliance">
+				<xs:attribute name="controlledVocabularyAgencyName" fixed="DDI Alliance">
 					<xs:annotation>
-						<xs:documentation>The name of the agency maintaining the code list.</xs:documentation>
+						<xs:documentation>The name of the agency maintaining the controlledVocabulary.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="otherValue" type="xs:string" use="optional">
@@ -4789,9 +4789,9 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:documentation>If the value of the string is "Other" or the equivalent from the codelist, this attribute can provide a more specific value not found in the codelist.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListURN" fixed="urn:ddi-cv:ISO3166_2ch">
+				<xs:attribute name="controlledVocabularyURN" fixed="urn:ddi-cv:ISO3166_2ch">
 					<xs:annotation>
-						<xs:documentation>The URN of the codelist. Fixed value. Note this is fixed as late bound. Codes will not be removed from this list when the country code is no longer in active use.</xs:documentation>
+						<xs:documentation>The URN of the controlledVocabulary. Fixed value. Note this is fixed as late bound. Codes will not be removed from this list when the country code is no longer in active use.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -4808,29 +4808,29 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="CountryCodeType">
-				<xs:attribute name="codeListID" fixed="ISO3166_3ch">
+				<xs:attribute name="controlledVocabularyID" fixed="ISO3166_3ch">
 					<xs:annotation>
-						<xs:documentation>The ID of the code list (controlled vocabulary) that the content was taken from.</xs:documentation>
+						<xs:documentation>The ID of the controlled vocabulary that the content was taken from.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListName" fixed="ISO3166 3-letter">
+				<xs:attribute name="controlledVocabularyName" fixed="ISO3166 3-letter">
 					<xs:annotation>
-						<xs:documentation>The name of the code list. Fixed as ISO3166 3-letter</xs:documentation>
+						<xs:documentation>The name of the controlledVocabulary. Fixed as ISO3166 3-letter</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListAgencyName" fixed="DDI Alliance">
+				<xs:attribute name="controlledVocabularyName" fixed="DDI Alliance">
 					<xs:annotation>
-						<xs:documentation>The name of the agency maintaining the code list.</xs:documentation>
+						<xs:documentation>The name of the agency maintaining the controlledVocabulary.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="otherValue" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>If the value of the string is "Other" or the equivalent from the codelist, this attribute can provide a more specific value not found in the codelist.</xs:documentation>
+						<xs:documentation>If the value of the string is "Other" or the equivalent from the controlledVocabulary, this attribute can provide a more specific value not found in the codelist.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListURN" fixed="urn:ddi-cv:ISO3166_3ch">
+				<xs:attribute name="controlledVocabularyURN" fixed="urn:ddi-cv:ISO3166_3ch">
 					<xs:annotation>
-						<xs:documentation>The URN of the codelist. Fixed value. Note this is fixed as late bound. Codes will not be removed from this list when the country code is no longer in active use.</xs:documentation>
+						<xs:documentation>The URN of the controlledVocabulary. Fixed value. Note this is fixed as late bound. Codes will not be removed from this list when the country code is no longer in active use.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -4847,29 +4847,29 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="CountryCodeType">
-				<xs:attribute name="codeListID" fixed="ISO3166_numeric">
+				<xs:attribute name="controlledVocabularyID" fixed="ISO3166_numeric">
 					<xs:annotation>
-						<xs:documentation>The ID of the code list (controlled vocabulary) that the content was taken from.</xs:documentation>
+						<xs:documentation>The ID of the controlled vocabulary that the content was taken from.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListName" fixed="ISO3166 numeric">
+				<xs:attribute name="controlledVocabularyName" fixed="ISO3166 numeric">
 					<xs:annotation>
-						<xs:documentation>The name of the code list. Fixed as ISO3166 numeric</xs:documentation>
+						<xs:documentation>The name of the controlledVocabulary. Fixed as ISO3166 numeric</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListAgencyName" fixed="DDI Alliance">
+				<xs:attribute name="controlledVocabularyAgencyName" fixed="DDI Alliance">
 					<xs:annotation>
-						<xs:documentation>The name of the agency maintaining the code list.</xs:documentation>
+						<xs:documentation>The name of the agency maintaining the controlledVocabulary.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="otherValue" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>If the value of the string is "Other" or the equivalent from the codelist, this attribute can provide a more specific value not found in the codelist.</xs:documentation>
+						<xs:documentation>If the value of the string is "Other" or the equivalent from the controlledVocabulary, this attribute can provide a more specific value not found in the codelist.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeListURN" fixed="urn:ddi-cv:ISO3166_numeric">
+				<xs:attribute name="controlledVocabularyURN" fixed="urn:ddi-cv:ISO3166_numeric">
 					<xs:annotation>
-						<xs:documentation>The URN of the codelist. Fixed value. Note this is fixed as late bound. Codes will not be removed from this list when the country code is no longer in active use.</xs:documentation>
+						<xs:documentation>The URN of the controlledVocabulary. Fixed value. Note this is fixed as late bound. Codes will not be removed from this list when the country code is no longer in active use.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
