@@ -424,7 +424,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
         <xs:documentation>References a specific Code within the variable if using a CodeRepresentation. May alternately provide the Value of the Category.</xs:documentation>
     </xs:annotation>
 </xs:element>
-<xs:element name="FilterCategoryValueType" type="CategoryValueType">
+<xs:element name="FilterCategoryValue" type="CategoryValueType">
     <xs:annotation>
         <xs:documentation>Provides the specific value of the variable being used as a filter. References a specific Code within the variable if using a CodeRepresentation. May alternately provide the Value of the Category.</xs:documentation>
     </xs:annotation>

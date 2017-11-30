@@ -159,6 +159,21 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
 				<xs:sequence>
+					<xs:element ref="PhysicalStructureName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A name for the PhysicalStructure. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the PhysicalStructure. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the content and purpose of the PhysicalStructure. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="FileFormat" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>A brief textual description or classification of the format of the file (e.g., SAS save file, Delimited file, Fixed format file, DDI DataSet). Supports the use of an external controlled vocabulary. DDI recommends the use of a controlled vocabulary.</xs:documentation>
@@ -198,6 +213,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="PhysicalStructureName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the Physical Structure using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:complexType name="PhysicalStructureGroupType">
 		<xs:annotation>
 			<xs:documentation>A group of PhysicalStructure descriptions for administrative or conceptual purposes. May be hierarchical. In addition to the standard name, label, and description, allows for a brief classification of the group type, reference to an applicable Universe and Concept, inclusion of PhysicalStructures and PhysicalStructureGroups by reference and an indicator which can be set to "true" if the group is ordered.</xs:documentation>
