@@ -569,7 +569,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Describes the relationships among categories at that respective level. Possible values are either Nominal, Ordinal, or Interval. Note that different levels may have different types of relationships within the same hierarchy. For example, Level 1 items may be ordinal and Level 2 (the children of Level 1 items) may be nominal.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="Interval" minOccurs="0">
+			<xs:element ref="IntervalIncrement" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Identifies the interval between each value of the codes at this level. Used only for codes with interval relationship.</xs:documentation>
 				</xs:annotation>
@@ -626,23 +626,6 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="IntervalType">
-		<xs:annotation>
-			<xs:documentation>Describes the structure, starting point and increment step of an interval.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Anchor" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>Identifies the start value for this interval.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Increment" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>Value specifying the increment between categories.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="CodeListGroup" type="CodeListGroupType">
 		<xs:annotation>
@@ -2139,7 +2122,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Describes the relationship between the categories in terms of the significance of order and the distance between categories.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="Interval" type="IntervalType">
+	<xs:element name="IntervalIncrement" type="r:BasicIncrementType">
 		<xs:annotation>
 			<xs:documentation>Describes the structure, starting point and increment step of an interval.</xs:documentation>
 		</xs:annotation>
