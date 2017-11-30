@@ -480,7 +480,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="SourceType" type="r:CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description of the type of data source. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description of the type of data source. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (DataSourceType) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="OriginType">
@@ -2360,6 +2360,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
+					<xs:element ref="r:RepresentedVariableReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the RepresentedVariable that describes the data to be collected by this measurement. The RepresentedVariable contains the broad reusable specification of the Variable, i.e., concept, universe, and value representation. When more than one ResponseDomain exists, one RepresentedVariable should be created for each ResponseDomain in the same order as the corresponding ResponseDomain. TypeOfObject should be set to RepresentedVariable.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="estimatedSecondsResponseTime" type="xs:decimal" use="optional">
 					<xs:annotation>
@@ -2641,6 +2646,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
+					<xs:element ref="r:RepresentedVariableReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the RepresentedVariable that describes the data to be collected by this question. The RepresentedVariable contains the broad reusable specification of the Variable, i.e., concept, universe, and value representation. When more than one ResponseDomain exists, one RepresentedVariable should be created for each ResponseDomain in the same order as the corresponding ResponseDomain. TypeOfObject should be set to RepresentedVariable.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="estimatedSecondsResponseTime" type="xs:decimal" use="optional">
 					<xs:annotation>
@@ -3099,6 +3109,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
+					<xs:element ref="r:RepresentedVariableReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the RepresentedVariable that describes the data to be collected by this question grid. The RepresentedVariable contains the broad reusable specification of the Variable, i.e., concept, universe, and value representation. When more than one ResponseDomain exists, one RepresentedVariable should be created for each ResponseDomain in the same order as the corresponding ResponseDomain. TypeOfObject should be set to RepresentedVariable.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="estimatedSecondsResponseTime" type="xs:decimal" use="optional">
 					<xs:annotation>
@@ -4334,7 +4349,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="TypeOfTimeMethod" type="r:CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description or classification of the type of the time methodology used. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description or classification of the type of the time methodology used. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (TimeMethod) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="TimeMethod" type="TimeMethodType">
@@ -4390,7 +4405,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="TypeOfSamplingProcedure" type="r:CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description or classification of the type of sampling procedure used. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description or classification of the type of sampling procedure used. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (SamplingProcedure) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SamplingProcedure" type="SamplingProcedureType">
@@ -4659,7 +4674,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:complexType>
 	<xs:element name="TypeOfModeOfCollection" type="r:CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description or classification of the mode of data collection. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description or classification of the mode of data collection. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (ModeOfCollection) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ModeOfCollection" type="ModeOfCollectionType">
@@ -4982,7 +4997,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="ResponseUnit" type="r:CodeValueType">
 		<xs:annotation>
-			<xs:documentation>A brief textual description or classification of the intended response unit/respondent. Supports the use of an external controlled vocabulary.</xs:documentation>
+			<xs:documentation>A brief textual description or classification of the intended response unit/respondent. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (ResponseUnit) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="GeneralInstruction" type="GeneralInstructionType" substitutionGroup="ProcessingInstruction">
