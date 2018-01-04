@@ -669,6 +669,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Allows for the specification of identifiers other than the specified DDI identification of the object. This may be a legacy ID from DDI-C, a system specific ID such as for a database or registry, or a non-DDI unique identifier. As the identifier is specific to a system the system must be identified with the UserID structure.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element ref="UserAttributePair" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A system specific user defined property of the object expressed as a key/value pair. As this is specific to an individual system the use of controlled vocabularies for the key is strongly recommended.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="inheritanceAction" type="ActionCodeType" use="optional">
 			<xs:annotation>
@@ -767,11 +772,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:element ref="MaintainableObject" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>This section provides information on the Maintainable Parent of this object at its point of origination. This content will not change over time unless the version of the object changes. Note that if the ID, Agency, Version sequence is used, and the scope of uniqueness of the referenced object is the Maintainable, then the ID of the Maintainable is needed to create the structured ID portion of the canonical URN. If the system uses the deprecated URN, both the Maintainable ID and TypeOfMaintainableObject are required to create the deprecated URN structure.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="UserAttributePair" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A system specific user defined property of the object expressed as a key/value pair. As this is specific to an individual system the use of controlled vocabularies for the key is strongly recommended.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
