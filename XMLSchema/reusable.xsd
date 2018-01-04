@@ -3540,6 +3540,16 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Indicates the range of items expressed as a string, such as an alphabetic range.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A display label for the text range. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="CollationAlgorithm" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The algorithm used to determine the sort order of the text content. This includes whether the text is left to right, right to left, handling of spaces an capitalization, and ordering of text characters. Supports the use of a controlled vocabulary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="RangeUnit" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Specifies the units in the range.</xs:documentation>
@@ -3557,6 +3567,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CollationAlgorithm" type="CodeValueType">
+		<xs:annotation>
+			<xs:documentation>The algorithm used to determine the sort order of the text content. this includes whether the text is left to right, right to left, handling of spaces and capitalization, and ordering of text characters. Supports the use of a controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="MinimumValue" type="RangeValueType">
 		<xs:annotation>
 			<xs:documentation>Indicates the range of items expressed as a string, such as an alphabetic range.</xs:documentation>
