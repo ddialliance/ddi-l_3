@@ -456,11 +456,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A brief textual description of the reason that a group was formed. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (TypeOfConceptGroup) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="DefiningConceptReference" type="r:ReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to an existing Concept using the Reference structure. TypeOfObject should be set to Concept.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
 	<xs:complexType name="VocabularyType">
 		<xs:annotation>
 			<xs:documentation>Provides information about the vocabulary used to create a concept scheme.</xs:documentation>
@@ -601,9 +596,9 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Reference to a unit type being associated with this conceptual variable. TypeOfObject should be set to UnitType.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="r:CategorySchemeReference">
+					<xs:element ref="r:CategorySchemeReference" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Reference to a previously category scheme that represents the conceptual variable's enumerated conceptual domain.</xs:documentation>
+							<xs:documentation>Reference to a previously created category scheme that represents the conceptual variable's enumerated conceptual domain.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -824,7 +819,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>A description of the content and purpose of the Universe. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="DefiningConceptReference" minOccurs="0">
+					<xs:element ref="r:DefiningConceptReference" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>A concept that defines or aids in understanding the content of the universe. For example the Universe "Males" may link to the concept of "Male".</xs:documentation>
 						</xs:annotation>
@@ -922,7 +917,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>A description of the content and purpose of the SubUniverseClass. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="DefiningConceptReference" minOccurs="0">
+					<xs:element ref="r:DefiningConceptReference" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>A concept that provides a grouping factor for the universes contained by the SubUniverseClass. For example if the parent Universe is Population of the World and the two universes in the group are Male and Female the defining concept may be Sex.</xs:documentation>
 						</xs:annotation>
