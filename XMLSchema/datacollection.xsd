@@ -181,7 +181,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 								<xs:documentation>A set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element ref="SampleFrameSchemeReference">
+						<xs:element ref="r:SampleFrameSchemeReference">
 							<xs:annotation>
 								<xs:documentation>References to a set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>
 							</xs:annotation>
@@ -193,7 +193,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 								<xs:documentation>A set of sampling plans maintained by an agency, and used in the instrument.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element ref="SamplingPlanSchemeReference">
+						<xs:element ref="r:SamplingPlanSchemeReference">
 							<xs:annotation>
 								<xs:documentation>References to a set of sampling plans maintained by an agency, and used in the instrument.</xs:documentation>
 							</xs:annotation>
@@ -205,7 +205,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 								<xs:documentation>A set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element ref="DevelopmentActivitySchemeReference">
+						<xs:element ref="r:DevelopmentActivitySchemeReference">
 							<xs:annotation>
 								<xs:documentation>References to a set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
 							</xs:annotation>
@@ -228,11 +228,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="DevelopmentActivityScheme" type="DevelopmentActivitySchemeType">
 		<xs:annotation>
 			<xs:documentation>A set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="DevelopmentActivitySchemeReference" type="r:SchemeReferenceType">
-		<xs:annotation>
-			<xs:documentation>References to a set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ProcessingEventScheme" type="ProcessingEventSchemeType">
@@ -5141,7 +5136,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>A description of the use of the sample frame scheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="SampleFrameSchemeReference" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="r:SampleFrameSchemeReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Provides for inclusion by reference of external sample frame schemes.</xs:documentation>
 						</xs:annotation>
@@ -5182,11 +5177,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="SampleFrameSchemeName" type="r:NameType">
 		<xs:annotation>
 			<xs:documentation>A name for the sample frame scheme using the NameType structure.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="SampleFrameSchemeReference" type="r:SchemeReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to an existing SampleFrameScheme using the SchemeReference structure. TypeOfObject should be set to SampleFrameScheme.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SampleFrameGroupReference" type="r:ReferenceType">
@@ -5415,7 +5405,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>A description of the use of the sampling plan scheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="SamplingPlanSchemeReference" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="r:SamplingPlanSchemeReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Provides for inclusion by reference of external sampling plan schemes.</xs:documentation>
 						</xs:annotation>
@@ -5466,11 +5456,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="SamplingPlanGroupReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing SamplingPlanGroup using the Reference structure. TypeOfObject should be set to SamplingPlanGroup.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="SamplingPlanSchemeReference" type="r:SchemeReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to an existing SamplingPlanScheme using the SchemeReference structure. TypeOfObject should be set to SamplingPlanScheme.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="SamplingPlanGroupType">
@@ -6604,7 +6589,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>A description of the DevelopmentActivityScheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="DevelopmentActivitySchemeReference" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="r:DevelopmentActivitySchemeReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Reference to an existing DevelopmentActivityScheme for inclusion.</xs:documentation>
 						</xs:annotation>

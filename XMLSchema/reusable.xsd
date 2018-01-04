@@ -7558,5 +7558,20 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing Concept using the Reference structure. TypeOfObject should be set to Concept.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="SampleFrameSchemeReference" type="SchemeReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing SampleFrameScheme using the SchemeReference structure. TypeOfObject should be set to SampleFrameScheme.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SamplingPlanSchemeReference" type="SchemeReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing SamplingPlanScheme using the SchemeReference structure. TypeOfObject should be set to SamplingPlanScheme.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DevelopmentActivitySchemeReference" type="SchemeReferenceType">
+		<xs:annotation>
+			<xs:documentation>References to a set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 </xs:schema>
 
