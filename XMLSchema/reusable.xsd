@@ -305,7 +305,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:attribute>
 		<xs:attribute name="textFormat" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>Specifies the format of the text content, for example "plainText", "markdown", "html5", "latex", or "xhtml". DDI recommends against using the embedded XHTML schemas, as these may be removed in future versions. When including XHTML content, set the textFormat to "xhtml", set isPlainText to "true", and XML encode the XHTML.</xs:documentation>
+				<xs:documentation>Specifies the format of the text content, for example "plainText", "markdown", "HTML5", "latex", or "XHTML". DDI recommends against using the embedded XHTML schemas, as these may be removed in future versions. When including XHTML content, set the textFormat to "XHTML", set isPlainText to "true", and XML encode the XHTML.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -669,6 +669,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Allows for the specification of identifiers other than the specified DDI identification of the object. This may be a legacy ID from DDI-C, a system specific ID such as for a database or registry, or a non-DDI unique identifier. As the identifier is specific to a system the system must be identified with the UserID structure.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element ref="UserAttributePair" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A system specific user defined property of the object expressed as a key/value pair. As this is specific to an individual system the use of controlled vocabularies for the key is strongly recommended.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="inheritanceAction" type="ActionCodeType" use="optional">
 			<xs:annotation>
@@ -767,11 +772,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:element ref="MaintainableObject" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>This section provides information on the Maintainable Parent of this object at its point of origination. This content will not change over time unless the version of the object changes. Note that if the ID, Agency, Version sequence is used, and the scope of uniqueness of the referenced object is the Maintainable, then the ID of the Maintainable is needed to create the structured ID portion of the canonical URN. If the system uses the deprecated URN, both the Maintainable ID and TypeOfMaintainableObject are required to create the deprecated URN structure.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="UserAttributePair" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A system specific user defined property of the object expressed as a key/value pair. As this is specific to an individual system the use of controlled vocabularies for the key is strongly recommended.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -3540,6 +3540,16 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Indicates the range of items expressed as a string, such as an alphabetic range.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A display label for the text range. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="CollationAlgorithm" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The algorithm used to determine the sort order of the text content. This includes whether the text is left to right, right to left, handling of spaces an capitalization, and ordering of text characters. Supports the use of a controlled vocabulary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="RangeUnit" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Specifies the units in the range.</xs:documentation>
@@ -3557,6 +3567,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CollationAlgorithm" type="CodeValueType">
+		<xs:annotation>
+			<xs:documentation>The algorithm used to determine the sort order of the text content. this includes whether the text is left to right, right to left, handling of spaces and capitalization, and ordering of text characters. Supports the use of a controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="MinimumValue" type="RangeValueType">
 		<xs:annotation>
 			<xs:documentation>Indicates the range of items expressed as a string, such as an alphabetic range.</xs:documentation>
@@ -4734,157 +4749,20 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Coded values specifying time zones as an offset from Greenwich Meridian Time. For example, United States Eastern Standard Time is -5.00. Supports the use of an external controlled vocabulary. DDI strongly recommends the use of the time offset tied to a controlled vocabulary. If any other method is used, the use of a controlled vocabulary will facilitate interoperability. The DDI Alliance has provided a controlled vocabulary (TimeZone) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<!-- COUNTRY -->
-	<xs:element name="CountryCode" type="CountryCodeType" abstract="true">
+	<xs:element name="CountryCode" type="CountryCodeType">
 		<xs:annotation>
-			<xs:documentation>Serves as head of a substitution group for specifying ISO 3166 Country Codes or use of unspecified text.</xs:documentation>
+			<xs:documentation>Use of a Controlled Vocabulary is strongly recommended. Use of ISO 3166 Country Codes (2 character, 3 character, or Numeric) is preferred with or without attribution to a specific controlled vocabulary. If using some other coding system it is important to cite the source as the assumption will generally be that ISO 3166 codes have been used. Allows for an optional effective date for the country code. This can effect the actual geographic coverage or related name.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="CountryCodeType" abstract="true">
+	<xs:complexType name="CountryCodeType">
 		<xs:annotation>
-			<xs:documentation>Serves as head of a substitution group for specifying ISO 3166 Country Codes or use of unspecified text.</xs:documentation>
+			<xs:documentation>Use of a Controlled Vocabulary is strongly recommended. Use of ISO 3166 Country Codes (2 character, 3 character, or Numeric) is preferred with or without attribution to a specific controlled vocabulary. If using some other coding system it is important to cite the source as the assumption will generally be that ISO 3166 codes have been used. Allows for an optional effective date for the country code. This can effect the actual geographic coverage or related name.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
-			<xs:extension base="xs:string">
+			<xs:extension base="CodeValueType">
 				<xs:attribute name="effectiveDate" type="xs:dateTime" use="optional">
 					<xs:annotation>
-						<xs:documentation>If it is important to specify the date that this code is effective in order to accurately capture a name or similar change, specify that here.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:simpleContent>
-	</xs:complexType>
-	<xs:element name="Country" type="CountryType" substitutionGroup="CountryCode">
-		<xs:annotation>
-			<xs:documentation>An unspecified identification of a Country. When using ISO 3166 code (2-letter, 3-letter, or numeric) use the specific CountryCode substitution element.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:complexType name="CountryType">
-		<xs:annotation>
-			<xs:documentation>An unspecified identification of a Country. When using ISO 3166 code (2-letter, 3-letter, or numeric) use the specific CountryCode substitution element. Allows for an optional specification of language and effective date.</xs:documentation>
-		</xs:annotation>
-		<xs:simpleContent>
-			<xs:extension base="CountryCodeType">
-				<xs:attribute ref="xml:lang">
-					<xs:annotation>
-						<xs:documentation>Indicates the language of content. Note that xml:lang allows for a simple 2 or 3 character language code or a language code extended by a country code , for example en-au for English as used in Australia.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:simpleContent>
-	</xs:complexType>
-	<xs:element name="Country_2" type="Country_2Type" substitutionGroup="CountryCode">
-		<xs:annotation>
-			<xs:documentation>Identification of a Country using ISO 3166 2-letter code.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:complexType name="Country_2Type">
-		<xs:annotation>
-			<xs:documentation>Allows for string content which may be taken from an externally maintained controlled vocabulary (code value). If the content is from a controlled vocabulary provide the code value, as well as a reference to the code list from which the value is taken. Provide as many of the identifying attributes as needed to adequately identify the controlled vocabulary. Note that DDI has published a number of controlled vocabularies applicable to several locations using the CodeValue structure. Use of shared controlled vocabularies helps support interoperability and machine actionability.</xs:documentation>
-		</xs:annotation>
-		<xs:simpleContent>
-			<xs:extension base="CountryCodeType">
-				<xs:attribute name="controlledVocabularyID" fixed="ISO3166_2ch">
-					<xs:annotation>
-						<xs:documentation>The ID of the controlled vocabulary that the content was taken from.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="controlledVocabularyName" fixed="ISO3166 2-letter">
-					<xs:annotation>
-						<xs:documentation>The name of the code list. Fixed as ISO3166 2-letter</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="controlledVocabularyAgencyName" fixed="DDI Alliance">
-					<xs:annotation>
-						<xs:documentation>The name of the agency maintaining the controlledVocabulary.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="otherValue" type="xs:string" use="optional">
-					<xs:annotation>
-						<xs:documentation>If the value of the string is "Other" or the equivalent from the codelist, this attribute can provide a more specific value not found in the codelist.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="controlledVocabularyURN" fixed="urn:ddi-cv:ISO3166_2ch">
-					<xs:annotation>
-						<xs:documentation>The URN of the controlledVocabulary. Fixed value. Note this is fixed as late bound. Codes will not be removed from this list when the country code is no longer in active use.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:simpleContent>
-	</xs:complexType>
-	<xs:element name="Country_3" type="Country_3Type" substitutionGroup="CountryCode">
-		<xs:annotation>
-			<xs:documentation>Identification of a Country using ISO 3166 3-letter code.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:complexType name="Country_3Type">
-		<xs:annotation>
-			<xs:documentation>Allows for string content which may be taken from an externally maintained controlled vocabulary (code value). If the content is from a controlled vocabulary provide the code value, as well as a reference to the code list from which the value is taken. Provide as many of the identifying attributes as needed to adequately identify the controlled vocabulary. Note that DDI has published a number of controlled vocabularies applicable to several locations using the CodeValue structure. Use of shared controlled vocabularies helps support interoperability and machine actionability.</xs:documentation>
-		</xs:annotation>
-		<xs:simpleContent>
-			<xs:extension base="CountryCodeType">
-				<xs:attribute name="controlledVocabularyID" fixed="ISO3166_3ch">
-					<xs:annotation>
-						<xs:documentation>The ID of the controlled vocabulary that the content was taken from.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="controlledVocabularyName" fixed="ISO3166 3-letter">
-					<xs:annotation>
-						<xs:documentation>The name of the controlledVocabulary. Fixed as ISO3166 3-letter</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="controlledVocabularyName" fixed="DDI Alliance">
-					<xs:annotation>
-						<xs:documentation>The name of the agency maintaining the controlledVocabulary.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="otherValue" type="xs:string" use="optional">
-					<xs:annotation>
-						<xs:documentation>If the value of the string is "Other" or the equivalent from the controlledVocabulary, this attribute can provide a more specific value not found in the codelist.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="controlledVocabularyURN" fixed="urn:ddi-cv:ISO3166_3ch">
-					<xs:annotation>
-						<xs:documentation>The URN of the controlledVocabulary. Fixed value. Note this is fixed as late bound. Codes will not be removed from this list when the country code is no longer in active use.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:simpleContent>
-	</xs:complexType>
-	<xs:element name="Country_N" type="Country_NType" substitutionGroup="CountryCode">
-		<xs:annotation>
-			<xs:documentation>Identification of a Country using ISO 3166 numeric code.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:complexType name="Country_NType">
-		<xs:annotation>
-			<xs:documentation>Allows for string content which may be taken from an externally maintained controlled vocabulary (code value). If the content is from a controlled vocabulary provide the code value, as well as a reference to the code list from which the value is taken. Provide as many of the identifying attributes as needed to adequately identify the controlled vocabulary. Note that DDI has published a number of controlled vocabularies applicable to several locations using the CodeValue structure. Use of shared controlled vocabularies helps support interoperability and machine actionability.</xs:documentation>
-		</xs:annotation>
-		<xs:simpleContent>
-			<xs:extension base="CountryCodeType">
-				<xs:attribute name="controlledVocabularyID" fixed="ISO3166_numeric">
-					<xs:annotation>
-						<xs:documentation>The ID of the controlled vocabulary that the content was taken from.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="controlledVocabularyName" fixed="ISO3166 numeric">
-					<xs:annotation>
-						<xs:documentation>The name of the controlledVocabulary. Fixed as ISO3166 numeric</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="controlledVocabularyAgencyName" fixed="DDI Alliance">
-					<xs:annotation>
-						<xs:documentation>The name of the agency maintaining the controlledVocabulary.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="otherValue" type="xs:string" use="optional">
-					<xs:annotation>
-						<xs:documentation>If the value of the string is "Other" or the equivalent from the controlledVocabulary, this attribute can provide a more specific value not found in the codelist.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="controlledVocabularyURN" fixed="urn:ddi-cv:ISO3166_numeric">
-					<xs:annotation>
-						<xs:documentation>The URN of the controlledVocabulary. Fixed value. Note this is fixed as late bound. Codes will not be removed from this list when the country code is no longer in active use.</xs:documentation>
+						<xs:documentation>If it is important to specify the date that this code is effective in order to accurately capture a name or similar change, specify that here. This can effect the actual geographic coverage or related name.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -7678,6 +7556,21 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="DefiningConceptReference" type="ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing Concept using the Reference structure. TypeOfObject should be set to Concept.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SampleFrameSchemeReference" type="SchemeReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing SampleFrameScheme using the SchemeReference structure. TypeOfObject should be set to SampleFrameScheme.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SamplingPlanSchemeReference" type="SchemeReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing SamplingPlanScheme using the SchemeReference structure. TypeOfObject should be set to SamplingPlanScheme.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DevelopmentActivitySchemeReference" type="SchemeReferenceType">
+		<xs:annotation>
+			<xs:documentation>References to a set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 </xs:schema>
