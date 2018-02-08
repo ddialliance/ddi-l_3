@@ -2126,7 +2126,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 				<xs:choice>
 					<xs:element ref="Expression" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The condition on which the associated text varies expressed by a command code. For example, a command that inserts an age by calculating the difference between today’s date and a previously defined date of birth.</xs:documentation>
+							<xs:documentation>The condition on which the associated text varies expressed by a command code. For example, a command that inserts an age by calculating the difference between today’s date and a previously defined date of birth. Use InParameter and OutParameter of parent class to associate Parameters to Alias values in command code.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="IfThenElseText" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The condition on which the associated text varies expressed by an IfThenElse decision tree. For example, If MEMBER = 1, Then = [ConditionalResult singular], ElseIf MEMBER > 1, Then = [ConditionalResult plural].  Use InParameter and OutParameter of parent class to associate Parameters to Alias values in the IfCondition.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:SourceParameterReference" minOccurs="0">
@@ -2138,6 +2143,92 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="ConditionalResultType">
+		<xs:annotation>
+			<xs:documentation>The text resulting from the conditional command. Supports structured content and the insertion of content by a source parameter. For example if a language has gender specific verb structures the result of an IfCondition may result in a text using female verb structures and inserting the female's name at a specific point.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element ref="Text" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The value of the static text string to use if condition is true. Supports the optional use of XHTML formatting tags within the string structure. If the content of a literal text contains more than one language, i.e. "What is your understanding of the German word 'Gesundheit'?", the foreign language element should be placed in a separate LiteralText component with the appropriate xml:lang value and, in this case, isTranslatable set to "false". If the existence of white space is critical to the understanding of the content (such as inclusion of a leading or trailing white space), set the attribute of Text xml:space to "preserve".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="r:SourceParameterReference" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>This allows for the simple insert of a piece of information from another specified parameter. For example, if the text of the item using conditional text included the respondent’s name use SourceParameterReference to reference the InParameter of the question that is bound to the OutParameter of the question: “What is your name?”</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="ConditionalResult" type="ConditionalResultType">
+		<xs:annotation>
+			<xs:documentation>The text resulting from the conditional command. Supports structured content and the insertion of content by a source parameter. For example if a language has gender specific verb structures the result of an IfCondition may result in a text using female verb structures and inserting the female's name at a specific point.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+      	<xs:complexType name="IfThenElseTextType">
+		<xs:annotation>
+			<xs:documentation>Describes an if-then-else decision type for conditional text. IF the stated condition is met, the THEN clause is trigged, otherwise the ELSE clause is triggered. Contains an IfCondition (the condition that must be met to trigger the Then clause), a ThenResult (indicating the ConditionalResult to invoke if the condition is met), an ElseResult (indicating the construct to invoke if the condition is not met), and an ElseIfText structure allowing the expression of multiple conditions to invoke multiple branching.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="IfCondition" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The condition which must be met to trigger the Then clause, expressed as a CommandCode. The condition is an expression in the programming language used in the instrument.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ThenResult" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The conditional response which should be triggered if the associated condition is met.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ElseIfText" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Use for multiple branching from a single point in the flow logic represented by the flow logic If, Then, ElseIf, Then, etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ElseResult" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The conditional response which should be triggered if the associated condition is not met.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="IfThenElseText" type="IfThenElseTextType">
+		<xs:annotation>
+			<xs:documentation>Describes an if-then-else decision type for conditional text. IF the stated condition is met, the THEN clause is trigged, otherwise the ELSE clause is triggered. Contains an IfCondition (the condition that must be met to trigger the Then clause), a ThenResult (indicating the ConditionalResult to invoke if the condition is met), an ElseResult (indicating the construct to invoke if the condition is not met), and an ElseIfText structure allowing the expression of multiple conditions to invoke multiple branching.</xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:complexType name="ElseIfTextType">
+		<xs:annotation>
+			<xs:documentation>Use for multiple branching from a single point in the flow logic represented by the flow logic If, Then, ElseIf, Then, etc. This is a packaging element for an IfCondition and ThenConstructReference and not a control construct.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="IfCondition" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The condition which must be met to trigger the Then clause, expressed as a Coding. The condition is an expression in the programming language used in the instrument.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ThenResult" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The conditional response which should be triggered if the associated condition is met.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ElseIfText" type="ElseIfTextType">
+		<xs:annotation>
+			<xs:documentation>Use for multiple branching from a single point in the flow logic represented by the flow logic If, Then, ElseIf, Then, etc.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ThenResult" type="ConditionalResultType">
+		<xs:annotation>
+			<xs:documentation>The conditional result which should be triggered if the associated condition is met.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ElseResult" type="ConditionalResultType">
+		<xs:annotation>
+			<xs:documentation>The conditional result which should be triggered if the associated condition is not met.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:complexType name="QuestionSchemeType">
 		<xs:annotation>
 			<xs:documentation>Contains a set of QuestionItems, QuestionGrids, QuestionBlocks, and QuestionGroups. In addition to the standard name, label, and description of the Question Scheme, may contain another QuestionScheme by reference, a listing of Questions by type (in-line or by reference), and a listing of QuestionGroups (in-line or by reference).</xs:documentation>
