@@ -71,11 +71,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>LifecycleInformation contains the description of a set of events in the life cycle of the data. It may be extended by specific users.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="r:OtherMaterial" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Material related to this item from the archive's perspective.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

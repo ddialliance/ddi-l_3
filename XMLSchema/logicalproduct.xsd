@@ -66,11 +66,6 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
-					<xs:element ref="r:OtherMaterial" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Describes Other Materials that have a specific relation to the logical product. For example the printed data dictionary or printed output for the logical product.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1014,11 +1009,18 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Structured information used by a system to generate the category.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="r:OtherMaterial" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>External documentation required for creating the generation - for example, a chart or table for defining poverty.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="r:OtherMaterial">
+					<xs:annotation>
+						<xs:documentation>External documentation required for creating the generation - for example, a chart or table for defining poverty.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="r:OtherMaterialReference">
+					<xs:annotation>
+						<xs:documentation>Inclusion of an external documentation previously described. TypeOfObject should be OtherMaterial</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>	
 		</xs:sequence>
 		<xs:attribute name="isDerived" type="xs:boolean" default="true">
 			<xs:annotation>

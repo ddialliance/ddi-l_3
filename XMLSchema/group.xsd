@@ -112,16 +112,23 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Describes the coverage of the ResourcePackage unit. Detailed information on Topical, Temporal, and Spatial Coverage is contained here. Note that Coverage at this level should be inclusive all lower level modules or section. Lower level descriptions serve to constrain coverage within the scope described here.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="r:OtherMaterial" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Contains references to other materials relevant to the ResourcePackage unit, whether in DDI form or external. Links can be made from items in this section to any identifiable element in the instance. Best practice is to include OtherMaterial inside the maintainable containing the objects that are related to the OtherMaterial.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element ref="r:Embargo" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Embargo information about the ResourcePackage unit. References to embargo information in this section can be made from individual variables.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="r:OtherMaterialScheme">
+							<xs:annotation>
+								<xs:documentation>This scheme contains a set of other materials referenced by the metadata.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:OtherMaterialSchemeReference">
+							<xs:annotation>
+								<xs:documentation>Inclusion of an existing Other Material Scheme by reference.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 					<xs:element ref="ResourcePackageArchive" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>This is archive information specific to the creation, maintenance, and archiving of the ResourcePackage provided either in-line or by reference. This packaging element differentiates this "Archive" from one being published as a product within a ResourcePackage.</xs:documentation>
@@ -668,11 +675,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Briefly describes the data formats documented in the logical product(s) of a group unit. Examples include Numeric, Text, Audio, Visual, Geospatial, StillImage, Software, 3D, etc. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (KindOfDataFormat) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="r:OtherMaterial" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Contains references to other materials relevant to the group unit, whether in DDI form or external. Links can be made from items in this section to any identifiable element in the instance. Best practice is to include OtherMaterial inside the maintainable containing the objects that are related to the OtherMaterial.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element ref="r:RequiredResourcePackages" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Specifies by reference the ResourcePackages required to resolve the group. This list is informational and assists in creating full transmissions of metadata or creating archival packages. Primarily used after the instance is relatively stable and published.</xs:documentation>
@@ -683,6 +685,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Embargo information about the group unit. References to embargo information in this section can be made from individual variables.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="r:OtherMaterialScheme">
+							<xs:annotation>
+								<xs:documentation>This scheme contains a set of other materials referenced by the metadata.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:OtherMaterialSchemeReference">
+							<xs:annotation>
+								<xs:documentation>Inclusion of an existing Other Material Scheme by reference.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="c:ConceptualComponent">
 							<xs:annotation>

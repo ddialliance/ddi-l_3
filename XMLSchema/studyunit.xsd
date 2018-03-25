@@ -138,11 +138,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Briefly describes the data formats documented in the logical product(s) of a study unit. Examples include Numeric, Text, Audio, Visual, Geospatial, StillImage, Software, 3D, etc. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (KindOfDataFormat) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>					
-					<xs:element ref="r:OtherMaterial" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Contains references to other materials relevant to the study unit, whether in DDI form or external. Links can be made from items in this section to any identifiable element in the instance. Best practice is to include OtherMaterial inside the maintainable containing the objects that are related to the OtherMaterial.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element ref="r:RequiredResourcePackages" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Specifies by reference the ResourcePackages required to resolve the Study. This list is informational and assists in creating full transmissions of metadata or creating archival packages. Primarily used after the instance is relatively stable and published.</xs:documentation>
@@ -153,6 +148,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Embargo information about the study unit. References to embargo information in this section can be made from individual variables.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="r:OtherMaterialScheme">
+							<xs:annotation>
+								<xs:documentation>This scheme contains a set of other materials referenced by the metadata.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:OtherMaterialSchemeReference">
+							<xs:annotation>
+								<xs:documentation>Inclusion of an existing Other Material Scheme by reference.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="c:ConceptualComponent">
 							<xs:annotation>

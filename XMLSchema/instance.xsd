@@ -129,11 +129,6 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
-					<xs:element ref="r:OtherMaterial" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>External materials related to the DDI Instance that have not been included in any maintainables contained within the instance.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="pr:DDIProfile">
 							<xs:annotation>
@@ -216,6 +211,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:MeasurementScheme"/>
 				<xs:element ref="l:NCubeScheme"/>
 				<xs:element ref="a:OrganizationScheme"/>
+				<xs:element ref="r:OtherMaterialScheme"/>
 				<xs:element ref="p:PhysicalDataProduct"/>
 				<xs:element ref="pi:PhysicalInstance"/>
 				<xs:element ref="p:PhysicalStructureScheme"/>
@@ -284,6 +280,8 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="m2:NCubeInstance"/>
 				<xs:element ref="a:Organization"/>
 				<xs:element ref="a:OrganizationGroup"/>
+				<xs:element ref="r:OtherMaterial"/>
+				<xs:element ref="r:OtherMaterialGroup"/>
 				<xs:element ref="pi:PhysicalInstanceGroup"/>
 				<xs:element ref="p:PhysicalStructure"/>
 				<xs:element ref="p:PhysicalStructureGroup"/>
@@ -335,11 +333,6 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 			<xs:element ref="r:Note" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Notes specific to the object within the fragment.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="r:OtherMaterial" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>OtherMaterial associated with the object within the fragment.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
