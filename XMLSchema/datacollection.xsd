@@ -57,11 +57,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Documents the spatial, temporal, and/or topical coverage of the data collection module.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="r:OtherMaterial" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Contains references to other materials relevant to the data collection module, whether in DDI form or external. Links can be made from items in this section to any identifiable element in the instance. Best practice is to include OtherMaterial inside the maintainable containing the objects that are related to the OtherMaterial.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:choice minOccurs="0">
 						<xs:element ref="Methodology">
 							<xs:annotation>
@@ -2858,11 +2853,28 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Intent of the Question Block/ Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="StimulusMaterial" type="r:OtherMaterialType">
+	<xs:element name="StimulusMaterial" type="StimulusMaterialType">
 		<xs:annotation>
 			<xs:documentation>Description and link to the StimulusMaterial using the DDI Other Material structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:complexType name="StimulusMaterialType">
+		<xs:annotation>
+			<xs:documentation>Description and link to the StimulusMaterial using the DDI Other Material structure.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element ref="r:OtherMaterial">
+				<xs:annotation>
+					<xs:documentation>Description and link to the StimulusMaterial using the DDI Other Material structure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="r:OtherMaterialReference">
+				<xs:annotation>
+					<xs:documentation>Use of a previously described StimulusMaterial by Reference. TypeOfObject will be OtherMaterial.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
 	<xs:element name="QuestionSequence" type="QuestionSequenceType">
 		<xs:annotation>
 			<xs:documentation>Describes the ordering of questions when not otherwise indicated. Extends the standard sequencing information to indicate how and if StimulusMaterial should be treated in the resequencing.</xs:documentation>
@@ -4249,22 +4261,30 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:annotation>
 			<xs:documentation>Specification of an external interviewer instruction not structured in DDI. Uses the structure of OtherMaterial to provide a citation, description, and locator for the object.</xs:documentation>
 		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="r:OtherMaterialType">
-				<xs:sequence>
-					<xs:element ref="InstructionAttachmentLocation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Allows attachment of an instruction to a specific item in a question structure. For example, to a Label, QuestionText, ResponseDomain, Response domain value, or grid cell.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-				<xs:attribute name="isDisplayed" type="xs:boolean" default="true">
+		<xs:sequence>
+			<xs:choice minOccurs="0">
+				<xs:element ref="r:OtherMaterial">
 					<xs:annotation>
-						<xs:documentation>If set to "true" indicates that the instruction should always be displayed, not just upon need.</xs:documentation>
+						<xs:documentation>Specification of an external interviewer instruction not structured in DDI. Uses the structure of OtherMaterial to provide a citation, description, and locator for the object. TypeOfOtherMaterial should be set to ExternalInterviewInstruction.</xs:documentation>
 					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
+				</xs:element>
+				<xs:element ref="r:OtherMaterialReference">
+					<xs:annotation>
+						<xs:documentation>Inclusion of an existing ExternalInterviewerInstruction description by reference.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element ref="InstructionAttachmentLocation" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Allows attachment of an instruction to a specific item in a question structure. For example, to a Label, QuestionText, ResponseDomain, Response domain value, or grid cell.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="isDisplayed" type="xs:boolean" default="true">
+			<xs:annotation>
+				<xs:documentation>If set to "true" indicates that the instruction should always be displayed, not just upon need.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="InterviewerInstructionReferenceType">
 		<xs:annotation>
@@ -5121,11 +5141,28 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to a variable used in the derivation or coding instruction.ComputationItem, TypeOfObject should be set to Variable.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ExternalInformation" type="r:OtherMaterialType">
+	<xs:element name="ExternalInformation" type="ExternalInformationType">
 		<xs:annotation>
 			<xs:documentation>Description and link to the External Information using the DDI Other Material structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:complexType name="ExternalInformationType">
+		<xs:annotation>
+			<xs:documentation>Description and link to the External Information using the DDI Other Material structure.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element ref="r:OtherMaterial">
+				<xs:annotation>
+					<xs:documentation>Description and link to the External Information using the DDI Other Material structure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="r:OtherMaterialReference">
+				<xs:annotation>
+					<xs:documentation>Use of a previously described External Information by Reference. TypeOfObject will be OtherMaterial.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>	
+	</xs:complexType>
 	<xs:element name="DataCollectorOrganizationReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing Organization using the Reference structure. TypeOfObject should be set to Organization or Individual.</xs:documentation>
@@ -5151,11 +5188,28 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Time period of this role.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ExternalAid" type="r:OtherMaterialType">
+	<xs:element name="ExternalAid" type="ExternalAidType">
 		<xs:annotation>
 			<xs:documentation>Description and link to the External Aid using the DDI Other Material structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:complexType name="ExternalAidType">
+		<xs:annotation>
+			<xs:documentation>Description and link to the External Aid using the DDI Other Material structure.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element ref="r:OtherMaterial">
+				<xs:annotation>
+					<xs:documentation>Description and link to the ExternalAid using the DDI Other Material structure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="r:OtherMaterialReference">
+				<xs:annotation>
+					<xs:documentation>Use of a previously described ExternalAid by Reference. TypeOfObject will be OtherMaterial.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
 	<xs:element name="InstrumentReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing Instrument using the Reference structure. TypeOfObject should be set to Instrument.</xs:documentation>
@@ -6396,11 +6450,28 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="TranslationAidResource" type="r:OtherMaterialType">
+	<xs:element name="TranslationAidResource" type="TranslationAidResourceType">
 		<xs:annotation>
 			<xs:documentation>Provides a reference to the translation aid resource using the structure of OtherMaterial.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:complexType name="TranslationAidResourceType">
+		<xs:annotation>
+			<xs:documentation>Provides a reference to the translation aid resource using the structure of OtherMaterial.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element ref="r:OtherMaterial">
+				<xs:annotation>
+					<xs:documentation>Description and link to the complexType using the DDI Other Material structure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="r:OtherMaterialReference">
+				<xs:annotation>
+					<xs:documentation>Use of a previously described complexType by Reference. TypeOfObject will be OtherMaterial.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
 	<xs:element name="TypeOfTranslationMethod" type="r:CodeValueType">
 		<xs:annotation>
 			<xs:documentation>Specifies the type of translation method used. Supports the use of a controlled vocabulary.</xs:documentation>

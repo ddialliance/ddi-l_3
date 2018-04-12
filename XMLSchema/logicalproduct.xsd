@@ -66,11 +66,6 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
-					<xs:element ref="r:OtherMaterial" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Describes Other Materials that have a specific relation to the logical product. For example the printed data dictionary or printed output for the logical product.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1014,11 +1009,18 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Structured information used by a system to generate the category.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="r:OtherMaterial" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>External documentation required for creating the generation - for example, a chart or table for defining poverty.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="r:OtherMaterial">
+					<xs:annotation>
+						<xs:documentation>External documentation required for creating the generation - for example, a chart or table for defining poverty.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="r:OtherMaterialReference">
+					<xs:annotation>
+						<xs:documentation>Inclusion of an external documentation previously described. TypeOfObject should be OtherMaterial</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>	
 		</xs:sequence>
 		<xs:attribute name="isDerived" type="xs:boolean" default="true">
 			<xs:annotation>
@@ -1920,7 +1922,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:sequence>
 			<xs:element ref="r:VariableReference">
 				<xs:annotation>
-					<xs:documentation>Identifies the variable describing this dimension. The dimension uses the CodeList and related categories, or a fixed range of numeric values to define the labels and intersect points for the dimension. The data set will contain a value for each cell in the NCube rather than the code from the CodeList.</xs:documentation>
+					<xs:documentation>Identifies the variable describing this dimension. The dimension uses a form of CodeRepresentation (representation uses a CodeList, GeographicStructure, GeographicLocation, etc.), or a fixed range of numeric values to define the labels and intersect points for the dimension. The data set will contain a measurement value for each cell in the NCube rather than specifying the code values of the intersect points on the dimensions. Example: NCube Sex by Age in Years where there are 24 Males Age 4 (Dimension 1 intersect value M, Dimension 2 intersect value 4 with data cell measurement value (count) 24.)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

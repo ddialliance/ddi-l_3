@@ -53,11 +53,6 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>Provides information about the topical, spatial, and temporal coverage of the conceptual components included in this module.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="r:OtherMaterial" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Provides information about external resources related to the conceptual components described in this module.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="ConceptScheme">
 							<xs:annotation>
