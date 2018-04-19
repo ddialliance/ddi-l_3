@@ -217,7 +217,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="p:PhysicalStructureScheme"/>
 				<xs:element ref="d:ProcessingEventScheme"/>
 				<xs:element ref="d:ProcessingInstructionScheme"/>
-				<xs:element ref="r:QualityStatementScheme"/>
+				<xs:element ref="r:QualityScheme"/>
 				<xs:element ref="d:QuestionScheme"/>
 				<xs:element ref="p:RecordLayoutScheme"/>
 				<xs:element ref="l:RepresentedVariableScheme"/>
@@ -290,6 +290,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:ProcessingEventGroup"/>
 				<xs:element ref="d:ProcessingInstructionGroup"/>
 				<xs:element ref="r:QualityStandard"/>
+				<xs:element ref="r:QualityStandardGroup"/>
 				<xs:element ref="r:QualityStatement"/>
 				<xs:element ref="r:QualityStatementGroup"/>
 				<xs:element ref="d:QuestionBlock"/>
