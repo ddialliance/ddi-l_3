@@ -1621,6 +1621,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): r:QualityStandard</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="QualityStandardGroup">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): r:QualityStandardGroup</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="QualityStatement">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): r:QualityStatement</xs:documentation>
@@ -1967,9 +1972,9 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Use for reference to the following object(s): d:ProcessingInstructionScheme</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="QualityStatementScheme">
+			<xs:enumeration value="QualityScheme">
 				<xs:annotation>
-					<xs:documentation>Use for reference to the following object(s): r:QualityStatementScheme</xs:documentation>
+					<xs:documentation>Use for reference to the following object(s): r:QualityScheme</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="QuestionScheme">
@@ -4431,31 +4436,31 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:complexContent>
 	</xs:complexType>
 	<!--Quality Standards -->
-	<xs:complexType name="QualityStatementSchemeType">
+	<xs:complexType name="QualitySchemeType">
 		<xs:annotation>
-			<xs:documentation>This scheme contains a set of quality statements referenced by the metadata at different points in the lifecycle. In addition to the name, label, and description of the scheme, the structure supports the inclusion of another QualityStatementScheme by reference and a set of QualityStatement descriptions either in-line or by reference.</xs:documentation>
+			<xs:documentation>This scheme contains a set of quality statements and quality standards referenced by the metadata at different points in the lifecycle. In addition to the name, label, and description of the scheme, the structure supports the inclusion of another QualityStatementScheme by reference and a set of QualityStatement descriptions either in-line or by reference.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="MaintainableType">
 				<xs:sequence>
-					<xs:element ref="QualityStatementSchemeName" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="QualitySchemeName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the QualityStatementScheme. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the QualityScheme. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the QualityStatementScheme. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the QualityScheme. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the QualityStatementScheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the QualityScheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="QualityStatementSchemeReference" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="QualitySchemeReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Inclusion of an existing QualityStatementScheme by reference.</xs:documentation>
+							<xs:documentation>Inclusion of an existing QualityScheme by reference.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -4471,6 +4476,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:element>
 					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="QualityStandard">
+							<xs:annotation>
+								<xs:documentation>In-line description of a QualityStandard. These are used by reference at various points in the lifecycle.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="QualityStandardReference">
+							<xs:annotation>
+								<xs:documentation>The inclusion of an existing QualityStandard by reference.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="QualityStatementGroup">
 							<xs:annotation>
 								<xs:documentation>In-line description of a group of QualityStatements.</xs:documentation>
@@ -4482,23 +4499,35 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="QualityStandardGroup">
+							<xs:annotation>
+								<xs:documentation>In-line description of a group of QualityStandards.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="QualityStandardGroupReference">
+							<xs:annotation>
+								<xs:documentation>The inclusion of an existing QualityStandardGroup by reference. TypeOfObject should be set to QualityStandardGroup.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="QualityStatementScheme" type="QualityStatementSchemeType">
+	<xs:element name="QualityScheme" type="QualitySchemeType">
 		<xs:annotation>
-			<xs:documentation>This scheme contains a set of quality statements referenced by the metadata at different points in the lifecycle.</xs:documentation>
+			<xs:documentation>This scheme contains a set of quality statements and quality standards referenced by the metadata at different points in the lifecycle.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="QualityStatementSchemeName" type="NameType">
+	<xs:element name="QualitySchemeName" type="NameType">
 		<xs:annotation>
-			<xs:documentation>Name of the Quality Statement using the DDI Name structure.</xs:documentation>
+			<xs:documentation>Name of the Quality Scheme using the DDI Name structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="QualityStatementSchemeReference" type="SchemeReferenceType">
+	<xs:element name="QualitySchemeReference" type="SchemeReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to a QualityStatementScheme using SchemeReference which allows for the specification of objects to exclude. TypeOfObject should be set to QualityStatementScheme.</xs:documentation>
+			<xs:documentation>Reference to a QualityScheme using SchemeReference which allows for the specification of objects to exclude. TypeOfObject should be set to QualityScheme.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="QualityStatementReference" type="ReferenceType">
@@ -4622,24 +4651,36 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:annotation>
 					</xs:element>
 					<xs:choice minOccurs="0">
-						<xs:element ref="Standard">
-							<xs:annotation>
-								<xs:documentation>Identifies the external standard used and describes the level of compliance with the standard in terms specific aspects of the standard's content.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element ref="OtherQualityStatement">
+						<xs:choice>
+							<xs:element ref="QualityStandard">
+								<xs:annotation>
+									<xs:documentation>A formal description of a quality standard, and the quality concepts which it requires.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element ref="QualityStandardReference">
+								<xs:annotation>
+									<xs:documentation>Reference to an existing quality standard, and the quality concepts which it requires. TypeOfObject should be QualityStandard.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:choice>
+						<xs:element ref="OtherStatementOfQuality">
 							<xs:annotation>
 								<xs:documentation>Describes the steps taken to ensure quality that are not related to a specific standard. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat the OtherQualityStatement for differing content if needed.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
+					<xs:element ref="ComplianceStatement" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A descriptive statement regarding the application of the selected standard or other means of quality control.</xs:documentation>
+						</xs:annotation>
+					</xs:element>	
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="OtherQualityStatement" type="StructuredStringType">
+	<xs:element name="OtherStatementOfQuality" type="StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>Describes the steps taken to ensure quality that are not related to a specific standard. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat the OtherQualityStatement for differing content if needed.</xs:documentation>
+			<xs:documentation>Describes the steps taken to ensure quality that are not related to a specific standard. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat the OtherStatementOfQuality for differing content if needed.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="QualityStandardReference" type="ReferenceType">
@@ -4650,6 +4691,94 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	<xs:element name="QualityStandardName" type="NameType">
 		<xs:annotation>
 			<xs:documentation>Name of the Quality Standard using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="QualityStandardGroupReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing QualityStatementGroup using the Reference structure. TypeOfObject should be set to QualityStandardGroup.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="QualityStandardGroup" type="QualityStatementGroupType">
+		<xs:annotation>
+			<xs:documentation>Contains a group of QualityStatements.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="QualityStandardGroupType">
+		<xs:annotation>
+			<xs:documentation>Contains a group of QualityStatements, which may describe an ordered or hierarchical relationship structure. Specifies the purpose of the group, a name, label, and description of the group, its relationship to a specific universe or concept, and lists the members of the group.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="VersionableType">
+				<xs:sequence>
+					<xs:element ref="TypeOfQualityStandardGroup" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A generic element for specifying a reason for a QualityStatementGroup. Note that this element can contain either a term from a controlled vocabulary list or a textual description.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="QualityStandardGroupName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A name for the QualityStandardGroup. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Label" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A display label for the QualityStatementGroup. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the content and purpose of the QualityStatementGroup. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="UniverseReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the universe statement describing the persons or other objects to which the contents of this group pertain.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ConceptReference" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Reference to the concept expressed by the objects in this group.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Subject" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>If subjects are listed for this group, it is strongly recommended that the subjects listed also be found in the TopicalCoverage element for the parent packaging element when this group is included directly or by reference in a module containing a coverage element. Use of subject at the group level allows for associating objects as a type of subject based group or to identify subject characteristics of a reusable group of objects.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Keyword" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>If keywords are listed for this group, it is strongly recommended that the keywords listed also be found in the TopicalCoverage element for the parent packaging element when this group is included directly or by reference in a module containing a coverage element. Use of keyword at the group level allows for associating objects as a type of keyword based group or to identify keyword characteristics of a reusable group of objects.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="QualityStandardReference">
+							<xs:annotation>
+								<xs:documentation>Reference to constituent QualityStandard. TypeOfObject should be set to QualityStandard.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="QualityStandardGroupReference">
+							<xs:annotation>
+								<xs:documentation>Reference to constituent QualityStandardGroup. This allows for nesting of QualityStandardGroups.  TypeOfObject should be set to QualityStandardGroup.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+				</xs:sequence>
+				<xs:attribute name="isOrdered" type="xs:boolean" default="false">
+					<xs:annotation>
+						<xs:documentation>If set to "true" indicates that the content of the group is ordered as it appears within the XML structure.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="QualityStandardGroupName" type="NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the QualityStandardGroup using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TypeOfQualityStandardGroup" type="CodeValueType">
+		<xs:annotation>
+			<xs:documentation>A brief textual description of the type of group created to associate a number of Quality Standards. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="QualityStandard" type="QualityStandardType">
@@ -4679,7 +4808,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							<xs:documentation>A description of the QualityStandard. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="Standard" minOccurs="0">
+					<xs:element ref="StandardUsed" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Provide the citation and location of the source published standard using the OtherMaterialType.</xs:documentation>
 						</xs:annotation>
@@ -4688,96 +4817,19 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:annotation>
 							<xs:documentation>Provides a list of quality concepts in the quality standard.</xs:documentation>
 						</xs:annotation>
-						<xs:complexType>
-							<xs:sequence>
-								<xs:element ref="ComplianceConceptReference" minOccurs="0">
-									<xs:annotation>
-										<xs:documentation>A reference to a concept which relates to an area of coverage of the standard.</xs:documentation>
-									</xs:annotation>
-								</xs:element>
-								<xs:element ref="ExternalComplianceCode" minOccurs="0">
-									<xs:annotation>
-										<xs:documentation>Specification of a code which relates to an area of coverage of the standard. Supports the use of an external controlled vocabulary.</xs:documentation>
-									</xs:annotation>
-								</xs:element>
-							</xs:sequence>
-						</xs:complexType>
 					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="StandardType">
+	<xs:element name="ComplianceDefinition" type="ComplianceDefinitionType">
 		<xs:annotation>
-			<xs:documentation>Identifies the external standard used and describes the level of compliance with the standard in terms specific aspects of the standard's content.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element ref="QualityStandardReference" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Provide the citation and location of the published standard by referencing a Quality Standard item.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="StandardUsed" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Provide the citation and location of the published standard using the OtherMaterialType if not using a defined Quality Standard item.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="Compliance" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Allows for a quality statement based on frameworks to be described using itemized properties. A reference to a concept, a coded value, or both can be used to specify the property from the standard framework identified in the QualityStandardReference or StandardUsed. ComplianceDescription can provide further details or a general description of compliance with a standard.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="StandardUsed" type="StandardUsedType">
-		<xs:annotation>
-			<xs:documentation>Provide the citation and location of the published standard using the OtherMaterialType.</xs:documentation>
+			<xs:documentation>Provides a list of quality concepts in the quality standard.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="StandardUsedType">
+	<xs:complexType name="ComplianceDefinitionType">
 		<xs:annotation>
-			<xs:documentation>Provide the citation and location of the published standard using the OtherMaterialType.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="IdentifiableType">
-				<xs:choice>
-					<xs:element ref="OtherMaterial">
-						<xs:annotation>
-							<xs:documentation>Description and link to the StandardUsed using the DDI Other Material structure.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="OtherMaterialReference">
-						<xs:annotation>
-							<xs:documentation>Use of a previously described StandardUsed by Reference. TypeOfObject will be OtherMaterial.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:choice>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="Standard" type="StandardType">
-		<xs:annotation>
-			<xs:documentation>Identifies the external standard used and describes the level of compliance with the standard in terms specific aspects of the standard's content.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="ComplianceDescription" type="StructuredStringType">
-		<xs:annotation>
-			<xs:documentation>Describe the measures taken to comply with the standards and/or specific levels of compliance by providing further details or a general description of compliance with the standard. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="QualityStatementName" type="NameType">
-		<xs:annotation>
-			<xs:documentation>Name of the QualityStatement using the DDI Name structure.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="Compliance" type="ComplianceType">
-		<xs:annotation>
-			<xs:documentation>Allows for a quality statement based on frameworks to be described using itemized properties. A reference to a concept, a coded value, or both can be used to specify the property from the standard framework identified in StandardUsed. ComplianceDescription can provide further details or a general description of compliance with a standard.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:complexType name="ComplianceType">
-		<xs:annotation>
-			<xs:documentation>Allows for a quality statement based on frameworks to be described using itemized properties. A reference to a concept, a coded value, or both can be used to specify the property from the standard framework identified in StandardUsed. ComplianceDescription can provide further details or a general description of compliance with a standard.</xs:documentation>
+			<xs:documentation>Provides a list of quality concepts in the quality standard.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="ComplianceConceptReference" minOccurs="0">
@@ -4790,13 +4842,50 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Specification of a code which relates to an area of coverage of the standard. Supports the use of an external controlled vocabulary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="ComplianceDescription" minOccurs="0">
+			<xs:element ref="ComplianceRequirements" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Describe the measures taken to comply with the standards and/or specific levels of compliance by providing further details or a general description of compliance with the standard. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+					<xs:documentation>Specifies what is required to be seen as in compliance with the Standard. Note minimum requirements for various levels of compliance. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="ComplianceRequirements" type="StructuredStringType">
+		<xs:annotation>
+			<xs:documentation>Specifies what is required to be seen as in compliance with the Standard. Note minimum requirements for various levels of compliance. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="StandardUsed" type="StandardUsedType">
+		<xs:annotation>
+			<xs:documentation>Provide the citation and location of the published standard using the OtherMaterialType.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="StandardUsedType">
+		<xs:annotation>
+			<xs:documentation>Provide the citation and location of the published standard using the OtherMaterialType.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element ref="OtherMaterial">
+				<xs:annotation>
+					<xs:documentation>Description and link to the StandardUsed using the DDI Other Material structure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="OtherMaterialReference">
+				<xs:annotation>
+					<xs:documentation>Use of a previously described StandardUsed by Reference. TypeOfObject will be OtherMaterial.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="ComplianceStatement" type="StructuredStringType">
+		<xs:annotation>
+			<xs:documentation>Describe the measures taken to comply with the standards and/or specific levels of compliance by providing further details or a general description of compliance with the standard. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="QualityStatementName" type="NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the QualityStatement using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="ComplianceConceptReference" type="ReferenceType">
 		<xs:annotation>
 			<xs:documentation>A reference to a concept which relates to an area of coverage of the standard using the ReferenceStructure. TypeOfObject should be set to Concept.</xs:documentation>
@@ -6284,12 +6373,12 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 	</xs:element>
 	<xs:element name="MarkedIncrement" type="BasicIncrementType">
 		<xs:annotation>
-			<xs:documentation>Describes the start, end, and increment value for an incremental string (numeric, character, or length).</xs:documentation>
+			<xs:documentation>Identifies the frequency for increment markers (with or without value attachments).</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ValueIncrement" type="BasicIncrementType">
 		<xs:annotation>
-			<xs:documentation>Describes the start, end, and increment value for an incremental string (numeric, character, or length).</xs:documentation>
+			<xs:documentation>Identifies the frequency for value labels on marked or unmarked increments.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="DimensionIntersectType">

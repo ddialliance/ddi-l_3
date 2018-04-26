@@ -448,26 +448,14 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:element>
 					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="r:QualityStatementScheme">
+						<xs:element ref="r:QualityScheme">
 							<xs:annotation>
 								<xs:documentation>In-line inclusion of a QualityStatementScheme.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element ref="r:QualityStatementSchemeReference">
+						<xs:element ref="r:QualitySchemeReference">
 							<xs:annotation>
 								<xs:documentation>Inclusion of a QualityStatementScheme by reference. TypeOfObject should be set to QualityStatementScheme.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:choice>
-					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="r:QualityStandard">
-							<xs:annotation>
-								<xs:documentation>In-line inclusion of a QualityStandard.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element ref="r:QualityStandardReference">
-							<xs:annotation>
-								<xs:documentation>Inclusion of a QualityStandard by reference. TypeOfObject should be set to QualityStandard.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -619,14 +607,14 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						</xs:annotation>
 					</xs:element>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="r:QualityStatementScheme" minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="r:QualityScheme" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>A scheme containing statements of quality related to the quality of methodologies, metadata, or data. Quality statements may be related to external quality standards.</xs:documentation>
+								<xs:documentation>A scheme containing statements of quality related to the quality of methodologies, metadata, or data. Quality statements and standards may be related to external quality standards.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element ref="r:QualityStatementSchemeReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="r:QualitySchemeReference" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>A reference to a QualityStatementScheme containing statements of quality related to the quality of the group methodology, metadata, or data. Quality statements may be related to external quality standards.</xs:documentation>
+								<xs:documentation>A reference to a QualityStatementScheme containing statements of quality related to the quality of the group methodology, metadata, or data. Quality statements and standards may be related to external quality standards.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
