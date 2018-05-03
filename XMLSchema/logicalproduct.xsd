@@ -2815,7 +2815,7 @@ A Classification Index shows the relationship between text found in statistical 
                             <xs:documentation xml:lang="en">Describes the changes, which the Classification Item has been subject to during the life time of the actual Statistical Classification.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="ParentClassificationItem">
+                    <xs:element minOccurs="0" maxOccurs="1" ref="ParentClassificationItem">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">The Classification Item at the next higher Level of the Statistical Classification of which the actual Classification Item is a sub item.</xs:documentation>
                         </xs:annotation>
