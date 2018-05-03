@@ -2740,6 +2740,11 @@ A Classification Index shows the relationship between text found in statistical 
                             <xs:documentation xml:lang="en">A Classification Item is identified by an alphabetical, numerical or alphanumerical code, which is in line with the code structure of the Level. The code is unique within the Statistical Classification to which the Classification Item belongs.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+					<xs:element minOccurs="0" maxOccurs="unbounded" ref="r:DefiningConceptReference">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A concept which describes the Classification Item.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                     <xs:element minOccurs="0" maxOccurs="1" ref="Includes">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Specifies the contents of the category.</xs:documentation>
