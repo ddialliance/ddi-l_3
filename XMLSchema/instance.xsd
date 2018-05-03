@@ -187,6 +187,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="a:Archive"/>
 				<xs:element ref="l:BaseLogicalProduct"/>
 				<xs:element ref="l:CategoryScheme"/>
+				<xs:element ref="l:ClassificationFamily" />
 				<xs:element ref="l:CodeList"/>
 				<xs:element ref="l:CodeListScheme"/>
 				<xs:element ref="cm:Comparison"/>
@@ -232,6 +233,11 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="l:Category"/>
 				<xs:element ref="l:CategoryGroup"/>
 				<xs:element ref="cm:CategoryMap"/>
+				<xs:element ref="l:ClassificationCorrespondenceTable" />                
+                <xs:element ref="l:ClassificationIndex" />
+                <xs:element ref="l:ClassificationItem" />
+                <xs:element ref="l:ClassificationLevel" />
+                <xs:element ref="l:ClassificationSeries" />
 				<xs:element ref="l:CodeListGroup"/>
 				<xs:element ref="d:CognitiveExpertReviewActivity"/>
 				<xs:element ref="d:CognitiveInterviewActivity"/>
@@ -289,6 +295,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:ProcessingEvent"/>
 				<xs:element ref="d:ProcessingEventGroup"/>
 				<xs:element ref="d:ProcessingInstructionGroup"/>
+				<xs:element ref="l:Publication"/>				
 				<xs:element ref="r:QualityStandard"/>
 				<xs:element ref="r:QualityStandardGroup"/>
 				<xs:element ref="r:QualityStatement"/>
@@ -314,6 +321,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="l:RepresentedVariableGroup"/>
 				<xs:element ref="d:Sequence"/>
 				<xs:element ref="d:StatementItem"/>
+				<xs:element ref="l:StatisticalClassification" />
 				<xs:element ref="c:SubUniverseClass"/>
 				<xs:element ref="d:TranslationActivity"/>
 				<xs:element ref="c:UnitType"/>

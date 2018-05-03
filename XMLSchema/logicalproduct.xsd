@@ -2553,4 +2553,649 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Name of the RepresentedVariable using the DDI Name structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<!-- Classifications -->
+    <xs:complexType name="ClassificationCorrespondenceTableType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">A Correspondence Table expresses the relationship between two Statistical Classifications. These are typically: two versions from the same Classification Series; Statistical Classifications from different Classification Series; a variant and the version on which it is based; different versions of a variant. In the first and last examples, the Correspondence Table facilitates comparability over time. Correspondence relationships are shown in both directions</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="r:DescribableType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Owner">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The statistical office, other authority or section that created and maintains the Correspondence Table. A Correspondence Table may have several owners.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="MaintenanceUnit">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The unit or group of persons who are responsible for the Correspondence Table, i.e. for maintaining and updating it. </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="ContactPerson">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The person(s) who may be contacted for additional information about the Correspondence Table.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Publication">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A list of the publications in which the Correspondence Table has been published. </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="SourceClassification">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The Statistical Classification from which the correspondence is made. </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="TargetClassification">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The Statistical Classification(s) to which the correspondence is directed. There may be multiple target Statistical Classifications associated with the Correspondence Table.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="SourceLevel">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The correspondence is normally restricted to a certain Level in the source Statistical Classification. In this case, target Classification Items are assigned only to source Classification Items on the given level. If no level is indicated, target Classification Items can be assigned to any Level of the source Statistical Classification.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="TargetLevel">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The correspondence is normally restricted to a certain Level in the target Statistical Classification. In this case, source Classification Items are assigned only to target Classification Items on the given Level. If no Level is indicated, source Classification Items can be assigned to any Level of the target Statistical Classification.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="RelationshipMappingType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A Correspondence Table can define a 1:1, 1:N, N:1 or M:N relationship between source and target Classification Items.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Maps">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The relationship between two Statistical Classifications</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="FloatingMapDate">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">If the source and/or target Statistical Classifications of a Correspondence Table are floating Statistical Classifications, the date of the Correspondence Table must be noted. The Correspondence Table expresses the relationships between the two Statistical Classifications as they existed on the date specified in the Correspondence Table.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="Owner" type="r:ReferenceType" />
+    <xs:element name="MaintenanceUnit" type="r:ReferenceType" />
+    <xs:element name="ContactPerson" type="r:ReferenceType" />
+    <xs:element name="Publication" type="r:OtherMaterialType" />
+    <xs:element name="SourceClassification" type="r:ReferenceType" />
+    <xs:element name="TargetClassification" type="r:ReferenceType" />
+    <xs:element name="SourceLevel" type="r:ReferenceType" />
+    <xs:element name="TargetLevel" type="r:ReferenceType" />
+    <xs:element name="RelationshipMappingType" type="r:CodeValueType" />
+    <xs:element name="Maps" type="ClassificationMapType" />
+    <xs:element name="FloatingMapDate" type="r:BaseDateType" />
+    <xs:element name="ClassificationCorrespondenceTable" type="ClassificationCorrespondenceTableType" />
+	
+	<xs:complexType name="ClassificationFamilyType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">A Classification Family is a group of Classification Series related from a particular point of view.
+The Classification Family is related by being based on a common concept (e.g. economic activity).</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="r:MaintainableType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="r:Name">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A name for the Classification Family. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="r:Label">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A display label for the ClassificationFamily. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="r:Description">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A description of the content and purpose of the ClassificationFamily. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="ClassificationSeriesReference">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A Classification Family may refer to a number of Classification Series.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="Name" type="r:NameType" />
+    <xs:element name="Label" type="r:LabelType" />
+    <xs:element name="Description" type="r:StructuredStringType" />
+    <xs:element name="ClassificationSeriesReference" type="r:ReferenceType" />
+    <xs:element name="ClassificationFamily" type="ClassificationFamilyType" />
+
+    <xs:complexType name="ClassificationIndexType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">A Classification Index is an ordered list (alphabetical, in code order etc) of Classification Index Entries. A Classification Index can relate to one particular or to several Statistical Classifications.
+A Classification Index shows the relationship between text found in statistical data sources (responses to survey questionnaires, administrative records) and one or more Statistical Classifications. A Classification Index may be used to assign the codes for Classification Items to observations in statistical collections. </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="r:DescribableType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="ReleaseDate">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Date when the current version of the Classification Index was released.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="MaintenanceUnit">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The unit or group of persons within the organization  responsible for the Classification Index, i.e. for adding, changing or deleting Classification Index Entries.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="ContactPerson">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en"> Person(s) who may be contacted for additional information about the Classification Index.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Publication">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A list of the publications in which the Classification Index has been published.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Languages">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A Classification Index can exist in several languages. Indicates the languages available. If a Classification Index exists in several languages, the number of entries in each language may be different, as the number of terms describing the same phenomenon can change from one language to another. However, the same phenomena should be described in each language.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="Corrections">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Summary description of corrections, which have occurred within the Classification Index. Corrections include changing the item code associated with a Classification Index Entry.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="CodingInstructions">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Additional information which drives the coding process for all entries in a Classification Index.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="ClassificationIndexEntry">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">An ordered list (alphabetical, in code order etc.) of Classification Index Entries.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="ReleaseDate" type="r:BaseDateType" />
+    <xs:element name="Languages" type="xs:language" />
+    <xs:element name="Corrections" type="r:StructuredStringType" />
+    <xs:element name="CodingInstructions" type="r:StructuredStringType" />
+    <xs:element name="ClassificationIndexEntry" type="ClassificationIndexEntryType" />
+    <xs:element name="ClassificationIndex" type="ClassificationIndexType" />
+
+    <xs:complexType name="ClassificationItemType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">A Classification Item represents a Category at a certain Level within a Statistical Classification. It defines the content and the borders of the category. An object/unit can be classified to one and only one Classification Item at each Level of a Statistical Classification.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="r:DescribableType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="ItemCode">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A Classification Item is identified by an alphabetical, numerical or alphanumerical code, which is in line with the code structure of the Level. The code is unique within the Statistical Classification to which the Classification Item belongs.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="Includes">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Specifies the contents of the category.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="IncludesAlso">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A list of borderline cases, which belong to the described category.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="Excludes">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A list of borderline cases, which do not belong to the described category. Excluded cases may contain a reference to the Classification Items to which the excluded cases belong.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="ExcludedClassificationItem">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A reference to the Classification Items to which the excluded cases belong.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="LevelNumber">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The number of the Level to which the Classification Item belongs.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="LevelReference">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The Level to which the Classification Item belongs.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="IsGenerated">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Indicates whether or not the Classification Item has been generated to make the Level to which it belongs complete.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="IsValid">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">If updates are allowed in the Statistical Classification, a Classification Item may be restricted in its validity, i.e. it may become valid or invalid after the Statistical Classification has been released. Indicates whether or not the Classification Item is currently valid.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="ValidFrom">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Date from which the Classification Item became valid. The date must be defined if the Classification Item belongs to a floating Statistical Classification.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="ValidTo">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Date at which the Classification Item became invalid. The date must be defined if the Classification Item belongs to a floating Statistical Classification and is no longer valid.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="FutureEvents">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The future events describe a change (or a number of changes) related to an invalid Classification Item. These changes may e.g. have turned the now invalid Classification Item into one or several successor Classification Items. In describing these changes, terminology from the Typology of item changes, found in Appendix 3 should be used. This allows the possibility to follow successors of the Classification Item in the future.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="SuccessorClassificationItem">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Future events may e.g. have turned the now invalid Classification Item into one or several successor Classification Items, listed here</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="ChangesFromPriorVersion">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Describes the changes, which the Classification Item has been subject to from the previous version to the actual Statistical Classification. In describing these changes, terminology from the Typology of item changes, found in Appendix 3 of GSIM should be used.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="Updates">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Describes the changes, which the Classification Item has been subject to during the life time of the actual Statistical Classification.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="ParentClassificationItem">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The Classification Item at the next higher Level of the Statistical Classification of which the actual Classification Item is a sub item.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="CaseLaws">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Refers to one or more case law rulings related to the Classification Item.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="ItemCode" type="xs:string" />
+    <xs:element name="Includes" type="r:StructuredStringType" />
+    <xs:element name="IncludesAlso" type="r:StructuredStringType" />
+    <xs:element name="Excludes" type="r:StructuredStringType" />
+    <xs:element name="ExcludedClassificationItem" type="r:ReferenceType" />
+    <xs:element name="LevelNumber" type="xs:int" />
+    <xs:element name="LevelReference" type="r:ReferenceType" />
+    <xs:element name="IsGenerated" type="xs:boolean" />
+    <xs:element name="IsValid" type="xs:boolean" />
+    <xs:element name="ValidFrom" type="r:BaseDateType" />
+    <xs:element name="ValidTo" type="r:BaseDateType" />
+    <xs:element name="FutureEvents" type="r:StructuredStringType" />
+    <xs:element name="SuccessorClassificationItem" type="r:ReferenceType" />
+    <xs:element name="ChangesFromPriorVersion" type="r:StructuredStringType" />
+    <xs:element name="Updates" type="r:StructuredStringType" />
+    <xs:element name="ParentClassificationItem" type="r:ReferenceType" />
+    <xs:element name="CaseLaws" type="CaseLawType" />
+    <xs:element name="ClassificationItem" type="ClassificationItemType" />
+
+    <xs:complexType name="ClassificationLevelType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">A Statistical Classification has a structure which is composed of one or several Levels. A Level often is associated with a concept, which defines it. In a hierarchical Statistical Classification the Classification Items of each Level but the highest are aggregated to the nearest higher Level. A linear Statistical Classification has only one Level. </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="r:DescribableType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="LevelNumber">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The number associated with the Level. Levels are numbered consecutively starting with Level 1 at the highest (most aggregated) Level.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="LevelCodeType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Indicates whether the code at the Level is alphabetical, numerical or alphanumerical.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="LevelCodeStructure">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Indicates how the code at the Level is constructed of numbers, letters and separators.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="DummyCode">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Rule for the construction of dummy codes from the codes of the next higher Level (used when one or several categories are the same in two consecutive Levels).</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="r:DefiningConceptReference">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A concept which describes the level.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="LevelCodeType" type="r:CodeValueType" />
+    <xs:element name="LevelCodeStructure" type="r:CodeValueType" />
+    <xs:element name="DummyCode" type="r:StructuredStringType" />
+    <xs:element name="ClassificationLevel" type="ClassificationLevelType" />
+
+    <xs:complexType name="ClassificationSeriesType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">A Classification Series is an ensemble of one or several consecutive Statistical Classifications under a particular heading (for example ISIC or ISCO).</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="r:DescribableType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="SeriesContext">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A Classification Series can be designed in a specific context.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="UnitTypeClassified">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A Classification Series is designed to classify a specific type of object/unit according to a specific attribute.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="SubjectArea">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Areas of statistics in which the Classification Series is implemented.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Owner">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The statistical office or other authority, which created and maintains the Statistical Classification(s) related to the Classification Series. A Classification Series may have several owners.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="r:Keyword">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A Classification Series can be associated with one or a number of keywords.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="StatisticalClassifications">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A Classification Series has at least one Statistical Classification.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="CurrentStatisticalClassification">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">If there are several Statistical Classifications related to a Classification Series, one Statistical Classification may be assigned as the currently valid Statistical Classification.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="SeriesContext" type="r:CodeValueType" />
+    <xs:element name="UnitTypeClassified" type="r:ReferenceType" />
+    <xs:element name="SubjectArea" type="r:CodeValueType" />
+    <xs:element name="StatisticalClassifications" type="r:ReferenceType" />
+    <xs:element name="CurrentStatisticalClassification" type="r:ReferenceType" />
+    <xs:element name="ClassificationSeries" type="ClassificationSeriesType" />
+
+    <xs:complexType name="StatisticalClassificationType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">A Statistical Classification is a set of categories which may be assigned to one or more variables registered in statistical surveys or administrative files, and used in the production and dissemination of statistics.
+
+The categories at each level of the classification structure must be mutually exclusive and jointly exhaustive of all objects/units in the population of interest.
+
+The categories are defined with reference to one or more characteristics of a particular population of units of observation. A Statistical Classification may have a flat, linear structure or may be hierarchically structured, such that all categories at lower Levels are sub-categories of categories at the next Level up. Categories in Statistical Classifications are represented in the information model as Classification Items. </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="r:DescribableType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="ReleaseDate">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Date on which the Statistical Classification was released.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="TerminationDate">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Date on which the Statistical Classification was superseded by a successor version or otherwise ceased to be valid.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="IsCurrent">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Indicates whether or not the Statistical Classification is currently valid.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="MaintenanceUnit">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The unit or group of persons within the organization  who are responsible for the Statistical Classification (i.e, for maintaining, updating and changing it). </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="ContactPerson">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Person(s) who may be contacted for additional information about the Statistical Classification.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="LegalBase">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Indicates that the Statistical Classification is covered by a legal act or by some other formal agreement.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Publication">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A list of the publications, including print, PDF, HTML and other electronic formats, in which the Statistical Classification has been published.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="Copyright">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Statistical Classifications may have restricted copyrights. Such Statistical Classifications might be excluded from downloading. Notes the copyright statement that should be displayed in official publications to indicate the copyright owner.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="IsDisseminationAllowed">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Indicates whether or not the Statistical Classification may be published or otherwise disseminated (e.g. electronic dissemination).</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Levels">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">The structure of a Statistical Classification is defined by its Levels (classification level). Include here links to the relevant Levels.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="ClassificationItems">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A Statistical Classification is composed of categories structured in one or more Levels. Each category is represented by a Classification Item, which defines the content and the borders of the category.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="ClassificationIndexes">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A Statistical Classification can be associated with one or a number of Classification Indexes in which Classification Index Entries are linked to the appropriate Classification Item. Include here links to any relevant Classification Indexes.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="IsVersion">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Indicates if the Statistical Classification is a version.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="IsUpdate">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Indicates if the Statistical Classification is an update.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="IsFloating">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Indicates if the Statistical Classification is a floating classification. In a floating statistical classification, a validity period should be defined for all Classification Items which will allow the display of the item structure and content at different points of time.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="Predecessor">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">For those Statistical Classifications that are versions or updates, notes the preceding Statistical Classification of which the actual Statistical Classification is the successor.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="Successor">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Notes the Statistical Classification that superseded the actual Statistical Classification.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="DerivedFrom">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A Statistical Classification can be derived from one of the classification versions of another Classification Series. The derived Statistical Classification can either inherit the structure of the classification version from which it is derived, usually adding more detail, or use a large part of its Classification Items, rearranging them in a different structure. Indicates the classification version from which the actual Statistical Classification is derived.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="ChangesFromPreceding">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A summary description of the nature and content of changes from the preceding version or update. Specific changes are recorded in the Classification Item object under the -Changes from previous version and updates- attribute. </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="UpdatesAllowed">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Indicates whether or not updates are allowed within the classification version i.e. without leading to a new version.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="PermissibleUpdates">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">If Updates are Allowed, Indicate here what structural changes, if any, are permissible within a version. Note whether Classification Items can be added to the structure and whether they can be revalidated or invalidated. Such changes are more likely to be permissible in floating classifications. Also indicate whether changes to such things as Classification Item names and explanatory notes that do not involve structural changes are permissible within a version.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="Updates">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Summary description of changes which have occurred since the most recent classification version or classification update came into force.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="VariantOf">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">For those Statistical Classifications that are variants, notes the Statistical Classification on which it is based and any subsequent versions of that Statistical Classification to which it is also applicable.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="VariantChangesFromBase">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Describes the relationship between the variant and its base Statistical Classification, including regroupings, aggregations added and extensions.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="VariantPurpose">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">If the Statistical Classification is a variant, notes the specific purpose for which it was developed.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="TerminationDate" type="r:BaseDateType" />
+    <xs:element name="IsCurrent" type="xs:boolean" />
+    <xs:element name="LegalBase" type="r:StructuredStringType" />
+    <xs:element name="Copyright" type="r:StructuredStringType" />
+    <xs:element name="IsDisseminationAllowed" type="xs:boolean" />
+    <xs:element name="Levels" type="r:ReferenceType" />
+    <xs:element name="ClassificationItems" type="r:ReferenceType" />
+    <xs:element name="ClassificationIndexes" type="r:ReferenceType" />
+    <xs:element name="IsVersion" type="xs:boolean" />
+    <xs:element name="IsUpdate" type="xs:boolean" />
+    <xs:element name="IsFloating" type="xs:boolean" />
+    <xs:element name="Predecessor" type="r:ReferenceType" />
+    <xs:element name="Successor" type="r:ReferenceType" />
+    <xs:element name="DerivedFrom" type="r:ReferenceType" />
+    <xs:element name="ChangesFromPreceding" type="r:StructuredStringType" />
+    <xs:element name="UpdatesAllowed" type="xs:boolean" />
+    <xs:element name="PermissibleUpdates" type="r:StructuredStringType" />
+    <xs:element name="VariantOf" type="r:ReferenceType" />
+    <xs:element name="VariantChangesFromBase" type="r:StructuredStringType" />
+    <xs:element name="VariantPurpose" type="r:StructuredStringType" />
+    <xs:element name="StatisticalClassification" type="StatisticalClassificationType" />
+	
+	<xs:complexType name="CaseLawType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Refers to a case law ruling related to the Classification Item. </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="CaseLawName">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Case Law Name</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="r:Description">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">A description of the case law</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="CaseLawDate">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Date of the case law ruling</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="CaseLawName" type="r:NameType" />
+    <xs:element name="CaseLawDate" type="r:BaseDateType" />
+
+    <xs:complexType name="ClassificationIndexEntryType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">A Classification Index Entry is a word or a short text (e.g. the name of a locality, an economic activity or an occupational title) describing a type of object/unit or object property to which a Classification Item applies, together with the code of the corresponding Classification Item. Each Classification Index Entry typically refers to one item of the Statistical Classification. Although a Classification Index Entry may be associated with a Classification Item at any Level of a Statistical Classification, Classification Index Entries are normally associated with Classification Items at the lowest Level. </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" ref="EntryText">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Text describing the type of object/unit or object property.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="CodesClassificationItem">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">the Classification Item with which the Classification Index Entry is associated.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="ValidFrom">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Date from which the Classification Index Entry became valid. The date must be defined if the Classification Index Entry belongs to a floating Classification Index.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="ValidTo">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Date at which the Classification Index Entry became invalid. The date must be defined if the Classification Index Entry belongs to a floating Classification Index and is no longer valid.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="CodingInstructions">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Additional information which drives the coding process. Required when coding is dependent upon one or many other factors.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="EntryText" type="xs:string" />
+    <xs:element name="CodesClassificationItem" type="r:ReferenceType" />
+
+    <xs:complexType name="ClassificationMapType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">A Map is an expression of the relation between a Classification Item in a source Statistical Classification and a corresponding Classification Item in the target Statistical Classification. The Map should specify whether the relationship between the two Classification Items is partial or complete. Depending on the relationship type of the Correspondence Table, there may be several Maps for a single source or target Classification Item. </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" ref="SourceClassificationItem">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">The source item refers to the Classification Item in the source Statistical Classification.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="TargetClassificationItem">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">The target item refers to the Classification Item in the target Statistical Classification.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="IsComplete">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Specifies whether the relationship between the two Classification Items is partial or complete.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="ValidFrom">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Date from which the Map became valid. The date must be defined if the Map belongs to a floating Correspondence Table.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="ValidTo">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Date at which the Map became invalid. The date must be defined if the Map belongs to a floating Correspondence Table and is no longer valid.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="SourceClassificationItem" type="r:ReferenceType" />
+    <xs:element name="TargetClassificationItem" type="r:ReferenceType" />
+    <xs:element name="IsComplete" type="xs:boolean" />
+
+
 </xs:schema>
