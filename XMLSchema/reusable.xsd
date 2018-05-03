@@ -6094,11 +6094,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="RepresentationType">
 				<xs:sequence>
-					<xs:element ref="CodeListReference" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>A reference to the CodeList included in this representation using the Reference structure.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
+					<xs:choice minOccurs="0">
+						<xs:element ref="CodeListReference">
+							<xs:annotation>
+								<xs:documentation>A reference to the CodeList included in this representation using the Reference structure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="StatisticalClassificationReference">
+							<xs:annotation>
+								<xs:documentation>A reference to the StatisticalClassification included in this representation using the Reference structure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 					<xs:element ref="CodeSubsetInformation" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Allows further specification of the codes to use from the CodeList by defining the level or only the most discrete codes of a hierarchical CodeList, the range of codes to use, or an itemized sub-set.</xs:documentation>
