@@ -295,7 +295,6 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:ProcessingEvent"/>
 				<xs:element ref="d:ProcessingEventGroup"/>
 				<xs:element ref="d:ProcessingInstructionGroup"/>
-				<xs:element ref="l:Publication"/>				
 				<xs:element ref="r:QualityStandard"/>
 				<xs:element ref="r:QualityStandardGroup"/>
 				<xs:element ref="r:QualityStatement"/>

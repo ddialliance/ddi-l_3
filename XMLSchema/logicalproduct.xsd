@@ -2576,7 +2576,7 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
                             <xs:documentation xml:lang="en">The person(s) who may be contacted for additional information about the Correspondence Table.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Publication">
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="r:Publication">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">A list of the publications in which the Correspondence Table has been published. </xs:documentation>
                         </xs:annotation>
@@ -2623,7 +2623,6 @@ with DDI 3 dev XML Schema. If not, see <http://www.gnu.org/licenses/>.
     <xs:element name="Owner" type="r:ReferenceType" />
     <xs:element name="MaintenanceUnit" type="r:ReferenceType" />
     <xs:element name="ContactPerson" type="r:ReferenceType" />
-    <xs:element name="Publication" type="r:OtherMaterialType" />
     <xs:element name="SourceClassification" type="r:ReferenceType" />
     <xs:element name="TargetClassification" type="r:ReferenceType" />
     <xs:element name="SourceLevel" type="r:ReferenceType" />
@@ -2693,7 +2692,7 @@ A Classification Index shows the relationship between text found in statistical 
                             <xs:documentation xml:lang="en"> Person(s) who may be contacted for additional information about the Classification Index.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Publication">
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="r:Publication">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">A list of the publications in which the Classification Index has been published.</xs:documentation>
                         </xs:annotation>
@@ -2978,7 +2977,7 @@ The categories are defined with reference to one or more characteristics of a pa
                             <xs:documentation xml:lang="en">Indicates that the Statistical Classification is covered by a legal act or by some other formal agreement.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Publication">
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="r:Publication">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">A list of the publications, including print, PDF, HTML and other electronic formats, in which the Statistical Classification has been published.</xs:documentation>
                         </xs:annotation>
