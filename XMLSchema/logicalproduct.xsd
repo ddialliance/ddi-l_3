@@ -2656,7 +2656,7 @@ The Classification Family is related by being based on a common concept (e.g. ec
                             <xs:documentation xml:lang="en">A description of the content and purpose of the ClassificationFamily. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="ClassificationSeriesReference">
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="r:ClassificationSeriesReference">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">A Classification Family may refer to a number of Classification Series.</xs:documentation>
                         </xs:annotation>
@@ -2668,7 +2668,6 @@ The Classification Family is related by being based on a common concept (e.g. ec
     <xs:element name="Name" type="r:NameType" />
     <xs:element name="Label" type="r:LabelType" />
     <xs:element name="Description" type="r:StructuredStringType" />
-    <xs:element name="ClassificationSeriesReference" type="r:ReferenceType" />
     <xs:element name="ClassificationFamily" type="ClassificationFamilyType" />
 
     <xs:complexType name="ClassificationIndexType">
@@ -2918,7 +2917,7 @@ A Classification Index shows the relationship between text found in statistical 
                             <xs:documentation xml:lang="en">A Classification Series can be associated with one or a number of keywords.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="StatisticalClassifications">
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="r:StatisticalClassificationReference">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">A Classification Series has at least one Statistical Classification.</xs:documentation>
                         </xs:annotation>
@@ -2935,7 +2934,6 @@ A Classification Index shows the relationship between text found in statistical 
     <xs:element name="SeriesContext" type="r:CodeValueType" />
     <xs:element name="UnitTypeClassified" type="r:ReferenceType" />
     <xs:element name="SubjectArea" type="r:CodeValueType" />
-    <xs:element name="StatisticalClassifications" type="r:ReferenceType" />
     <xs:element name="CurrentStatisticalClassification" type="r:ReferenceType" />
     <xs:element name="ClassificationSeries" type="ClassificationSeriesType" />
 

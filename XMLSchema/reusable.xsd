@@ -5812,6 +5812,21 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing Comparison using the Reference structure. TypeOfObject should be set to Comparison.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="ClassificationFamilyReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing ClassificationFamily using the Reference structure. TypeOfObject should be set to ClassificationFamily.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ClassificationSeriesReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing ClassificationSeries using the Reference structure. TypeOfObject should be set to ClassificationSeries.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="StatisticalClassificationReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing StatisticalClassification using the Reference structure. TypeOfObject should be set to StatisticalClassification.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="DDIProfileReference" type="ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing DDIProfile using the Reference structure. TypeOfObject should be set to DDIProfile.</xs:documentation>
