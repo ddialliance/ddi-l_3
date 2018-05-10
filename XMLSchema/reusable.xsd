@@ -918,6 +918,38 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A reference to an object which the object being described here is based upon using a standard Reference structure. The TypeOfObject may be any Versionable or Maintainable object.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<!-- Describable -->
+    <xs:complexType name="DescribableType" abstract="true">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">A versionable object that has a Name, Label, and Description.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="VersionableType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Name">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A name for the item. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Label">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A display label for the item. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="Description">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A description of the content and purpose of the item. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+	<xs:element name="Name" type="NameType">
+		<xs:annotation>
+			<xs:documentation>Name of the Item using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<!-- Maintainable -->
 	<xs:complexType name="AbstractMaintainableType" abstract="true">
 		<xs:annotation>
@@ -1339,6 +1371,37 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:enumeration value="CategoryMap">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): cm:CategoryMap</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value="ClassificationCorrespondenceTable">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): l:ClassificationCorrespondenceTable</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ClassificationIndex">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): l:ClassificationIndex</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ClassificationItem">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): l:ClassificationItem</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ClassificationLevel">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): l:ClassificationLevel</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ClassificationSeries">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): l:ClassificationSeries</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StatisticalClassification">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): l:StatisticalClassification</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="CodeListGroup">
@@ -1810,6 +1873,11 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:enumeration value="CategoryScheme">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): l:CategoryScheme</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ClassificationFamily">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): l:ClassificationFamily</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="CodeList">
@@ -4940,6 +5008,28 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
+	<xs:element name="Publication" type="PublicationType">
+		<xs:annotation>
+			<xs:documentation>Description and link to the Publication using the DDI Other Material structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:complexType name="PublicationType">
+		<xs:annotation>
+			<xs:documentation>Description and link to the Publication using the DDI Other Material structure.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element ref="OtherMaterial">
+				<xs:annotation>
+					<xs:documentation>Description and link to the Publication using the DDI Other Material structure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="OtherMaterialReference">
+				<xs:annotation>
+					<xs:documentation>Use of a previously described Publication by Reference. TypeOfObject will be OtherMaterial.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
 	<xs:complexType name="StandardKeyValuePairType">
 		<xs:annotation>
 			<xs:documentation>A basic data representation for computing systems and applications expressed as a tuple (attribute key, value). Attribute keys may or may not be unique.</xs:documentation>
@@ -5739,6 +5829,21 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing Comparison using the Reference structure. TypeOfObject should be set to Comparison.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="ClassificationFamilyReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing ClassificationFamily using the Reference structure. TypeOfObject should be set to ClassificationFamily.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ClassificationSeriesReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing ClassificationSeries using the Reference structure. TypeOfObject should be set to ClassificationSeries.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="StatisticalClassificationReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing StatisticalClassification using the Reference structure. TypeOfObject should be set to StatisticalClassification.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="DDIProfileReference" type="ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing DDIProfile using the Reference structure. TypeOfObject should be set to DDIProfile.</xs:documentation>
@@ -5989,11 +6094,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		<xs:complexContent>
 			<xs:extension base="RepresentationType">
 				<xs:sequence>
-					<xs:element ref="CodeListReference" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>A reference to the CodeList included in this representation using the Reference structure.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
+					<xs:choice minOccurs="0">
+						<xs:element ref="CodeListReference">
+							<xs:annotation>
+								<xs:documentation>A reference to the CodeList included in this representation using the Reference structure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="StatisticalClassificationReference">
+							<xs:annotation>
+								<xs:documentation>A reference to the StatisticalClassification included in this representation using the Reference structure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 					<xs:element ref="CodeSubsetInformation" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Allows further specification of the codes to use from the CodeList by defining the level or only the most discrete codes of a hierarchical CodeList, the range of codes to use, or an itemized sub-set.</xs:documentation>

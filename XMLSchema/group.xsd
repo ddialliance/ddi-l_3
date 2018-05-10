@@ -242,6 +242,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="l:ClassificationFamily">
+							<xs:annotation>
+								<xs:documentation>Allows for in-line entry of a Classification Family.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:ClassificationFamilyReference">
+							<xs:annotation>
+								<xs:documentation>Allows for inclusion of a Classification Family by reference.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 					<!-- INDIVIDUAL SCHEMES -->
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="a:OrganizationScheme">
@@ -766,6 +778,18 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 						<xs:element ref="r:ArchiveReference">
 							<xs:annotation>
 								<xs:documentation>Inclusion of Archive applying to the group as a whole by reference.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="l:ClassificationFamily">
+							<xs:annotation>
+								<xs:documentation>Allows for in-line entry of a Classification Family.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:ClassificationFamilyReference">
+							<xs:annotation>
+								<xs:documentation>Allows for inclusion of a Classification Family by reference.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
