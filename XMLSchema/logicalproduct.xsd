@@ -2834,7 +2834,7 @@ A Classification Index shows the relationship between text found in statistical 
     <xs:element name="IncludesAlso" type="r:StructuredStringType" />
     <xs:element name="Excludes" type="r:StructuredStringType" />
     <xs:element name="ExcludedClassificationItem" type="r:ReferenceType" />
-    <xs:element name="LevelNumber" type="xs:int" />
+    <xs:element name="LevelNumber" type="xs:nonNegativeInteger" />
     <xs:element name="LevelReference" type="r:ReferenceType" />
     <xs:element name="IsGenerated" type="xs:boolean" />
     <xs:element name="IsValid" type="xs:boolean" />
