@@ -6521,24 +6521,24 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work as a set of source and target language requirements.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="TranslationSourceLanguage" minOccurs="0">
+			<xs:element ref="TranslationSourceLanguageAbility" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work for the source language.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="TranslationTargetLanguage" minOccurs="0">
+			<xs:element ref="TranslationTargetLanguageAbility" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Describes both minimum and preferred language abilities sought for the translation work for the target language.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="TranslationSourceLanguage" type="LanguageAbilitySoughtType">
+	<xs:element name="TranslationSourceLanguageAbility" type="LanguageAbilitySoughtType">
 		<xs:annotation>
 			<xs:documentation>Identifies the language and the individuals ability to read, write, and speak the designated language using a controlled vocabulary as minimum and preferred requirements.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="TranslationTargetLanguage" type="LanguageAbilitySoughtType">
+	<xs:element name="TranslationTargetLanguageAbility" type="LanguageAbilitySoughtType">
 		<xs:annotation>
 			<xs:documentation>Identifies the language and the individuals ability to read, write, and speak the designated language using a controlled vocabulary as minimum and preferred requirements.</xs:documentation>
 		</xs:annotation>
