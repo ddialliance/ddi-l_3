@@ -4679,7 +4679,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 					<xs:documentation>Indicate specific strata if the sample frame has been stratified prior to sampling within the specified stage.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="SampleSize">
+			<xs:element ref="DesiredSampleSize">
 				<xs:annotation>
 					<xs:documentation>The number and type of sample units.</xs:documentation>
 				</xs:annotation>
@@ -4696,7 +4696,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>A strata within a sample frame stratification.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SampleSize" type="SizeType">
+	<xs:element name="DesiredSampleSize" type="SizeType">
 		<xs:annotation>
 			<xs:documentation>Size of the sample.</xs:documentation>
 		</xs:annotation>
