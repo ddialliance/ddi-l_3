@@ -7648,7 +7648,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="CodeValueType">
-				<xs:attribute name="numberOfUnits" type="xs:decimal">
+				<xs:attribute name="numberOfUnits" type="xs:nonNegativeInteger">
 					<xs:annotation>
 						<xs:documentation>The number of units to off-set the date for this item expressed as a decimal.</xs:documentation>
 					</xs:annotation>
