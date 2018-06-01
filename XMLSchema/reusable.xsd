@@ -4766,7 +4766,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 			<xs:documentation>Reference to an existing QualityStatementGroup using the Reference structure. TypeOfObject should be set to QualityStandardGroup.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="QualityStandardGroup" type="QualityStatementGroupType">
+	<xs:element name="QualityStandardGroup" type="QualityStandardGroupType">
 		<xs:annotation>
 			<xs:documentation>Contains a group of QualityStatements.</xs:documentation>
 		</xs:annotation>
@@ -7648,7 +7648,7 @@ with DDI 3.3 XML Schema. If not, see <http://www.gnu.org/licenses/>.
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="CodeValueType">
-				<xs:attribute name="numberOfUnits" type="xs:decimal">
+				<xs:attribute name="numberOfUnits" type="xs:nonNegativeInteger">
 					<xs:annotation>
 						<xs:documentation>The number of units to off-set the date for this item expressed as a decimal.</xs:documentation>
 					</xs:annotation>

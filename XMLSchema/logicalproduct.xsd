@@ -2834,7 +2834,7 @@ A Classification Index shows the relationship between text found in statistical 
     <xs:element name="IncludesAlso" type="r:StructuredStringType" />
     <xs:element name="Excludes" type="r:StructuredStringType" />
     <xs:element name="ExcludedClassificationItem" type="r:ReferenceType" />
-    <xs:element name="LevelNumber" type="xs:int" />
+    <xs:element name="LevelNumber" type="xs:nonNegativeInteger" />
     <xs:element name="LevelReference" type="r:ReferenceType" />
     <xs:element name="IsGenerated" type="xs:boolean" />
     <xs:element name="IsValid" type="xs:boolean" />
@@ -2987,7 +2987,7 @@ The categories are defined with reference to one or more characteristics of a pa
                             <xs:documentation xml:lang="en">A list of the publications, including print, PDF, HTML and other electronic formats, in which the Statistical Classification has been published.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element minOccurs="0" maxOccurs="1" ref="Copyright">
+                    <xs:element minOccurs="0" maxOccurs="1" ref="r:Copyright">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Statistical Classifications may have restricted copyrights. Such Statistical Classifications might be excluded from downloading. Notes the copyright statement that should be displayed in official publications to indicate the copyright owner.</xs:documentation>
                         </xs:annotation>
@@ -3084,7 +3084,6 @@ The categories are defined with reference to one or more characteristics of a pa
     <xs:element name="TerminationDate" type="r:BaseDateType" />
     <xs:element name="IsCurrent" type="xs:boolean" />
     <xs:element name="LegalBase" type="r:StructuredStringType" />
-    <xs:element name="Copyright" type="r:StructuredStringType" />
     <xs:element name="IsDisseminationAllowed" type="xs:boolean" />
     <xs:element name="Levels" type="r:ReferenceType" />
     <xs:element name="ClassificationItems" type="r:ReferenceType" />
