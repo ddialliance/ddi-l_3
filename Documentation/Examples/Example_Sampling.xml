@@ -5,7 +5,7 @@ Example - Sampling
 
 -->
 
-<g:ResourcePackage xmlns:ddi="ddi:instance:3_3" xmlns:a="ddi:archive:3_3" xmlns:c="ddi:conceptualcomponent:3_3" xmlns:cm="ddi:comparative:3_3" xmlns:d="ddi:datacollection:3_3" xmlns:g="ddi:group:3_3" xmlns:l="ddi:logicalproduct:3_3" xmlns:p="ddi:physicaldataproduct:3_3" xmlns:pi="ddi:physicalinstance:3_3" xmlns:pr="ddi:ddiprofile:3_3" xmlns:r="ddi:reusable:3_3" xmlns:s="ddi:studyunit:3_3" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_3 instance.xsd">
+<g:ResourcePackage xmlns:ddi="ddi:instance:3_3" xmlns:a="ddi:archive:3_3" xmlns:c="ddi:conceptualcomponent:3_3" xmlns:cm="ddi:comparative:3_3" xmlns:d="ddi:datacollection:3_3" xmlns:g="ddi:group:3_3" xmlns:l="ddi:logicalproduct:3_3" xmlns:p="ddi:physicaldataproduct:3_3" xmlns:pi="ddi:physicalinstance:3_3" xmlns:pr="ddi:ddiprofile:3_3" xmlns:r="ddi:reusable:3_3" xmlns:s="ddi:studyunit:3_3" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_3 ../../XMLSchema/instance.xsd">
 	<r:URN>urn:ddi:us.mpc:RP_Sample:1</r:URN>
 	<d:DataCollection isMaintainable="true" scopeOfUniqueness="Agency">
 		<r:URN>urn:ddi:us.mpc:DColl:1</r:URN>
@@ -39,7 +39,7 @@ Example - Sampling
 					</d:SampleFrameReference>
 					<d:TargetSampleSize>
 						<d:StrataNumber>1</d:StrataNumber>
-						<d:SampleSize numberOfUnits="60000">Housing Units</d:SampleSize>
+						<d:DesiredSampleSize numberOfUnits="60000">Housing Units</d:DesiredSampleSize>
 					</d:TargetSampleSize>
 					<d:DateOfSample><r:SimpleDate>2013-01-01</r:SimpleDate></d:DateOfSample>
 					<d:ResponsibleForSamplingReference>
@@ -54,8 +54,10 @@ Example - Sampling
 			<d:GenerationInstruction isVersionable="true" scopeOfUniqueness="Agency">
 				<r:URN>urn:ddi:us.mpc:ProcInstr_1:1</r:URN>
 				<d:ExternalInformation>
-					<r:URN>urn:ddi:us.mpc:CPS_meth:1</r:URN>
-					<r:ExternalURLReference>http://www.census.gov/prod/2006pubs/tp-66.pdf</r:ExternalURLReference>
+					<r:OtherMaterial>
+						<r:URN>urn:ddi:us.mpc:CPS_meth:1</r:URN>
+						<r:ExternalURLReference>http://www.census.gov/prod/2006pubs/tp-66.pdf</r:ExternalURLReference>
+					</r:OtherMaterial>
 				</d:ExternalInformation>	
 				<r:Description><r:Content>The overall state sampling interval is the inverse of the probability of selection of each housing unit in a state for a self-weighting design. By design, the overall state sampling interval is fixed, but the state sample size is not fixed, allowing growth of the CPS sample because of housing units built after Census 2000. (See Appendix B for details on how the desired sample size is maintained.)</r:Content></r:Description>
 			</d:GenerationInstruction>

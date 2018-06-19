@@ -5,7 +5,7 @@ Example - Questionnaire Development
 
 -->
 
-<g:ResourcePackage xmlns:ddi="ddi:instance:3_3" xmlns:a="ddi:archive:3_3" xmlns:c="ddi:conceptualcomponent:3_3" xmlns:cm="ddi:comparative:3_3" xmlns:d="ddi:datacollection:3_3" xmlns:g="ddi:group:3_3" xmlns:l="ddi:logicalproduct:3_3" xmlns:p="ddi:physicaldataproduct:3_3" xmlns:pi="ddi:physicalinstance:3_3" xmlns:pr="ddi:ddiprofile:3_3" xmlns:r="ddi:reusable:3_3" xmlns:s="ddi:studyunit:3_3" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_3 instance.xsd">
+<g:ResourcePackage xmlns:ddi="ddi:instance:3_3" xmlns:a="ddi:archive:3_3" xmlns:c="ddi:conceptualcomponent:3_3" xmlns:cm="ddi:comparative:3_3" xmlns:d="ddi:datacollection:3_3" xmlns:g="ddi:group:3_3" xmlns:l="ddi:logicalproduct:3_3" xmlns:p="ddi:physicaldataproduct:3_3" xmlns:pi="ddi:physicalinstance:3_3" xmlns:pr="ddi:ddiprofile:3_3" xmlns:r="ddi:reusable:3_3" xmlns:s="ddi:studyunit:3_3" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_3 ../../XMLSchema/instance.xsd">
 	<r:URN>urn:ddi:us.mpc:RP:1</r:URN>
 	<d:DataCollection isMaintainable="true" scopeOfUniqueness="Agency">
 		<r:URN>urn:ddi:us.mpc:DColl:1</r:URN>
@@ -146,30 +146,30 @@ Example - Questionnaire Development
 				</d:TranslationMethod>
 				<d:TranslationRequirements isOral="false" isWritten="true"><r:Content>Accurate translation from source to target language validated by content review.</r:Content></d:TranslationRequirements>
 				<d:TranslatorRequirements>
-					<d:TranslationSouceLanguage>
+					<d:TranslationSourceLanguageAbility>
 						<d:MinimumLanguageAbility>
 							<r:Language>English</r:Language>
-							<a:Read codeListURN="http://careers.state.gov/gateway/lang_prof_def.html">Full Professonal Proficiency</a:Read>
-							<a:Write codeListURN="http://careers.state.gov/gateway/lang_prof_def.html">Full Professonal Proficiency</a:Write>
+							<a:Read controlledVocabularyURN="http://careers.state.gov/gateway/lang_prof_def.html">Full Professonal Proficiency</a:Read>
+							<a:Write controlledVocabularyURN="http://careers.state.gov/gateway/lang_prof_def.html">Full Professonal Proficiency</a:Write>
 						</d:MinimumLanguageAbility>
 						<d:PreferredLanguageAbility>
 							<r:Language>English</r:Language>
-							<a:Read codeListURN="http://careers.state.gov/gateway/lang_prof_def.html">Native or Bilingual Proficiency</a:Read>
-							<a:Write codeListURN="http://careers.state.gov/gateway/lang_prof_def.html">Native or Bilingual Proficiency</a:Write>
+							<a:Read controlledVocabularyURN="http://careers.state.gov/gateway/lang_prof_def.html">Native or Bilingual Proficiency</a:Read>
+							<a:Write controlledVocabularyURN="http://careers.state.gov/gateway/lang_prof_def.html">Native or Bilingual Proficiency</a:Write>
 						</d:PreferredLanguageAbility>
-					</d:TranslationSouceLanguage>
-					<d:TranslationTargetLanguage>
+					</d:TranslationSourceLanguageAbility>
+					<d:TranslationTargetLanguageAbility>
 						<d:MinimumLanguageAbility>
 							<r:Language>German</r:Language>
-							<a:Read codeListURN="http://careers.state.gov/gateway/lang_prof_def.html">Full Professonal Proficiency</a:Read>
-							<a:Write codeListURN="http://careers.state.gov/gateway/lang_prof_def.html">Full Professonal Proficiency</a:Write>
+							<a:Read controlledVocabularyURN="http://careers.state.gov/gateway/lang_prof_def.html">Full Professonal Proficiency</a:Read>
+							<a:Write controlledVocabularyURN="http://careers.state.gov/gateway/lang_prof_def.html">Full Professonal Proficiency</a:Write>
 						</d:MinimumLanguageAbility>
 						<d:PreferredLanguageAbility>
 							<r:Language>German</r:Language>
-							<a:Read codeListURN="http://careers.state.gov/gateway/lang_prof_def.html">Native or Bilingual Proficiency</a:Read>
-							<a:Write codeListURN="http://careers.state.gov/gateway/lang_prof_def.html">Native or Bilingual Proficiency</a:Write>
+							<a:Read controlledVocabularyURN="http://careers.state.gov/gateway/lang_prof_def.html">Native or Bilingual Proficiency</a:Read>
+							<a:Write controlledVocabularyURN="http://careers.state.gov/gateway/lang_prof_def.html">Native or Bilingual Proficiency</a:Write>
 						</d:PreferredLanguageAbility>
-					</d:TranslationTargetLanguage>
+					</d:TranslationTargetLanguageAbility>
 				</d:TranslatorRequirements>
 			</d:TranslationActivity>
 		</d:DevelopmentActivityScheme>
