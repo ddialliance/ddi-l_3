@@ -3069,7 +3069,7 @@ The categories are defined with reference to one or more characteristics of a pa
                     </xs:element>
                     <xs:element minOccurs="0" maxOccurs="1" ref="VariantChangesFromBase">
                         <xs:annotation>
-                            <xs:documentation xml:lang="en">Describes the relationship between the variant and its base Statistical Classification, including regroupings, aggregations added and extensions.</xs:documentation>
+                            <xs:documentation xml:lang="en">Describes the relationship between the variant and its base Statistical Classification, including regrouping, aggregations added and extensions.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element minOccurs="0" maxOccurs="1" ref="VariantPurpose">
