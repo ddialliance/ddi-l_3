@@ -4,10 +4,8 @@
 Example - Represented Variable and use by a Variable with restrictions
 
 -->
-<l:LogicalProduct xmlns:ddi="ddi:instance:3_2" xmlns:a="ddi:archive:3_2" xmlns:c="ddi:conceptualcomponent:3_2" xmlns:cm="ddi:comparative:3_2" xmlns:d="ddi:datacollection:3_2" xmlns:g="ddi:group:3_2" xmlns:l="ddi:logicalproduct:3_2" xmlns:p="ddi:physicaldataproduct:3_2" xmlns:pi="ddi:physicalinstance:3_2" xmlns:pr="ddi:ddiprofile:3_2" xmlns:r="ddi:reusable:3_2" xmlns:s="ddi:studyunit:3_2" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/instance.xsd">
-                  xmlns:p="ddi:physicaldataproduct:3_2" xmlns:pi="ddi:physicalinstance:3_2" xmlns:pr="ddi:ddiprofile:3_2" xmlns:r="ddi:reusable:3_2" xmlns:s="ddi:studyunit:3_2" xmlns:dc="http://purl.org/dc/elements/1.1/"
-                  xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/instance.xsd">
-	<r:URN>urn:ddi:us.mpc:LogProd:1</r:URN>
+<l:LogicalProduct xmlns:ddi="ddi:instance:3_3" xmlns:a="ddi:archive:3_3" xmlns:c="ddi:conceptualcomponent:3_3" xmlns:cm="ddi:comparative:3_3" xmlns:d="ddi:datacollection:3_3" xmlns:g="ddi:group:3_3" xmlns:l="ddi:logicalproduct:3_3" xmlns:p="ddi:physicaldataproduct:3_3" xmlns:pi="ddi:physicalinstance:3_3" xmlns:pr="ddi:ddiprofile:3_3" xmlns:r="ddi:reusable:3_3" xmlns:s="ddi:studyunit:3_3" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_3 ../../XMLSchema/instance.xsd">
+	<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:LogProd:1</r:URN>
 	<l:RepresentedVariableScheme scopeOfUniqueness="Agency" isMaintainable="true">
 		<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:RepVarSheme:1</r:URN>
 
@@ -24,10 +22,10 @@ Example - Represented Variable and use by a Variable with restrictions
 			<r:Description>
 				<r:Content xml:lang="en">Defines the type of household in terms of Non-Family and Family components</r:Content>
 			</r:Description>
-			<r:UniverseReference isReference="true" isExternal="false" lateBound="false">
+			<r:UnitTypeReference isReference="true" isExternal="false" lateBound="false">
 				<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Households:1</r:URN>
 				<r:TypeOfObject>Universe</r:TypeOfObject>
-			</r:UniverseReference>
+			</r:UnitTypeReference>
 			<r:ConceptReference isReference="true" isExternal="false" lateBound="false">
 				<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:HouseholdType:1</r:URN>
 				<r:TypeOfObject>Concept</r:TypeOfObject>
@@ -51,10 +49,10 @@ Example - Represented Variable and use by a Variable with restrictions
 			<r:Description>
 				<r:Content xml:lang="en">Age of Person expressed as a measure of the number of years of age</r:Content>
 			</r:Description>
-			<r:UniverseReference isReference="true" isExternal="true" lateBound="false">
-				<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Univ_Persons:1.0</r:URN>
+			<r:UnitTypeReference isReference="true" isExternal="true" lateBound="false">
+				<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Persons:1.0</r:URN>
 				<r:TypeOfObject>Universe</r:TypeOfObject>
-			</r:UniverseReference>
+			</r:UnitTypeReference>
 			<r:ConceptReference isReference="true" isExternal="true" lateBound="false">
 				<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Concept_Age:1.0</r:URN>
 				<r:TypeOfObject>Concept</r:TypeOfObject>
@@ -81,10 +79,10 @@ Example - Represented Variable and use by a Variable with restrictions
 			<r:Description>
 				<r:Content xml:lang="en">Age of Person in the United States expressed as a measure of the number of years of age 0 to 100 with topcode of 100 being "100 or over"</r:Content>
 			</r:Description>
-			<l:RepresentedVariableReference isReference="true" isExternal="true" lateBound="false">
+			<r:RepresentedVariableReference isReference="true" isExternal="true" lateBound="false">
 				<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:RV_Age:1</r:URN>
 				<r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
-			</l:RepresentedVariableReference>
+			</r:RepresentedVariableReference>
 			<r:UniverseReference isReference="true" isExternal="true" lateBound="false">
 				<r:URN>urn:ddi:us.mpc:Univ_PersonsInUS:1.0</r:URN>
 				<r:TypeOfObject>Universe</r:TypeOfObject>
@@ -98,7 +96,6 @@ Example - Represented Variable and use by a Variable with restrictions
 					<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Num_1_100_top:1.0</r:URN>
 					<r:TypeOfObject>ManagedNumericRepresentation</r:TypeOfObject>
 				</r:NumericRepresentationReference>
-				<r:MeasurementUnit>Years</r:MeasurementUnit>
 			</l:VariableRepresentation>
 		</l:Variable>
 
@@ -115,10 +112,10 @@ Example - Represented Variable and use by a Variable with restrictions
 			<r:Description>
 				<r:Content xml:lang="en">Age of a Teenage Person expressed as a measure of the number of years of age 13 to 19</r:Content>
 			</r:Description>
-			<l:RepresentedVariableReference isReference="true" isExternal="true" lateBound="false">
+			<r:RepresentedVariableReference isReference="true" isExternal="true" lateBound="false">
 				<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:RV_Age:1</r:URN>
 				<r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
-			</l:RepresentedVariableReference>
+			</r:RepresentedVariableReference>
 			<r:UniverseReference isReference="true" isExternal="true" lateBound="false">
 				<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Univ_Persons_Age_13_19:1.0</r:URN>
 				<r:TypeOfObject>Universe</r:TypeOfObject>
@@ -130,12 +127,12 @@ Example - Represented Variable and use by a Variable with restrictions
 			<l:VariableRepresentation>
 				<r:NumericRepresentation classificationLevel="Interval">
 					<r:RecommendedDataType>Integer</r:RecommendedDataType>
+					<r:MeasurementUnit>Years</r:MeasurementUnit>
 					<r:NumberRange>
 						<r:Low isInclusive="true">13</r:Low>
 						<r:High isInclusive="true">19</r:High>
 					</r:NumberRange>
 				</r:NumericRepresentation>
-				<r:MeasurementUnit>Years</r:MeasurementUnit>
 			</l:VariableRepresentation>
 		</l:Variable>
 	</l:VariableScheme>

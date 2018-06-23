@@ -4,7 +4,7 @@
 Example - Question Scheme, Question Item, Question Grid, Question Block with related schemes
 
 -->
-<g:ResourcePackage isMaintainable="true"  versionDate="2012-09-18" scopeOfUniqueness="Maintainable" xmlns:ddi="ddi:instance:3_2" xmlns:a="ddi:archive:3_2" xmlns:c="ddi:conceptualcomponent:3_2" xmlns:cm="ddi:comparative:3_2" xmlns:d="ddi:datacollection:3_2" xmlns:g="ddi:group:3_2" xmlns:l="ddi:logicalproduct:3_2" xmlns:p="ddi:physicaldataproduct:3_2" xmlns:pi="ddi:physicalinstance:3_2" xmlns:pr="ddi:ddiprofile:3_2" xmlns:r="ddi:reusable:3_2" xmlns:s="ddi:studyunit:3_2" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/instance.xsd">
+<g:ResourcePackage isMaintainable="true"  versionDate="2012-09-18" scopeOfUniqueness="Maintainable" xmlns:ddi="ddi:instance:3_3" xmlns:a="ddi:archive:3_3" xmlns:c="ddi:conceptualcomponent:3_3" xmlns:cm="ddi:comparative:3_3" xmlns:d="ddi:datacollection:3_3" xmlns:g="ddi:group:3_3" xmlns:l="ddi:logicalproduct:3_3" xmlns:p="ddi:physicaldataproduct:3_3" xmlns:pi="ddi:physicalinstance:3_3" xmlns:pr="ddi:ddiprofile:3_3" xmlns:r="ddi:reusable:3_3" xmlns:s="ddi:studyunit:3_3" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_3 ../../XMLSchema/instance.xsd">
 <r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:ResourcePkg_QBlock:1</r:URN>
 	<d:QuestionScheme scopeOfUniqueness="Maintainable" isMaintainable="true">
 		<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:PISA_QS:1</r:URN>
@@ -52,10 +52,12 @@ Example - Question Scheme, Question Item, Question Grid, Question Block with rel
 					<r:Description><r:Content xml:lang="en-us">Place the letter D within the defined Image Area</r:Content></r:Description>
 				</r:Action>
 			</d:LocationDomain>
-			<d:ExternalAid isIdentifiable="true" scopeOfUniqueness="Maintainable">
-		   		<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:PISA_QS.EXT_1:1</r:URN>
-		   		<r:TypeOfMaterial>Image</r:TypeOfMaterial>
-		   		<r:ExternalURNReference>stageimage.pdf</r:ExternalURNReference>
+			<d:ExternalAid>
+				<r:OtherMaterial isVersionable="true" scopeOfUniqueness="Maintainable">
+		   			<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:PISA_QS.EXT_1:1</r:URN>
+		   			<r:TypeOfMaterial>Image</r:TypeOfMaterial>
+		   			<r:ExternalURNReference>stageimage.pdf</r:ExternalURNReference>
+				</r:OtherMaterial>
 			</d:ExternalAid>
         	</d:QuestionItem>
         	<d:QuestionItem isVersionable="true" scopeOfUniqueness="Maintainable">
@@ -87,7 +89,7 @@ Example - Question Scheme, Question Item, Question Grid, Question Block with rel
 			<d:StructuredMixedGridResponseDomain>
 				<d:NoDataByDefinition>
 				</d:NoDataByDefinition>
-				<d:GridResponseDomain>
+				<d:GridResponseDomainInMixed>
 					<d:TextDomainReference isReference="true">
 						<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:MgdRep.Text_1:1</r:URN>
 						<r:TypeOfObject>ManagedTextRepresentation</r:TypeOfObject>
@@ -98,7 +100,7 @@ Example - Question Scheme, Question Item, Question Grid, Question Block with rel
 							<d:SelectDimension rank="2" allValues="true"/>
 						</d:CellCoordinatesAsDefined>
 					</d:GridAttachment>
-				</d:GridResponseDomain>
+				</d:GridResponseDomainInMixed>
 			</d:StructuredMixedGridResponseDomain>
 			<d:CellLabel>
 				<r:Content xml:lang="en-us">A circular bench around a small obelisk</r:Content>
@@ -109,15 +111,19 @@ Example - Question Scheme, Question Item, Question Grid, Question Block with rel
         	</d:QuestionGrid>
         	<d:QuestionBlock isVersionable="true" scopeOfUniqueness="Maintainable">
 		   	<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:PISA_QS.QB_1:1</r:URN>
-			<d:StimulusMaterial isIdentifiable="true" scopeOfUniqueness="Maintainable">
-		   		<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:PISA_QS.Eval_1:1</r:URN>
-		   		<r:TypeOfMaterial>Image</r:TypeOfMaterial>
-		   		<r:ExternalURNReference>ScriptText1.pdf</r:ExternalURNReference>
+			<d:StimulusMaterial>
+				<r:OtherMaterial isVersionable="true" scopeOfUniqueness="Maintainable">
+		   			<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:PISA_QS.Eval_1:1</r:URN>
+		   			<r:TypeOfMaterial>Image</r:TypeOfMaterial>
+		   			<r:ExternalURNReference>ScriptText1.pdf</r:ExternalURNReference>
+				</r:OtherMaterial>
 			</d:StimulusMaterial>
-			<d:StimulusMaterial isIdentifiable="true" scopeOfUniqueness="Maintainable">
-		   		<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:PISA_QS.Eval_2:1</r:URN>
-		   		<r:TypeOfMaterial>Image</r:TypeOfMaterial>
-		   		<r:ExternalURNReference>ScriptText2.pdf</r:ExternalURNReference>
+			<d:StimulusMaterial>
+				<r:OtherMaterial isVersionable="true" scopeOfUniqueness="Maintainable">
+		   			<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:PISA_QS.Eval_2:1</r:URN>
+		   			<r:TypeOfMaterial>Image</r:TypeOfMaterial>
+		   			<r:ExternalURNReference>ScriptText2.pdf</r:ExternalURNReference>
+				</r:OtherMaterial>
 			</d:StimulusMaterial>
 			<d:QuestionItemReference>	
 				<r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:PISA_QS.QI_1:1</r:URN>
