@@ -220,7 +220,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
-					<xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="pi:PhysicalInstanceGroup">
 							<xs:annotation>
 								<xs:documentation>Allows physical instance modules to be grouped with or without hierarchical structure.</xs:documentation>
