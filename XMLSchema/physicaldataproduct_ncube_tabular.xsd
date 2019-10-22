@@ -39,7 +39,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 				<xs:sequence>
 					<xs:element ref="r:CharacterSet" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Character set used in the data file (e.g., US ASCII, EBCDIC, UTF-8). This is a required field.</xs:documentation>
+							<xs:documentation>Character set used in the data file (e.g., US ASCII, EBCDIC, UTF-8). This is a required field. The DDI Alliance has provided a controlled vocabulary (CharacterSet) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:ArrayBase">
