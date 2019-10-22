@@ -1402,7 +1402,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>A brief textual description of the type of location of the organization, i.e., Head Office, collection site, storage site, etc.. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="AddressType" mixed="true">
+	<xs:complexType name="AddressType">
 		<xs:annotation>
 			<xs:documentation>Location address identifying each part of the address as separate elements, identifying the type of address, the level of privacy associated with the release of the address, and a flag to identify the preferred address for contact.</xs:documentation>
 		</xs:annotation>
