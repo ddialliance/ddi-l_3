@@ -147,6 +147,18 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 						</xs:element>
 					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="Instrument">
+							<xs:annotation>
+								<xs:documentation>Describes an instrument within this Data Collection.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="InstrumentReference">
+							<xs:annotation>
+								<xs:documentation>Includes an instrument in the DataCollection by reference.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="ProcessingEventScheme">
 							<xs:annotation>
 								<xs:documentation>Describes a set of processing events used to collect or capture data and process it during or post collection. May include the processes used to capture data in non-questionnaire data capture.</xs:documentation>
