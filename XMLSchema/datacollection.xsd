@@ -4903,6 +4903,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 				<xs:annotation>
 					<xs:documentation>Recommend best practices for the use of the weights described produced in the weighting process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
+			</xs:element>			
+			<xs:element ref="r:CommandCode" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Use CommandCode content to describe and/or specify code for using weights. Allows specification of input variables using parameters and binding as well description, code snippets or a link to external code.</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
