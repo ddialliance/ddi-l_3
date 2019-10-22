@@ -5876,7 +5876,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="RepresentedVariableSchemeReference" type="SchemeReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to a RepresentedVariableScheme using SchemeReference which allows for the specification of objects to exclude. TypeOfObject should be set to RepresentedVariableScheme. TypeOfObject should be set to RepresentedVariableScheme.</xs:documentation>
+			<xs:documentation>Reference to a RepresentedVariableScheme using SchemeReference which allows for the specification of objects to exclude. TypeOfObject should be set to RepresentedVariableScheme.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="GeographicStructureSchemeReference" type="SchemeReferenceType">
