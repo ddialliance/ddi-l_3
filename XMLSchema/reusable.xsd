@@ -1297,11 +1297,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:documentation>Use for reference to the following object(s): p:PhysicalRecordSegment</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="PretestActivity">
-				<xs:annotation>
-					<xs:documentation>Use for reference to the following object(s): d:PretestActivity</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="RecordRelationship">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): l:RecordRelationship</xs:documentation>
@@ -1355,11 +1350,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:enumeration value="TopicalCoverage">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): r:TopicalCoverage</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="TranslationActivity">
-				<xs:annotation>
-					<xs:documentation>Use for reference to the following object(s): d:TranslationActivity</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="WeightingMethodology">
