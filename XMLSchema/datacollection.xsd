@@ -1551,6 +1551,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>A reference to the Sequence control construct that initiates the flow of the instrument content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="FieldedLanguages" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Language in which the Instrument is fielded. Include all options as separate items. Language can be specified by region, for example en-au. Supports the use of a controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1558,6 +1563,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	<xs:element name="InstrumentName" type="r:NameType">
 		<xs:annotation>
 			<xs:documentation>Name of the Instrument using the DDI Name structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FieldedLanguages" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>Language in which the Instrument is fielded. Include all options as separate items. Language can be specified by region, for example en-au. Supports the use of a controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ControlConstructScheme" type="ControlConstructSchemeType">
