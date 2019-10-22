@@ -2681,7 +2681,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Structure a single Question which may contain one or more response domains (i.e., a list of valid category responses where if "Other" is indicated a text response can be used to specify the intent of "Other"). The structure provides detail on the intent of the question, the text of the question, the valid response options and the number of allowed responses, references to external aids and instructions, and an estimation of the time needed to respond to the question. Note that the QuestionItem is a reusable format for use in any number of applied uses. External aids, instructions, response sequencing etc. should contain information consistent with the general use of the QuestionItem. Additional materials and information can be added within the QuestionConstruct which is the applied use of a question.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="QuestionType">
+			<xs:extension base="Question">
 				<xs:sequence>
 					<xs:element ref="QuestionItemName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -2790,7 +2790,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>A QuestionBlock is a specific structure used in educational and other types of testing where an object (Stimulus Material) is provided and a set of questions are asked regarding the object. The QuestionBlock generally has related QuestionBlocks that measure similar skills or aptitudes and is used randomly within a set of questionnaires to create multiple versions of a single questionnaire that can be used with large groups for testing purposes. Assembly of the QuestionBlocks into a questionnaire may the result of selection based on an experimental design model. It contains information on what the QuestionBlock is intended to measure, input and output parameters for the QuestionBlock, a description of the stimulus material and the questions related to it, instructions on sequencing and number of allowed responses, references to external aids and instructions, and an estimate of the time needed to complete the question. Note that the QuestionBlock is a reusable format for use in any number of applied uses. External aids, instructions, response sequencing etc. should contain information consistent with the general use of the QuestionBlock (QuestionItems and QuestionGrids will contain information specific to the individual question). Additional materials and information can be added within the QuestionConstruct which is the applied use of a question.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="QuestionType">
+			<xs:extension base="Question">
 				<xs:sequence>
 					<xs:element ref="QuestionBlockName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -3151,7 +3151,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Structures the QuestionGrid as an NCube-like structure providing dimension information, labeling options, and response domains attached to one or more cells within the grid. Provides the intent of the QuestionGrid, input and output parameters for the grid, the question text for the grid, details on the dimensions, allowed responses, and additional cell contents of the grid, references to external aids and instructions, and an estimate of the time required to complete the grid. Note that the QuestionGrid is a reusable format for use in any number of applied uses. External aids, instructions, response sequencing etc. should contain information consistent with the general use of the QuestionGrid. Additional materials and information can be added within the QuestionConstruct which is the applied use of a question.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="QuestionType">
+			<xs:extension base="Question">
 				<xs:sequence>
 					<xs:element ref="QuestionGridName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

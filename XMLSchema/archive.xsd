@@ -777,7 +777,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Details of an organization including name, contact information, a description, keywords to support searching, their regional affiliation, and any additional information. In addition the organization may capture how they manage version distinction. All agencies should be defined as an Organization and referenced by the Archive module. The organization and specific pieces of information regarding the individual may be tagged for information privacy.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="AgentType">
+			<xs:extension base="Agent">
 				<xs:sequence>
 					<xs:element ref="OrganizationIdentification" minOccurs="0">
 						<xs:annotation>
@@ -927,7 +927,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Details of an individual including name, contact information, a definition, keywords to support searching, their regional affiliation, language ability and any additional information. The individual and specific pieces of information regarding the individual may be tagged for information privacy.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="AgentType">
+			<xs:extension base="Agent">
 				<xs:sequence>
 					<xs:element ref="IndividualIdentification" minOccurs="0">
 						<xs:annotation>
