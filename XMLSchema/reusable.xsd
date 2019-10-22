@@ -308,6 +308,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 				<xs:documentation>Specifies the format of the text content. Examples: text/plain is preferred, text/html, application/xhtml+xml, etc. see https://www.w3.org/2003/01/xhtml-mimetype/ for additional options. Example of vendor specific: text/vnd.example.markdown</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="scope" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Allows the provision of denoting of named section. Identification of a content sections would be the combination of language and scope, i.e. if more than one section is in English they must have different scope designations.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>		
 	</xs:complexType>
 	<xs:simpleType name="LanguageList">
 		<xs:list itemType="xs:language">
