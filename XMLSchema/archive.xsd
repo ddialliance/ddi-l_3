@@ -1111,17 +1111,17 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:element>
 			<xs:element ref="Read" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Indicates reading knowledge of the language specified. Supports an optional controlled vocabulary.</xs:documentation>
+					<xs:documentation>Indicates reading knowledge of the language specified. Supports an optional controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (LanguageProficiency) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="Write" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Indicates writing knowledge of the language specified. Supports an optional controlled vocabulary.</xs:documentation>
+					<xs:documentation>Indicates writing knowledge of the language specified. Supports an optional controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (LanguageProficiency) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="Speak" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Indicates speaking knowledge of the language specified. Supports an optional controlled vocabulary.</xs:documentation>
+					<xs:documentation>Indicates speaking knowledge of the language specified. Supports an optional controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (LanguageProficiency) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="r:EffectivePeriod" minOccurs="0">
@@ -1409,7 +1409,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		<xs:sequence>
 			<xs:element ref="TypeOfAddress" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Indicates address type (i.e. home, office, mailing, etc.)</xs:documentation>
+					<xs:documentation>Indicates address type (i.e. home, office, mailing, etc.). The DDI Alliance has provided a controlled vocabulary (TypeOfAddress) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Line" type="xs:string" minOccurs="0" maxOccurs="unbounded">
@@ -1444,7 +1444,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:element>
 			<xs:element ref="r:TimeZone" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Time zone of the location expressed as code.</xs:documentation>
+					<xs:documentation>Time zone of the location expressed as code. The DDI Alliance has provided a controlled vocabulary (TimeZone) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="r:EffectivePeriod" minOccurs="0">
@@ -1482,7 +1482,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:element>
 			<xs:element ref="TypeOfTelephone" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Indicates type of telephone number provided (home, fax, office, cell, etc.). Supports the use of a controlled vocabulary.</xs:documentation>
+					<xs:documentation>Indicates type of telephone number provided (home, fax, office, cell, etc.). Supports the use of a controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (TypeOfTelephone) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="r:EffectivePeriod" minOccurs="0">

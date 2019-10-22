@@ -448,7 +448,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:element>
 			<xs:element ref="SourceType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Brief classification of the data source. Supports the use of an external controlled vocabulary. May be repeated to represent different forms of classification.</xs:documentation>
+					<xs:documentation>Brief classification of the data source. Supports the use of an external controlled vocabulary. May be repeated to represent different forms of classification. The DDI Alliance has provided a controlled vocabulary (DataSourceType) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="Origin" minOccurs="0" maxOccurs="unbounded">
@@ -1065,7 +1065,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:complexType>
 	<xs:element name="Aggregation" type="AggregationType">
 		<xs:annotation>
-			<xs:documentation>Describes the aggregation method and the variables used in the aggregation process.</xs:documentation>
+			<xs:documentation>Describes the aggregation method and the variables used in the aggregation process. The DDI Alliance has provided a controlled vocabulary (AggregationMethod) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="AggregationType">
@@ -1538,7 +1538,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					</xs:element>
 					<xs:element ref="TypeOfInstrument" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Describes the type of the instrument, according to the documenters type classification. Supports the use of an external controlled vocabulary.</xs:documentation>
+							<xs:documentation>Describes the type of the instrument, according to the documenters type classification. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (TypeOfInstrument) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="ExternalInstrumentLocation" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded">
@@ -3605,12 +3605,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					</xs:element>
 					<xs:element ref="ResponseUnit" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Identifies the intended Response unit (respondent). Supports the use of an external controlled vocabulary.</xs:documentation>
+							<xs:documentation>Identifies the intended Response unit (respondent). Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (ResponseUnit) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:AnalysisUnit" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>The analysis unit, expressed as a term which may come from a controlled vocabulary.</xs:documentation>
+							<xs:documentation>The analysis unit, expressed as a term which may come from a controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (AnalysisUnit) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
@@ -3656,12 +3656,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					</xs:element>
 					<xs:element ref="ResponseUnit" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Identifies the intended Response unit (respondent). Supports the use of an external controlled vocabulary.</xs:documentation>
+							<xs:documentation>Identifies the intended Response unit (respondent). Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (ResponseUnit) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:AnalysisUnit" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>The analysis unit, expressed as a term which may come from a controlled vocabulary.</xs:documentation>
+							<xs:documentation>The analysis unit, expressed as a term which may come from a controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (AnalysisUnit) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
@@ -4441,7 +4441,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 				<xs:sequence>
 					<xs:element ref="TypeOfTimeMethod" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Allows brief identification of time method used with the option of using a controlled vocabulary.</xs:documentation>
+							<xs:documentation>Allows brief identification of time method used with the option of using a controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (TimeMethod) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
@@ -4472,7 +4472,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 				<xs:sequence>
 					<xs:element ref="TypeOfSamplingProcedure" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A generic means of classifying a SamplingProcedure. Supports the use of an external controlled vocabulary.</xs:documentation>
+							<xs:documentation>A generic means of classifying a SamplingProcedure. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (SamplingProcedure) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
@@ -4766,7 +4766,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 				<xs:sequence>
 					<xs:element ref="TypeOfModeOfCollection" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Allows brief identification of the mode used with the option of using a controlled vocabulary.</xs:documentation>
+							<xs:documentation>Allows brief identification of the mode used with the option of using a controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (ModeOfCollection) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
@@ -4884,7 +4884,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					</xs:element>
 					<xs:element ref="r:AnalysisUnit" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The entity to which the weights apply, for example, individuals, families or households, groups, institutions/organizations, administrative units, etc. Supports the use of an external controlled vocabulary.</xs:documentation>
+							<xs:documentation>The entity to which the weights apply, for example, individuals, families or households, groups, institutions/organizations, administrative units, etc. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (AnalysisUnit) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="UsageGuide" minOccurs="0">

@@ -120,7 +120,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					</xs:element>
 					<xs:element ref="r:AnalysisUnit" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Allows the use of a controlled vocabulary to list all of the units of analysis used in the study. Should be repeated to describe multiple units of analysis.</xs:documentation>
+							<xs:documentation>Allows the use of a controlled vocabulary to list all of the units of analysis used in the study. Should be repeated to describe multiple units of analysis. The DDI Alliance has provided a controlled vocabulary (AnalysisUnit) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:AnalysisUnitsCovered" minOccurs="0">
