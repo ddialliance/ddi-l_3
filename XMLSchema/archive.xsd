@@ -765,13 +765,19 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		</xs:complexContent>
 	</xs:complexType>
 
+	<xs:element name="Agent" type="AgentType">
+		<xs:annotation>
+			<xs:documentation>Base class for Individual and Organization. This allows strongly typed references.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
 	<!--ORGANIZATION-->
 	<xs:complexType name="OrganizationType">
 		<xs:annotation>
 			<xs:documentation>Details of an organization including name, contact information, a description, keywords to support searching, their regional affiliation, and any additional information. In addition the organization may capture how they manage version distinction. All agencies should be defined as an Organization and referenced by the Archive module. The organization and specific pieces of information regarding the individual may be tagged for information privacy.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="AgentType">
+			<xs:extension base="Agent">
 				<xs:sequence>
 					<xs:element ref="OrganizationIdentification" minOccurs="0">
 						<xs:annotation>
@@ -921,7 +927,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Details of an individual including name, contact information, a definition, keywords to support searching, their regional affiliation, language ability and any additional information. The individual and specific pieces of information regarding the individual may be tagged for information privacy.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="AgentType">
+			<xs:extension base="Agent">
 				<xs:sequence>
 					<xs:element ref="IndividualIdentification" minOccurs="0">
 						<xs:annotation>
@@ -1565,7 +1571,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:element name="Organization" type="OrganizationType">
+	<xs:element name="Organization" type="OrganizationType" substitutionGroup="Agent">
 		<xs:annotation>
 			<xs:documentation>Details of an organization including name, contact information, a description, keywords to support searching, their regional affiliation, and any additional information.</xs:documentation>
 		</xs:annotation>
@@ -1575,7 +1581,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Reference to an existing Organization using the Reference structure. TypeOfObject should be set to Organization.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="Individual" type="IndividualType">
+	<xs:element name="Individual" type="IndividualType" substitutionGroup="Agent">
 		<xs:annotation>
 			<xs:documentation>The individual and specific pieces of information regarding the individual.</xs:documentation>
 		</xs:annotation>
