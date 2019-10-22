@@ -4891,7 +4891,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>Provide the citation and location of the source published standard using the OtherMaterialType.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ComplianceDefinition" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="ComplianceDefinition" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Provides a list of quality concepts in the quality standard.</xs:documentation>
 						</xs:annotation>
