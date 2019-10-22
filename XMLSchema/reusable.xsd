@@ -305,7 +305,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		</xs:attribute>
 		<xs:attribute name="textFormat" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>Specifies the format of the text content, for example "plainText", "markdown", "HTML5", "latex", or "XHTML". DDI recommends against using the embedded XHTML schemas, as these may be removed in future versions. When including XHTML content, set the textFormat to "XHTML", set isPlainText to "true", and XML encode the XHTML.</xs:documentation>
+				<xs:documentation>Specifies the format of the text content. Examples: text/plain is preferred, text/html, application/xhtml+xml, etc. see https://www.w3.org/2003/01/xhtml-mimetype/ for additional options. Example of vendor specific: text/vnd.example.markdown</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
