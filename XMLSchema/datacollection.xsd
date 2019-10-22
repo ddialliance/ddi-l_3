@@ -329,7 +329,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>A basic structure for describing the methodology used for weighting. In addition to a descriptive narrative, the methodology may be classified by a short term or external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:IdentifiableType">
+			<xs:extension base="r:VersionableType">
 				<xs:sequence>
 					<xs:element ref="TypeOfWeightingMethodology" minOccurs="0">
 						<xs:annotation>
