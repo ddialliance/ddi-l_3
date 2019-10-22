@@ -1978,9 +1978,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>A form of control construct providing a code and assigning a variable to hold value of the code as used for computation in control construct flow.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:annotation>
-		<xs:documentation/>
-	</xs:annotation>
 	<xs:complexType name="ComputationItemType">
 		<xs:annotation>
 			<xs:documentation>A form of control construct providing a code and assigning a variable to hold value of the code as used for computation in control construct flow. Member of the ControlConstruct substitution group.</xs:documentation>
@@ -3370,30 +3367,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="GridResponseDomainType">
-		<xs:annotation>
-			<xs:documentation>Designates the response domain and the cells using the specified response domain within a QuestionGrid.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="ResponseDomain">
-					<xs:annotation>
-						<xs:documentation>This is a substitution head and can be replaced by any valid member of the substitution group for ResponseDomain.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="ResponseDomainReference">
-					<xs:annotation>
-						<xs:documentation>The inclusion of a response domain by reference (must be supported by a managed representation). An abstract element. May be substituted by any valid object of substitution type ResponseDomainReference.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:choice>
-			<xs:element ref="GridAttachment" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Identifies the cell or cells in a grid to which the item is attached by a reference to a specific cell coordinate in a grid or by identifying a range of values along a dimension.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:element name="GridResponseDomainInMixed" type="GridResponseDomainInMixedType">
 		<xs:annotation>
 			<xs:documentation>Designates the response domain and the cells using the specified response domain within a QuestionGrid. Supports the use of ResponseAttachmentLocation and attachmentBase for defining specific relationships between response domains in a StructuredMixedGridResponseDomain. Functions similar to a ResponseDomainInMixed within a QuestionItem.</xs:documentation>
@@ -3554,11 +3527,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	<xs:element name="CellLabel" type="CellLabelType">
 		<xs:annotation>
 			<xs:documentation>Provides for the addition of a label within a cell or cells of the grid. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="GridResponseDomain" type="GridResponseDomainType">
-		<xs:annotation>
-			<xs:documentation>Designates the response domain and the cells using the specified response domain within a QuestionGrid.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="NoDataByDefinition" type="GridAttachmentType">
