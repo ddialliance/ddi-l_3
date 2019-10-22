@@ -6948,7 +6948,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Details of specific results of the development plan and process. May refer to specific development activities or DevelopmentSteps within a DevelopmentProcess.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="TypeOfResult" minOccurs="0">
+			<xs:element ref="TypeOfResult" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Identifies the specific type of result. Supports the use of an external controlled vocabulary.</xs:documentation>
 				</xs:annotation>
@@ -6995,7 +6995,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Description of whether specific requirements for the activities providing these results were met.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="TypeOfRequirementsAssessment" minOccurs="0">
+			<xs:element ref="TypeOfRequirementsAssessment" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Identifies the type of requirement being assessed such as staffing, funding, source materials, etc. Supports the use of an external controlled vocabulary.</xs:documentation>
 				</xs:annotation>
