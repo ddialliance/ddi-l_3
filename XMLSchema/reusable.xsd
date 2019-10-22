@@ -342,9 +342,9 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 						<xs:documentation>The name of the agency maintaining the controlled vocabulary.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="controlledVocabularyVersionID" type="xs:string" default="1.0">
+				<xs:attribute name="controlledVocabularyVersionID" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>The version number of the controlled vocabulary (default is 1.0).</xs:documentation>
+						<xs:documentation>The version number of the controlled vocabulary.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="otherValue" type="xs:string" use="optional">
