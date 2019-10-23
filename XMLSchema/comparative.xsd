@@ -121,6 +121,18 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="ManagedItemMap">
+							<xs:annotation>
+								<xs:documentation>Maps the items managed within different schemes of objects of the same type providing detail for the comparable items within those two schemes.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="ManagedItemMapReference">
+							<xs:annotation>
+								<xs:documentation>Reference to a mapping of the items managed within two different schemes of objects of the same type providing detail for the comparable items within those two schemes. TypeOfObject should be set to ItemMap.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -137,6 +149,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
 				<xs:sequence>
+					<xs:element ref="TypeOfMappedItem" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The type of item being mapped. The use of a controlled vocabulary is strongly recommended. </xs:documentation>
+						</xs:annotation>
+					</xs:element>		
 					<xs:element ref="MapName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A name for the Map. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
@@ -527,6 +544,21 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	<xs:element name="UniverseMapReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing UniverseMap using the Reference structure. TypeOfObject should be set to UniverseMap.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TypeOfMappedItem" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>The type of item being mapped. Supports the use of a controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>	
+	<xs:element name="ManagedItemMap" type="GenericMapType">
+		<xs:annotation>
+			<xs:documentation>Maps the items managed within different schemes of objects of objects of the same type providing detail for the comparable items within those two schemes. Note that several specific maps are available and should be used for the following items: All representations, concept, universe, variable, question, and category. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ManagedItemMapReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing ManagedItemMap using the Reference structure. TypeOfObject should be set to ManagedItemMap.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 </xs:schema>
