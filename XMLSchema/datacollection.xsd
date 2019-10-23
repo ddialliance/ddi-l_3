@@ -2352,12 +2352,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Reference to an existing QuestionGroup using the Reference structure. TypeOfObject should be set to QuestionGroup.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="QuestionGrid" type="QuestionGridType" substitutionGroup="Question">
+	<xs:element name="QuestionGrid" type="QuestionGridType">
 		<xs:annotation>
 			<xs:documentation>Structures the QuestionGrid as an NCube-like structure providing dimension information, labeling options, and response domains attached to one or more cells within the grid.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="QuestionBlock" type="QuestionBlockType" substitutionGroup="Question">
+	<xs:element name="QuestionBlock" type="QuestionBlockType">
 		<xs:annotation>
 			<xs:documentation>A QuestionBlock is a specific structure used in educational and other types of testing where an object (Stimulus Material) is provided and a set of questions are asked regarding the object.</xs:documentation>
 		</xs:annotation>
@@ -2665,13 +2665,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Question" type="QuestionType">
-		<xs:annotation>
-			<xs:documentation>Serves as a common extension base for different forms of Questions</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-
-	<xs:element name="QuestionItem" type="QuestionItemType" substitutionGroup="Question">
+	<xs:element name="QuestionItem" type="QuestionItemType">
 		<xs:annotation>
 			<xs:documentation>Structure a single Question which may contain one or more response domains (i.e., a list of valid category responses where if "Other" is indicated a text response can be used to specify the intent of "Other").</xs:documentation>
 		</xs:annotation>
