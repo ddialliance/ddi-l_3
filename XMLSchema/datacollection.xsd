@@ -290,9 +290,9 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>Describes how time fits into the data collection methodology.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="WeightingMethodology" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="WeightingMethodologyReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A basic structure for describing the methodology used for weighting. In addition to a descriptive narrative, the methodology may be classified by a short term or external controlled vocabulary.</xs:documentation>
+							<xs:documentation>A reference to a basic structure for describing the methodology used for weighting. In addition to a descriptive narrative, the methodology may be classified by a short term or external controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="SamplingProcedure" minOccurs="0" maxOccurs="unbounded">
@@ -329,7 +329,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>A basic structure for describing the methodology used for weighting. In addition to a descriptive narrative, the methodology may be classified by a short term or external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:IdentifiableType">
+			<xs:extension base="r:VersionableType">
 				<xs:sequence>
 					<xs:element ref="TypeOfWeightingMethodology" minOccurs="0">
 						<xs:annotation>
