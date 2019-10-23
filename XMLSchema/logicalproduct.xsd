@@ -2554,7 +2554,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		</xs:annotation>
 	</xs:element>
 	<!-- Classifications -->
-	<!-- Classifications -->
     <xs:complexType name="ClassificationCorrespondenceTableType">
         <xs:annotation>
             <xs:documentation xml:lang="en">A Correspondence Table expresses the relationship between two Statistical Classifications. These are typically: two versions from the same Classification Series; Statistical Classifications from different Classification Series; a variant and the version on which it is based; different versions of a variant. In the first and last examples, the Correspondence Table facilitates comparability over time. Correspondence relationships are shown in both directions</xs:documentation>
@@ -2621,6 +2620,33 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
+	<xs:complexType name="LevelContextType">
+		<xs:annotation>
+			<xs:documentation>Level Context provides the depth of a Level within a Statistical Classification together with its membership. Both depth and membership can be specified per Statistical Classification.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="LevelNumber" minOccurs="0" maxOccurs="1" type="xs:nonNegativeInteger">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">The number associated with the Level Context. Levels are numbered consecutively starting with Level 1 at the highest (most aggregated) Level.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ClassificationLevelReference" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">The structure of a Statistical Classification is defined by its Levels (classification level). Include here links to the relevant Level. TypeOfObject should be ClassificationLevel.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ClassificationItemReference" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A Statistical Classification is composed of categories structured in one or more Levels. Each category is represented by a Classification Item, which defines the content and the borders of the category. TypeOfObject should be set to ClassificationItem.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="LevelContext" type="LevelContextType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Level Context provides the depth of a Level within a Statistical Classification together with its membership. Both depth and membership can be specified per Statistical Classification.</xs:documentation>
+		</xs:annotation>
+    </xs:element>
     <xs:element name="RelationshipMappingType" type="r:CodeValueType">
          <xs:annotation>
             <xs:documentation xml:lang="en">A Correspondence Table can define a 1:1, 1:N, N:1 or M:N relationship between source and target Classification Items. Supports the use of an external controlled vocabulary.</xs:documentation>
@@ -2807,7 +2833,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
                             <xs:documentation xml:lang="en">A Classification Item is identified by an alphabetical, numerical or alphanumerical code, which is in line with the code structure of the Level. The code is unique within the Statistical Classification to which the Classification Item belongs.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-		    <xs:element ref="r:DefiningConceptReference" minOccurs="0" maxOccurs="unbounded">
+		    		<xs:element ref="r:DefiningConceptReference" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">A concept which describes the Classification Item. TypeOfObject should be set to Concept.</xs:documentation>
                         </xs:annotation>
@@ -2830,11 +2856,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
                     <xs:element ref="ExcludedClassificationItemReference" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">A reference to the Classification Items to which the excluded cases belong. TypeOfObject should be set to ClassificationItem.</xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
-                    <xs:element name="LevelNumber" minOccurs="0" maxOccurs="1" type="xs:nonNegativeInteger">
-                        <xs:annotation>
-                            <xs:documentation xml:lang="en">The number of the Level to which the Classification Item belongs.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element ref="ClassificationLevelReference" minOccurs="0" maxOccurs="1">
@@ -2979,11 +3000,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
         <xs:complexContent mixed="false">
             <xs:extension base="r:DescribableType">
                 <xs:sequence>
-                    <xs:element name="LevelNumber" minOccurs="0" maxOccurs="1" type="xs:nonNegativeInteger">
-                        <xs:annotation>
-                            <xs:documentation xml:lang="en">The number associated with the Level. Levels are numbered consecutively starting with Level 1 at the highest (most aggregated) Level.</xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
                     <xs:element ref="LevelCodeType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Indicates whether the code at the Level is alphabetical, numerical or alphanumerical. Supports the use of an external controlled vocabulary.</xs:documentation>
@@ -3153,14 +3169,9 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
                             <xs:documentation xml:lang="en">Indicates whether or not the Statistical Classification may be published or otherwise disseminated (e.g. electronic dissemination).</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element ref="ClassificationLevelReference" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="LevelContext" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
-                            <xs:documentation xml:lang="en">The structure of a Statistical Classification is defined by its Levels (classification level). Include here links to the relevant Levels. TypeOfObject should be ClassificationLevel.</xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
-                    <xs:element ref="ClassificationItemReference" minOccurs="0" maxOccurs="unbounded">
-                        <xs:annotation>
-                            <xs:documentation xml:lang="en">A Statistical Classification is composed of categories structured in one or more Levels. Each category is represented by a Classification Item, which defines the content and the borders of the category. TypeOfObject should be set to ClassificationItem.</xs:documentation>
+                            <xs:documentation xml:lang="en">Level Context provides the depth of a Level within a Statistical Classification together with its membership. Both depth and membership can be specified per Statistical Classification.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element ref="ClassificationIndexReference" minOccurs="0" maxOccurs="unbounded">
