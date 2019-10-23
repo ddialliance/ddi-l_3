@@ -7196,7 +7196,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>Date the sample was taken. May be expressed as a single date or range. If the sample was created using multiple extractions at different dates, repeat for each date.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="SampleLocation" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="SampleLocationReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Description of general limitations of the frame, including  over/under-coverage and update schedules and procedures.</xs:documentation>
 						</xs:annotation>
@@ -7230,9 +7230,9 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>A brief textual description or classification of the type of sample used. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (SamplingProcedure) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SampleLocation" type="r:OtherMaterialType">
+	<xs:element name="SampleLocationReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Description of Sample and its location using OtherMaterialType.</xs:documentation>
+			<xs:documentation>A reference to a description of the sample and its location using OtherMaterialType. Target should be OtherMaterial.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
  	<xs:element name="SampleFrameSchemeName" type="r:NameType">

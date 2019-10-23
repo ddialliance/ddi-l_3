@@ -335,6 +335,12 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:SampleFrame"/>
 				<xs:element ref="d:Split"/>
 				<xs:element ref="d:SplitJoin"/>
+				<xs:element ref="d:Sample"/>
+				<xs:element ref="d:SampleStep"/>
+				<xs:element ref="d:SamplingInformationGroup"/>
+				<xs:element ref="d:SamplingInformationScheme"/>
+				<xs:element ref="d:SamplingPlan"/>
+				<xs:element ref="d:SamplingStage"/>
 				<xs:element ref="cm:ManagedItemMap"/>
 				<xs:element ref="d:WeightingMethodology"/>
 			</xs:choice>

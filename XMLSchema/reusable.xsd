@@ -1869,6 +1869,24 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:documentation>Use for reference to the following object(s): d:SplitJoin</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="DevelopmentStep">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:DevelopmentStep</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value="SampleStep">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:SampleStep</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value="SamplingStage">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:SamplingStage</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
 
 			<!-- MAINTAINABLE OBJECTS -->
 			<xs:enumeration value="Archive">
