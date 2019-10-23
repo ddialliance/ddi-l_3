@@ -558,12 +558,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="d:DevelopmentActivityScheme">
 							<xs:annotation>
-								<xs:documentation>A set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
+								<xs:documentation>A set of development activities maintained by an agency, and used in the development, review, or creation of a question, measurement, data capture flow (control construct), or instrument.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="r:DevelopmentActivitySchemeReference">
 							<xs:annotation>
-								<xs:documentation>References to a set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
+								<xs:documentation>References to a set of development activities maintained by an agency, and used in the development, review, or creation of a question, measurement, data capture flow (control construct), or instrument. TypeOfObject should be DevelopmentActivityScheme.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
