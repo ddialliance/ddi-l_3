@@ -561,7 +561,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:complexType name="ConceptualVariableType">
 		<xs:annotation>
-			<xs:documentation>Describes a ConceptualVariable which provides the link between a concept to a specific universe (object) that defines this as a ConceptualVariable. In addition to the standard name, label, and description, it provides the two primary components of a ConceptualVariable by referencing a concept and its related universe. Note that the concept referenced may itself contain sub-concepts and/or references to similar concepts. This maps to the GSIM ConceptualVariable and has a basis in the ISO/IEC 11179 RepresentedVariableConcept.</xs:documentation>
+			<xs:documentation>Describes a ConceptualVariable which provides the link between a concept to a specific unit type (object) that defines this as a ConceptualVariable. In addition to the standard name, label, and description, it provides the two primary components of a ConceptualVariable by referencing a concept and its related unit type. Note that the concept referenced may itself contain sub-concepts and/or references to similar concepts. This maps to the GSIM ConceptualVariable and has a basis in the ISO/IEC 11179 RepresentedVariableConcept.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
@@ -583,7 +583,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					</xs:element>
 					<xs:element ref="r:ConceptReference" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Reference to a Concept that is being linked to a Universe identified by the UniverseReference. TypeOfObject should be set to Concept.</xs:documentation>
+							<xs:documentation>Reference to a Concept that is being linked to a UnitType identified by the UnitTypeReference. TypeOfObject should be set to Concept.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:UnitTypeReference" minOccurs="0">
@@ -630,7 +630,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="ConceptualVariable">
 							<xs:annotation>
-								<xs:documentation>Describes a ConceptualVariable which provides the link between a concept to a specific universe (object) that defines this as a ConceptualVariable.</xs:documentation>
+								<xs:documentation>Describes a ConceptualVariable which provides the link between a concept to a specific unit type (object) that defines this as a ConceptualVariable.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="r:ConceptualVariableReference">
@@ -767,7 +767,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="ConceptualVariable" type="ConceptualVariableType">
 		<xs:annotation>
-			<xs:documentation>Describes a ConceptualVariable which provides the link between a concept to a specific universe (object) that defines this as a ConceptualVariable. In addition to the standard name, label, and description, it provides the two primary components of a ConceptualVariable by referencing a concept and its related universe. Note that the concept referenced may itself contain sub-concepts and/or references to similar concepts.</xs:documentation>
+			<xs:documentation>Describes a ConceptualVariable which provides the link between a concept to a specific unit type (object) that defines this as a ConceptualVariable. In addition to the standard name, label, and description, it provides the two primary components of a ConceptualVariable by referencing a concept and its related unit type. Note that the concept referenced may itself contain sub-concepts and/or references to similar concepts.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="SimilarConceptType">
