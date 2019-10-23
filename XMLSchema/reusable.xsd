@@ -1784,19 +1784,9 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:documentation>Use for reference to the following object(s): d:SampleFrame</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="SampleFrameGroup">
-				<xs:annotation>
-					<xs:documentation>Use for reference to the following object(s): d:SampleFrameGroup</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="SamplingPlan">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): d:SamplingPlan</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="SamplingPlanGroup">
-				<xs:annotation>
-					<xs:documentation>Use for reference to the following object(s): d:SamplingPlanGroup</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Sequence">
@@ -2081,14 +2071,19 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:documentation>Use for reference to the following object(s): g:ResourcePackage</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="SampleFrameScheme">
+			<xs:enumeration value="Sample">
 				<xs:annotation>
-					<xs:documentation>Use for reference to the following object(s): d:SampleFrameScheme</xs:documentation>
+					<xs:documentation>Use for reference to the following object(s): d:Sample</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="SamplingPlanScheme">
+			<xs:enumeration value="SamplingInformationGroup">
 				<xs:annotation>
-					<xs:documentation>Use for reference to the following object(s): d:SamplingPlanScheme</xs:documentation>
+					<xs:documentation>Use for reference to the following object(s): d:SamplingInformationGroup</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SamplingInformationScheme">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:SamplingInformationScheme</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="StudyUnit">
@@ -7973,14 +7968,9 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Reference to an existing Concept using the Reference structure. TypeOfObject should be set to Concept.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SampleFrameSchemeReference" type="SchemeReferenceType">
+	<xs:element name="SamplingInformationSchemeReference" type="SchemeReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing SampleFrameScheme using the SchemeReference structure. TypeOfObject should be set to SampleFrameScheme.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="SamplingPlanSchemeReference" type="SchemeReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to an existing SamplingPlanScheme using the SchemeReference structure. TypeOfObject should be set to SamplingPlanScheme.</xs:documentation>
+			<xs:documentation>Reference to an existing SamplingInformationScheme using the SchemeReference structure. TypeOfObject should be set to SamplingInformationScheme.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DevelopmentActivitySchemeReference" type="SchemeReferenceType">
