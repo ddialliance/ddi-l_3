@@ -53,6 +53,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					         <xs:documentation>Reference to the DataRelationship containing the LogicalRecord to which the RecordLayout refers. Repeat for cases where LogicalRecords are described in multiple DataRelationship structures. Note that this does not imply that all of the LogicalRecords described in the DataRelationship are contained, wholly or in part in the PhysicalInstance. This reference allows for a direct path between the PhysicalInstance and the related content found in a LogicalProduct.</xs:documentation>
 					     </xs:annotation> 
 					</xs:element>
+					<xs:element ref="VariableGroupReference" minOccurs="0" maxOccurs="unbounded">
+					     <xs:annotation>		
+					         <xs:documentation>Reference to a grouping of variables that are included in the PhysicalInstance. Variable Groups may represent hierarchical relationships of variables, topical groupings, or administrative groupings.</xs:documentation>
+					     </xs:annotation> 
+					</xs:element>
 					<xs:element ref="r:RecordLayoutReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>References the record layout of the data documented in the physical instance.</xs:documentation>
@@ -666,6 +671,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	<xs:element name="StatisticalDataLocation" type="StatisticalDataLocationType">
 		<xs:annotation>
 			<xs:documentation>References a PhysicalInstance module that describes a data file containing the summary and/or category statistics OR contains the statistics in-line.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="VariableGroupReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to a grouping of variables that are included in the PhysicalInstance. Variable Groups may represent hierarchical relationships of variables, topical groupings, or administrative groupings.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DefaultMissingValuesReference" type="DefaultMissingValuesReferenceType">
