@@ -4586,16 +4586,19 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	<xs:complexType name="SizeType">
 		<xs:annotation>
 			<xs:documentation>Consists of an integer value and specification of the unit. The unit may be specified using a controlled vocabulary.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="r:CodeValueType">
-				<xs:attribute name="numberOfUnits" type="xs:nonNegativeInteger" use="required">
-					<xs:annotation>
-						<xs:documentation>The number of units.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
+		</xs:annotation>		
+		<xs:sequence>
+			<xs:element ref="r:UnitTypeReference">
+				<xs:annotation>
+					<xs:documentation>References the unit type being specified. TypeOfObject should be UnitType.</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="NumberOfUnits" type="xs:nonNegativeInteger">
+				<xs:annotation>
+					<xs:documentation>The number of units expressed as a non-negative integer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+		</xs:sequence>		
 	</xs:complexType>
 	<xs:complexType name="ApplicationDetailsType">
 		<xs:annotation>
@@ -6239,17 +6242,20 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:complexType name="DebriefingProcessType">
 		<xs:annotation>
-			<xs:documentation>Describe the debriefing process. Specifies if debriefing is required. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="r:StructuredStringType">
-				<xs:attribute name="isRequired" type="xs:boolean" default="false">
-					<xs:annotation>
-						<xs:documentation>If debriefing is required for this activity set isRequired to "true".</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
+			<xs:documentation>Describe the debriefing process. Specifies if debriefing is required.</xs:documentation>
+		</xs:annotation>		
+		<xs:sequence>
+			<xs:element ref="r:Description" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A description of the Debriefing Process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="isRequired" type="xs:boolean" default="false">
+			<xs:annotation>
+				<xs:documentation>If debriefing is required for this activity set isRequired to "true".</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>		
 	</xs:complexType>
 	<xs:element name="ContentReviewActivity" type="ContentReviewActivityType" substitutionGroup="DevelopmentActivity">
 		<xs:annotation>
@@ -6496,20 +6502,23 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		<xs:annotation>
 			<xs:documentation>Provides a detailed description of the requirements for an acceptable translation and indicate if the translation should be oral and/or written. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="r:StructuredStringType">
-				<xs:attribute name="isOral" type="xs:boolean">
-					<xs:annotation>
-						<xs:documentation>Indicates if the translation is an oral translation.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="isWritten" type="xs:boolean">
-					<xs:annotation>
-						<xs:documentation>Indicates if the translation is a written translation.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
+		<xs:sequence>
+			<xs:element ref="r:Description" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A description of the Translation Requirements. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="isOral" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Indicates if the translation is an oral translation.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isWritten" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Indicates if the translation is a written translation.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:element name="TranslatorRequirements" type="TranslatorRequirementsType">
 		<xs:annotation>
