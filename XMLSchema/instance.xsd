@@ -234,10 +234,10 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="l:CategoryGroup"/>
 				<xs:element ref="cm:CategoryMap"/>
 				<xs:element ref="l:ClassificationCorrespondenceTable" />                
-                <xs:element ref="l:ClassificationIndex" />
-                <xs:element ref="l:ClassificationItem" />
-                <xs:element ref="l:ClassificationLevel" />
-                <xs:element ref="l:ClassificationSeries" />
+				<xs:element ref="l:ClassificationIndex" />
+				<xs:element ref="l:ClassificationItem" />
+				<xs:element ref="l:ClassificationLevel" />
+				<xs:element ref="l:ClassificationSeries" />
 				<xs:element ref="l:CodeListGroup"/>
 				<xs:element ref="d:CognitiveExpertReviewActivity"/>
 				<xs:element ref="d:CognitiveInterviewActivity"/>
