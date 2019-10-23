@@ -113,12 +113,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="ControlConstructScheme">
 							<xs:annotation>
-								<xs:documentation>Describes a set of control constructs used to produce the flow pattern of a questionnaire or steps in a data capture process.</xs:documentation>
+								<xs:documentation>Describes a set of control constructs used to order and define processes such as data capture flow, instrument flow, sampling, data capture development activities, etc. Assumes the flow of the object along the prescribed routing (i.e. respondent through a questionnaire, data source through a measurement process, development object through a development process, or data set of a population through a sample sampling plan)Uses InParameters and OutParameters to describe the specific flow of datum captured by, used within, or processed by to create a stored datum in a variable.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="r:ControlConstructSchemeReference">
 							<xs:annotation>
-								<xs:documentation>A reference to a set of control constructs used to produce the flow pattern of a questionnaire or steps in a data capture process.</xs:documentation>
+								<xs:documentation>A reference to a set of control constructs used to order and define processes such as data capture flow, instrument flow, sampling, data capture development activities, etc. Assumes the flow of the object along the prescribed routing (i.e. respondent through a questionnaire, data source through a measurement process, development object through a development process, or data set of a population through a sample sampling plan)Uses InParameters and OutParameters to describe the specific flow of datum captured by, used within, or processed by to create a stored datum in a variable. TypeOfObject should be ControlConstructScheme</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -209,12 +209,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="DevelopmentActivityScheme">
 							<xs:annotation>
-								<xs:documentation>A set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
+								<xs:documentation>A set of development activities maintained by an agency, and used in the development, review, or creation of a question, measurement, data capture flow (control construct), or instrument.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="r:DevelopmentActivitySchemeReference">
 							<xs:annotation>
-								<xs:documentation>References to a set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
+								<xs:documentation>References to a set of development activities maintained by an agency, and used in the development, review, or creation of a question, measurement, data capture flow (control construct), or instrument. TypeOfObject should be DevelopmentActivityScheme.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -234,7 +234,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="DevelopmentActivityScheme" type="DevelopmentActivitySchemeType">
 		<xs:annotation>
-			<xs:documentation>A set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
+			<xs:documentation>A set of development activities maintained by an agency, and used in the development, review, or creation of a question, measurement, data capture flow (control construct), or instrument.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ProcessingEventScheme" type="ProcessingEventSchemeType">
@@ -6772,7 +6772,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:complexType>
 	<xs:complexType name="DevelopmentActivitySchemeType">
 		<xs:annotation>
-			<xs:documentation>A set of Development Activities maintained by an agency, and used in defining the development of a questionnaire. In addition to the standard name, label, and description allows for the inclusion of an existing DevelopmentActivityScheme by reference and descriptions of DevelopmentActivity and DevelopmentActivityGroup either in-line or by reference.</xs:documentation>
+			<xs:documentation>A set of Development Activities maintained by an agency, and used in defining the development of a data capture object. In addition to the standard name, label, and description allows for the inclusion of an existing DevelopmentActivityScheme by reference and descriptions of DevelopmentActivity and DevelopmentActivityGroup either in-line or by reference.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:MaintainableType">
@@ -6925,7 +6925,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:complexType name="DevelopmentResultsType">
 		<xs:annotation>
-			<xs:documentation>Provides a name, label and description for the Development Results and lists the individual development activities which should take place.</xs:documentation>
+			<xs:documentation>Separates the capture of development implementation results from the process plan and general activites. Allows for capture of the overall results, details of individual steps, or separate iterations of that step.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
