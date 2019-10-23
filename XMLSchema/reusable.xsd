@@ -925,7 +925,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:complexType>
 	<xs:element name="BasedOnReference" type="ReferenceType">
 		<xs:annotation>
-			<xs:documentation>A reference to an object which the object being described here is based upon using a standard Reference structure. The TypeOfObject may be any Versionable or Maintainable object.</xs:documentation>
+			<xs:documentation>A reference to an object which the object being described here is based upon using a standard Reference structure. TypeOfObject should be set to any Versionable or Maintainable object.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<!-- Describable -->
@@ -5726,7 +5726,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="NCubeReference" type="ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing NCube using the Reference structure. TypeOfObject should be set to NCubeReference.</xs:documentation>
+			<xs:documentation>Reference to an existing NCube using the Reference structure. TypeOfObject should be set to NCube.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="NumberOfCases" type="xs:nonNegativeInteger">
@@ -5806,7 +5806,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="ConceptualComponentReference" type="ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing ConceptualComponent using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, or StatementItem.</xs:documentation>
+			<xs:documentation>Reference to an existing ConceptualComponent using the Reference structure. TypeOfObject should be set to ConceptualComponent.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DataCollectionReference" type="ReferenceType">
@@ -6808,7 +6808,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="ManagedMissingValuesRepresentationReference" type="ReferenceType" substitutionGroup="ManagedRepresentationReference">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing ManagedMissingValuesRepresentation using the Reference structure. TypeOfObject should be set to managedMissingValuesRepresentation.</xs:documentation>
+			<xs:documentation>Reference to an existing ManagedMissingValuesRepresentation using the Reference structure. TypeOfObject should be set to ManagedMissingValuesRepresentation.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ManagedRepresentationSchemeName" type="NameType">
@@ -7974,7 +7974,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="DevelopmentActivitySchemeReference" type="SchemeReferenceType">
 		<xs:annotation>
-			<xs:documentation>References to a set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
+			<xs:documentation>References to a set of development activities maintained by an agency, and used in the creation of a questionnaire. TypeOfObject should be set to DevelopmentActivityScheme.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 </xs:schema>

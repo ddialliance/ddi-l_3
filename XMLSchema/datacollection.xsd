@@ -4666,7 +4666,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="ResponsibleForSamplingReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing Organization or Individual using the Reference structure. TypeOfObject should be set to</xs:documentation>
+			<xs:documentation>Reference to an existing Organization or Individual using the Reference structure. TypeOfObject should be set to Organization or Individual.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="TargetSampleSizeType">
@@ -4903,7 +4903,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:complexType>
 	<xs:element name="WeightingMethodologyReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>A reference to the methodology used for the weighting process. TypeOfObject should be WeightingMethodology</xs:documentation>
+			<xs:documentation>A reference to the methodology used for the weighting process. TypeOfObject should be set to WeightingMethodology</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="UsageGuide" type="UsageGuideType">
@@ -5023,12 +5023,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="ThenConstructReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, orStatementItem.</xs:documentation>
+			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopementStep, SamplingStage, or SampleStep.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ElseConstructReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, orStatementItem.</xs:documentation>
+			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopementStep, SamplingStage, or SampleStep.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="UntilCondition" type="r:CommandCodeType">
@@ -5038,7 +5038,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="UntilConstructReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, orStatementItem.</xs:documentation>
+			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopementStep, SamplingStage, or SampleStep.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="WhileCondition" type="r:CommandCodeType">
@@ -5048,7 +5048,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="WhileConstructReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, orStatementItem.</xs:documentation>
+			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopementStep, SamplingStage, or SampleStep.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="LoopVariableReference" type="r:ReferenceType">
@@ -5138,7 +5138,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="ControlConstructReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>A reference to a control construct of any type. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, or StatementItem.</xs:documentation>
+			<xs:documentation>A reference to a control construct of any type. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopementStep, SamplingStage, or SampleStep.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SourceVariable" type="SourceReferenceType">
@@ -5520,7 +5520,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="SourceFrameReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing SourceFrame using the Reference structure. TypeOfObject should be set to SourceFrame.</xs:documentation>
+			<xs:documentation>Reference to an existing SourceFrame using the Reference structure. TypeOfObject should be set to SampleFrame.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SampleFrameAccess" type="a:AccessType">
@@ -6802,7 +6802,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="DevelopmentActivityReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing DevelopmentActivity for inclusion in the scheme. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+			<xs:documentation>Reference to an existing DevelopmentActivity for inclusion in the scheme. TypeOfObject should be set to CognitiveInterviewActivity, CognitiveExpertReviewActivity, ContentReviewActivity, FocusGroupActivity, TranslationActivity, or PretestActivity.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DevelopmentActivityGroupReference" type="r:ReferenceType">
@@ -7214,7 +7214,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="ResourceObjectReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to the resource object used by this development step. If it is an external object create a description as OtherMaterial and reference the OtherMaterial. Use the attribute "objectLanguage" to specify any language preference. Repeat for multiple development objects. TypeOfObject should relate to the object referenced.</xs:documentation>
+			<xs:documentation>Reference to the resource object used by this development step. If it is an external object create a description as OtherMaterial and reference the OtherMaterial. Use the attribute "objectLanguage" to specify any language preference. Repeat for multiple development objects. TypeOfObject should be set to any Identifiable, Versionable or Maintainable object.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ResourceUsage" type="r:StructuredStringType">
