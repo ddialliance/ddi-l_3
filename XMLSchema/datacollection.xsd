@@ -1090,13 +1090,13 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:documentation>Identification of the type of aggregation method used. Supports the use of a controlled vocabulary. DDI strongly recommends the use of a controlled vocabulary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:choice>
-				<xs:element ref="AggregationVariables" minOccurs="0">
+			<xs:choice minOccurs="0">
+				<xs:element ref="AggregationVariables">
 					<xs:annotation>
 						<xs:documentation>Identifies the independent and dependent variables used in the aggregation process in-line.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element ref="AggregationVariablesReference" minOccurs="0">
+				<xs:element ref="AggregationVariablesReference">
 					<xs:annotation>
 						<xs:documentation>A reference to an existing AggregationVariables description.</xs:documentation>
 					</xs:annotation>
@@ -2138,17 +2138,17 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		<xs:complexContent>
 			<xs:extension base="TextContentType">
 				<xs:choice>
-					<xs:element ref="Expression" minOccurs="0">
+					<xs:element ref="Expression">
 						<xs:annotation>
 							<xs:documentation>The condition on which the associated text varies expressed by a command code. For example, a command that inserts an age by calculating the difference between today’s date and a previously defined date of birth. Use InParameter and OutParameter of parent class to associate Parameters to Alias values in command code.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="IfThenElseText" minOccurs="0">
+					<xs:element ref="IfThenElseText">
 						<xs:annotation>
 							<xs:documentation>The condition on which the associated text varies expressed by an IfThenElse decision tree. For example, If MEMBER = 1, Then = [ConditionalResult singular], ElseIf MEMBER > 1, Then = [ConditionalResult plural].  Use InParameter and OutParameter of parent class to associate Parameters to Alias values in the IfCondition.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="r:SourceParameterReference" minOccurs="0">
+					<xs:element ref="r:SourceParameterReference">
 						<xs:annotation>
 							<xs:documentation>This allows for the simple insert of a piece of information from another specified parameter. For example, if the text of the item using conditional text included the respondent’s name use SourceParameterReference to reference the InParameter of the question that is bound to the OutParameter of the question: “What is your name?”</xs:documentation>
 						</xs:annotation>
@@ -2162,11 +2162,13 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>The text resulting from the conditional command. Supports structured content and the insertion of content by a source parameter. For example if a language has gender specific verb structures the result of an IfCondition may result in a text using female verb structures and inserting the female's name at a specific point.</xs:documentation>
 		</xs:annotation>
 		<xs:choice>
-			<xs:element ref="Text" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>The value of the static text string to use if condition is true. Supports the optional use of XHTML formatting tags within the string structure. If the content of a literal text contains more than one language, i.e. "What is your understanding of the German word 'Gesundheit'?", the foreign language element should be placed in a separate LiteralText component with the appropriate xml:lang value and, in this case, isTranslatable set to "false". If the existence of white space is critical to the understanding of the content (such as inclusion of a leading or trailing white space), set the attribute of Text xml:space to "preserve".</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:sequence>
+				<xs:element ref="Text" minOccurs="1" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>The value of the static text string to use if condition is true. Supports the optional use of XHTML formatting tags within the string structure. If the content of a literal text contains more than one language, i.e. "What is your understanding of the German word 'Gesundheit'?", the foreign language element should be placed in a separate LiteralText component with the appropriate xml:lang value and, in this case, isTranslatable set to "false". If the existence of white space is critical to the understanding of the content (such as inclusion of a leading or trailing white space), set the attribute of Text xml:space to "preserve".</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>			
 			<xs:element ref="r:SourceParameterReference" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This allows for the simple insert of a piece of information from another specified parameter. For example, if the text of the item using conditional text included the respondent’s name use SourceParameterReference to reference the InParameter of the question that is bound to the OutParameter of the question: “What is your name?”</xs:documentation>
