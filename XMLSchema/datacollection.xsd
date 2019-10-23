@@ -6945,11 +6945,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>A description of the overall Development Results. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="DevelopmentPlanReference" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>References the Development Plan which the results refer to.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element ref="DevelopmentImplementationReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>References the Development Implementation which the results refer to. TypeOfObject should be DevelopmentImplementation</xs:documentation>
@@ -7009,16 +7004,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:documentation>Description of whether specific requirements for the activities providing these results were met.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="DevelopmentActivityReference" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Reference to one or more Development Activities used by the Development Plan. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="DevelopmentProcessStepReference" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Reference to one or more Development Process Steps involved in these results.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="TypeOfResult" type="r:CodeValueType">
@@ -7056,11 +7041,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	<xs:element name="TypeOfRequirementsAssessment" type="r:CodeValueType">
 		<xs:annotation>
 			<xs:documentation>Identifies the specific type of result. Supports the use of an external controlled vocabulary.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="DevelopmentProcessStepReference" type="r:ReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to a Development Process Steps. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DevelopmentImplementation" type="DevelopmentImplementationType">
@@ -7165,16 +7145,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="PredecessorStepReference" type="r:ReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to the DevelopmentProcessStep that appears before this step. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="SuccessorStepReference" type="r:ReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to the DevelopmentProcessStep that appears after this step. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
 	<xs:element name="ResponsibleAgencyReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an Organization or Individual responsible for this step. TypeOfObject should be Organization or Individual.</xs:documentation>
