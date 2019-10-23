@@ -227,17 +227,15 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="c:UnitTypeScheme"/>
 				<xs:element ref="c:UniverseScheme"/>
 				<xs:element ref="l:VariableScheme"/>
-				<xs:element ref="d:SampleFrameScheme"/>
-				<xs:element ref="d:SamplingPlanScheme"/>
 				<!-- Versionables -->
 				<xs:element ref="l:Category"/>
 				<xs:element ref="l:CategoryGroup"/>
 				<xs:element ref="cm:CategoryMap"/>
 				<xs:element ref="l:ClassificationCorrespondenceTable" />                
-                <xs:element ref="l:ClassificationIndex" />
-                <xs:element ref="l:ClassificationItem" />
-                <xs:element ref="l:ClassificationLevel" />
-                <xs:element ref="l:ClassificationSeries" />
+				<xs:element ref="l:ClassificationIndex" />
+				<xs:element ref="l:ClassificationItem" />
+				<xs:element ref="l:ClassificationLevel" />
+				<xs:element ref="l:ClassificationSeries" />
 				<xs:element ref="l:CodeListGroup"/>
 				<xs:element ref="d:CognitiveExpertReviewActivity"/>
 				<xs:element ref="d:CognitiveInterviewActivity"/>
@@ -253,8 +251,9 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="ds:DataSet"/>
 				<xs:element ref="d:DevelopmentActivityGroup"/>
 				<xs:element ref="d:DevelopmentPlan"/>
-				<xs:element ref="d:DevelopmentProcess"/>
+				<xs:element ref="d:DevelopmentImplementation"/>
 				<xs:element ref="d:DevelopmentResults"/>
+				<xs:element ref="d:DevelopmentStep"/>
 				<xs:element ref="d:FocusGroupActivity"/>
 				<xs:element ref="d:GeneralInstruction"/>
 				<xs:element ref="d:GenerationInstruction"/>
@@ -305,7 +304,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:QuestionGroup"/>
 				<xs:element ref="d:QuestionItem"/>
 				<xs:element ref="cm:QuestionMap"/>
-				<xs:element ref="d:QuestionnaireDevelopment"/>
+				<xs:element ref="d:DataCaptureDevelopment"/>
 				<xs:element ref="p:RecordLayout"/>
 				<xs:element ref="m3:RecordLayout"/>
 				<xs:element ref="m1:RecordLayout"/>
@@ -334,9 +333,14 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="pi:VariableStatistics"/>
 				<xs:element ref="d:Weighting"/>
 				<xs:element ref="d:SampleFrame"/>
-				<xs:element ref="d:SampleFrameGroup"/>
+				<xs:element ref="d:Split"/>
+				<xs:element ref="d:SplitJoin"/>
+				<xs:element ref="d:Sample"/>
+				<xs:element ref="d:SampleStep"/>
+				<xs:element ref="d:SamplingInformationGroup"/>
+				<xs:element ref="d:SamplingInformationScheme"/>
 				<xs:element ref="d:SamplingPlan"/>
-				<xs:element ref="d:SamplingPlanGroup"/>
+				<xs:element ref="d:SamplingStage"/>
 				<xs:element ref="cm:ManagedItemMap"/>
 				<xs:element ref="d:WeightingMethodology"/>
 			</xs:choice>

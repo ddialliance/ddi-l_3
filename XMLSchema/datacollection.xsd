@@ -27,12 +27,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	<!-- DATA COLLECTION -->
 	<xs:element name="DataCollection" type="DataCollectionType">
 		<xs:annotation>
-			<xs:documentation>A maintainable module containing information on activities related to data collection/capture and the processing required for the creation a data product. This section covers the methodologies, events, data sources, collection instruments and processes which comprise the collection/capture and processing of data. Methodology covers approaches used for selecting samples, administering surveys, timing repeated data collection activities. Collection Event specifies data sources, collection instruments, questions and question flow, and data processing activities. This module houses Processing Instructions (General Instructions and Generation Instructions) which may be referenced by variables or comparison maps. It houses the following schemes: Question Scheme, Control Construct Scheme (questionnaire flow), Interviewer Instruction Scheme, Instrument Scheme, Processing Event Scheme, and Processing Instruction Scheme.</xs:documentation>
+			<xs:documentation>A maintainable module containing information on activities related to data collection/capture and the processing required for the creation a data product. This section covers the methodologies, events, data sources, collection instruments and processes which comprise the collection/capture and processing of data. Methodology covers approaches used for selecting samples, administering surveys, timing repeated data collection activities. Collection Event specifies data sources, collection instruments, questions and question flow, and data processing activities. This module houses Processing Instructions (General Instructions and Generation Instructions) which may be referenced by variables or comparison maps.The module is described by a name, label, and description, provides spatial, temporal, and topical coverage information on the activities covered by the module, and references to external material related to objects in the module using OtherMaterial. The content of the module is organized within the following sections; Methodology, DataCaptureDevelopment, Collection Event, QuestionScheme (in-line or by reference), ControlConstructScheme (in-line or by references) containing the flow of a questionnaire or data capture process, InterviewerInstructionScheme (in-line or by reference), InstrumentScheme (in-line or by reference), ProcessingEventScheme (in-line or by reference), SamplingScheme (in-line or by reference) and DevelopmentActivityScheme.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="DataCollectionType">
 		<xs:annotation>
-			<xs:documentation>A maintainable module containing information on activities related to data collection/capture and the processing required for the creation a data product. This section covers the methodologies, events, data sources, collection instruments and processes which comprise the collection/capture and processing of data. Methodology covers approaches used for selecting samples, administering surveys, timing repeated data collection activities. Collection Event specifies data sources, collection instruments, questions and question flow, and data processing activities. This module houses Processing Instructions (General Instructions and Generation Instructions) which may be referenced by variables or comparison maps.The module is described by a name, label, and description, provides spatial, temporal, and topical coverage information on the activities covered by the module, and references to external material related to objects in the module using OtherMaterial. The content of the module is organized within the following sections; Methodology, Collection Event, QuestionScheme (in-line or by reference), ControlConstructScheme (in-line or by references) containing the flow of a questionnaire or data capture process, InterviewerInstructionScheme (in-line or by reference), InstrumentScheme (in-line or by reference) and ProcessingEventScheme (in-line or by reference).</xs:documentation>
+			<xs:documentation>A maintainable module containing information on activities related to data collection/capture and the processing required for the creation a data product. This section covers the methodologies, events, data sources, collection instruments and processes which comprise the collection/capture and processing of data. Methodology covers approaches used for selecting samples, administering surveys, timing repeated data collection activities. Collection Event specifies data sources, collection instruments, questions and question flow, and data processing activities. This module houses Processing Instructions (General Instructions and Generation Instructions) which may be referenced by variables or comparison maps.The module is described by a name, label, and description, provides spatial, temporal, and topical coverage information on the activities covered by the module, and references to external material related to objects in the module using OtherMaterial. The content of the module is organized within the following sections; Methodology, DataCaptureDevelopment, Collection Event, QuestionScheme (in-line or by reference), ControlConstructScheme (in-line or by references) containing the flow of a questionnaire or data capture process, InterviewerInstructionScheme (in-line or by reference), InstrumentScheme (in-line or by reference), ProcessingEventScheme (in-line or by reference), SamplingScheme (in-line or by reference) and DevelopmentActivityScheme.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:MaintainableType">
@@ -70,14 +70,14 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 						</xs:element>
 					</xs:choice>
 					<xs:choice minOccurs="0">
-						<xs:element ref="QuestionnaireDevelopment">
+						<xs:element ref="DataCaptureDevelopment">
 							<xs:annotation>
-								<xs:documentation>Questionnaire development covers the development planning, process, and outcome for a partial or full questionnaire. Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, and question order. Extensive work is often done for individual questions that may be reused by different questionnaires with the organization or for topical areas or populations that are difficult to measure.</xs:documentation>
+								<xs:documentation>Data capture development covers the development planning, process, and outcome for a partial or full data capture object (question, measurement, instrument, or control construct). Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, question/measurement order and mode of delivery (instrument). Extensive work is often done for individual questions/measures that may be reused by different data capture instruments with the organization or for topical areas or populations that are difficult to measure.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element ref="QuestionnaireDevelopmentReference">
+						<xs:element ref="DataCaptureDevelopmentReference">
 							<xs:annotation>
-								<xs:documentation>Reference to questionnaire development covers the development planning, process, and outcome for a partial or full questionnaire. Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, and question order. Extensive work is often done for individual questions that may be reused by different questionnaires with the organization or for topical areas or populations that are difficult to measure. TypeOfObject should be QuestionnaireDevelopment.</xs:documentation>
+								<xs:documentation>Reference to DataCaptureDevelopment covers the development planning, process, and outcome for a partial or full data capture object (question, measurement, instrument, or control construct). Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, question/measurement order and mode of delivery (instrument). Extensive work is often done for individual questions/measures that may be reused by different data capture instruments with the organization or for topical areas or populations that are difficult to measure. TypeOfObject should be DataCaptureDevelopment.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -113,12 +113,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="ControlConstructScheme">
 							<xs:annotation>
-								<xs:documentation>Describes a set of control constructs used to produce the flow pattern of a questionnaire or steps in a data capture process.</xs:documentation>
+								<xs:documentation>Describes a set of control constructs used to order and define processes such as data capture flow, instrument flow, sampling, data capture development activities, etc. Assumes the flow of the object along the prescribed routing (i.e. respondent through a questionnaire, data source through a measurement process, development object through a development process, or data set of a population through a sample sampling plan)Uses InParameters and OutParameters to describe the specific flow of datum captured by, used within, or processed by to create a stored datum in a variable.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="r:ControlConstructSchemeReference">
 							<xs:annotation>
-								<xs:documentation>A reference to a set of control constructs used to produce the flow pattern of a questionnaire or steps in a data capture process.</xs:documentation>
+								<xs:documentation>A reference to a set of control constructs used to order and define processes such as data capture flow, instrument flow, sampling, data capture development activities, etc. Assumes the flow of the object along the prescribed routing (i.e. respondent through a questionnaire, data source through a measurement process, development object through a development process, or data set of a population through a sample sampling plan)Uses InParameters and OutParameters to describe the specific flow of datum captured by, used within, or processed by to create a stored datum in a variable. TypeOfObject should be ControlConstructScheme</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -183,38 +183,26 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 						</xs:element>
 					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="SampleFrameScheme">
+						<xs:element ref="SamplingInformationScheme">
 							<xs:annotation>
-								<xs:documentation>A set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>
+								<xs:documentation>A set of sampling information maintained by an agency including sampling plans, sample frames, and samples.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element ref="r:SampleFrameSchemeReference">
+						<xs:element ref="r:SamplingInformationSchemeReference">
 							<xs:annotation>
-								<xs:documentation>References to a set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:choice>
-					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="SamplingPlanScheme">
-							<xs:annotation>
-								<xs:documentation>A set of sampling plans maintained by an agency, and used in the instrument.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element ref="r:SamplingPlanSchemeReference">
-							<xs:annotation>
-								<xs:documentation>References to a set of sampling plans maintained by an agency, and used in the instrument.</xs:documentation>
+								<xs:documentation>References to a set of sampling information maintained by an agency including sampling plans, sample frames, and samples.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="DevelopmentActivityScheme">
 							<xs:annotation>
-								<xs:documentation>A set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
+								<xs:documentation>A set of development activities maintained by an agency, and used in the development, review, or creation of a question, measurement, data capture flow (control construct), or instrument.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="r:DevelopmentActivitySchemeReference">
 							<xs:annotation>
-								<xs:documentation>References to a set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
+								<xs:documentation>References to a set of development activities maintained by an agency, and used in the development, review, or creation of a question, measurement, data capture flow (control construct), or instrument. TypeOfObject should be DevelopmentActivityScheme.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -222,9 +210,9 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="QuestionnaireDevelopmentReference" type="r:ReferenceType">
+	<xs:element name="DataCaptureDevelopmentReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to questionnaire development covers the development planning, process, and outcome for a partial or full questionnaire. Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, and question order. Extensive work is often done for individual questions that may be reused by different questionnaires with the organization or for topical areas or populations that are difficult to measure. TypeOfObject should be QuestionnaireDevelopment.</xs:documentation>
+			<xs:documentation>Reference to DataCaptureDevelopment covers the development planning, process, and outcome for a partial or full data capture object (question, measurement, instrument, or control construct). Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, question/measurement order and mode of delivery (instrument). Extensive work is often done for individual questions/measures that may be reused by different data capture instruments with the organization or for topical areas or populations that are difficult to measure. TypeOfObject should be DataCaptureDevelopment.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DataCollectionModuleName" type="r:NameType">
@@ -234,7 +222,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="DevelopmentActivityScheme" type="DevelopmentActivitySchemeType">
 		<xs:annotation>
-			<xs:documentation>A set of development activities maintained by an agency, and used in the creation of a questionnaire.</xs:documentation>
+			<xs:documentation>A set of development activities maintained by an agency, and used in the development, review, or creation of a question, measurement, data capture flow (control construct), or instrument.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ProcessingEventScheme" type="ProcessingEventSchemeType">
@@ -426,6 +414,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:element ref="r:QualityStatementReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A reference to a Quality Statement pertaining to the quality of the study methodology, metadata, or data to which it is associated. Quality statements may be related to external quality standards.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SampleReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>References the Sample used by this CollectionEvent. TypeOfObject should be Sample.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -1568,6 +1561,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>Language in which the Instrument is fielded. Include all options as separate items. Language can be specified by region, for example en-AU. Supports the use of a controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="DevelopmentResultsReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the development implementation results which gave rise to this version of the object. TypeOfObject should be DevelopmentResults.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1794,6 +1792,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
+						<xs:element ref="DevelopmentResultsReference" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Reference to the development implementation results which gave rise to this version of the object. TypeOfObject should be DevelopmentResults.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -2467,6 +2470,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>Reference to the RepresentedVariable that describes the data to be collected by this measurement. The RepresentedVariable contains the broad reusable specification of the Variable, i.e., concept, universe, and value representation. When more than one ResponseDomain exists, one RepresentedVariable should be created for each ResponseDomain in the same order as the corresponding ResponseDomain. TypeOfObject should be set to RepresentedVariable.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="DevelopmentResultsReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the development implementation results which gave rise to this version of the object. TypeOfObject should be DevelopmentResults.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="estimatedSecondsResponseTime" type="xs:decimal" use="optional">
 					<xs:annotation>
@@ -2646,7 +2654,15 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Serves as a common extension base for different forms of Questions</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:VersionableType"/>
+			<xs:extension base="r:VersionableType">
+				<xs:sequence>
+					<xs:element ref="DevelopmentResultsReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the development implementation results which gave rise to this version of the object. TypeOfObject should be DevelopmentResults.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 
@@ -4469,7 +4485,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 				<xs:sequence>
 					<xs:element ref="TypeOfSamplingProcedure" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A generic means of classifying a SamplingProcedure. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (SamplingProcedure) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
+							<xs:documentation>A generic means of classifying a SamplingProcedure. Supports the use of an external controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
@@ -4477,29 +4493,14 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>Full description of the sampling procedure. Supports structured content and multiple language content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="PopulationOfConcern" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Describe the population being sampled through a combination of textual description and reference to a structured Universe.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element ref="SamplingPlanReference" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Reference to sample plan which describes a process for achieving the sample.</xs:documentation>
+							<xs:documentation>Reference to sample plan which describes a process for achieving the sample. TypeOfObject should be SamplingPlan.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="OverallTargetSampleSize" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="SampleReference" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The target value of the sample size for the primary and any secondary or sub-population.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="OverallSampleSize" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>The size of the overall sample actually used.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="ApplicationDetails" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Provides sample stage level details where needed. Repeat for individual stages or sub-stages.</xs:documentation>
+							<xs:documentation>Reference to sample created using sampling procedure. TypeOfObject should be Sample.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -4588,28 +4589,28 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	<xs:complexType name="SizeType">
 		<xs:annotation>
 			<xs:documentation>Consists of an integer value and specification of the unit. The unit may be specified using a controlled vocabulary.</xs:documentation>
-		</xs:annotation>		
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="r:UnitTypeReference">
+			<xs:element ref="r:UnitTypeReference" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>References the unit type being specified. TypeOfObject should be UnitType.</xs:documentation>
+					<xs:documentation>Reference to an existing UnitType using the Reference structure. TypeOfObject should be set to UnitType.</xs:documentation>
 				</xs:annotation>
-			</xs:element>	
-			<xs:element name="NumberOfUnits" type="xs:nonNegativeInteger">
+			</xs:element>
+			<xs:element name="NumberOfUnits" minOccurs="0" type="xs:nonNegativeInteger">
 				<xs:annotation>
-					<xs:documentation>The number of units expressed as a non-negative integer.</xs:documentation>
+					<xs:documentation>Indicate the number of units of the UnitType specified.</xs:documentation>
 				</xs:annotation>
-			</xs:element>	
-		</xs:sequence>		
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ApplicationDetailsType">
 		<xs:annotation>
 			<xs:documentation>Provides sample stage level details where needed. Repeat for individual stages or sub-stages.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="SampleStageReference" minOccurs="0">
+			<xs:element ref="SamplingStageReference" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>References the sample plan stage or sub-stage in an overall sample plan.</xs:documentation>
+					<xs:documentation>References the sample plan stage in an overall sample plan. Target object should be SamplingStage</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="SampleFrameReference" minOccurs="0">
@@ -4654,7 +4655,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Date or date range when sample was drawn.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SampleStageReference" type="r:ReferenceType">
+	<xs:element name="SamplingStageReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing SampleState using the Reference structure. TypeOfObject should be set to Stage or SubStage.</xs:documentation>
 		</xs:annotation>
@@ -4895,6 +4896,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:element ref="StandardWeight" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A standard weighting factor used by all or a group of variables within the data set.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="BasedOnSampleReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The sample that was the basis for the weighting. TypeOfObject should be Sample.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -5259,154 +5265,190 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:element name="SampleFrameScheme" type="SampleFrameSchemeType">
-		<xs:annotation>
-			<xs:documentation>A set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:complexType name="SampleFrameSchemeType">
-		<xs:annotation>
-			<xs:documentation>A set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="r:MaintainableType">
-				<xs:sequence>
-					<xs:element ref="SampleFrameSchemeName" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A name for the sample frame scheme. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A display label for the sample frame scheme. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:Description" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>A description of the use of the sample frame scheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:SampleFrameSchemeReference" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Provides for inclusion by reference of external sample frame schemes.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
+	<xs:element name="SamplingInformationScheme" type="SamplingInformationSchemeType">
+ 		<xs:annotation>
+ 			<xs:documentation>A set of sampling information maintained by an agency including sampling plans, sample frames, and samples.</xs:documentation>
+ 		</xs:annotation>
+ 	</xs:element>
+ 	<xs:complexType name="SamplingInformationSchemeType">
+ 		<xs:annotation>
+ 			<xs:documentation>A set of sampling information maintained by an agency including sampling plans, sample frames, and samples.</xs:documentation>
+ 		</xs:annotation>
+ 		<xs:complexContent>
+ 			<xs:extension base="r:MaintainableType">
+ 				<xs:sequence>
+ 					<xs:element ref="SamplingInformationSchemeName" minOccurs="0" maxOccurs="unbounded">
+ 						<xs:annotation>
+ 							<xs:documentation>A name for the sampling information scheme. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+ 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+ 						<xs:annotation>
+ 							<xs:documentation>A display label for the sampling information scheme. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+ 					<xs:element ref="r:Description" minOccurs="0">
+ 						<xs:annotation>
+ 							<xs:documentation>A description of the use of the sampling information scheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+ 					<xs:element ref="r:SamplingInformationSchemeReference" minOccurs="0" maxOccurs="unbounded">
+ 						<xs:annotation>
+ 							<xs:documentation>Provides for inclusion by reference of external sampling information schemes.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="SampleFrame">
-							<xs:annotation>
-								<xs:documentation>An item (that is, a sample frame) belonging to the sample frame Scheme.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element ref="SampleFrameReference">
-							<xs:annotation>
-								<xs:documentation>A sample frame item included in the scheme by reference.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:choice>
+ 						<xs:choice minOccurs="0" maxOccurs="unbounded">
+ 							<xs:element ref="SampleFrame">
+ 								<xs:annotation>
+ 									<xs:documentation>An item (that is, a sample frame) belonging to the sampling information Scheme.</xs:documentation>
+ 								</xs:annotation>
+ 							</xs:element>
+ 							<xs:element ref="SampleFrameReference">
+ 								<xs:annotation>
+ 									<xs:documentation>A sample frame item included in the scheme by reference.</xs:documentation>
+ 								</xs:annotation>
+ 							</xs:element>
+ 						</xs:choice>
+ 						<xs:choice minOccurs="0" maxOccurs="unbounded">
+ 							<xs:element ref="SamplingPlan">
+ 								<xs:annotation>
+ 									<xs:documentation>An item (that is, a sampling plan) belonging to the sampling information Scheme.</xs:documentation>
+ 								</xs:annotation>
+ 							</xs:element>
+ 							<xs:element ref="SamplingPlanReference">
+ 								<xs:annotation>
+ 									<xs:documentation>A sampling plan item included in the scheme by reference.</xs:documentation>
+ 								</xs:annotation>
+ 							</xs:element>
+ 						</xs:choice>
+ 						<xs:choice minOccurs="0" maxOccurs="unbounded">
+ 							<xs:element ref="Sample">
+ 								<xs:annotation>
+ 									<xs:documentation>An item (that is, a sample) belonging to the sampling information Scheme.</xs:documentation>
+ 								</xs:annotation>
+ 							</xs:element>
+ 							<xs:element ref="SampleReference">
+ 								<xs:annotation>
+ 									<xs:documentation>A sample included in the scheme by reference.</xs:documentation>
+ 								</xs:annotation>
+ 							</xs:element>
+ 						</xs:choice>
+ 					</xs:choice>
+ 					<xs:choice minOccurs="0" maxOccurs="unbounded">
+ 						<xs:element ref="SamplingInformationGroup">
+ 							<xs:annotation>
+ 								<xs:documentation>An item (that is, a sampling information group) belonging to the sampling information Scheme.</xs:documentation>
+ 							</xs:annotation>
+ 						</xs:element>
+ 						<xs:element ref="SamplingInformationGroupReference">
+ 							<xs:annotation>
+ 								<xs:documentation>Inclusion of a SamplingInformationGroup by reference.</xs:documentation>
+ 							</xs:annotation>
+ 						</xs:element>
+ 					</xs:choice>
+ 				</xs:sequence>
+ 			</xs:extension>
+ 		</xs:complexContent>
+ 	</xs:complexType>
+ 	<xs:element name="SampleFrame" type="SampleFrameType">
+ 		<xs:annotation>
+ 			<xs:documentation>An inline description of a sample frame (the source material from which a sample is drawn), i.e. phone book, data base, etc.</xs:documentation>
+ 		</xs:annotation>
+ 	</xs:element>
+ 	<xs:element name="SamplingInformationSchemeName" type="r:NameType">
+ 		<xs:annotation>
+ 			<xs:documentation>A name for the sampling information scheme using the NameType structure.</xs:documentation>
+ 		</xs:annotation>
+ 	</xs:element>
+ 	<xs:element name="SamplingInformationGroupReference" type="r:ReferenceType">
+ 		<xs:annotation>
+ 			<xs:documentation>Reference to an existing SamplingInformationGroup using the Reference structure. TypeOfObject should be set to SamplingInformationGroup.</xs:documentation>
+ 		</xs:annotation>
+ 	</xs:element>
+ 	<xs:element name="SamplingInformationGroup" type="SamplingInformationGroupType">
+ 		<xs:annotation>
+ 			<xs:documentation>A grouping of Sampling Information objects for administrative purposes.</xs:documentation>
+ 		</xs:annotation>
+ 	</xs:element>
+ 	<xs:complexType name="SamplingInformationGroupType">
+ 		<xs:annotation>
+ 			<xs:documentation>A grouping of Sampling Information objects for administrative purposes. Contains a group of sampling information objects and/or sampling information groups, which may be hierarchical.</xs:documentation>
+ 		</xs:annotation>
+ 		<xs:complexContent>
+ 			<xs:extension base="r:VersionableType">
+ 				<xs:sequence>
+ 					<xs:element ref="TypeOfSamplingInformationGroup" minOccurs="0">
+ 						<xs:annotation>
+ 							<xs:documentation>A generic element for specifying a reason for a sampling information group. Note that this element can contain either a term from a controlled vocabulary list or a textual description.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+ 					<xs:element ref="SamplingInformationGroupName" minOccurs="0" maxOccurs="unbounded">
+ 						<xs:annotation>
+ 							<xs:documentation>A name for the sampling information group. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+ 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+ 						<xs:annotation>
+ 							<xs:documentation>A display label for the sampling information group. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+ 					<xs:element ref="r:Description" minOccurs="0">
+ 						<xs:annotation>
+ 							<xs:documentation>Additional textual description of the sampling information group. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+ 					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
+ 						<xs:annotation>
+ 							<xs:documentation>Reference to the universe statement describing the persons or other elements that the sampling information objects refer to, and to which any analytic results refer.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+ 					<xs:element ref="r:ConceptReference" minOccurs="0">
+ 						<xs:annotation>
+ 							<xs:documentation>Reference to the concept measured by the sampling information objects in this group.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="SampleFrameGroup">
-							<xs:annotation>
-								<xs:documentation>An item (that is, a sample frame group) belonging to the sample frame Scheme.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element ref="SampleFrameGroupReference">
-							<xs:annotation>
-								<xs:documentation>Inclusion of a SampleFrameGroup by reference.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:choice>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="SampleFrame" type="SampleFrameType">
-		<xs:annotation>
-			<xs:documentation>An inline description of a sample frame (the source material from which a sample is drawn), i.e. phone book, data base, etc.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="SampleFrameSchemeName" type="r:NameType">
-		<xs:annotation>
-			<xs:documentation>A name for the sample frame scheme using the NameType structure.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="SampleFrameGroupReference" type="r:ReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to an existing SampleFrameGroup using the Reference structure. TypeOfObject should be set to SampleFrameGroup.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="SampleFrameGroup" type="SampleFrameGroupType">
-		<xs:annotation>
-			<xs:documentation>A grouping of SampleFrames for administrative purposes.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:complexType name="SampleFrameGroupType">
-		<xs:annotation>
-			<xs:documentation>A grouping of SampleFrames for administrative purposes. Contains a group of sample frames and/or sample frame groups, which may be hierarchical.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="r:VersionableType">
-				<xs:sequence>
-					<xs:element ref="TypeOfSampleFrameGroup" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>A generic element for specifying a reason for a sample frame group. Note that this element can contain either a term from a controlled vocabulary list or a textual description.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="SampleFrameGroupName" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A name for the sample frame group. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A display label for the sample frame group. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:Description" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>Additional textual description of the sample frame group. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Reference to the universe statement describing the persons or other elements that the sample frames refer to, and to which any analytic results refer.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:ConceptReference" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>Reference to the concept measured by the sample frames in this group.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="SampleFrameReference">
-							<xs:annotation>
-								<xs:documentation>Reference to constituent SampleFrame.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element ref="SampleFrameGroupReference">
-							<xs:annotation>
-								<xs:documentation>Reference to constituent sample frame group. This allows for nesting of sample frame groups.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:choice>
-				</xs:sequence>
-				<xs:attribute name="isOrdered" type="xs:boolean" default="false">
-					<xs:annotation>
-						<xs:documentation>Indicates that the content of the group is ordered as it appears within the XML structure.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="SampleFrameGroupName" type="r:NameType">
-		<xs:annotation>
-			<xs:documentation>A name for the SampleFrameGroup using the NameType structure.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="TypeOfSampleFrameGroup" type="r:CodeValueType">
-		<xs:annotation>
-			<xs:documentation>A generic element for specifying a reason for a sample frame group using the CodeValueType structure.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
+ 						<xs:element ref="SampleFrameReference">
+ 							<xs:annotation>
+ 								<xs:documentation>A sample frame item included in the scheme by reference.</xs:documentation>
+ 							</xs:annotation>
+ 						</xs:element>
+ 						<xs:element ref="SamplingPlanReference">
+ 							<xs:annotation>
+ 								<xs:documentation>A sampling plan item included in the scheme by reference.</xs:documentation>
+ 							</xs:annotation>
+ 						</xs:element>
+ 						<xs:element ref="SampleReference">
+ 							<xs:annotation>
+ 								<xs:documentation>A sample included in the scheme by reference.</xs:documentation>
+ 							</xs:annotation>
+ 						</xs:element>
+ 						<xs:element ref="SamplingInformationGroupReference">
+ 							<xs:annotation>
+ 								<xs:documentation>Inclusion of a SamplingInformationGroup by reference.</xs:documentation>
+ 							</xs:annotation>
+ 						</xs:element>
+ 					</xs:choice>
+ 				</xs:sequence>
+ 				<xs:attribute name="isOrdered" type="xs:boolean" default="false">
+ 					<xs:annotation>
+ 						<xs:documentation>Indicates that the content of the group is ordered as it appears within the XML structure.</xs:documentation>
+ 					</xs:annotation>
+ 				</xs:attribute>
+ 			</xs:extension>
+ 		</xs:complexContent>
+ 	</xs:complexType>
+ 	<xs:element name="SamplingInformationGroupName" type="r:NameType">
+ 		<xs:annotation>
+ 			<xs:documentation>A name for the sampling information group using the Name structure.</xs:documentation>
+ 		</xs:annotation>
+ 	</xs:element>
+ 	<xs:element name="TypeOfSamplingInformationGroup" type="r:CodeValueType">
+ 		<xs:annotation>
+ 			<xs:documentation>A generic element for specifying a reason for a sampling information group using the CodeValueType structure.</xs:documentation>
+ 		</xs:annotation>
+ 	</xs:element>
 	<xs:element name="SampleFrameName" type="r:NameType">
 		<xs:annotation>
 			<xs:documentation>A name for the SampleFrame using the NameType structure.</xs:documentation>
@@ -5528,152 +5570,9 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Provides full description of access, forms for access, contact, etc.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SamplingPlanScheme" type="SamplingPlanSchemeType">
-		<xs:annotation>
-			<xs:documentation>A set of sampling plans maintained by an agency, and used in the instrument.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:complexType name="SamplingPlanSchemeType">
-		<xs:annotation>
-			<xs:documentation>A set of sampling plans maintained by an agency, and used in the instrument.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="r:MaintainableType">
-				<xs:sequence>
-					<xs:element ref="SamplingPlanSchemeName" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A name for a sampling plan scheme which may be repeated to express differing names for different systems. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A display label for the sampling plan scheme. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:Description" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>A description of the use of the sampling plan scheme. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:SamplingPlanSchemeReference" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Provides for inclusion by reference of external sampling plan schemes.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="SamplingPlan">
-							<xs:annotation>
-								<xs:documentation>An item (that is, a sampling plan) belonging to the sampling plan scheme.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element ref="SamplingPlanReference">
-							<xs:annotation>
-								<xs:documentation>A sampling plan item included in the scheme by reference.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:choice>
-					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="SamplingPlanGroup">
-							<xs:annotation>
-								<xs:documentation>An item (that is, a sampling plan) belonging to the sampling plan Scheme.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element ref="SamplingPlanGroupReference">
-							<xs:annotation>
-								<xs:documentation>An item (that is, a sampling plan) included in the scheme by reference.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:choice>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:element name="SamplingPlan" type="SamplingPlanType">
 		<xs:annotation>
 			<xs:documentation>An inline description of a sampling plan (how the sample is drawn).</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="SamplingPlanGroup" type="SamplingPlanGroupType">
-		<xs:annotation>
-			<xs:documentation>A group of sampling plans organized for administrative purposes.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="SamplingPlanSchemeName" type="r:NameType">
-		<xs:annotation>
-			<xs:documentation>The name of the sampling plan scheme using NameType.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="SamplingPlanGroupReference" type="r:ReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to an existing SamplingPlanGroup using the Reference structure. TypeOfObject should be set to SamplingPlanGroup.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:complexType name="SamplingPlanGroupType">
-		<xs:annotation>
-			<xs:documentation>Contains a group of sampling plans, which may be hierarchical.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="r:VersionableType">
-				<xs:sequence>
-					<xs:element ref="TypeOfSamplingPlanGroup" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>A generic element for specifying a reason for a sampling plan group. Note that this element can contain either a term from a controlled vocabulary list or a textual description. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="SamplingPlanGroupName" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A name for a sampling plan group which may be repeated to express differing names for different systems.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A display label for the sampling plan group. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:Description" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>Additional textual description of the sampling plan group. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:UniverseReference" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Reference to the universe statement describing the persons or other elements that the sampling plans refer to, and to which any analytic results refer.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:ConceptReference" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>Reference to the concept measured by the sampling plans in this group.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="SamplingPlanReference">
-							<xs:annotation>
-								<xs:documentation>Reference to constituent SamplingPlan.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element ref="SamplingPlanGroupReference">
-							<xs:annotation>
-								<xs:documentation>Reference to constituent sampling plan group. This allows for nesting of sampling plan groups.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:choice>
-				</xs:sequence>
-				<xs:attribute name="isOrdered" type="xs:boolean" default="false">
-					<xs:annotation>
-						<xs:documentation>Indicates that the content of the group is ordered as it appears within the XML structure.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="SamplingPlanGroupName" type="r:NameType">
-		<xs:annotation>
-			<xs:documentation>A name for the sampling plan group using NameType.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="TypeOfSamplingPlanGroup" type="r:CodeValueType">
-		<xs:annotation>
-			<xs:documentation>A generic element for specifying a reason for a sampling plan group using the CodeValueType.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="SamplingPlanType">
@@ -5683,7 +5582,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
 				<xs:sequence>
-					<xs:element ref="TypeOfSamplePlan" minOccurs="0">
+					<xs:element ref="TypeOfSamplingPlan" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>A controlled vocabulary covering probability and non-probability sampling methods and modeling approaches. If this is a multi-stage sample the plan at this level should indicate the broadest description of the sampling approaches used in each stage.</xs:documentation>
 						</xs:annotation>
@@ -5718,9 +5617,14 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>Rationale for dividing the frame at this stage into subsets and using a different sampling technique (e.g., Simple Random Sampling or Probability Proportional to Size) on each subset.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="Stage" minOccurs="0">
+					<xs:element ref="ControlConstructReference" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>All sampling plans have at least one stage.  Stages are used to reduce the size of the survey population frame from which to identify sampling units.  For instance, the US Current Population Survey samples geographic areas first before identifying households to contact within those areas.  Cost and sampling error considerations weigh heavily in these decisions.</xs:documentation>
+							<xs:documentation>Generally reference to a single SamplingStage or to a Sequence which orders multiple SamplingStages. TypeOfObject should be any valid member of the group of Control Constructs.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="StratificationRationale" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Describe the purpose for stratifying the sampling process.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -5732,11 +5636,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>A name for a sampling plan using NameType.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="TypeOfSamplePlan" type="r:CodeValueType">
-		<xs:annotation>
-			<xs:documentation>A controlled vocabulary covering probability and non-probability sampling methods and modeling approaches using CodeValueType.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
+ 	<xs:element name="TypeOfSamplingPlan" type="r:CodeValueType">
+ 		<xs:annotation>
+ 			<xs:documentation>A controlled vocabulary covering probability and non-probability sampling plans and modeling approaches using CodeValueType.</xs:documentation>
+ 		</xs:annotation>
+ 	</xs:element>
 	<xs:element name="IntendedTargetPopulation" type="PopulationType">
 		<xs:annotation>
 			<xs:documentation>A description of the population that the survey is intended to question (i.e. "Likely voters").</xs:documentation>
@@ -5752,67 +5656,83 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Splits take a stage and divide the frame at that stage into subsets.  A different sampling technique is applied to each subset.  So, the highest level element after the initial sample description elements is the stage and its frame, then split and subset definitions of the frame within the stage, then sampling technique on each frame subset.  Once a split occurs, then each subset can have stages underneath, and the number of stages under each split subset may differ.  Move this element under SplitCondition.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="Stage" type="StageType">
+	<xs:element name="SamplingStage" type="SamplingStageType" substitutionGroup="ControlConstruct">
+ 		<xs:annotation>
+ 			<xs:documentation>All sampling plans have at least one Sampling stage.  Sampling Stages are used to reduce the size of the survey population frame from which to identify sampling units.</xs:documentation>
+ 		</xs:annotation>
+ 	</xs:element>
+ 	<xs:complexType name="SamplingStageType">
+ 		<xs:annotation>
+ 			<xs:documentation>All sampling plans have at least one Sampling stage.  Sampling Stages are used to reduce the size of the survey population frame from which to identify sampling units.  For instance, the US Current Population Survey samples geographic areas first before identifying households to contact within those areas.  Cost and sampling error considerations weigh heavily in these decisions.</xs:documentation>
+ 		</xs:annotation>
+ 		<xs:complexContent>
+ 			<xs:extension base="ControlConstructType">
+ 				<xs:sequence>
+ 					<xs:element ref="FrameRequirements" minOccurs="0">
+ 						<xs:annotation>
+ 							<xs:documentation>Describes the minimum requirements of the frame needed to use this sample stage. For example, if a stratification by age is specified in the stage the sample frame would need to support this stratification.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+ 					<xs:element ref="RecommendedFrameReference" minOccurs="0" maxOccurs="unbounded">
+ 						<xs:annotation>
+ 							<xs:documentation>Identifies a specific sample frame or frames appropriate for this plan.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+ 					<xs:element ref="Stratification" minOccurs="0" maxOccurs="unbounded">
+ 						<xs:annotation>
+ 							<xs:documentation>Describe all stratifications here. Note that each stratified group will be sampled using the same sampling plan. For example stratifying a state by ZIP Code areas in each of 5 mean income quintiles and then doing a random sample of the households in set of ZIP Codes. Allows for oversampling of identified subpopulations.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+ 					<xs:element ref="SamplingUnit" minOccurs="0">
+ 						<xs:annotation>
+ 							<xs:documentation>Sampling unit for this stage</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+ 					<xs:element ref="SelectionProbability" minOccurs="0">
+ 						<xs:annotation>
+ 							<xs:documentation>If known and available, provide the selection probability for each sampling unit.  This is one number for equal probability sampling, such as SRS.  For PPS, a description of the size criterion is needed.  For other unequal designs, a description of of how the probabilities are assigned is needed.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+					<xs:element ref="ControlConstructReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>References control constructs in the order that they should appear within the instrument. Normally these consist of SampleSteps but may require routing information.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+ 			</xs:extension>
+ 		</xs:complexContent>
+ 	</xs:complexType>
+	<xs:element name="SampleStep" type="SampleStepType" substitutionGroup="ControlConstruct">
 		<xs:annotation>
-			<xs:documentation>All sampling plans have at least one stage.  Stages are used to reduce the size of the survey population frame from which to identify sampling units.</xs:documentation>
+			<xs:documentation>A ControlConstruct that provides a specialized act for generating a sample.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="StageType">
+	<xs:complexType name="SampleStepType">
 		<xs:annotation>
-			<xs:documentation>All sampling plans have at least one stage.  Stages are used to reduce the size of the survey population frame from which to identify sampling units.  For instance, the US Current Population Survey samples geographic areas first before identifying households to contact within those areas.  Cost and sampling error considerations weigh heavily in these decisions.</xs:documentation>
+			<xs:documentation>A ControlConstruct that provides a specialized act for generating a sample.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:IdentifiableType">
+			<xs:extension base="ControlConstructType">
 				<xs:sequence>
-					<xs:element ref="SplitCondition" minOccurs="0">
+					<xs:element ref="ConditionForAcceptance" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Condition for using this stage. Use only when multiple top level stages are used.</xs:documentation>
+							<xs:documentation></xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="FrameRequirements" minOccurs="0">
+					<xs:element ref="r:CommandCode" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Describes the minimum requirements of the frame needed to use this sample stage. For example, if a stratification by age is specified in the stage the sample frame would need to support this stratification.</xs:documentation>
+							<xs:documentation>The Code which contains the value of the variable in programming terms.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="RecommendedFrameReference" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="Stratification" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Identifies a specific sample frame or frames appropriate for this plan.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="Stratification" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Describe all stratifications here. Note that each stratified group will be sampled using the same sampling plan. For example stratifying a state by ZIP Code areas in each of 5 mean income quintiles and then doing a random sample of the households in set of ZIP Codes. Allows for oversampling of identified subpopulations.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="SamplingUnit" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>Sampling unit for this stage</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="TypeOfPlan" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>Indicate PlanCode if different from parent. Note that all strata resulting from the stratification process must use the same sampling plan.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="SelectionProbability" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>If known and available, provide the selection probability for each sampling unit.  This is one number for equal probability sampling, such as SRS.  For PPS, a description of the size criterion is needed.  For other unequal designs, a description of of how the probabilities are assigned is needed.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="SubStage" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A substage assumes that its sample frame is the result of its parent stage.</xs:documentation>
+							<xs:documentation></xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="SplitCondition" type="r:StructuredStringType">
-		<xs:annotation>
-			<xs:documentation>Condition for using this stage. Use only when multiple top level stages are used.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
 	<xs:element name="FrameRequirements" type="r:StructuredStringType">
 		<xs:annotation>
 			<xs:documentation>Describes the minimum requirements of the frame needed to use this sample stage. For example, if a stratification by age is specified in the stage the sample frame would need to support this stratification.</xs:documentation>
@@ -5828,24 +5748,9 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>A distinct "strata" within a population used to define a group to be sampled within that population, for example an Income Level or Postal Code.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SamplingUnit" type="r:CodeValueType">
-		<xs:annotation>
-			<xs:documentation>The unit being sampled (i.e. Car, Person, Housing Unit) using a CodeValueType</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="TypeOfPlan" type="r:CodeValueType">
-		<xs:annotation>
-			<xs:documentation>Indicate PlanCode if different from parent. Uses a CodeValueType</xs:documentation>
-		</xs:annotation>
-	</xs:element>
 	<xs:element name="SelectionProbability" type="r:StructuredStringType">
 		<xs:annotation>
 			<xs:documentation>If known and available, provide the selection probability for each sampling unit.  This is one number for equal probability sampling, such as SRS.  For PPS, a description of the size criterion is needed.  For other unequal designs, a description of of how the probabilities are assigned is needed.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="SubStage" type="SubStageType">
-		<xs:annotation>
-			<xs:documentation>A substage assumes that its sample frame is the result of its parent stage.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="StratificationType">
@@ -5897,63 +5802,32 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="SubStageType">
+	<!-- DATA CAPTURE DESIGN CONTENT -->
+	<xs:element name="DataCaptureDevelopment" type="DataCaptureDevelopmentType">
 		<xs:annotation>
-			<xs:documentation>A substage assumes that its sample frame is the result of its parent stage.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="r:IdentifiableType">
-				<xs:sequence>
-					<xs:element ref="Stratification" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Condition for using this stage. Use only when multiple top level stages are used.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="SamplingUnit" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>A split results in multiple strata using different sampling plans. For example a study of those who fish which samples those engaged in fishing at particular locations (strata 1) and those who have fishing licenses (strata 2).</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="TypeOfPlan" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>Identifies a specific sample frame or frames appropriate for this plan.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="SubStage" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Allows for recursive nesting.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<!-- QUESTIONNAIRE DESIGN CONTENT -->
-	<xs:element name="QuestionnaireDevelopment" type="QuestionnaireDevelopmentType">
-		<xs:annotation>
-			<xs:documentation>Questionnaire development covers the development planning, process, and outcome for a partial or full questionnaire. Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, and question order.</xs:documentation>
+			<xs:documentation>DataCaptureDevelopment covers the development planning, process, and outcome for a partial or full data capture object (question, measurement, instrument, or control construct). Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, question/measurement order and mode of delivery (instrument). Extensive work is often done for individual questions/measures that may be reused by different data capture instruments with the organization or for topical areas or populations that are difficult to measure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="QuestionnaireDevelopmentType">
+	<xs:complexType name="DataCaptureDevelopmentType">
 		<xs:annotation>
-			<xs:documentation>Questionnaire development covers the development planning, process, and outcome for a partial or full questionnaire. Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, and question order. Extensive work is often done for individual questions that may be reused by different questionnaires with the organization or for topical areas or populations that are difficult to measure. In addition to the standard name, label, and description information QuestionnaireDevelopment contains structures to capture the development plan, the development process, and the results or outcome of the development process. Questionnaire Development is a Maintainable object and any Note or OtherMaterial related to one of its objects should be placed within the Note and OtherMaterial section of QuestionnaireDevelopment.</xs:documentation>
+			<xs:documentation>Data capture development covers the development planning, process, and outcome for a partial or full questionnaire. Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, and question order. Extensive work is often done for individual questions that may be reused by different questionnaires with the organization or for topical areas or populations that are difficult to measure. In addition to the standard name, label, and description information DataCaptureDevelopment contains structures to capture the development plan, the development implementation, and the results or outcome of the development implementation. DataCaptureDevelopment is a Maintainable object and any Note or OtherMaterial related to one of its objects should be placed within the Note and OtherMaterial section of DataCaptureDevelopment.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
 				<xs:sequence>
-					<xs:element ref="QuestionnaireDevelopmentName" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="DataCaptureDevelopmentName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the Questionnaire Development. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the Data Capture Development. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the Questionnaire Development. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the Data Capture Development. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the content and purpose of the Questionnaire Development. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+							<xs:documentation>A description of the content and purpose of the Data Capture Development. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -5969,26 +5843,26 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 						</xs:element>
 					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="DevelopmentProcess">
+						<xs:element ref="DevelopmentImplementation">
 							<xs:annotation>
-								<xs:documentation>Provides the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities.</xs:documentation>
+								<xs:documentation>Describes the implementation of a development plan for a specific set of development objects. May provide specific details using Control Construct to order Development Steps.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element ref="DevelopmentProcessReference">
+						<xs:element ref="DevelopmentImplementationReference">
 							<xs:annotation>
-								<xs:documentation>Reference to the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities. TypeOfObject should be DevelopmentProcess.</xs:documentation>
+								<xs:documentation>Reference to the development implementation of a development plan for a specific set of development objects. May provide specific details using Control Construct to order Development Steps. TypeOfObject should be DevelopmentImplementation.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="DevelopmentResults">
 							<xs:annotation>
-								<xs:documentation>Separates the capture of development process results from the process plan and organization. Allows for capture of the overall results, details of individual steps, or separate iterations of that step.</xs:documentation>
+								<xs:documentation>Separates the capture of development implementation results from the process plan and general activities. Allows for capture of the overall results, details of individual steps, or separate iterations of that step.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="DevelopmentResultsReference">
 							<xs:annotation>
-								<xs:documentation>Reference to the capture of development process results from the process plan and organization. Allows for capture of the overall results, details of individual steps, or separate iterations of that step. TypeOfObject should be DevelopmentResults.</xs:documentation>
+								<xs:documentation>Separates the capture of development implementation results from the process plan and general activities. Allows for capture of the overall results, details of individual steps, or separate iterations of that step. TypeOfObject should be DevelopmentResults.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -5996,19 +5870,53 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="QuestionnaireDevelopmentName" type="r:NameType">
+	<xs:element name="DataCaptureDevelopmentName" type="r:NameType">
 		<xs:annotation>
-			<xs:documentation>Name of the Questionnaire Development using the DDI Name structure.</xs:documentation>
+			<xs:documentation>Name of the Data Capture Development using the DDI Name structure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="DevelopmentObject" type="DevelopmentObjectType">
+		<xs:annotation>
+			<xs:documentation>Structure a single Question which may contain one or more response domains (i.e., a list of valid category responses where if "Other" is indicated a text response can be used to specify the intent of "Other").</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="DevelopmentObjectType">
+		<xs:annotation>
+			<xs:documentation>A description of the development objects of a Development Implementation or Development Step. Supports a general description as well as specific references to allowed development objects.</xs:documentation>
+		</xs:annotation>
+      <xs:sequence>
+        <xs:element ref="r:Description" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>A description of the development objects that are the intended objects of a Development Plan or specific objects of a Development Step. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="r:QuestionReference">
+            <xs:annotation>
+              <xs:documentation>Reference to the Question type that is the target of the development work. TypeOfObject should be QuestionItem, QuestionGrid, or QuestionBlock.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="r:MeasurementReference">
+            <xs:annotation>
+              <xs:documentation>Reference to the Measurement that is the target of the development work. TypeOfObject should be Measurement.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="InstrumentReference">
+            <xs:annotation>
+              <xs:documentation>Reference to the Instrument that is the target of the development work. TypeOfObject should be Instrument.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="ControlConstructReference">
+            <xs:annotation>
+              <xs:documentation>Reference to the ControlConstruct that is the target of the development work. TypeOfObject should reflect the type of ControlConstruct being referenced. Value should be IfThenElse, RepeatUntil, RepeatWhile, Loop, Sequence, ComputationItem, StatementItem, MeasurementConstruct, QuestionConstruct, Split, SplitJoin, SamplingStage, SampleStep, DevelopmentStep.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:choice>
+      </xs:sequence>
+	</xs:complexType>
 	<xs:element name="DevelopmentObjective" type="r:StructuredStringType">
 		<xs:annotation>
 			<xs:documentation>Describes the objectives of the development work. Supports the use of structured content in multiple languages.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="DevelopmentObjectReference" type="r:ReferenceType">
-		<xs:annotation>
-			<xs:documentation>References the objects which are targets of development. This could be a full Instrument, full or partial Questionnaire flow (ControlConstruct, use the master Sequence for a full questionnaire flow), QuestionItem, QuestionGrid, QuestionBlock, QuestionGroup, or any sub-set of these objects. TypeOfObject should reflect the specific object type being referenced.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ContactReference" type="r:ReferenceType">
@@ -6036,9 +5944,9 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Reference to the set of development activities that should take place. TypeOfObject should be DevelopmentPlan.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="DevelopmentProcessReference" type="r:ReferenceType">
+	<xs:element name="DevelopmentImplementationReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities. TypeOfObject should be DevelopmentProcess.</xs:documentation>
+			<xs:documentation>Reference to the development implementation of a development plan for a specific set of development objects. May provide specific details using Control Construct to order Development Steps. TypeOfObject should be DevelopmentImplementation.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DevelopmentResultsReference" type="r:ReferenceType">
@@ -6088,11 +5996,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:element ref="DevelopmentObjective" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Describes the objectives of the development work. Supports the use of structured content in multiple languages.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="DevelopmentObjectReference" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>References the objects which are targets of development. This could be a full Instrument, full or partial Questionnaire flow (ControlConstruct, use the master Sequence for a full questionnaire flow), QuestionItem, QuestionGrid, QuestionBlock, QuestionGroup, or any sub-set of these objects.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="ContactReference" minOccurs="0" maxOccurs="unbounded">
@@ -6742,7 +6645,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:complexType>
 	<xs:complexType name="DevelopmentActivitySchemeType">
 		<xs:annotation>
-			<xs:documentation>A set of Development Activities maintained by an agency, and used in defining the development of a questionnaire. In addition to the standard name, label, and description allows for the inclusion of an existing DevelopmentActivityScheme by reference and descriptions of DevelopmentActivity and DevelopmentActivityGroup either in-line or by reference.</xs:documentation>
+			<xs:documentation>A set of Development Activities maintained by an agency, and used in defining the development of a data capture object. In addition to the standard name, label, and description allows for the inclusion of an existing DevelopmentActivityScheme by reference and descriptions of DevelopmentActivity and DevelopmentActivityGroup either in-line or by reference.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:MaintainableType">
@@ -6895,7 +6798,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:complexType name="DevelopmentResultsType">
 		<xs:annotation>
-			<xs:documentation>Provides a name, label and description for the Development Results and lists the individual development activities which should take place.</xs:documentation>
+			<xs:documentation>Separates the capture of development implementation results from the process plan and general activities. Allows for capture of the overall results, details of individual steps, or separate iterations of that step.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
@@ -6915,14 +6818,9 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>A description of the overall Development Results. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="DevelopmentPlanReference" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="DevelopmentImplementationReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>References the Development Plan which the results refer to.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="DevelopmentProcessReference" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>References the Development Process which the results refer to.</xs:documentation>
+							<xs:documentation>References the Development Implementation which the results refer to. TypeOfObject should be DevelopmentImplementation</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="ResultsDate" minOccurs="0">
@@ -6979,16 +6877,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:documentation>Description of whether specific requirements for the activities providing these results were met.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="DevelopmentActivityReference" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Reference to one or more Development Activities used by the Development Plan. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="DevelopmentProcessStepReference" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Reference to one or more Development Process Steps involved in these results.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="TypeOfResult" type="r:CodeValueType">
@@ -7028,36 +6916,31 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Identifies the specific type of result. Supports the use of an external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="DevelopmentProcessStepReference" type="r:ReferenceType">
+	<xs:element name="DevelopmentImplementation" type="DevelopmentImplementationType">
 		<xs:annotation>
-			<xs:documentation>Reference to a Development Process Steps. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
+			<xs:documentation>Provides the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities. Note that the structure allows for a simple summary of the implementation work or can provide details using the DevelopmentStep and other control constructs to describe the organization of the implementation.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="DevelopmentProcess" type="DevelopmentProcessType">
+	<xs:complexType name="DevelopmentImplementationType">
 		<xs:annotation>
-			<xs:documentation>Provides the order of process steps in development of the questionnaire including references to previously specified development activities as well as information on the persons and organizations involved in the process, the objects under development and the results of development activities</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:complexType name="DevelopmentProcessType">
-		<xs:annotation>
-			<xs:documentation>Provides a name, label and description for the Development Process and lists the individual development activities which should take place.</xs:documentation>
+			<xs:documentation>Provides a name, label and description for the Development Implementation and lists the individual development activities which should take place. Note that the structure allows for a simple summary of the implementation work or can provide details using the DevelopmentStep and other control constructs to describe the organization of the implementation.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
 				<xs:sequence>
-					<xs:element ref="DevelopmentProcessName" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="DevelopmentImplementationName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A name for the DevelopmentProcess. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+							<xs:documentation>A name for the DevelopmentImplementation. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A display label for the Development Process. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+							<xs:documentation>A display label for the Development Implementation. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:Description" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A description of the overall Development Process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+							<xs:documentation>A description of the overall Development Implementation. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="DevelopmentPlanReference" minOccurs="0" maxOccurs="unbounded">
@@ -7065,55 +6948,45 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>References the Development Plan which the results refer to.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="DevelopmentProcessStep" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="DevelopmentActivityReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Steps within the development process.</xs:documentation>
+							<xs:documentation>Reference to one or more Development Activities used by the Development Implementation. DevelopmentActivity is a substitution base for a number of types of activities described with appropriate content. TypeOfObject should be ContentReviewActivity, TranslationActivity, or PretestActivity.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="DevelopmentObject" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describes the object of the development. May reference a specific object instrument, question, measurement, or control construct to.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ControlConstructReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A set of DevelopmentSteps (control construct sub-type) that detail the implementation. May be organized using other control constructs to define sequencing, flow logic, sub-testing, etc. TypeOfObject should be any sub-type of a control construct.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="DevelopmentProcessName" type="r:NameType">
+	<xs:element name="DevelopmentImplementationName" type="r:NameType">
 		<xs:annotation>
-			<xs:documentation>A name for the DevelopmentProcess. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+			<xs:documentation>A name for the DevelopmentImplementation. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="DevelopmentProcessStep" type="DevelopmentProcessStepType">
+	<xs:element name="DevelopmentStep" type="DevelopmentStepType" substitutionGroup="ControlConstruct">
 		<xs:annotation>
-			<xs:documentation>Steps within the development process.</xs:documentation>
+			<xs:documentation>A member of the ControlConstruct substitution group. Describes a Development Step implementing a Development Activity directed at a specific development object. Defines prerequisites, condition for acceptance, and activity date and and agent performing the step.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="DevelopmentProcessStepType">
+	<xs:complexType name="DevelopmentStepType">
 		<xs:annotation>
-			<xs:documentation>Provides a name, label and description for the Development Process and lists the individual development activities which should take place.</xs:documentation>
+			<xs:documentation>A member of the ControlConstruct substitution group. Describes a Development Step implementing a Development Activity directed at a specific development object. Defines prerequisites, condition for acceptance, and activity date and and agent performing the step. Use ExternalAid to identify external resources used by the DevelopmentStep</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:IdentifiableType">
+			<xs:extension base="ControlConstructType">
 				<xs:sequence>
-					<xs:element ref="PredecessorStepReference" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="DevelopmentObject" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Reference to the DevelopmentProcessStep that appears before this step. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="SuccessorStepReference" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Reference to the DevelopmentProcessStep that appears after this step. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="DevelopmentObjectReference" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Reference to the development object that is the target of this development step. If it is an external object create a description as OtherMaterial and reference the OtherMaterial. Use the attribute "objectLanguage" to specify any language preference. Repeat for multiple development objects. TypeOfObject should relate to the object referenced.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="ResourceUsed" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Existing resources used in the process step.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:Description" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>A description of the overall Development Process. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+							<xs:documentation>Describes the object of the development. May reference a specific object instrument, question, measurement, or control construct to.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="DevelopmentActivityReference" minOccurs="0" maxOccurs="unbounded">
@@ -7123,7 +6996,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					</xs:element>
 					<xs:element ref="ResponsibleAgencyReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Reference to an Organization or Individual responsible for this step. TypeOfObject should be Organization or Individual.</xs:documentation>
+							<xs:documentation>Reference to an Organization or Individual responsible for this step. TypeOfObject should be any sub-type of Agency.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Prerequisite" minOccurs="0" maxOccurs="unbounded">
@@ -7145,16 +7018,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="PredecessorStepReference" type="r:ReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to the DevelopmentProcessStep that appears before this step. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="SuccessorStepReference" type="r:ReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to the DevelopmentProcessStep that appears after this step. TypeOfObject should be DevelopmentProcessStep.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
 	<xs:element name="ResponsibleAgencyReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an Organization or Individual responsible for this step. TypeOfObject should be Organization or Individual.</xs:documentation>
@@ -7222,5 +7085,189 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>The use of the resource within the DevelopmentProcessingStep. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<!-- end of Questionnaire Developement CONTENT -->
+	<!-- end of DataCaptureDevelopement CONTENT -->
+	<xs:element name="Split" type="SplitType" substitutionGroup="ControlConstruct">
+		<xs:annotation>
+			<xs:documentation>A member of the ControlConstruct substitution group. The components of a Split consists of a number of process steps to be executed concurrently with partial synchronization. Split completes as soon as all of its component process steps have been scheduled for execution.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="SplitType">
+		<xs:annotation>
+			<xs:documentation>A member of the ControlConstruct substitution group. The components of a Split consists of a number of process steps to be executed concurrently with partial synchronization. Split completes as soon as all of its component process steps have been scheduled for execution.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ControlConstructType">
+				<xs:sequence>
+					<xs:element ref="TypeOfSequence" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Provides the ability to "type" a spit for classification or processing purposes. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ControlConstructReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>References control constructs that can be executed concurrently.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="SplitJoin" type="SplitJoinType" substitutionGroup="ControlConstruct">
+		<xs:annotation>
+			<xs:documentation>A member of the ControlConstruct substitution group. The components of a SplitJoin consists of a number of process steps to be executed concurrently with partial synchronization. SplitJoin consists of process steps that are executed concurrently (execution with barrier synchronization). That is, SplitJoin completes when all of its components processes have completed. Supports parallel processing that requires completion of all included process steps to exit.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="SplitJoinType">
+		<xs:annotation>
+			<xs:documentation>A member of the ControlConstruct substitution group. The components of a SplitJoin consists of a number of process steps to be executed concurrently with partial synchronization. SplitJoin consists of process steps that are executed concurrently (execution with barrier synchronization). That is, SplitJoin completes when all of its components processes have completed. Supports parallel processing that requires completion of all included process steps to exit.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ControlConstructType">
+				<xs:sequence>
+					<xs:element ref="TypeOfSequence" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Provides the ability to "type" a split for classification or processing purposes. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ControlConstructReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>References control constructs that can be executed concurrently.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="Sample" type="SampleType">
+		<xs:annotation>
+			<xs:documentation>Describes a sample created by the implementation of a sample plan.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="SampleType">
+		<xs:annotation>
+			<xs:documentation>Describes a sample created by the implementation of a sample plan.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="r:VersionableType">
+				<xs:sequence>
+					<xs:element ref="TypeOfSample" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A generic means of classifying a SamplingProcedure. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+ 					<xs:element ref="SampleName" minOccurs="0" maxOccurs="unbounded">
+ 						<xs:annotation>
+ 							<xs:documentation>A name for the sample. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+ 					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
+ 						<xs:annotation>
+ 							<xs:documentation>A display label for the sample. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+ 						</xs:annotation>
+ 					</xs:element>
+					<xs:element ref="r:Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Full description of the sample. Supports structured content and multiple language content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="PopulationOfConcern" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describe the population being sampled through a combination of textual description and reference to a structured Universe.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="OverallTargetSampleSize" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The target value of the sample size for the primary and any secondary or sub-population.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="OverallSampleSize" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The size of the overall sample actually used.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ApplicationDetails" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Provides sample stage level details where needed. Repeat for individual stages or sub-stages.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="DateOfSample" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Date the sample was taken. May be expressed as a single date or range. If the sample was created using multiple extractions at different dates, repeat for each date.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SampleLocationReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Description of general limitations of the frame, including  over/under-coverage and update schedules and procedures.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SamplingPlanImplementedReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A reference to the SamplingPlan implemented to creating the sample. Target object should be SamplingPlan</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SampleFrameUsedReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A reference to the SampleFrame used for creating the sample. Target object should be SampleFrame</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ComponentSampleReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A reference to a previously created sample that was used as a component of the current sample. Target object should be Sample.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="SampleName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>A name for the Sample using the NameType structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TypeOfSample" type="r:CodeValueType">
+		<xs:annotation>
+			<xs:documentation>A brief textual description or classification of the type of sample used. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (SamplingProcedure) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SampleLocationReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>A reference to a description of the sample and its location using OtherMaterialType. Target should be OtherMaterial.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+ 	<xs:element name="SampleFrameSchemeName" type="r:NameType">
+ 		<xs:annotation>
+ 			<xs:documentation>A name for the sample. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+ 		</xs:annotation>
+ 	</xs:element>
+	<xs:element name="SamplingPlanImplementedReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>A reference to the SamplingPlan implemented to creating the sample. Target object should be SamplingPlan</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SampleFrameUsedReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>A reference to the SampleFrame used for creating the sample. Target object should be SampleFrame</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SampleReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>A reference to a sample. Target object should be Sample.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ComponentSampleReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>A reference to a previously created sample that was used as a component of the current sample. Target object should be Sample.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="BasedOnSampleReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>The sample that was the basis for the weighting. TypeOfObject should be Sample.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SamplingUnit" type="r:ReferenceType">
+ 		<xs:annotation>
+ 			<xs:documentation>Reference to a unit type describing the sample's.</xs:documentation>
+ 		</xs:annotation>
+ 	</xs:element>
 </xs:schema>
