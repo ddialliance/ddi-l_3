@@ -540,6 +540,16 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>Reference to a Concept that is used for qualifying this data element concept. The referenced Concept should have its isCharacteristic attribute set to true.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="ExcludesConceptReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to a Concept that is used for qualifying what is excluded from the Concept's definition.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="IncludesConceptReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to a Concept that is used for qualifying this is included in the Concept's definition.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="isCharacteristic" type="xs:boolean" default="false">
 					<xs:annotation>
@@ -552,6 +562,16 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	<xs:element name="SubclassOfReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing Concept using the Reference structure. TypeOfObject should be set to Concept.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ExcludesConceptReference"  type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to a Concept that is used for qualifying what is excluded from the Concept's definition.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="IncludesConceptReference"  type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to a Concept that is used for qualifying this is included in the Concept's definition.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ConceptName" type="r:NameType">
