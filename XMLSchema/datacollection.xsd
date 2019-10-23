@@ -5029,12 +5029,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="ThenConstructReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopementStep, SamplingStage, or SampleStep.</xs:documentation>
+			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopmentStep, SamplingStage, or SampleStep.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ElseConstructReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopementStep, SamplingStage, or SampleStep.</xs:documentation>
+			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopmentStep, SamplingStage, or SampleStep.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="UntilCondition" type="r:CommandCodeType">
@@ -5044,7 +5044,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="UntilConstructReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopementStep, SamplingStage, or SampleStep.</xs:documentation>
+			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopmentStep, SamplingStage, or SampleStep.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="WhileCondition" type="r:CommandCodeType">
@@ -5054,7 +5054,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="WhileConstructReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopementStep, SamplingStage, or SampleStep.</xs:documentation>
+			<xs:documentation>Reference to an existing Construct using the Reference structure. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopmentStep, SamplingStage, or SampleStep.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="LoopVariableReference" type="r:ReferenceType">
@@ -5144,7 +5144,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="ControlConstructReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>A reference to a control construct of any type. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopementStep, SamplingStage, or SampleStep.</xs:documentation>
+			<xs:documentation>A reference to a control construct of any type. TypeOfObject should be set to ComputationItem, IfThenElse, Loop, MeasurementConstruct, QuestionConstruct, RepeatUntil, RepeatWhile, Sequence, StatementItem, Split, SplitJoin, DevelopmentStep, SamplingStage, or SampleStep.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SourceVariable" type="SourceReferenceType">
@@ -7085,7 +7085,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>The use of the resource within the DevelopmentProcessingStep. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<!-- end of DataCaptureDevelopement CONTENT -->
+	<!-- end of DataCaptureDevelopment CONTENT -->
 	<xs:element name="Split" type="SplitType" substitutionGroup="ControlConstruct">
 		<xs:annotation>
 			<xs:documentation>A member of the ControlConstruct substitution group. The components of a Split consists of a number of process steps to be executed concurrently with partial synchronization. Split completes as soon as all of its component process steps have been scheduled for execution.</xs:documentation>

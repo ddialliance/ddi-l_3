@@ -1288,7 +1288,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="Universe" type="UniverseType">
 		<xs:annotation>
-			<xs:documentation>A Universe contextualizes a Unit Type by providing additional restriction characteristics. The class Universe covers both the GSIM 1.2 obects of Universe and Population, conflating them into a single class.</xs:documentation>
+			<xs:documentation>A Universe contextualizes a Unit Type by providing additional restriction characteristics. The class Universe covers both the GSIM 1.2 objects of Universe and Population, conflating them into a single class.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="UniverseGenerationCode" type="r:CommandCodeType">
