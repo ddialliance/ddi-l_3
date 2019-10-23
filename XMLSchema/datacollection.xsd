@@ -2646,7 +2646,15 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Serves as a common extension base for different forms of Questions</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:VersionableType"/>
+			<xs:extension base="r:VersionableType">
+				<xs:sequence>
+					<xs:element ref="DevelopmentResultsReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to the development implementation results which gave rise to this version of the object. TypeOfObject should be DevelopmentResults.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 
