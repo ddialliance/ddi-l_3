@@ -7993,7 +7993,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="DevelopmentActivitySchemeReference" type="SchemeReferenceType">
 		<xs:annotation>
-			<xs:documentation>References to a set of development activities maintained by an agency, and used in the creation of data capture objects (Measurements, Quesitons, Instruments, and Control Constructs). TypeOfObject should be set to DevelopmentActivityScheme.</xs:documentation>
+			<xs:documentation>References to a set of development activities maintained by an agency, and used in the creation of data capture objects (Measurements, Questions, Instruments, and Control Constructs). TypeOfObject should be set to DevelopmentActivityScheme.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 </xs:schema>

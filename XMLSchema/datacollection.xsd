@@ -77,7 +77,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 						</xs:element>
 						<xs:element ref="DataCaptureDevelopmentReference">
 							<xs:annotation>
-								<xs:documentation>Reference to DataCaputureDevelopment covers the development planning, process, and outcome for a partial or full data capture object (question, measurement, instrument, or control construct). Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, question/measurement order and mode of delivery (instrument). Extensive work is often done for individual questions/measures that may be reused by different data capture instruments with the organization or for topical areas or populations that are difficult to measure. TypeOfObject should be DataCaptureDevelopment.</xs:documentation>
+								<xs:documentation>Reference to DataCaptureDevelopment covers the development planning, process, and outcome for a partial or full data capture object (question, measurement, instrument, or control construct). Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, question/measurement order and mode of delivery (instrument). Extensive work is often done for individual questions/measures that may be reused by different data capture instruments with the organization or for topical areas or populations that are difficult to measure. TypeOfObject should be DataCaptureDevelopment.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -212,7 +212,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:complexType>
 	<xs:element name="DataCaptureDevelopmentReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to DataCaputureDevelopment covers the development planning, process, and outcome for a partial or full data capture object (question, measurement, instrument, or control construct). Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, question/measurement order and mode of delivery (instrument). Extensive work is often done for individual questions/measures that may be reused by different data capture instruments with the organization or for topical areas or populations that are difficult to measure. TypeOfObject should be DataCaptureDevelopment.</xs:documentation>
+			<xs:documentation>Reference to DataCaptureDevelopment covers the development planning, process, and outcome for a partial or full data capture object (question, measurement, instrument, or control construct). Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, question/measurement order and mode of delivery (instrument). Extensive work is often done for individual questions/measures that may be reused by different data capture instruments with the organization or for topical areas or populations that are difficult to measure. TypeOfObject should be DataCaptureDevelopment.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="DataCollectionModuleName" type="r:NameType">
@@ -5805,7 +5805,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	<!-- DATA CAPTURE DESIGN CONTENT -->
 	<xs:element name="DataCaptureDevelopment" type="DataCaptureDevelopmentType">
 		<xs:annotation>
-			<xs:documentation>DataCaputureDevelopment covers the development planning, process, and outcome for a partial or full data capture object (question, measurement, instrument, or control construct). Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, question/measurement order and mode of delivery (instrument). Extensive work is often done for individual questions/measures that may be reused by different data capture instruments with the organization or for topical areas or populations that are difficult to measure.</xs:documentation>
+			<xs:documentation>DataCaptureDevelopment covers the development planning, process, and outcome for a partial or full data capture object (question, measurement, instrument, or control construct). Development normally included the development of the question wording, possible response domains and their presentation, translation for language or cultural variance in the population, question/measurement order and mode of delivery (instrument). Extensive work is often done for individual questions/measures that may be reused by different data capture instruments with the organization or for topical areas or populations that are difficult to measure.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="DataCaptureDevelopmentType">
@@ -5857,12 +5857,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="DevelopmentResults">
 							<xs:annotation>
-								<xs:documentation>Separates the capture of development implementation results from the process plan and general activites. Allows for capture of the overall results, details of individual steps, or separate iterations of that step.</xs:documentation>
+								<xs:documentation>Separates the capture of development implementation results from the process plan and general activities. Allows for capture of the overall results, details of individual steps, or separate iterations of that step.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="DevelopmentResultsReference">
 							<xs:annotation>
-								<xs:documentation>Separates the capture of development implementation results from the process plan and general activites. Allows for capture of the overall results, details of individual steps, or separate iterations of that step. TypeOfObject should be DevelopmentResults.</xs:documentation>
+								<xs:documentation>Separates the capture of development implementation results from the process plan and general activities. Allows for capture of the overall results, details of individual steps, or separate iterations of that step. TypeOfObject should be DevelopmentResults.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -6798,7 +6798,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:complexType name="DevelopmentResultsType">
 		<xs:annotation>
-			<xs:documentation>Separates the capture of development implementation results from the process plan and general activites. Allows for capture of the overall results, details of individual steps, or separate iterations of that step.</xs:documentation>
+			<xs:documentation>Separates the capture of development implementation results from the process plan and general activities. Allows for capture of the overall results, details of individual steps, or separate iterations of that step.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
@@ -6974,12 +6974,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="DevelopmentStep" type="DevelopmentStepType" substitutionGroup="ControlConstruct">
 		<xs:annotation>
-			<xs:documentation>A member of the ControlConstruct substitution group. Describes a Development Step implementing a Development Activity directed at a specific development object. Defines prerequesites, condition for acceptance, and activity date and and agent performing the step.</xs:documentation>
+			<xs:documentation>A member of the ControlConstruct substitution group. Describes a Development Step implementing a Development Activity directed at a specific development object. Defines prerequisites, condition for acceptance, and activity date and and agent performing the step.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="DevelopmentStepType">
 		<xs:annotation>
-			<xs:documentation>A member of the ControlConstruct substitution group. Describes a Development Step implementing a Development Activity directed at a specific development object. Defines prerequesites, condition for acceptance, and activity date and and agent performing the step. Use ExternalAid to identify external resources used by the DevelopmentStep</xs:documentation>
+			<xs:documentation>A member of the ControlConstruct substitution group. Describes a Development Step implementing a Development Activity directed at a specific development object. Defines prerequisites, condition for acceptance, and activity date and and agent performing the step. Use ExternalAid to identify external resources used by the DevelopmentStep</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ControlConstructType">
