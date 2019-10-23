@@ -532,26 +532,14 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 						</xs:element>
 					</xs:choice>
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="d:SampleFrameScheme">
+						<xs:element ref="d:SamplingInformationScheme">
 							<xs:annotation>
 								<xs:documentation>A set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element ref="r:SampleFrameSchemeReference">
+						<xs:element ref="r:SamplingInformationSchemeReference">
 							<xs:annotation>
 								<xs:documentation>References to a set of sample frames maintained by an agency, and used in the instrument.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:choice>
-					<xs:choice minOccurs="0" maxOccurs="unbounded">
-						<xs:element ref="d:SamplingPlanScheme">
-							<xs:annotation>
-								<xs:documentation>A set of sampling plans maintained by an agency, and used in the instrument.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element ref="r:SamplingPlanSchemeReference">
-							<xs:annotation>
-								<xs:documentation>References to a set of sampling plans maintained by an agency, and used in the instrument.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>

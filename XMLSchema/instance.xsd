@@ -227,8 +227,6 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="c:UnitTypeScheme"/>
 				<xs:element ref="c:UniverseScheme"/>
 				<xs:element ref="l:VariableScheme"/>
-				<xs:element ref="d:SampleFrameScheme"/>
-				<xs:element ref="d:SamplingPlanScheme"/>
 				<!-- Versionables -->
 				<xs:element ref="l:Category"/>
 				<xs:element ref="l:CategoryGroup"/>
@@ -335,9 +333,6 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="pi:VariableStatistics"/>
 				<xs:element ref="d:Weighting"/>
 				<xs:element ref="d:SampleFrame"/>
-				<xs:element ref="d:SampleFrameGroup"/>
-				<xs:element ref="d:SamplingPlan"/>
-				<xs:element ref="d:SamplingPlanGroup"/>
 				<xs:element ref="d:Split"/>
 				<xs:element ref="d:SplitJoin"/>
 				<xs:element ref="cm:ManagedItemMap"/>

@@ -4655,7 +4655,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Date or date range when sample was drawn.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SampleStageReference" type="r:ReferenceType">
+	<xs:element name="SamplingStageReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing SampleState using the Reference structure. TypeOfObject should be set to Stage or SubStage.</xs:documentation>
 		</xs:annotation>
@@ -5356,7 +5356,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
  			<xs:documentation>An inline description of a sample frame (the source material from which a sample is drawn), i.e. phone book, data base, etc.</xs:documentation>
  		</xs:annotation>
  	</xs:element>
- 	<xs:element name="SamplingInforamtionSchemeName" type="r:NameType">
+ 	<xs:element name="SamplingInformationSchemeName" type="r:NameType">
  		<xs:annotation>
  			<xs:documentation>A name for the sampling information scheme using the NameType structure.</xs:documentation>
  		</xs:annotation>
@@ -5570,6 +5570,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Provides full description of access, forms for access, contact, etc.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="SamplingPlan" type="SamplingPlanType">
+		<xs:annotation>
+			<xs:documentation>An inline description of a sampling plan (how the sample is drawn).</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:complexType name="SamplingPlanType">
 		<xs:annotation>
 			<xs:documentation>An inline description of a sampling plan (how the sample is drawn). A sampling plan is intended to be versioned over time and can be reused by multiple studies.</xs:documentation>
@@ -5612,7 +5617,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>Rationale for dividing the frame at this stage into subsets and using a different sampling technique (e.g., Simple Random Sampling or Probability Proportional to Size) on each subset.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="r:ControlConstructReference" minOccurs="0">
+					<xs:element ref="ControlConstructReference" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Generally reference to a single SamplingStage or to a Sequence which orders multiple SamplingStages. TypeOfObject should be any valid member of the group of Control Constructs.</xs:documentation>
 						</xs:annotation>
@@ -5709,7 +5714,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		<xs:complexContent>
 			<xs:extension base="ControlConstructType">
 				<xs:sequence>
-					<xs:element ref="RequirementForAcceptance" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="ConditionForAcceptance" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation></xs:documentation>
 						</xs:annotation>
@@ -7215,6 +7220,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="SampleName" type="r:NameType">
+		<xs:annotation>
+			<xs:documentation>A name for the Sample using the NameType structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="TypeOfSample" type="r:CodeValueType">
 		<xs:annotation>
 			<xs:documentation>A brief textual description or classification of the type of sample used. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (SamplingProcedure) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
@@ -7230,24 +7240,34 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
  			<xs:documentation>A name for the sample. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
  		</xs:annotation>
  	</xs:element>
-	<xs:element name="SamplingPlanImplementedReference" type="SamplingPlanReference">
+	<xs:element name="SamplingPlanImplementedReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>A reference to the SamplingPlan implemented to creating the sample. Target object should be SamplingPlan</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SampleFrameUsedReference" type="SampleFrameReference">
+	<xs:element name="SampleFrameUsedReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>A reference to the SampleFrame used for creating the sample. Target object should be SampleFrame</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="ComponentSampleReference" type="SampleReference">
+	<xs:element name="SampleReference" type="r:ReferenceType">
+		<xs:annotation>
+			<xs:documentation>A reference to a sample. Target object should be Sample.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ComponentSampleReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>A reference to a previously created sample that was used as a component of the current sample. Target object should be Sample.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="BasedOnSampleReference" type="SampleReference">
+	<xs:element name="BasedOnSampleReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>The sample that was the basis for the weighting. TypeOfObject should be Sample.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="SamplingUnit" type="r:ReferenceType">
+ 		<xs:annotation>
+ 			<xs:documentation>Reference to a unit type describing the sample's.</xs:documentation>
+ 		</xs:annotation>
+ 	</xs:element>
 </xs:schema>
