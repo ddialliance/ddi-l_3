@@ -337,6 +337,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:SampleFrameGroup"/>
 				<xs:element ref="d:SamplingPlan"/>
 				<xs:element ref="d:SamplingPlanGroup"/>
+				<xs:element ref="cm:ManagedItemMap"/>
 			</xs:choice>
 			<xs:element ref="r:Note" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
