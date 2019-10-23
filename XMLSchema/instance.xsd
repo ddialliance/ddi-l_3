@@ -255,6 +255,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:DevelopmentPlan"/>
 				<xs:element ref="d:DevelopmentImplementation"/>
 				<xs:element ref="d:DevelopmentResults"/>
+				<xs:element ref="d:DevelopmentStep"/>
 				<xs:element ref="d:FocusGroupActivity"/>
 				<xs:element ref="d:GeneralInstruction"/>
 				<xs:element ref="d:GenerationInstruction"/>
@@ -337,6 +338,8 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:SampleFrameGroup"/>
 				<xs:element ref="d:SamplingPlan"/>
 				<xs:element ref="d:SamplingPlanGroup"/>
+				<xs:element ref="d:Split"/>
+				<xs:element ref="d:SplitJoin"/>
 				<xs:element ref="cm:ManagedItemMap"/>
 				<xs:element ref="d:WeightingMethodology"/>
 			</xs:choice>

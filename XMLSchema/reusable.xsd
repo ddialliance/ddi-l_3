@@ -1222,11 +1222,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:documentation>Use for reference to the following object(s): a:DefaultAccess</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="DevelopmentProcessStep">
-				<xs:annotation>
-					<xs:documentation>Use for reference to the following object(s): d:DevelopmentProcessStep</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="DeviationFromSampleDesign">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): d:DeviationFromSampleDesign</xs:documentation>
@@ -1484,9 +1479,14 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:documentation>Use for reference to the following object(s): d:DevelopmentPlan</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="DevelopmentProcess">
+			<xs:enumeration value="DevelopmentImplementation">
 				<xs:annotation>
-					<xs:documentation>Use for reference to the following object(s): d:DevelopmentProcess</xs:documentation>
+					<xs:documentation>Use for reference to the following object(s): d:DevelopmentImplementation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DevelopmentProcessStep">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:DevelopmentProcessStep</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="DevelopmentResults">
@@ -1869,6 +1869,17 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:documentation>Use for reference to the following object(s): d:Weighting</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="Split">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:Split</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SplitJoin">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): d:SplitJoin</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
 			<!-- MAINTAINABLE OBJECTS -->
 			<xs:enumeration value="Archive">
 				<xs:annotation>

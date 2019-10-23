@@ -7213,4 +7213,57 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		</xs:annotation>
 	</xs:element>
 	<!-- end of DataCaptureDevelopement CONTENT -->
+	<xs:element name="Split" type="SplitType" substitutionGroup="ControlConstruct">
+		<xs:annotation>
+			<xs:documentation>A member of the ControlConstruct substitution group. The components of a Split consists of a number of process steps to be executed concurrently with partial synchronization. Split completes as soon as all of its component process steps have been scheduled for execution.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="SplitType">
+		<xs:annotation>
+			<xs:documentation>A member of the ControlConstruct substitution group. The components of a Split consists of a number of process steps to be executed concurrently with partial synchronization. Split completes as soon as all of its component process steps have been scheduled for execution.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ControlConstructType">
+				<xs:sequence>
+					<xs:element ref="TypeOfSequence" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Provides the ability to "type" a spit for classification or processing purposes. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ControlConstructReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>References control constructs that can be executed concurrently.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="SplitJoin" type="SplitJoinType" substitutionGroup="ControlConstruct">
+		<xs:annotation>
+			<xs:documentation>A member of the ControlConstruct substitution group. The components of a SplitJoin consists of a number of process steps to be executed concurrently with partial synchronization. SplitJoin consists of process steps that are executed concurrently (execution with barrier synchronization). That is, SplitJoin completes when all of its components processes have completed. Supports parallel processing that requires completion of all included process steps to exit.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="SplitJoinType">
+		<xs:annotation>
+			<xs:documentation>A member of the ControlConstruct substitution group. The components of a SplitJoin consists of a number of process steps to be executed concurrently with partial synchronization. SplitJoin consists of process steps that are executed concurrently (execution with barrier synchronization). That is, SplitJoin completes when all of its components processes have completed. Supports parallel processing that requires completion of all included process steps to exit.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ControlConstructType">
+				<xs:sequence>
+					<xs:element ref="TypeOfSequence" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Provides the ability to "type" a split for classification or processing purposes. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ControlConstructReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>References control constructs that can be executed concurrently.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
 </xs:schema>
