@@ -794,7 +794,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:complexType name="UniverseType">
 		<xs:annotation>
-			<xs:documentation>Describes a universe which may also be known as a population. A Universe describes the "object" of a Data Element Concept or Data Element as defined by ISO/IEC 11179. A universe may be organized into hierarchical sub-universes. In addition to the standard name, label, and description, the universe may provide a generation code (how the universe is differentiated or split out from another universe), a definition of hierarchical sub-settings for the universe, and an attribute that indicates if the description of the universe is stated in terms of what the universe includes.</xs:documentation>
+			<xs:documentation>A Universe contextualizes a Unit Type by providing additional restriction characteristics. The class Universe covers both the GSIM 1.2 obects of Universe and Population, conflating them into a single class. A universe may be organized into hierarchical sub-universes. In addition to the standard name, label, and description, the universe may provide a generation code (how the universe is differentiated or split out from another universe), a definition of hierarchical sub-settings for the universe, and an attribute that indicates if the description of the universe is stated in terms of what the universe includes. DDI Lifecycle does not have a Population class as found in GSIM 1.2. It extends the definition of a Universe to include specification of time and geography in contextualizing a Unit Type. In GSIM 1.2 a Universe is a defined class of people, entities, events, or objects with no specification of time and geography, contextualizing a Unit Type. A Population refines a Universe by specifying time and/or geography.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
@@ -1268,7 +1268,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="Universe" type="UniverseType">
 		<xs:annotation>
-			<xs:documentation>Describes a universe which may also be known as a population.</xs:documentation>
+			<xs:documentation>A Universe contextualizes a Unit Type by providing additional restriction characteristics. The class Universe covers both the GSIM 1.2 obects of Universe and Population, conflating them into a single class.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="UniverseGenerationCode" type="r:CommandCodeType">
@@ -1467,7 +1467,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:complexType name="UnitTypeType">
 		<xs:annotation>
-			<xs:documentation>A Unit Type is a class of objects of interest. A Unit Type is used to describe a class or group of Units based on a single characteristic with no specification of time and geography. For example, the Unit Type of "Person" groups together a set of Units based on the characteristic that they are "Persons". It concerns not only Unit Types used in dissemination, but anywhere in the statistical process. For example, using administrative data might involve the use of a fiscal unit. [GSIM 1.1]</xs:documentation>
+			<xs:documentation>A Unit Type is a class of objects of interest. A Unit Type is used to describe a class or group of Units based on a single characteristic with no specification of time and geography. For example, the Unit Type of "Person" groups together a set of Units based on the characteristic that they are "Persons". It concerns not only Unit Types used in dissemination, but anywhere in the statistical process. For example, using administrative data might involve the use of a fiscal unit. “Object class (ISO 11179)” is a synonym of UnitType. [GSIM 1.2]</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:VersionableType">
