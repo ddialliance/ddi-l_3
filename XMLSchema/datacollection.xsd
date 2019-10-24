@@ -2665,7 +2665,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
 	<xs:element name="QuestionItem" type="QuestionItemType">
 		<xs:annotation>
 			<xs:documentation>Structure a single Question which may contain one or more response domains (i.e., a list of valid category responses where if "Other" is indicated a text response can be used to specify the intent of "Other").</xs:documentation>
