@@ -7996,5 +7996,10 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>References to a set of development activities maintained by an agency, and used in the creation of data capture objects (Measurements, Questions, Instruments, and Control Constructs). TypeOfObject should be set to DevelopmentActivityScheme.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="VariableGroupReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to a grouping of variables that are included in the PhysicalInstance. Variable Groups may represent hierarchical relationships of variables, topical groupings, or administrative groupings.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 </xs:schema>
 
