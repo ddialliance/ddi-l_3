@@ -8041,7 +8041,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					</xs:element>
 					<xs:element ref="AgencyOrganizationReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Reference to an organization or individual, that provided the approval review.</xs:documentation>
+							<xs:documentation>Reference to an organization or individual, that provided the approval review. TypeOfObject should be set to Organization.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="ReviewerRole" minOccurs="0">
