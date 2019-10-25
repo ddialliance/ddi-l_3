@@ -8146,5 +8146,10 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Reference to an existing identifiable object using the Reference structure.  TypeOfObject should be set to any Versionable or Maintainable object.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="ApprovalReviewReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing approval review description. TypeOfObject should be set to ApprovalReview.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 </xs:schema>
 
