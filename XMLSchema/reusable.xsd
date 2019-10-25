@@ -311,7 +311,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:annotation>
 				<xs:documentation>Allows the provision of denoting of named section. Identification of a content sections would be the combination of language and scope, i.e. if more than one section is in English they must have different scope designations.</xs:documentation>
 			</xs:annotation>
-		</xs:attribute>
+		</xs:attribute>		
 	</xs:complexType>
 	<xs:simpleType name="LanguageList">
 		<xs:list itemType="xs:language">
@@ -928,31 +928,31 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		</xs:annotation>
 	</xs:element>
 	<!-- Describable -->
-	<xs:complexType name="DescribableType" abstract="true">
-		<xs:annotation>
-			<xs:documentation xml:lang="en">A versionable object that has a Name, Label, and Description.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent mixed="false">
-			<xs:extension base="VersionableType">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" ref="Name">
-						<xs:annotation>
-							<xs:documentation xml:lang="en">A name for the item. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="unbounded" ref="Label">
-						<xs:annotation>
-							<xs:documentation xml:lang="en">A display label for the item. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="1" ref="Description">
-						<xs:annotation>
-							<xs:documentation xml:lang="en">A description of the content and purpose of the item. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
+  <xs:complexType name="DescribableType" abstract="true">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A versionable object that has a Name, Label, and Description.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="VersionableType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="Name">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A name for the item. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="Label">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A display label for the item. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+          </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="Description">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A description of the content and purpose of the item. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
 	</xs:complexType>
 	<xs:element name="Name" type="NameType">
 		<xs:annotation>
@@ -3106,18 +3106,18 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		<xs:complexContent>
 			<xs:extension base="IdentifiableType">
 				<xs:sequence>
-					<xs:choice>
-						<xs:element ref="OtherMaterial">
-							<xs:annotation>
-								<xs:documentation>A description of the authorization source using OtherMaterial. The TypeOfOtherMaterial should state AuthorizationSource. An authorization source should differentiate between codes derived for different purposes within the same agency.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element ref="OtherMaterialReference">
-							<xs:annotation>
-								<xs:documentation>Inclusion of an existing AuthorizedSource description by reference.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:choice>
+          <xs:choice>
+            <xs:element ref="OtherMaterial">
+              <xs:annotation>
+                <xs:documentation>A description of the authorization source using OtherMaterial. The TypeOfOtherMaterial should state AuthorizationSource. An authorization source should differentiate between codes derived for different purposes within the same agency.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element ref="OtherMaterialReference">
+              <xs:annotation>
+                <xs:documentation>Inclusion of an existing AuthorizedSource description by reference.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:choice>
 					<xs:element ref="IdentifierParsingInformation" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Provides structural information for parsing the identification code structure of the Authorized Source into its separate parts.</xs:documentation>
