@@ -48,7 +48,8 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	<!-- Agency ID Type -->
 	<xs:simpleType name="DDIAgencyIDType">
 		<xs:annotation>
-			<xs:documentation>The agency expressed as filed with the DDI Agency ID Registry with optional additional sub-agency extensions. The length restriction of the complete string is done with the means of minLength and maxLength.  The regular expression engine of XML Schema has no lookahead possibility.</xs:documentation>
+			<xs:documentation>The agency expressed as filed with the DDI Agency ID Registry with optional additional sub-agency extensions. The length restriction of the complete string is done with the means of minLength and maxLength.
+                    The regular expression engine of XML Schema has no lookahead possibility.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1"/>
@@ -928,32 +929,32 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		</xs:annotation>
 	</xs:element>
 	<!-- Describable -->
-  <xs:complexType name="DescribableType" abstract="true">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">A versionable object that has a Name, Label, and Description.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent mixed="false">
-      <xs:extension base="VersionableType">
-        <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="Name">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A name for the item. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="Label">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A display label for the item. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
-          </xs:annotation>
-          </xs:element>
-          <xs:element minOccurs="0" maxOccurs="1" ref="Description">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A description of the content and purpose of the item. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-	</xs:complexType>
+    <xs:complexType name="DescribableType" abstract="true">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">A versionable object that has a Name, Label, and Description.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="VersionableType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Name">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A name for the item. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="Label">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A display label for the item. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="Description">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">A description of the content and purpose of the item. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
 	<xs:element name="Name" type="NameType">
 		<xs:annotation>
 			<xs:documentation>Name of the Item using the DDI Name structure.</xs:documentation>
@@ -3106,18 +3107,18 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		<xs:complexContent>
 			<xs:extension base="IdentifiableType">
 				<xs:sequence>
-          <xs:choice>
-            <xs:element ref="OtherMaterial">
-              <xs:annotation>
-                <xs:documentation>A description of the authorization source using OtherMaterial. The TypeOfOtherMaterial should state AuthorizationSource. An authorization source should differentiate between codes derived for different purposes within the same agency.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element ref="OtherMaterialReference">
-              <xs:annotation>
-                <xs:documentation>Inclusion of an existing AuthorizedSource description by reference.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-          </xs:choice>
+				<xs:choice>
+					<xs:element ref="OtherMaterial">
+						<xs:annotation>
+							<xs:documentation>A description of the authorization source using OtherMaterial. The TypeOfOtherMaterial should state AuthorizationSource. An authorization source should differentiate between codes derived for different purposes within the same agency.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="OtherMaterialReference">
+						<xs:annotation>
+							<xs:documentation>Inclusion of an existing AuthorizedSource description by reference.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:choice>
 					<xs:element ref="IdentifierParsingInformation" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Provides structural information for parsing the identification code structure of the Authorized Source into its separate parts.</xs:documentation>
@@ -4804,7 +4805,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 						<xs:annotation>
 							<xs:documentation>A descriptive statement regarding the application of the selected standard or other means of quality control.</xs:documentation>
 						</xs:annotation>
-					</xs:element>
+					</xs:element>	
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -5053,7 +5054,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		<xs:annotation>
 			<xs:documentation>Description and link to the Budget Document using the DDI Other Material structure.</xs:documentation>
 		</xs:annotation>
-	</xs:element>
+	</xs:element>	
 	<xs:complexType name="BudgetDocumentType">
 		<xs:annotation>
 			<xs:documentation>Description and link to the Budget Document using the DDI Other Material structure.</xs:documentation>
@@ -5075,7 +5076,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		<xs:annotation>
 			<xs:documentation>Description and link to the Publication using the DDI Other Material structure.</xs:documentation>
 		</xs:annotation>
-	</xs:element>
+	</xs:element>	
 	<xs:complexType name="PublicationType">
 		<xs:annotation>
 			<xs:documentation>Description and link to the Publication using the DDI Other Material structure.</xs:documentation>
@@ -5961,7 +5962,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		<xs:annotation>
 			<xs:documentation>Reference to a MeasurementScheme. TypeOfObject should be set to MeasurementScheme.</xs:documentation>
 		</xs:annotation>
-	</xs:element>
+	</xs:element>	
 	<xs:element name="MeasurementItemReference" type="ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing MeasurementItem using the Reference structure. TypeOfObject should be set to MeasurementItem.</xs:documentation>
