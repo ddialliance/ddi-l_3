@@ -5621,7 +5621,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>Generally reference to a single SamplingStage or to a Sequence which orders multiple SamplingStages. TypeOfObject should be any valid member of the group of Control Constructs.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="StratificationRationale" minOccurs="0">
+					<xs:element ref="StratificationRationale" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Describe the purpose for stratifying the sampling process.</xs:documentation>
 						</xs:annotation>
