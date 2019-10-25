@@ -1887,6 +1887,24 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 				</xs:annotation>
 			</xs:enumeration>
 
+			<xs:enumeration value="ApprovalReview">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): r:ApprovalReview</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value="ApprovalReviewDocument">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): r:ApprovalReviewDocument</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value="FundingDocument">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): r:FundingDocument</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
 
 			<!-- MAINTAINABLE OBJECTS -->
 			<xs:enumeration value="Archive">
@@ -2498,6 +2516,23 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:element ref="Description" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Additional information regarding the role and actions of the this funding source. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+					<xs:choice minOccurs="0">
+						<xs:element ref="FundingDocument">
+							<xs:annotation>
+								<xs:documentation>Link to a document related to the funding such as application or funding announcement using the OtherMaterial structure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="FundingDocumentReference">
+							<xs:annotation>
+								<xs:documentation>Reference to a link to a document related to the funding such as application or funding announcement using the OtherMaterial structure. TypeOfObject should be OtherMaterial.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+			<xs:element ref="FundingPeriod" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Dates for which the funding is provided.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -8001,5 +8036,137 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Reference to a grouping of variables that are included in the PhysicalInstance. Variable Groups may represent hierarchical relationships of variables, topical groupings, or administrative groupings.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="ApprovalReview" type="ApprovalReviewType">
+		<xs:annotation>
+			<xs:documentation>Provides information about the Approval Review undertaken in relation to the activity. Identifies the organization processing the review, the role of the approval review organization, case number, description, and related dates. Allows the inclusion of a reference to an external source detailing the approval review.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ApprovalReviewType">
+		<xs:annotation>
+			<xs:documentation>Provides information about the Approval Review undertaken in relation to the activity. Identifies the organization processing the review, the role of the approval review organization, case number, description, and related dates. Allows the inclusion of a reference to an external source detailing the approval review.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="VersionableType">
+				<xs:sequence>
+					<xs:element ref="TypeOfApprovalReview" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A brief identification of the type of approval review such as IRB, ethical, compliance, etc. Supports the use of a controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ReviewObjectReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to an existing identifiable object using the Reference structure.  TypeOfObject should be set to any Versionable or Maintainable object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="AgencyOrganizationReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to an organization or individual, that provided the approval review. TypeOfObject should be set to Organization.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ReviewerRole" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Role of the reviewing organization or individual. Supports the use of a controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ReferenceIdentifier" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The reference or case identification of the review. Used to specify or track the case by the review organization</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="Description" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Description of the approval review which can include requirements for the review, contents, or results.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:choice minOccurs="0">
+						<xs:element ref="ApprovalReviewDocument">
+							<xs:annotation>
+								<xs:documentation>Link to a document related to the ethical review using the OtherMaterial structure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="ApprovalReviewDocumentReference">
+							<xs:annotation>
+								<xs:documentation>Reference to a document related to the ethical review using the OtherMaterial structure. TypeOfObject should be OtherMaterial.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:element ref="ApplicationDate" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Date materials submitted for approval review.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ApprovalDate" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Date approval received from approval review organization.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ApprovedPeriod" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Period for which the approval is valid. This may be a start date, and end date, or range specified as a start and end date.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="TypeOfApprovalReview" type="CodeValueType">
+		<xs:annotation>
+			<xs:documentation>A brief identification of the type of approval review such as IRB, ethical, compliance, etc. Supports the use of a controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ReviewerRole" type="CodeValueType">
+		<xs:annotation>
+			<xs:documentation>Role of the reviewing organization or individual. Supports the use of a controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ApprovalReviewDocument" type="OtherMaterialType">
+		<xs:annotation>
+			<xs:documentation>Link to a document related to the approval review using the OtherMaterial structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ApplicationDate" type="DateType">
+		<xs:annotation>
+			<xs:documentation>Date materials submitted for approval review.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ApprovalDate" type="DateType">
+		<xs:annotation>
+			<xs:documentation>Date approval received from approval review organization.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ApprovedPeriod" type="DateType">
+		<xs:annotation>
+			<xs:documentation>Period for which the approval is valid. This may be a start date, and end date, or range specified as a start and end date.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FundingDocument" type="OtherMaterialType">
+		<xs:annotation>
+			<xs:documentation>Link to a document related to the funding such as application or funding announcement using the OtherMaterial structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FundingPeriod" type="DateType">
+		<xs:annotation>
+			<xs:documentation>Dates for which the funding is provided.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ReviewObjectReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing identifiable object using the Reference structure.  TypeOfObject should be set to any Versionable or Maintainable object.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ApprovalReviewReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing approval review description. TypeOfObject should be set to ApprovalReview.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ApprovalReviewDocumentReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing approval review document description. TypeOfObject should be set to OtherMaterial.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FundingDocumentReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing funding document description. TypeOfObject should be set to OtherMaterial.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 </xs:schema>
-

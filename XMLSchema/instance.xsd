@@ -343,6 +343,9 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:SamplingStage"/>
 				<xs:element ref="cm:ManagedItemMap"/>
 				<xs:element ref="d:WeightingMethodology"/>
+				<xs:element ref="r:ApprovalReview"/>
+				<xs:element ref="r:ApprovalReviewDocument"/>
+				<xs:element ref="r:FundingDocument"/>
 			</xs:choice>
 			<xs:element ref="r:Note" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
