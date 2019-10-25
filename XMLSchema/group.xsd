@@ -72,6 +72,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>Identifies the authorizing agency for the ResourcePackage and allows for the full text of the authorization (law, regulation, or other form of authorization). May be used to list authorizations from oversight committees and other regulatory agencies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element ref="r:ApprovalReview" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Provides information about the Approval Review undertaken in relation to the activity. Identifies the organization processing the review, the role of the approval review organization, case number, description, and related dates. Allows the inclusion of a reference to an external source detailing the approval review.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element ref="r:DefiningConceptReference" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>A concept that defines or aids in understanding the content of the resource package.</xs:documentation>
