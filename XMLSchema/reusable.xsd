@@ -2524,11 +2524,18 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:documentation>Additional information regarding the role and actions of the this funding source. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="FundingDocument" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Link to a document related to the funding such as application or funding announcement using the OtherMaterial structure.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+					<xs:choice minOccurs="0">
+						<xs:element ref="FundingDocument">
+							<xs:annotation>
+								<xs:documentation>Link to a document related to the funding such as application or funding announcement using the OtherMaterial structure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="FundingDocumentReference">
+							<xs:annotation>
+								<xs:documentation>Reference to a link to a document related to the funding such as application or funding announcement using the OtherMaterial structure. TypeOfObject should be OtherMaterial.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 			<xs:element ref="FundingPeriod" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Dates for which the funding is provided.</xs:documentation>
@@ -8077,11 +8084,18 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>Description of the approval review which can include requirements for the review, contents, or results.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="ApprovalReviewDocument" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Link to a document related to the ethical review using the OtherMaterial structure.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
+					<xs:choice minOccurs="0">
+						<xs:element ref="ApprovalReviewDocument">
+							<xs:annotation>
+								<xs:documentation>Link to a document related to the ethical review using the OtherMaterial structure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="ApprovalReviewDocumentReference">
+							<xs:annotation>
+								<xs:documentation>Reference to a document related to the ethical review using the OtherMaterial structure. TypeOfObject should be OtherMaterial.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 					<xs:element ref="ApplicationDate" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Date materials submitted for approval review.</xs:documentation>
@@ -8151,5 +8165,14 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Reference to an existing approval review description. TypeOfObject should be set to ApprovalReview.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="ApprovalReviewDocumentReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing approval review document description. TypeOfObject should be set to OtherMaterial.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FundingDocumentReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing funding document description. TypeOfObject should be set to OtherMaterial.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 </xs:schema>
-
