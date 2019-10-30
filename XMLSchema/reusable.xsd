@@ -5898,6 +5898,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Reference to an existing ClassificationFamily using the Reference structure. TypeOfObject should be set to ClassificationFamily.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="ClassificationCorrespondenceTableReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference to an existing Classification Correspondence Table using the Reference structure. TypeOfObject should be set to ClassificationCorrespondenceTable.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="ClassificationSeriesReference" type="ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing ClassificationSeries using the Reference structure. TypeOfObject should be set to ClassificationSeries.</xs:documentation>
