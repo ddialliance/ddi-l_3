@@ -2630,16 +2630,30 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:documentation xml:lang="en">The number associated with the Level Context. Levels are numbered consecutively starting with Level 1 at the highest (most aggregated) Level.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="ClassificationLevelReference" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">The structure of a Statistical Classification is defined by its Levels (classification level). Include here links to the relevant Level. TypeOfObject should be ClassificationLevel.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="ClassificationItemReference" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation xml:lang="en">A Statistical Classification is composed of categories structured in one or more Levels. Each category is represented by a Classification Item, which defines the content and the borders of the category. TypeOfObject should be set to ClassificationItem.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:choice minOccurs="0" maxOccurs="1">
+				<xs:element ref="ClassificationLevel">
+					<xs:annotation>
+						<xs:documentation>The structure of a Statistical Classification is defined by its Levels (classification level). Include here links to the relevant Level. Allows for in-line entry of a Classification Level.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="ClassificationLevelReference">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">The structure of a Statistical Classification is defined by its Levels (classification level). Include here links to the relevant Level. TypeOfObject should be ClassificationLevel.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="ClassificationItem">
+					<xs:annotation>
+						<xs:documentation>A Statistical Classification is composed of categories structured in one or more Levels. Each category is represented by a Classification Item, which defines the content and the borders of the category. Allows for in-line entry of a Classification Item.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="ClassificationItemReference">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">A Statistical Classification is composed of categories structured in one or more Levels. Each category is represented by a Classification Item, which defines the content and the borders of the category. TypeOfObject should be set to ClassificationItem.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="LevelContext" type="LevelContextType">
@@ -2725,11 +2739,18 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
                             <xs:documentation xml:lang="en">A description of the content and purpose of the ClassificationFamily. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element ref="r:ClassificationSeriesReference" minOccurs="0" maxOccurs="unbounded">
-                        <xs:annotation>
-                            <xs:documentation xml:lang="en">A Classification Family may refer to a number of Classification Series. TypeOfObject should be set to ClassificationSeries.</xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="ClassificationSeries">
+							<xs:annotation>
+								<xs:documentation>A Classification Family may refer to a number of Classification Series. Allows for in-line entry of a Classification Series.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:ClassificationSeriesReference">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A Classification Family may refer to a number of Classification Series. TypeOfObject should be set to ClassificationSeries.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -3077,11 +3098,18 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
                             <xs:documentation xml:lang="en">A Classification Series can be associated with one or a number of keywords. Supports the use of an external controlled vocabulary.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element ref="r:StatisticalClassificationReference" minOccurs="0" maxOccurs="unbounded">
-                        <xs:annotation>
-                            <xs:documentation xml:lang="en">A Classification Series has at least one Statistical Classification. TypeOfObject should be set to StatisticalClassification.</xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="StatisticalClassification">
+							<xs:annotation>
+								<xs:documentation>A Classification Series has at least one Statistical Classification. Allows for in-line entry of a Statistical Classification.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:StatisticalClassificationReference">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A Classification Series has at least one Statistical Classification. TypeOfObject should be set to StatisticalClassification.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
                     <xs:element ref="CurrentStatisticalClassificationReference" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">If there are several Statistical Classifications related to a Classification Series, one Statistical Classification may be assigned as the currently valid Statistical Classification. TypeOfObject should be set to StatisticalClassification.</xs:documentation>
@@ -3174,11 +3202,18 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
                             <xs:documentation xml:lang="en">Level Context provides the depth of a Level within a Statistical Classification together with its membership. Both depth and membership can be specified per Statistical Classification.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element ref="ClassificationIndexReference" minOccurs="0" maxOccurs="unbounded">
-                        <xs:annotation>
-                            <xs:documentation xml:lang="en">A Statistical Classification can be associated with one or a number of Classification Indexes in which Classification Index Entries are linked to the appropriate Classification Item. Include here links to any relevant Classification Indexes. TypeOfObject should be set to ClassificationIndex.</xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="ClassificationIndex">
+							<xs:annotation>
+								<xs:documentation>A Statistical Classification can be associated with one or a number of Classification Indexes in which Classification Index Entries are linked to the appropriate Classification Item. Include here links to any relevant Classification Indexes. Allows for in-line entry of a Classification Indexes.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="ClassificationIndexReference">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">A Statistical Classification can be associated with one or a number of Classification Indexes in which Classification Index Entries are linked to the appropriate Classification Item. Include here links to any relevant Classification Indexes. TypeOfObject should be set to ClassificationIndex.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
                     <xs:element name="IsVersion" minOccurs="0" maxOccurs="1" type="xs:boolean">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Indicates if the Statistical Classification is a version.</xs:documentation>

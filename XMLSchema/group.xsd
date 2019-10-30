@@ -266,6 +266,18 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="l:ClassificationCorrespondenceTable">
+							<xs:annotation>
+								<xs:documentation>Allows for in-line entry of a Classification Correspondence Table.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:ClassificationCorrespondenceTableReference">
+							<xs:annotation>
+								<xs:documentation>Allows for inclusion of a Classification Correspondence Table by reference.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 					<!-- INDIVIDUAL SCHEMES -->
 					<xs:choice minOccurs="0" maxOccurs="unbounded">
 						<xs:element ref="a:OrganizationScheme">
