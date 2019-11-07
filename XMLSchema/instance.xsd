@@ -263,6 +263,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="c:GeographicStructureGroup"/>
 				<xs:element ref="d:IfThenElse"/>
 				<xs:element ref="a:Individual"/>
+				<xs:element ref="r:InformationClassification"/>
 				<xs:element ref="d:Instruction"/>
 				<xs:element ref="d:InstructionGroup"/>
 				<xs:element ref="d:Instrument"/>
