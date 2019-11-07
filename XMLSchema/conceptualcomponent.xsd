@@ -780,11 +780,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>A comprehensive list of the ConceptualVariables measured by the data that are being documented and/or maintained by an agency.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="CharacteristicReference" type="r:ReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to an existing Concept using the Reference structure. TypeOfObject should be set to Concept.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
 	<xs:element name="ConceptualVariable" type="ConceptualVariableType">
 		<xs:annotation>
 			<xs:documentation>Describes a ConceptualVariable which provides the link between a concept to a specific unit type (object) that defines this as a ConceptualVariable. In addition to the standard name, label, and description, it provides the two primary components of a ConceptualVariable by referencing a concept and its related unit type. Note that the concept referenced may itself contain sub-concepts and/or references to similar concepts.</xs:documentation>
