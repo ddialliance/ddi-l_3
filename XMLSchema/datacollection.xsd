@@ -7229,11 +7229,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>A reference to a description of the sample and its location using OtherMaterialType. Target should be OtherMaterial.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
- 	<xs:element name="SampleFrameSchemeName" type="r:NameType">
- 		<xs:annotation>
- 			<xs:documentation>A name for the sample. May be expressed in multiple languages. Repeat the element to express names with different content, for example different names for different systems.</xs:documentation>
- 		</xs:annotation>
- 	</xs:element>
 	<xs:element name="SamplingPlanImplementedReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>A reference to the SamplingPlan implemented to creating the sample. Target object should be SamplingPlan</xs:documentation>
