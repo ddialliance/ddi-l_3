@@ -2879,11 +2879,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
                             <xs:documentation xml:lang="en">A reference to the Classification Items to which the excluded cases belong. TypeOfObject should be set to ClassificationItem.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element ref="ClassificationLevelReference" minOccurs="0" maxOccurs="1">
-                        <xs:annotation>
-                            <xs:documentation xml:lang="en">The Classification Level to which the Classification Item belongs. TypeOfObject should be set to ClassificationLevel.</xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
                     <xs:element name="IsGenerated" minOccurs="0" maxOccurs="1" type="xs:boolean">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Indicates whether or not the Classification Item has been generated to make the Level to which it belongs complete.</xs:documentation>
