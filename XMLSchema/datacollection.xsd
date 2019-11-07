@@ -1024,9 +1024,14 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 		<xs:complexContent>
 			<xs:extension base="ProcessingInstructionType">
 				<xs:sequence>
-					<xs:element ref="SourceQuestion" minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="SourceQuestionReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Reference to a question used in the instruction.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="SourceMeasurementReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to a Measurement used in the instruction.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="SourceVariable" minOccurs="0" maxOccurs="unbounded">
@@ -5121,12 +5126,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Processing instructions for recodes, derivations from multiple question or variable sources, and derivations based on external sources.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SourceQuestion" type="SourceReferenceType">
+	<xs:element name="SourceQuestionReference" type="SourceReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to a question used in the derivation or coding instruction. TypeOfObject should be set to QuestionItem or Question Grid.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SourceMeasurement" type="SourceReferenceType">
+	<xs:element name="SourceMeasurementReference" type="SourceReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to a measurement. TypeOfObject should be set to MeasurementItem.</xs:documentation>
 		</xs:annotation>
@@ -5677,7 +5682,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
  							<xs:documentation>Describe all stratifications here. Note that each stratified group will be sampled using the same sampling plan. For example stratifying a state by ZIP Code areas in each of 5 mean income quintiles and then doing a random sample of the households in set of ZIP Codes. Allows for oversampling of identified subpopulations.</xs:documentation>
  						</xs:annotation>
  					</xs:element>
- 					<xs:element ref="SamplingUnit" minOccurs="0">
+ 					<xs:element ref="SamplingUnitReference" minOccurs="0">
  						<xs:annotation>
  							<xs:documentation>Sampling unit for this stage</xs:documentation>
  						</xs:annotation>
@@ -7254,9 +7259,9 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>The sample that was the basis for the weighting. TypeOfObject should be Sample.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SamplingUnit" type="r:ReferenceType">
+	<xs:element name="SamplingUnitReference" type="r:ReferenceType">
  		<xs:annotation>
- 			<xs:documentation>Reference to a unit type describing the sample's.</xs:documentation>
+ 			<xs:documentation>Reference to a unit type describing the sample's. TypeOfObject should be UnitType.</xs:documentation>
  		</xs:annotation>
  	</xs:element>
 </xs:schema>
