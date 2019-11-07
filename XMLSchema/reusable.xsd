@@ -2989,7 +2989,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>May be repeated to reference each geography (geographic level) for which there is summary data. For example, person records may contain summary data on the State, County, or City in which they reside. In data collections where the individual case is a geographic location such as a County, data may be provided that summarizes State or National data. This is often true where data suppression at lower geographies makes it impossible to roll-up or aggregate the data to obtain values for the higher levels.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="TopLevelReference" minOccurs="0">
+					<xs:element ref="HighestLevelReference" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Reference to the top or highest GeographicLevel.</xs:documentation>
 						</xs:annotation>
@@ -5451,7 +5451,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Reference to an existing SummaryData using the Reference structure. TypeOfObject should be set to SummaryData.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="TopLevelReference" type="LevelReferenceType">
+	<xs:element name="HighestLevelReference" type="LevelReferenceType">
 		<xs:annotation>
 			<xs:documentation>Contains a Reference to a GeographicLevel if available and a name for the level. TypeOfObject should be set to GeographicLevel.</xs:documentation>
 		</xs:annotation>
