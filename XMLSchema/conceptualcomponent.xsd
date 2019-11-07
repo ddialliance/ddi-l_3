@@ -1490,23 +1490,8 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>A Unit Type is a class of objects of interest. A Unit Type is used to describe a class or group of Units based on a single characteristic with no specification of time and geography. For example, the Unit Type of "Person" groups together a set of Units based on the characteristic that they are "Persons". It concerns not only Unit Types used in dissemination, but anywhere in the statistical process. For example, using administrative data might involve the use of a fiscal unit. "Object class (ISO 11179)" is a synonym of UnitType. [GSIM 1.2]</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="r:VersionableType">
+			<xs:extension base="r:DescribableType">
 				<xs:sequence>
-					<xs:element ref="UnitTypeName" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Name of the UnitType using the DDI Name structure.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:Label" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A display label for the UnitType. May be expressed in multiple languages. Repeat for labels with different content, for example, labels with differing length limitations.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element ref="r:Description" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>A description of the UnitType. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element ref="r:ConceptReference">
 						<xs:annotation>
 							<xs:documentation>Reference to the Concept that defines the UnitType. TypeOfObject should be set to Concept.</xs:documentation>
@@ -1515,11 +1500,5 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="UnitTypeName" type="r:NameType">
-		<xs:annotation>
-			<xs:documentation>Name of the UnitType using the DDI Name structure.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	
+	</xs:complexType>	
 </xs:schema>
