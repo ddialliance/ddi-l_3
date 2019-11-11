@@ -27,12 +27,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	<!-- DATA COLLECTION -->
 	<xs:element name="DataCollection" type="DataCollectionType">
 		<xs:annotation>
-			<xs:documentation>A maintainable module containing information on activities related to data collection/capture and the processing required for the creation a data product. This section covers the methodologies, events, data sources, collection instruments and processes which comprise the collection/capture and processing of data. Methodology covers approaches used for selecting samples, administering surveys, timing repeated data collection activities. Collection Event specifies data sources, collection instruments, questions and question flow, and data processing activities. This module houses Processing Instructions (General Instructions and Generation Instructions) which may be referenced by variables or comparison maps.The module is described by a name, label, and description, provides spatial, temporal, and topical coverage information on the activities covered by the module, and references to external material related to objects in the module using OtherMaterial. The content of the module is organized within the following sections; Methodology, DataCaptureDevelopment, Collection Event, QuestionScheme (in-line or by reference), ControlConstructScheme (in-line or by references) containing the flow of a questionnaire or data capture process, InterviewerInstructionScheme (in-line or by reference), InstrumentScheme (in-line or by reference), ProcessingEventScheme (in-line or by reference), SamplingScheme (in-line or by reference) and DevelopmentActivityScheme.</xs:documentation>
+			<xs:documentation>A maintainable module containing information on activities related to data collection/capture and the processing required for the creation a data product. This section covers the methodologies, events, data sources, collection instruments and processes which comprise the collection/capture and processing of data. Metadata regarding the methodology of the data collection process including, determining repetition patterns, sampling, collection modes, etc. Collection Event specifies data sources, collection instruments, questions and question flow, and data processing activities. This module houses Processing Instructions (General Instructions and Generation Instructions) which may be referenced by variables or comparison maps.The module is described by a name, label, and description, provides spatial, temporal, and topical coverage information on the activities covered by the module, and references to external material related to objects in the module using OtherMaterial. The content of the module is organized within the following sections; Methodology, DataCaptureDevelopment, Collection Event, QuestionScheme (in-line or by reference), ControlConstructScheme (in-line or by references) containing the flow of a questionnaire or data capture process, InterviewerInstructionScheme (in-line or by reference), InstrumentScheme (in-line or by reference), ProcessingEventScheme (in-line or by reference), SamplingScheme (in-line or by reference) and DevelopmentActivityScheme.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="DataCollectionType">
 		<xs:annotation>
-			<xs:documentation>A maintainable module containing information on activities related to data collection/capture and the processing required for the creation a data product. This section covers the methodologies, events, data sources, collection instruments and processes which comprise the collection/capture and processing of data. Methodology covers approaches used for selecting samples, administering surveys, timing repeated data collection activities. Collection Event specifies data sources, collection instruments, questions and question flow, and data processing activities. This module houses Processing Instructions (General Instructions and Generation Instructions) which may be referenced by variables or comparison maps.The module is described by a name, label, and description, provides spatial, temporal, and topical coverage information on the activities covered by the module, and references to external material related to objects in the module using OtherMaterial. The content of the module is organized within the following sections; Methodology, DataCaptureDevelopment, Collection Event, QuestionScheme (in-line or by reference), ControlConstructScheme (in-line or by references) containing the flow of a questionnaire or data capture process, InterviewerInstructionScheme (in-line or by reference), InstrumentScheme (in-line or by reference), ProcessingEventScheme (in-line or by reference), SamplingScheme (in-line or by reference) and DevelopmentActivityScheme.</xs:documentation>
+			<xs:documentation>A maintainable module containing information on activities related to data collection/capture and the processing required for the creation a data product. This section covers the methodologies, events, data sources, collection instruments and processes which comprise the collection/capture and processing of data.  Metadata regarding the methodology of the data collection process including, determining repetition patterns, sampling, collection modes, etc. Collection Event specifies data sources, collection instruments, questions and question flow, and data processing activities. This module houses Processing Instructions (General Instructions and Generation Instructions) which may be referenced by variables or comparison maps.The module is described by a name, label, and description, provides spatial, temporal, and topical coverage information on the activities covered by the module, and references to external material related to objects in the module using OtherMaterial. The content of the module is organized within the following sections; Methodology, DataCaptureDevelopment, Collection Event, QuestionScheme (in-line or by reference), ControlConstructScheme (in-line or by references) containing the flow of a questionnaire or data capture process, InterviewerInstructionScheme (in-line or by reference), InstrumentScheme (in-line or by reference), ProcessingEventScheme (in-line or by reference), SamplingScheme (in-line or by reference) and DevelopmentActivityScheme.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:MaintainableType">
@@ -60,12 +60,12 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:choice minOccurs="0">
 						<xs:element ref="Methodology">
 							<xs:annotation>
-								<xs:documentation>Metadata regarding the methodology of the data collection process including, determining repetition patterns, sampling, collection modes, etc.</xs:documentation>
+								<xs:documentation>Methodology covers approaches used for selecting samples, administering surveys or data collection approaches, timing repeated data collection activities, weighting, and quality control.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element ref="MethodologyReference">
 							<xs:annotation>
-								<xs:documentation>Reference to metadata regarding the methodology of the data collection process including, determining repetition patterns, sampling, collection modes, etc. TypeOfObject should be set to Methodology.</xs:documentation>
+								<xs:documentation>Reference to Methodology covers approaches used for selecting samples, administering surveys or data collection approaches, timing repeated data collection activities, weighting, and quality control. TypeOfObject should be set to Methodology.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
@@ -242,7 +242,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="MethodologyReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to metadata regarding the methodology of the data collection process including, determining repetition patterns, sampling, collection modes, etc. TypeOfObject should be set to Methodology.</xs:documentation>
+			<xs:documentation>Reference to Methodology covers approaches used for selecting samples, administering surveys or data collection approaches, timing repeated data collection activities, weighting, and quality control. TypeOfObject should be set to Methodology.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<!-- METHODOLOGY -->
@@ -270,7 +270,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					</xs:element>
 					<xs:element ref="DataCollectionMethodology" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A basic structure for describing the methodology used for collecting data. Repeat this element if multiple methodologies are used.</xs:documentation>
+							<xs:documentation>Methodologies pertaining to the overall data collection such as primary or secondary data collection, qualitative or quantitative methods, mixed method approaches, GPS capturing methods, methods for collecting data from hard to reach communities, etc. Repeat this element if multiple methodologies are used. Repeat this element if multiple methodologies are used.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="TimeMethod" minOccurs="0" maxOccurs="unbounded">
@@ -4410,7 +4410,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:complexType name="DataCollectionMethodologyType">
 		<xs:annotation>
-			<xs:documentation>A basic structure for describing the methodology used for collecting data. In addition to a descriptive narrative, the methodology may be classified by a short term or external controlled vocabulary.</xs:documentation>
+			<xs:documentation>Methodologies pertaining to the overall data collection such as primary or secondary data collection, qualitative or quantitative methods, mixed method approaches, GPS capturing methods, methods for collecting data from hard to reach communities, etc. Repeat this element if multiple methodologies are used. In addition to a descriptive narrative, the methodology may be classified by a short term or external controlled vocabulary.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="r:IdentifiableType">
@@ -4441,7 +4441,7 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 	</xs:element>
 	<xs:element name="DataCollectionMethodology" type="DataCollectionMethodologyType">
 		<xs:annotation>
-			<xs:documentation>A basic structure for describing the methodology used for collecting data.</xs:documentation>
+			<xs:documentation>Methodologies pertaining to the overall data collection such as primary or secondary data collection, qualitative or quantitative methods, mixed method approaches, GPS capturing methods, methods for collecting data from hard to reach communities, etc. Repeat this element if multiple methodologies are used.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="TimeMethodType">
