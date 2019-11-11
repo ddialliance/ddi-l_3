@@ -88,6 +88,18 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 							<xs:documentation>A study, particularly one in a series, may be the result of two series merging into a single study. The new study belongs to both series. For example, Niger now fields the UNICEF Multiple Indicators Cluster Survey (MICS) and the Demographic and Health Survey as a single merged instrument.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="r:InformationClassification">
+							<xs:annotation>
+								<xs:documentation>Used to describe the rules and guidelines on how the data is allowed to be handled, transferred, stored and disposed. These confidentiality policies are often dictated by national laws and/or data owners on handling of personal, proprietary, and other sensitive information.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="r:InformationClassificationReference">
+							<xs:annotation>
+								<xs:documentation>Reference InformationClassification used to describe the rules and guidelines on how the data is allowed to be handled, transferred, stored and disposed. Uses the Reference structure. TypeOfObject should be set to InformationClassification.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 					<xs:element ref="r:QualityStatementReference" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A reference to a Quality Statement pertaining to the quality of the study overall, metadata, or data to which it is associated. Quality statements may be related to external quality standards.</xs:documentation>

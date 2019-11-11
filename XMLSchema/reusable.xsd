@@ -1539,6 +1539,11 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 					<xs:documentation>Use for reference to the following object(s): a:Individual</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="InformationClassification">
+				<xs:annotation>
+					<xs:documentation>Use for reference to the following object(s): r:InformationClassification</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Instruction">
 				<xs:annotation>
 					<xs:documentation>Use for reference to the following object(s): d:Instruction</xs:documentation>
@@ -8174,4 +8179,129 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Reference to an existing funding document description. TypeOfObject should be set to OtherMaterial.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="InformationClassification" type="InformationClassificationType">
+		<xs:annotation>
+			<xs:documentation>Used to describe the rules and guidelines on how the data is allowed to be handled, transferred, stored and disposed. These confidentiality policies are often dictated by national laws and/or data owners on handling of personal, proprietary, and other sensitive information.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="InformationClassificationType">
+		<xs:annotation>
+			<xs:documentation>Used to describe the rules and guidelines on how the data is allowed to be handled, transferred, stored and disposed. These confidentiality policies are often dictated by national laws and/or data owners on handling of personal, proprietary, and other sensitive information.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="DescribableType">
+				<xs:sequence>
+					<xs:element ref="TypeOfInformationClassification" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Classification of the type of Information Classification. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="LevelOfInformationClassification" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Data classification level as determined by an assessment of the need of confidentiality of the data. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="AgencyOrganizationReference" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A reference to an organization or individual responsible for the information classification.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="DataHandlingPersonnelRules" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Description of the rules applied to any individual with access to the data, e.g. security clearance, confidentiality agreements, or authentication. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="DataEncryptionRules" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Description of the rules regarding what encryption level is needed on the data. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="DataStorageRules" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Description of the rules regarding how data is allowed to be stored. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="DisposalRules" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Description of the rules regarding when and how data should be disposed. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="DataTransferRules" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Description of the rules regarding how data is allowed to be transferred. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="AuthorizedPolicySource" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Description and link to the Information Classification policy using the DDI Other Material structure.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="LevelOfInformationClassification" type="CodeValueType">
+		<xs:annotation>
+			<xs:documentation>Data classification level as determined by an assessment of the need of confidentiality of the data. Supports the use of an external controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="TypeOfInformationClassification" type="CodeValueType">
+		<xs:annotation>
+			<xs:documentation>Classification of the type of Information Classification. Supports the use of an external controlled vocabulary.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DataHandlingPersonnelRules" type="StructuredStringType">
+		<xs:annotation>
+			<xs:documentation>Description of the rules applied to any individual with access to the data, e.g. security clearance, confidentiality agreements, or authentication. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DataEncryptionRules" type="StructuredStringType">
+		<xs:annotation>
+			<xs:documentation>Description of the rules regarding what encryption level is needed on the data. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DataStorageRules" type="StructuredStringType">
+		<xs:annotation>
+			<xs:documentation>Description of the rules regarding how data is allowed to be stored. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DisposalRules" type="StructuredStringType">
+		<xs:annotation>
+			<xs:documentation>Description of the rules regarding when and how data should be disposed. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DataTransferRules" type="StructuredStringType">
+		<xs:annotation>
+			<xs:documentation>Description of the rules regarding how data is allowed to be transferred. May be expressed in multiple languages and supports the use of structured content.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="AuthorizedPolicySource" type="AuthorizedPolicySourceType">
+		<xs:annotation>
+			<xs:documentation>Description and link to the Information Classification policy using the DDI Other Material structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="InformationClassificationReference" type="ReferenceType">
+		<xs:annotation>
+			<xs:documentation>Reference InformationClassification used to describe the rules and guidelines on how the data is allowed to be handled, transferred, stored and disposed. Uses the Reference structure. TypeOfObject should be set to InformationClassification.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="AuthorizedPolicySourceType">
+		<xs:annotation>
+			<xs:documentation>Description and link to the policy source using the DDI Other Material structure.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="OtherMaterial">
+					<xs:annotation>
+						<xs:documentation>Inline description and link to the policy using the DDI Other Material structure.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="OtherMaterialReference">
+					<xs:annotation>
+						<xs:documentation>Inclusion of an existing OtherMaterial description by reference.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>			
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
