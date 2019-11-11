@@ -486,16 +486,6 @@ with DDI 3.3 XML Schema. If not, see <http://creativecommons.org/licenses/by/4.0
 			<xs:documentation>Reference to an existing Concept, Variable, Question, Category, Representation, or Universe Map using the Reference structure. TypeOfObject should be set to CategoryMap, ConceptMap, QuestionMap ,UniverseMap, VariableMap, or RepresentationMap.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="SourceCodeListReference" type="r:ReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to an CodeList using the Reference structure. TypeOfObject should be set to CodeList.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="TargetCodeListReference" type="r:ReferenceType">
-		<xs:annotation>
-			<xs:documentation>Reference to a CodeList using the Reference structure. TypeOfObject should be set to CodeList.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
 	<xs:element name="Correspondence" type="CorrespondenceType">
 		<xs:annotation>
 			<xs:documentation>Describes the commonalities and differences between two items.</xs:documentation>
