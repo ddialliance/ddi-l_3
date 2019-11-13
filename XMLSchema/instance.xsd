@@ -263,6 +263,7 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="c:ConceptualVariableGroup"/>
 				<xs:element ref="d:ContentReviewActivity"/>
 				<xs:element ref="d:ControlConstructGroup"/>
+				<xs:element ref="d:DataCaptureDevelopment"/>
 				<xs:element ref="l:DataRelationship"/>
 				<xs:element ref="ds:DataSet"/>
 				<xs:element ref="d:DevelopmentActivityGroup"/>
@@ -321,7 +322,6 @@ Provides instructions for navigating the HTML Field Level Documentation and revi
 				<xs:element ref="d:QuestionGroup"/>
 				<xs:element ref="d:QuestionItem"/>
 				<xs:element ref="cm:QuestionMap"/>
-				<xs:element ref="d:DataCaptureDevelopment"/>
 				<xs:element ref="p:RecordLayout"/>
 				<xs:element ref="m3:RecordLayout"/>
 				<xs:element ref="m1:RecordLayout"/>
