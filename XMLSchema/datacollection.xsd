@@ -3294,12 +3294,12 @@ Notices:
 						<xs:documentation>A roster is an unlabeled list of numbered rows or columns depending upon orientation. The numbers may or may not be displayed but will be used as information for creating the cell coordinate address.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element ref="CreateSummary" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Note that this is generally usable only with single valid response domain in grid. More complex uses should be carefully documented using details in CommandCode and Input/output Parameters.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
 			</xs:choice>
+			<xs:element ref="CreateSummary" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Note that this is generally usable only with single valid response domain in grid. More complex uses should be carefully documented using details in CommandCode and Input/output Parameters.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="rank" type="xs:nonNegativeInteger" use="required">
 			<xs:annotation>
