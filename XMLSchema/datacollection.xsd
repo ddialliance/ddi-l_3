@@ -1098,7 +1098,7 @@ Notices:
 	</xs:complexType>
 	<xs:element name="Aggregation" type="AggregationType">
 		<xs:annotation>
-			<xs:documentation>Describes the aggregation method and the variables used in the aggregation process. The DDI Alliance has provided a controlled vocabulary (AggregationMethod) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
+			<xs:documentation>Describes the aggregation method and the variables used in the aggregation process.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="AggregationType">
@@ -1108,7 +1108,7 @@ Notices:
 		<xs:sequence>
 			<xs:element ref="r:AggregationMethod" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Identification of the type of aggregation method used. Supports the use of a controlled vocabulary. DDI strongly recommends the use of a controlled vocabulary.</xs:documentation>
+					<xs:documentation>Identification of the type of aggregation method used. Supports the use of a controlled vocabulary. DDI strongly recommends the use of a controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (AggregationMethod) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
