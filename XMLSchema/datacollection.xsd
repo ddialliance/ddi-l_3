@@ -294,11 +294,18 @@ Notices:
 							<xs:documentation>Describes how time fits into the data collection methodology.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element ref="WeightingMethodologyReference" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A reference to a basic structure for describing the methodology used for weighting. In addition to a descriptive narrative, the methodology may be classified by a short term or external controlled vocabulary.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded"> 
+						<xs:element ref="WeightingMethodology">
+							<xs:annotation>
+								<xs:documentation>A basic structure for describing the methodology used for weighting. In addition to a descriptive narrative, the methodology may be classified by a short term or external controlled vocabulary.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="WeightingMethodologyReference">
+							<xs:annotation>
+								<xs:documentation>A reference to a basic structure for describing the methodology used for weighting. In addition to a descriptive narrative, the methodology may be classified by a short term or external controlled vocabulary.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>	
 					<xs:element ref="SamplingProcedure" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Describes a sampling procedure. If multiple sampling procedures were used repeat this element for each.</xs:documentation>
@@ -3294,12 +3301,12 @@ Notices:
 						<xs:documentation>A roster is an unlabeled list of numbered rows or columns depending upon orientation. The numbers may or may not be displayed but will be used as information for creating the cell coordinate address.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element ref="CreateSummary" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Note that this is generally usable only with single valid response domain in grid. More complex uses should be carefully documented using details in CommandCode and Input/output Parameters.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
 			</xs:choice>
+			<xs:element ref="CreateSummary" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Note that this is generally usable only with single valid response domain in grid. More complex uses should be carefully documented using details in CommandCode and Input/output Parameters.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="rank" type="xs:nonNegativeInteger" use="required">
 			<xs:annotation>
