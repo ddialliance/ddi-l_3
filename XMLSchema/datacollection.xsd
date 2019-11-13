@@ -5680,29 +5680,44 @@ Notices:
 	</xs:element>
 	<xs:element name="SamplingStage" type="SamplingStageType" substitutionGroup="ControlConstruct">
  		<xs:annotation>
- 			<xs:documentation>All sampling plans have at least one Sampling stage.  Sampling Stages are used to reduce the size of the survey population frame from which to identify sampling units.</xs:documentation>
+			<xs:documentation>A ControlConstruct that provides a sequence order within Sampling Stages expressed as control constructs.</xs:documentation>
  		</xs:annotation>
  	</xs:element>
  	<xs:complexType name="SamplingStageType">
  		<xs:annotation>
- 			<xs:documentation>All sampling plans have at least one Sampling stage.  Sampling Stages are used to reduce the size of the survey population frame from which to identify sampling units.  For instance, the US Current Population Survey samples geographic areas first before identifying households to contact within those areas.  Cost and sampling error considerations weigh heavily in these decisions.</xs:documentation>
+			<xs:documentation>A ControlConstruct that provides a sequence order within Sampling Stages expressed as control constructs.</xs:documentation>
  		</xs:annotation>
  		<xs:complexContent>
  			<xs:extension base="ControlConstructType">
  				<xs:sequence>
+					<xs:element ref="TypeOfSequence" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Provides the ability to "type" a sequence for classification or processing purposes. Supports the use of an external controlled vocabulary.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ControlConstructReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>References control constructs in the order that they should appear within the instrument.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ConstructSequence" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Describes alternate ordering for different cases using the SpecificSequence structure. If you set the sequence to anything other than order of appearance the only allowable children are QuestionConstruct or Sequence. Contents must be randomizable.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
  					<xs:element ref="FrameRequirements" minOccurs="0">
  						<xs:annotation>
  							<xs:documentation>Describes the minimum requirements of the frame needed to use this sample stage. For example, if a stratification by age is specified in the stage the sample frame would need to support this stratification.</xs:documentation>
  						</xs:annotation>
  					</xs:element>
- 					<xs:element ref="RecommendedFrameReference" minOccurs="0" maxOccurs="unbounded">
+ 					<xs:element ref="RecommendedSampleFrameReference" minOccurs="0" maxOccurs="unbounded">
  						<xs:annotation>
  							<xs:documentation>Identifies a specific sample frame or frames appropriate for this plan.</xs:documentation>
  						</xs:annotation>
  					</xs:element>
  					<xs:element ref="Stratification" minOccurs="0" maxOccurs="unbounded">
  						<xs:annotation>
- 							<xs:documentation>Describe all stratifications here. Note that each stratified group will be sampled using the same sampling plan. For example stratifying a state by ZIP Code areas in each of 5 mean income quintiles and then doing a random sample of the households in set of ZIP Codes. Allows for oversampling of identified subpopulations.</xs:documentation>
+							<xs:documentation>A distinct "strata" within a population used to define a group to be sampled within that population, for example an Income Level or Postal Code.</xs:documentation>
  						</xs:annotation>
  					</xs:element>
  					<xs:element ref="SamplingUnitReference" minOccurs="0">
@@ -5738,7 +5753,7 @@ Notices:
 				<xs:sequence>
 					<xs:element ref="ConditionForAcceptance" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation>A distinct "strata" within a population used to define a group to be sampled within that population, for example an Income Level or Postal Code.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="r:CommandCode" minOccurs="0">
@@ -5748,7 +5763,7 @@ Notices:
 					</xs:element>
 					<xs:element ref="Stratification" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation>A distinct "strata" within a population used to define a group to be sampled within that population, for example an Income Level or Postal Code.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -5760,7 +5775,7 @@ Notices:
 			<xs:documentation>Describes the minimum requirements of the frame needed to use this sample stage. For example, if a stratification by age is specified in the stage the sample frame would need to support this stratification.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="RecommendedFrameReference" type="r:ReferenceType">
+	<xs:element name="RecommendedSampleFrameReference" type="r:ReferenceType">
 		<xs:annotation>
 			<xs:documentation>Reference to an existing SampleFrame using the Reference structure. TypeOfObject should be set to SampleFrame.</xs:documentation>
 		</xs:annotation>
@@ -7057,7 +7072,7 @@ Notices:
 	</xs:element>
 	<xs:element name="ConditionForAcceptance" type="r:StructuredStringType">
 		<xs:annotation>
-			<xs:documentation>The conditions under which the output of the Development Process Step is accepted. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+			<xs:documentation>The conditions under which the output of the step is accepted. Supports multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ResourceUsed" type="ResourceUsedType">
