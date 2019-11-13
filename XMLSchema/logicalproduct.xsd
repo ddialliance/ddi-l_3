@@ -2940,7 +2940,7 @@ Notices:
                             <xs:documentation xml:lang="en">The Classification Item at the next higher Level of the Statistical Classification of which the actual Classification Item is a sub item. TypeOfObject should be set to ClassificationItem.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element ref="CaseLaws" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="CaseLaw" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Refers to one or more case law rulings related to the Classification Item.</xs:documentation>
                         </xs:annotation>
@@ -3014,7 +3014,7 @@ Notices:
             <xs:documentation xml:lang="en">The Classification Item at the next higher Level of the Statistical Classification of which the actual Classification Item is a sub item. TypeOfObject should be set to ClassificationItem.</xs:documentation>
          </xs:annotation>
     </xs:element>
-    <xs:element name="CaseLaws" type="CaseLawType">
+    <xs:element name="CaseLaw" type="CaseLawType">
          <xs:annotation>
             <xs:documentation xml:lang="en">Refers to one or more case law rulings related to the Classification Item.</xs:documentation>
          </xs:annotation>
@@ -3024,7 +3024,6 @@ Notices:
             <xs:documentation xml:lang="en">A Classification Item represents a Category at a certain Level within a Statistical Classification. It defines the content and the borders of the category. An object/unit can be classified to one and only one Classification Item at each Level of a Statistical Classification.</xs:documentation>
         </xs:annotation>
     </xs:element>
-
     <xs:complexType name="ClassificationLevelType">
         <xs:annotation>
             <xs:documentation xml:lang="en">A Statistical Classification has a structure which is composed of one or several Levels. A Level often is associated with a concept, which defines it. In a hierarchical Statistical Classification the Classification Items of each Level but the highest are aggregated to the nearest higher Level. A linear Statistical Classification has only one Level. </xs:documentation>
@@ -3042,7 +3041,7 @@ Notices:
                             <xs:documentation xml:lang="en">Indicates how the code at the Level is constructed of numbers, letters and separators. Supports the use of an external controlled vocabulary.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element minOccurs="0" maxOccurs="1" ref="DummyCode">
+                    <xs:element ref="DummyCode" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Rule for the construction of dummy codes from the codes of the next higher Level (used when one or several categories are the same in two consecutive Levels). Supports the use of multiple languages and structured content.</xs:documentation>
                         </xs:annotation>
