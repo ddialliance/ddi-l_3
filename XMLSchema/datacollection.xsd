@@ -2200,7 +2200,7 @@ Notices:
 					</xs:annotation>
 				</xs:element>
 			</xs:sequence>			
-			<xs:element ref="r:SourceParameterReference" minOccurs="0">
+			<xs:element ref="r:SourceParameterReference">
 				<xs:annotation>
 					<xs:documentation>This allows for the simple insert of a piece of information from another specified parameter. For example, if the text of the item using conditional text included the respondent’s name use SourceParameterReference to reference the InParameter of the question that is bound to the OutParameter of the question: “What is your name?”</xs:documentation>
 				</xs:annotation>
