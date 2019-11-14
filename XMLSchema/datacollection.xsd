@@ -1098,7 +1098,7 @@ Notices:
 	</xs:complexType>
 	<xs:element name="Aggregation" type="AggregationType">
 		<xs:annotation>
-			<xs:documentation>Describes the aggregation method and the variables used in the aggregation process. The DDI Alliance has provided a controlled vocabulary (AggregationMethod) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
+			<xs:documentation>Describes the aggregation method and the variables used in the aggregation process.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="AggregationType">
@@ -1108,7 +1108,7 @@ Notices:
 		<xs:sequence>
 			<xs:element ref="r:AggregationMethod" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Identification of the type of aggregation method used. Supports the use of a controlled vocabulary. DDI strongly recommends the use of a controlled vocabulary.</xs:documentation>
+					<xs:documentation>Identification of the type of aggregation method used. Supports the use of a controlled vocabulary. DDI strongly recommends the use of a controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (AggregationMethod) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
@@ -4632,7 +4632,7 @@ Notices:
 		<xs:sequence>
 			<xs:element ref="SamplingStageReference" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>References the sample plan stage in an overall sample plan. Target object should be SamplingStage</xs:documentation>
+					<xs:documentation>References the sample plan stage in an overall sample plan. TypeOfObject should be set to SamplingStage</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="SampleFrameReference" minOccurs="0">
@@ -4679,7 +4679,7 @@ Notices:
 	</xs:element>
 	<xs:element name="SamplingStageReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing SampleState using the Reference structure. TypeOfObject should be set to Stage.</xs:documentation>
+			<xs:documentation>Reference to an existing SampleStage using the Reference structure. TypeOfObject should be set to Stage.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SampleFrameReference" type="r:ReferenceType">
@@ -7264,37 +7264,37 @@ Notices:
 	</xs:element>
 	<xs:element name="SampleLocationReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>A reference to a description of the sample and its location using OtherMaterialType. Target should be OtherMaterial.</xs:documentation>
+			<xs:documentation>A reference to a description of the sample and its location using OtherMaterialType. TypeOfObject should be set to OtherMaterial.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SamplingPlanImplementedReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>A reference to the SamplingPlan implemented to creating the sample. Target object should be SamplingPlan</xs:documentation>
+			<xs:documentation>A reference to the SamplingPlan implemented to creating the sample. TypeOfObject should be set to SamplingPlan</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SampleFrameUsedReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>A reference to the SampleFrame used for creating the sample. Target object should be SampleFrame</xs:documentation>
+			<xs:documentation>A reference to the SampleFrame used for creating the sample. TypeOfObject should be set to SampleFrame</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SampleReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>A reference to a sample. Target object should be Sample.</xs:documentation>
+			<xs:documentation>A reference to a sample. TypeOfObject should be set to Sample.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ComponentSampleReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>A reference to a previously created sample that was used as a component of the current sample. Target object should be Sample.</xs:documentation>
+			<xs:documentation>A reference to a previously created sample that was used as a component of the current sample. TypeOfObject should be set to Sample.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="BasedOnSampleReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>The sample that was the basis for the weighting. TypeOfObject should be Sample.</xs:documentation>
+			<xs:documentation>The sample that was the basis for the weighting. TypeOfObject should be set to Sample.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SamplingUnitReference" type="r:ReferenceType">
  		<xs:annotation>
- 			<xs:documentation>Reference to a unit type describing the sample's. TypeOfObject should be UnitType.</xs:documentation>
+ 			<xs:documentation>Reference to a unit type describing the sample's. TypeOfObject should be set to UnitType.</xs:documentation>
  		</xs:annotation>
  	</xs:element>
 </xs:schema>

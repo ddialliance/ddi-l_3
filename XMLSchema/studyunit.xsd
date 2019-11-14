@@ -175,7 +175,7 @@ Notices:
 					</xs:element>
 					<xs:element ref="r:GeneralDataFormat" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Briefly describes the data formats documented in the logical product(s) of a study unit. Examples include Numeric, Text, Audio, Visual, Geospatial, StillImage, Software, 3D, etc. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (KindOfDataFormat) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
+							<xs:documentation>Briefly describes the data formats documented in the logical product(s) of a study unit. Examples include Numeric, Text, Audio, Visual, Geospatial, StillImage, Software, 3D, etc. Supports the use of an external controlled vocabulary. The DDI Alliance has provided a controlled vocabulary (GeneralDataFormat) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>					
 					<xs:element ref="r:RequiredResourcePackages" minOccurs="0">

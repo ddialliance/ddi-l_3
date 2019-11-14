@@ -6018,12 +6018,12 @@ Notices:
 	</xs:element>
 	<xs:complexType name="RepresentationType" abstract="true">
 		<xs:annotation>
-			<xs:documentation>Abstract type for the head of a substitution group for a variable representation or a question response domain. If specific values are used to denote missing values, these can be indicated as a space-delimited list in the missingValue attribute. If the missing value is indicated by a blank, this should be indicated by setting the value of blankIsMissingValue to true. The DDI Alliance has provided a controlled vocabulary (DataType) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
+			<xs:documentation>Abstract type for the head of a substitution group for a variable representation or a question response domain. If specific values are used to denote missing values, these can be indicated as a space-delimited list in the missingValue attribute. If the missing value is indicated by a blank, this should be indicated by setting the value of blankIsMissingValue to true.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element ref="RecommendedDataType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This field provides the recommended treatment of the data within an application. The value should come from a controlled vocabulary - recommended values include the set found in W3C XML Schema Part 2, but excluding string sub-types, QNAME, and NOTATION.</xs:documentation>
+					<xs:documentation>This field provides the recommended treatment of the data within an application. The value should come from a controlled vocabulary - recommended values include the set found in W3C XML Schema Part 2, but excluding string sub-types, QNAME, and NOTATION. The DDI Alliance has provided a controlled vocabulary (DataType) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="GenericOutputFormat" minOccurs="0">
@@ -7114,7 +7114,7 @@ Notices:
 					</xs:element>
 					<xs:element ref="DateTypeCode">
 						<xs:annotation>
-							<xs:documentation>This is a standard XML date type code and supports the use of an external controlled vocabulary. Examples are date, dateTime, gYearMonth, gYear, and duration</xs:documentation>
+							<xs:documentation>This is a standard XML date type code and supports the use of an external controlled vocabulary. Examples are date, dateTime, gYearMonth, gYear, and durationThe DDI Alliance has provided a controlled vocabulary (DataType) to support this element at http://www.ddialliance.org/controlled-vocabularies.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element ref="Range" minOccurs="0" maxOccurs="unbounded">
