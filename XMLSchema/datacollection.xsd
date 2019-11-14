@@ -5730,11 +5730,6 @@ Notices:
  							<xs:documentation>If known and available, provide the selection probability for each sampling unit.  This is one number for equal probability sampling, such as SRS.  For PPS, a description of the size criterion is needed.  For other unequal designs, a description of of how the probabilities are assigned is needed.</xs:documentation>
  						</xs:annotation>
  					</xs:element>
-					<xs:element ref="ControlConstructReference" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>References control constructs in the order that they should appear within the instrument. Normally these consist of SampleSteps but may require routing information.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 				</xs:sequence>
  			</xs:extension>
  		</xs:complexContent>
