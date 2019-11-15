@@ -4679,7 +4679,7 @@ Notices:
 	</xs:element>
 	<xs:element name="SamplingStageReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing SampleStage using the Reference structure. TypeOfObject should be set to Stage.</xs:documentation>
+			<xs:documentation>Reference to an existing SamplingStage using the Reference structure. TypeOfObject should be set to SamplingStage.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="SampleFrameReference" type="r:ReferenceType">

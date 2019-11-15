@@ -499,7 +499,7 @@ Notices:
 	</xs:element>
 	<xs:element name="RelatedMapReference" type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to an existing Concept, Variable, Question, Category, Representation, or Universe Map using the Reference structure. TypeOfObject should be set to CategoryMap, ConceptMap, QuestionMap ,UniverseMap, VariableMap, or RepresentationMap.</xs:documentation>
+			<xs:documentation>Reference to an existing Concept, Variable, Question, Category, Representation, or Universe Map using the Reference structure. TypeOfObject should be set to CategoryMap, ConceptMap, QuestionMap ,UniverseMap, VariableMap, ManagedItemMap or RepresentationMap.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Correspondence" type="CorrespondenceType">

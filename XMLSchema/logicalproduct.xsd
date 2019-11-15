@@ -2709,7 +2709,7 @@ Notices:
     </xs:element>
     <xs:element name="SourceClassificationReference" type="r:ReferenceType">
         <xs:annotation>
-            <xs:documentation xml:lang="en">The Statistical Classification from which the correspondence is made. TypeOfObject should be set toStatisticalClassification.</xs:documentation>
+            <xs:documentation xml:lang="en">The Statistical Classification from which the correspondence is made. TypeOfObject should be set to StatisticalClassification.</xs:documentation>
         </xs:annotation>
     </xs:element>
     <xs:element name="TargetClassificationReference" type="r:ReferenceType">
@@ -3404,7 +3404,7 @@ Notices:
             </xs:element>
             <xs:element ref="CodesClassificationItemReference" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation xml:lang="en">the Classification Item with which the Classification Index Entry is associated. TypeOfObject should be set to ClassificationItem.</xs:documentation>
+                    <xs:documentation xml:lang="en">The Classification Item with which the Classification Index Entry is associated. TypeOfObject should be set to ClassificationItem.</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element ref="ValidFrom" minOccurs="0" maxOccurs="1">
@@ -3431,7 +3431,7 @@ Notices:
     </xs:element>
     <xs:element name="CodesClassificationItemReference" type="r:ReferenceType">
        <xs:annotation>
-            <xs:documentation xml:lang="en">Additional information which drives the coding process. Required when coding is dependent upon one or many other factors. Supports the use of multiple languages and structured content.</xs:documentation>
+            <xs:documentation xml:lang="en">The Classification Item with which the Classification Index Entry is associated. TypeOfObject should be set to ClassificationItem.</xs:documentation>
        </xs:annotation>
     </xs:element>
 
