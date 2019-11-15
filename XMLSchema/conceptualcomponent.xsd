@@ -583,12 +583,12 @@ Notices:
 	</xs:element>
 	<xs:element name="ExcludesConceptReference"  type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to a Concept that is used for qualifying what is excluded from the Concept's definition.</xs:documentation>
+			<xs:documentation>Reference to a Concept that is used for qualifying what is excluded from the Concept's definition. TypeOfObject should be set to Concept.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="IncludesConceptReference"  type="r:ReferenceType">
 		<xs:annotation>
-			<xs:documentation>Reference to a Concept that is used for qualifying this is included in the Concept's definition.</xs:documentation>
+			<xs:documentation>Reference to a Concept that is used for qualifying this is included in the Concept's definition. TypeOfObject should be set to Concept.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="ConceptName" type="r:NameType">
