@@ -65,12 +65,12 @@ Notices:
 	<xs:simpleType name="DDIAgencyIDType">
 		<xs:annotation>
 			<xs:documentation>The agency expressed as filed with the DDI Agency ID Registry with optional additional sub-agency extensions. The length restriction of the complete string is done with the means of minLength and maxLength.
-                    The regular expression engine of XML Schema has no lookahead possibility.</xs:documentation>
+                    The regular expression engine of XML Schema has no lookahead possibility. For information on registering a DDI Agency see (https://registry.ddialliance.org). Format requirements are defined at (https://registry.ddialliance.org/help)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1"/>
 			<xs:maxLength value="253"/>
-			<xs:pattern value="[a-zA-Z0-9\-]{1,63}(\.[a-zA-Z0-9\-]{1,63})+"/>
+			<xs:pattern value="[a-zA-Z0-9\-]{1,63}(\.[a-zA-Z0-9\-]{1,63})*"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- Version Type -->
