@@ -4804,10 +4804,52 @@ Notices:
 							<xs:documentation>A descriptive statement regarding the application of the selected standard or other means of quality control.</xs:documentation>
 						</xs:annotation>
 					</xs:element>	
+					<xs:element ref="Compliance" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Allows for a quality statement based on frameworks to be described using itemized properties. A reference to a concept, a coded value, or both can be used to specify the property from the standard framework identified in StandardUsed. ComplianceDescription can provide further details or a general description of compliance with a standard.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="Compliance" type="ComplianceType">
+		<xs:annotation>
+			<xs:documentation>Allows for a quality statement based on frameworks to be described using itemized properties. A reference to a concept, a coded value, or both can be used to specify the property from the standard framework identified in StandardUsed. ComplianceDescription can provide further details or a general description of compliance with a standard.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ComplianceType">
+		<xs:annotation>
+			<xs:documentation>Allows for a quality statement based on frameworks to be described using itemized properties. A reference to a concept, a coded value, or both can be used to specify the property from the standard framework identified in StandardUsed. ComplianceDescription can provide further details or a general description of compliance with a standard.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ComplianceConceptReference" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A reference to a concept which relates to an area of coverage of the standard.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ExternalComplianceCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Specification of a code which relates to an area of coverage of the standard. Supports the use of an external controlled vocabulary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="Compliance" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Allows for a quality statement based on frameworks to be described using itemized properties. A reference to a concept, a coded value, or both can be used to specify the property from the standard framework identified in StandardUsed. ComplianceDescription can provide further details or a general description of compliance with a standard.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ComplianceDescription" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describe the measures taken to comply with the standards and/or specific levels of compliance by providing further details or a general description of compliance with the standard.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ComplianceDescription" type="StructuredStringType">
+		<xs:annotation>
+			<xs:documentation>Compliance Description provided using a StructuredString to support multiple language versions of the same content as well as optional formatting of the content.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="OtherStatementOfQuality" type="StructuredStringType">
 		<xs:annotation>
 			<xs:documentation>Describes the steps taken to ensure quality that are not related to a specific standard. Supports multiple language versions of the same content as well as optional formatting of the content. Repeat the OtherStatementOfQuality for differing content if needed.</xs:documentation>
