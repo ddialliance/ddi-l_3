@@ -1,4 +1,4 @@
-# Data Documentation Initiative (DDI)
+# Data Documentation Initiative (DDI) Lifecycle
 
 DDI Lifecycle is an international standard for describing the data produced by
 surveys and other observational methods in the social, behavioral, economic,
