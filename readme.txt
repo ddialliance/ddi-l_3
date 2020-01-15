@@ -33,16 +33,16 @@ by the following individuals:
 #### Current Leadership
 
 - Wendy Thomas, Minnesota Population Center, Chair [2006-], Vice Chair [2004-2005]
-- Jon Johnson, UKDA, Vice Chair [2016-]
+- Jon Johnson, CLOSER, UCL Institute of Education, Vice Chair [2016-]
     
 #### Current Members and Invited Experts
     
 - Johan Fihn, Swedish National Data Service
+- Daniel Gillman, Bureau of Labor Statistics
+- Jay Greenfield, BAH
 - Oliver Hopt, GESIS - Leibniz Institute for the Social Sciences
 - Larry Hoyle, University of Kansas
 - Jeremy Iverson, Colectica
-- Daniel Gillman, Bureau of Labor Statistics
-- Jay Greenfield, BAH
 - Olof Olsson, Swedish National Data Service
 - Flavio Rizzolo, Statistics Canada
 - Dan Smith, Colectica
@@ -51,6 +51,7 @@ by the following individuals:
 
 - Cavan Capps, Invited expert 
 - Mark Diggory, Harvard-MIT Data Center
+- Guillaume Duffes, INSEE
 - J Gager, Technical expert
 - Arofan Gregory, Lead technical expert
 - Pascal Heus, World Bank, Development Data Group (DECDG)
