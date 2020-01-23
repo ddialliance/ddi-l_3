@@ -14,11 +14,10 @@ Committee on 2020-01-XX.
 The DDI Lifecycle release package includes the following:
 
 - XML schema
-- High level documentation
 - XML schema documentation
 
 Additional model documentation is available at
-https://ddialliance.github.io/ddimodel-web/3.3
+https://ddialliance.github.io/ddimodel-web/DDI-L-3.3/
 
 ## Acknowledgements
 
