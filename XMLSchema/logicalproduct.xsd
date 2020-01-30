@@ -2612,7 +2612,7 @@ Notices:
                             <xs:documentation xml:lang="en">The correspondence is normally restricted to a certain Level in the source Statistical Classification. In this case, target Classification Items are assigned only to source Classification Items on the given level. If no level is indicated, target Classification Items can be assigned to any Level of the source Statistical Classification. TypeOfObject should be set to ClassificationLevel.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element ref="TargetLevelReference" minOccurs="0" maxOccurs="1">
+                    <xs:element ref="TargetLevelReference" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">The correspondence is normally restricted to a certain Level in the target Statistical Classification. In this case, source Classification Items are assigned only to target Classification Items on the given Level. If no Level is indicated, source Classification Items can be assigned to any Level of the target Statistical Classification. TypeOfObject should be set to ClassificationLevel.</xs:documentation>
                         </xs:annotation>
