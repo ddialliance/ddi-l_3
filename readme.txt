@@ -7,7 +7,7 @@ different stages in the research data lifecycle, such as conceptualization,
 collection, processing, distribution, discovery, and archiving.
 
 This is DDI Lifecycle version 3.3, as approved by the DDI Alliance Scientific
-Committee on 2020-02-XX.
+Committee on 2020-04-15.
 
 ## Release Package
 
