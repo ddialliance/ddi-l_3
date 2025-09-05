@@ -17,7 +17,8 @@ The DDI Lifecycle release package includes the following:
 - XML schema documentation
 
 Additional model documentation is available at
-https://ddialliance.github.io/ddimodel-web/DDI-L-3.3/
+https://docs.ddialliance.org/DDI-Lifecycle/3.3/xmlschema/
+https://docs.ddialliance.org/DDI-Lifecycle/3.3/model/
 
 ## Acknowledgements
 
